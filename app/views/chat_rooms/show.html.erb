@@ -1,0 +1,27 @@
+
+<div class="col-md-12" id="messages" data-chat-room-id="<%= @chat_room.id %>">
+  <div class="card card-timeline card-plain">
+    <div class="card-body">
+      <%= render @chat_room.messages %>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+	<div class="card ">
+		<div class="card-header card-header-rose card-header-icon">
+		<%= form_for @message, url: messages_path do |f| %>
+  			<div class="form-group">
+    		<%= f.label :body, "Escreve sua mensagem" %>
+    		<%= f.text_area :body, class: 'form-control' %>
+    		<small class="text-muted">De 2 to 1000 caracteres</small>
+  			</div>
+  			<%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+

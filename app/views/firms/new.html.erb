@@ -1,0 +1,54 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <%= form_with model: @firm, local: true do |f| %>
+        <div class="form-group">
+
+
+    <%= f.label :name, "Nome Completo" %>
+    <%= f.text_area :name, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Insira o nome da Firma" %><br/><br/>
+
+
+    <%= f.label :description, "Descrição" %>
+    <%= f.text_area :description, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Breve descrição da empresa, suas atividades atuais, key people etc..." %><br/><br/>
+
+
+    <%= f.label :email, "Email" %>
+    <%= f.text_area :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Emai central da empresa ou da pessoa que receberá as notificações da empresa" %><br/><br/>
+        </div>
+
+
+    <div class= "field" >
+      <%= f.label :firm_photos, "Selecione as imagens da empresa" %><br/>
+      <%= f.file_field :firm_photos, multiple: true %>
+    </div><br/><br/>
+
+      <%= f.label :whatsapp, "insira seus dados de contato" %><br/><br/>
+      <%= f.text_area :whatsapp, autofocus: true, placeholder: "Whatsapp da empresa" %>
+      <%= f.text_area :skype, autofocus: true, placeholder: "skype da empresa" %>
+      <%= f.text_area :linkedin, autofocus: true, placeholder: "linkedin da empresa" %>
+      <%= f.text_area :facebook, autofocus: true, placeholder: "facebook da empresa" %>
+      <%= f.text_area :instagram, autofocus: true, placeholder: "instagram da empresa" %><br/><br/>
+
+
+      <%= f.label :firm_phone, "Telefone" %>
+      <%= f.text_area :firm_phone, autofocus: true, class: 'form-control', placeholder: "Telefone da empresa." %><br/><br/>
+
+
+      <%= f.label :website, "Website" %>
+      <%= f.text_area :website, autofocus: true, class: 'form-control', placeholder: "Website da empresa" %><br/><br/>
+
+
+      <%= f.label :cnpj, "CNPJ" %>
+      <%= f.text_area :cnpj, autofocus: true, class: 'form-control', placeholder: "Insira seu Registro Oficial caso tenha" %><br/><br/>
+
+      <%= f.label :address, "Endereço" %>
+      <%= f.text_area :address, autofocus: true, class: 'form-control', placeholder: "Informe seu endereçø completo" %><br/><br/>
+
+
+
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>

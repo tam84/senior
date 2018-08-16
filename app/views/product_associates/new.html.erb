@@ -1,0 +1,42 @@
+<%= form_tag users_path, method: :get do %>
+  <%= text_field_tag 'term', params[:term], placeholder: "Enter user's name or surname" %>
+  <%= submit_tag 'Search!' %>
+<% end %>
+
+        <div class="row">
+          <% for user in @users %>  
+          <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <% if user.profile_photos.present? %>
+                    <%= image_tag(user.profile_photos.first.variant(resize: "300x300!")) %>
+                    <% end %>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title"><%= user.name %></h4>
+                  <p class="card-description" style='height: 150px'>
+                    <%= user.name %>
+                  </p>
+				    <%= form_with model: @product_associate, local: true do |f| %>
+                    <%= f.hidden_field :product_id, value: params[:product_id] %>
+                    <%= f.hidden_field :user_id, value: user.id %>
+                    <%= f.submit "Cadastrar como Associado!", class:"btn btn-rose btn-round" %>
+                  <% end %>
+                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
+        </div>
+
+

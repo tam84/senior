@@ -1,0 +1,22 @@
+
+
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel"><%=customer_name @quotation%></h4>
+</div>
+<p class=modal-body form-group"><%=@quotation.senter_message %>  </p>
+<div class="modal-body form-group">
+<%= form_for @quotation  do |f| %>
+  Cotação para o cliente: <%= f.text_area :quote, class: 'form-control' %><br />
+  Mensagem para o cliente : <%= f.text_area :receiver_message, class: 'form-control' %><br />
+  <%= f.hidden_field :category_id, value: params[:category_id]  %><br />
+  
+
+  <%= f.submit%>
+</div>
+<% end %>
+
+
+
+

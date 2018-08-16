@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  management_company: MyString
+  manager_person: MyString
+  admnistrator: MyString
+  destribuitor: MyString
+  cnpj: MyString
+  inception_date: MyString
+  minimal_investment: MyString
+  maximum_investment: MyString
+  target_investor: MyString
+  benchmark: MyString
+  assetclass_id: 1
+  category_id: 1
+
+two:
+  name: MyString
+  description: MyText
+  management_company: MyString
+  manager_person: MyString
+  admnistrator: MyString
+  destribuitor: MyString
+  cnpj: MyString
+  inception_date: MyString
+  minimal_investment: MyString
+  maximum_investment: MyString
+  target_investor: MyString
+  benchmark: MyString
+  assetclass_id: 1
+  category_id: 1

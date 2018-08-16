@@ -1,0 +1,43 @@
+<%= form_tag firms_path, method: :get do %>
+  <%= text_field_tag 'term', params[:term], placeholder: "Enter user's name or surname" %>
+  <%= submit_tag 'Search!' %>
+<% end %>
+
+        <div class="row">
+          <% for firm in @firms %>  
+          <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <% if firm.firm_photos.present? %>
+                    <%= image_tag(firm.firm_photos.first.variant(resize: "300x300!")) %>
+                    <% end %>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title"><%= firm.name %></h4>
+                  <p class="card-description" style='height: 150px'>
+                    <%= firm.name %>
+                  </p>
+                    <%= form_for ChatRoom.new do |f| %>
+                    <%= f.hidden_field :senter_id, value: current_user.id %>
+                    <%= f.hidden_field :receiver_id, value: firm.id %>
+                    <%= f.submit "Iniciar chat!", class:"btn btn-rose btn-round" %>
+                  <% end %>
+                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  </button>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
+        </div>

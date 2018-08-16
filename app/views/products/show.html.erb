@@ -1,0 +1,82 @@
+                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar email para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  </button>
+
+
+
+<div class="container-fluid">
+	<div class="row">
+				<%= render @product_associates %>
+        	
+       	<div class="col-md-12">
+              <div class="card ">
+
+				<div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">+Info</h4>
+                </div>
+
+                <div class="card-body ">
+					<% if @product != nil %>
+              		<div class="card ">				
+						<%= @product.name %>
+					</div>
+              		<div class="card ">								
+						<%= @product.description %>
+					</div>
+					<%end%>
+                </div>	
+
+              </div>
+        </div> 
+
+       	<div class="col-md-12">
+              <div class="card ">
+
+				<div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Fotos</h4>
+                </div>
+
+ 		       	<div class="col-md-4">
+        	      	<div class="card ">
+						<% @product.images.each do |image| %>
+						<%= link_to image_tag(image.variant(resize: "300x300!")), rails_blob_path(image, disposition: "attachment")%>
+						<% end %>
+              		</div>
+        		</div>
+        	</div>
+        </div>
+
+	</div>
+</div>
+
+
+
+
+		
+
+
+
+
+
+<% @product.documents.each do |document| %>
+	<%= link_to image_tag(document), rails_blob_path(document, disposition: "attachment")%>
+<% end %>
+
+
+
+
+
+
+
+
+
+<%= link_to "entrar em contato", new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id))%>
+
+
+<%= link_to "relacionar associados ao produto",  new_product_associate_path(product_id: @product.id) %>

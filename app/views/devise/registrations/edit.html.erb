@@ -1,0 +1,73 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+
+
+    <%= f.label :full_name, "Nome Completo" %>
+    <%= f.email_field :full_name, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Insira seu nome completo" %><br/><br/>
+
+
+    <%= f.label :description, "Descrição" %>
+    <%= f.email_field :description, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Breve descrição das suas atividades atuais e caso queira fale um pouco do passado" %><br/><br/>
+
+
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Seu principal email, é nele que você receberá as notificações" %><br/><br/>
+
+
+    <%= f.label :password, "Senha" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %><br/><br/>
+  </div>
+
+    <%= f.label :password_confirmation, "Confirmação de senha" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/><br/>
+
+
+    <div class= "field" >
+      <%= f.label :profile_photos, "Selecione as imagens do produto" %>
+      <%= f.file_field :profile_photos, multiple: true, class: 'form-control' %><br/><br/>
+    </div>  
+
+      <%= f.label :whatsapp, "insira seus dados de contato" %><br/><br/>
+      <%= f.email_field :whatsapp, autofocus: true, placeholder: "Insira seu Whatsapp" %>
+      <%= f.email_field :skype, autofocus: true, placeholder: "Insira seu skype" %>
+      <%= f.email_field :linkedin, autofocus: true, placeholder: "Insira seu linkedin" %>
+      <%= f.email_field :facebook, autofocus: true, placeholder: "Insira seu facebook" %>
+      <%= f.email_field :instagram, autofocus: true, placeholder: "Insira seu instagram" %><br/><br/>
+
+
+      <%= f.label :website, "Website" %>
+      <%= f.email_field :website, autofocus: true, class: 'form-control', placeholder: "Website da empresa ou pessoal" %><br/><br/>
+
+
+      <%= f.label :official_registration, "Registro Oficial" %>
+      <%= f.email_field :official_registration, autofocus: true, class: 'form-control', placeholder: "Insira seu Registro Oficial caso tenha" %><br/><br/>
+
+      <%= f.label :address, "Registro Oficial" %>
+      <%= f.email_field :address, autofocus: true, class: 'form-control', placeholder: "Informe seu endereçø completo" %><br/><br/>
+
+
+
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<%= render "devise/shared/links" %>
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

@@ -1,0 +1,72 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+
+
+    <%= f.label :full_name, "Nome Completo" %>
+    <%= f.text_area :full_name, autofocus: true, class: 'form-control', placeholder: "Insira seu nome completo" %><br/><br/>
+
+
+    <%= f.label :description, "Descrição" %>
+    <%= f.text_area :description, autofocus: true, class: 'form-control', placeholder: "Breve descrição das suas atividades atuais e caso queira fale um pouco do passado" %><br/><br/>
+
+
+    <%= f.label :email, "Email" %>
+    <%= f.text_area :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Seu principal email, é nele que você receberá as notificações" %><br/><br/>
+
+
+    <%= f.label :password, "Senha" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %><br/><br/>
+  </div>
+
+    <%= f.label :password_confirmation, "Confirmação de senha" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/><br/>
+
+
+    <div class= "field" >
+      <%= f.label :profile_photos, "Selecione as fotos para seu perfil" %>
+      <%= f.file_field :profile_photos, multiple: true, class: 'form-control' %><br/><br/>
+    </div>  
+
+      <%= f.label :whatsapp, "insira seus dados de contato" %><br/><br/>
+      <%= f.text_area :whatsapp, autofocus: true, placeholder: "Insira seu Whatsapp" %>
+      <%= f.text_area :skype, autofocus: true, placeholder: "Insira seu skype" %>
+      <%= f.text_area :linkedin, autofocus: true, placeholder: "Insira seu linkedin" %>
+      <%= f.text_area :facebook, autofocus: true, placeholder: "Insira seu facebook" %>
+      <%= f.text_area :instagram, autofocus: true, placeholder: "Insira seu instagram" %><br/><br/>
+
+
+      <%= f.label :website, "Website" %>
+      <%= f.text_area :website, autofocus: true, class: 'form-control', placeholder: "Website da empresa ou pessoal" %><br/><br/>
+
+      <%= f.label :firm_phone, "Telefone da empresa" %>
+      <%= f.text_area :firm_phone, autofocus: true, class: 'form-control', placeholder: "Telefone da empresa." %><br/><br/>
+
+
+
+      <%= f.label :official_registration, "Registro Oficial" %>
+      <%= f.text_area :official_registration, autofocus: true, class: 'form-control', placeholder: "Insira seu Registro Oficial caso tenha" %><br/><br/>
+
+      <%= f.label :address, "Endereço" %>
+      <%= f.text_area :address, autofocus: true, class: 'form-control', placeholder: "Informe seu endereçø completo" %><br/><br/>
+
+      <%= f.label :firm_id, "Sua empresa" %><br/>
+      <%= f.select :firm_id, options_for_select(Firm.all.collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione sua empresa' %><br/> <br/>     
+
+
+
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<%= render "devise/shared/links" %>

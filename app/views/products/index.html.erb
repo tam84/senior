@@ -1,0 +1,99 @@
+<% if params and params[:category_id] == "7" %>
+<div class="col-md-12">
+  <div class="card ">
+    <h3>Filtre sua busca</h3>
+    <div class="card-header card-header-rose card-header-icon">
+
+
+      <%= form_for products_path, method: :get  do |f| %>
+      <div class="bootstrap-tagsinput info-badge">
+        <span class="btn btn-rose btn-sm">
+          <%= f.select :management_firm, Product.pluck(:management_firm).uniq, :prompt => 'Emissor' %>
+          <span data-role="remove">
+          </span>
+        </span>
+        <span class="btn btn-rose btn-sm">
+          <%= f.select :category_name, Category.pluck(:name).select{|category_name| category_name.include? "CDB"}, :prompt => 'Tipo de Remuneração' %>
+          <span data-role="remove">
+          </span>
+        </span> 
+        <span >
+          <%= f.text_area :target_return_benchmark_to, placeholder: "Acima de - Digite apenas números"  %>   
+          <span data-role="remove">
+          </span>
+        </span> 
+      </div>
+      <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+
+
+                        <h3>Manage Listings</h3>
+                        <br>
+                        <div class="row">
+                          <% if @products != nil %>
+                          <% @products.each do |product| %>
+                          <div class="col-md-4">
+                            <div class="card card-product">
+                              <div class="card-header card-header-image" data-header-animation="false">
+                                <a href="#pablo">
+                                  <img class="img" src="https://cdnext.credit-suisse.com/corporate/en/media/pictures/_jcr_content/content/pagetabscontainer/tabs/pagetab_1/tabContent/flexiblelist/flexibleListItems/flexiblelistitem/image.revampimg.656.high.jpg/credit-suisse-logo-color.jpg">
+                                </a>
+                              </div>
+                              <div class="card-body">
+
+
+
+                                <div class="text-center" >
+
+                                  
+                                    <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+                                  
+
+                                  <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
+
+                                    <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)) %>
+                                  </button>
+
+                                    <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)) %>
+
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
+                                </div>
+                                <h4 class="card-title">
+                                  <a href="#pablo" <%= link_to product.name,product_path(product)%></a>
+                                </h4>
+                                <div class="card-description" style='height: 150px'>
+                                  <%= link_to product.description,product_path(product)%>
+                                </div>
+                              </div>
+                              <div class="card-footer">
+                                <div class="price">
+                                  <h4><%= product.key_information%></h4>
+                                </div>
+                                <div class="stats">
+                                  <p class="card-category"><%= product.category.name%></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <% end %>
+                          <% end %>
+
+
+
+                        </div>
+
+

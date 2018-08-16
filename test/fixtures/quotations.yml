@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  senter_id: 1
+  receiver_id: 1
+  quote: MyString
+  senter_message: MyText
+  receiver_message: MyText
+  firm_id: 1
+  category_id: 1
+
+two:
+  senter_id: 1
+  receiver_id: 1
+  quote: MyString
+  senter_message: MyText
+  receiver_message: MyText
+  firm_id: 1
+  category_id: 1

@@ -1,0 +1,66 @@
+            
+
+              <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                  </div>
+                  <h4 class="card-title">Mensagens Recebidas</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Data</th>
+                          <th>Nome</th>
+                          <th>Assunto</th>
+                          <th>Produto</th>                          
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      	<% for received_message in @received_messages %>
+                        <tr>
+                          <td class="text-center">1</td>
+                          <td><%= name_of_senter(received_message)%></td>
+                          <td><%= received_message.subject %></td>
+                          <% if received_message.product.present? %>
+                          <td><%= received_message.product.name %></td>                          
+                          <% else %>
+                          <td>Essa mensagem não está atrelada a um produto em específico</td>
+                          <% end %>
+
+                          <td class="td-actions text-right">
+                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
+                              <i class="material-icons">person</i>
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                              <% if !received_message.product.present? %>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id)%>
+                              <% elsif received_message.product.present? %>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id)%>
+                            <% end %>
+
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                              <i class="material-icons">close</i>
+                            </button>
+                          </td>
+                        </tr>
+                        <% end %>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+

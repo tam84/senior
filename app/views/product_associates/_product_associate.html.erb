@@ -1,0 +1,37 @@
+  
+    			<div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <% if user_profile_photo(product_associate).present? %>
+                    <%= image_tag(user_profile_photo(product_associate).variant(resize: "300x300!")) %>
+                    <% end %>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title"><%= user_name product_associate %></h4>
+                  <p class="card-description" style='height: 150px'>
+                    <%= user_description product_associate %>
+                  </p>
+                    <%= form_for ChatRoom.new do |f| %>
+                    <%= f.hidden_field :senter_id, value: current_user.id %>
+                    <%= f.hidden_field :receiver_id, value: product_associate.user_id %>
+                    <%= f.submit "Iniciar chat!", class:"btn btn-rose btn-round" %>
+                  <% end %>
+                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_id: @product, product_associates: product_associate.user_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  </button>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+
+ 

@@ -1,0 +1,92 @@
+      <div class="col-md-12">
+              <div class="card ">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">Envie sua resposta</h4>
+                  </div>
+                </div>
+                <div class="card-body ">
+        <%= form_for @message_answer  do |f| %>                
+                  <form method="get" action="/" class="form-horizontal">
+                    <div class="row">
+                      <label class="col-sm-2 col-form-label">Assunto</label>
+                      <div class="col-sm-10">
+                        <div class="form-group bmd-form-group">
+                          <%= f.text_area :subject, class: 'form-control' %>
+                          <span class="bmd-help">A block of help text that breaks onto a new line.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <label class="col-sm-2 col-form-label">Mensagem</label>
+                      <div class="col-sm-10">
+                        <div class="form-group bmd-form-group">
+              <%= f.text_area :text_message, class: 'form-control' %><br />
+                        </div>
+                      </div>
+                    </div>
+
+          <%= f.hidden_field :product_id, value: params[:product_id]  %><br />
+          <%= f.hidden_field :email_message_id, value: params[:email_message_id]  %><br />
+          <%= f.hidden_field :receiver_id, value: params[:email_message_id]  %><br />
+          <%= f.hidden_field :senter_id, value: params[:senter_id]  %><br />
+
+
+
+          <div class="card-footer ">                        
+                      <%= f.submit class: "btn btn-fill btn-rose"%> 
+                  </div>
+                  <% end %>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+			<div class="col-md-12">
+
+
+              <div class="card ">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">Histórico da Conversa</h4>
+                  </div>
+                </div>
+
+
+        <% for message in @messages_history %>
+        <div class="card-body ">
+          <%= senter_name(message.senter_id) %><br /> 
+          <%= message.created_at %><br />
+          <%= message.text_message %>
+        </div>        
+          <% end %>       
+
+                <div class="card-body ">
+                   <%= senter_name(first_message(params[:email_message_id]).senter_id) %><br /> 
+                   <%= first_message(params[:email_message_id]).created_at %><br />                 
+                   <%= first_message(params[:email_message_id]).subject %><br />
+                   <%= first_message(params[:email_message_id]).text_message %>
+                </div>
+
+
+        </div>
+      </div>                
+
+
+
+				
+				
+
+
+
+
+
+
+
+
+

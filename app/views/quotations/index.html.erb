@@ -1,0 +1,195 @@
+<div class="col-md-12">
+                        <% if current_user_has_quotations_as_seller %>
+
+              <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                  </div>
+                  <h4 class="card-title">Pedidos Recebidos</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Data</th>
+                          <th>Cliente</th>
+                          <th>Pedido do cliente</th>
+                          <th>Cotação Enviada</th>                          
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      	<% for quotation_as_seller in @quotations_as_seller %>
+                        <tr>
+                          <td class="text-center">1</td>
+                          <td><%= customer_name quotation_as_seller%></td>
+                          <td><%= quotation_as_seller.senter_message %></td>
+                          <td><%= quotation_as_seller.quote %></td>                          
+                          <td class="td-actions text-right">
+                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
+                              <i class="material-icons">person</i>
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                              <i class="material-icons">close</i>
+                            </button>
+                          </td>
+                        </tr>
+                        <% end %>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+                        <% end %>
+
+
+
+
+<% if !current_user_has_quotations_as_seller %>
+
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for quotations_path, method: :get  do |f| %>
+        <div class="form-group">
+        <%= f.label :body, "Escreve sua mensagem" %>
+
+        <%= f.select :search, options_for_senter_message, :prompt => 'Select One' %>
+
+
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @quotations_searched.present? %>
+             <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                  </div>
+                  <h4 class="card-title">Pedidos Enviados</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Data</th>
+                          <th>Instituição</th>
+                          <th>Cotação Recebida</th>                                                    
+                          <th>Mensagem</th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+
+<% for quotation_searched in @quotations_searched %>
+                        <tr>
+                          <td class="text-center">1</td>
+                          <td><%= firm_name(quotation_searched)%></td>
+                          <td><%= quotation_searched.quote %></td>                          
+                          <td><%= quotation_searched.receiver_message %></td>                         
+                          <td class="td-actions text-right">
+                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
+                              <i class="material-icons">person</i>
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                              
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                              <i class="material-icons">close</i>
+                            </button>
+                          </td>
+                        </tr>
+
+<% end %>
+<% else %>
+
+
+
+              <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                  </div>
+                  <h4 class="card-title">Pedidos Enviados</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Data</th>
+                          <th>Instituição</th>
+                          <th>Cotação Recebida</th>                                                    
+                          <th>Mensagem</th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+
+
+                      <tbody>
+       
+                        <% for quotation_as_customer in @quotations_as_customer %>
+                        <tr>
+                          <td class="text-center">1</td>
+                          <td><%= firm_name(quotation_as_customer)%></td>
+                          <td><%= quotation_as_customer.quote %></td>                          
+                          <td><%= quotation_as_customer.receiver_message %></td>                         
+                          <td class="td-actions text-right">
+                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
+                              <i class="material-icons">person</i>
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_as_customer.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  </button>
+                              
+                            </button>
+                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                              <i class="material-icons">close</i>
+                            </button>
+                          </td>
+                        </tr>
+                        <% end %>
+                        <% end %>
+                        <% end %>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
+                        <div class="col-lg-12 col-md-6 col-sm-3">
+                          <div class="dropdown bootstrap-select">
+                            <select class="selectpicker" data-size="1000007" data-style="btn btn-primary btn-round" title="Single Select" tabindex="-98">
+                            <option class="bs-title-option" value=""></option>
+                            <% for quotation_as_customer in @quotations_as_customer %>
+                            <option ><%=link_to quotation_as_customer.senter_message, quotations_path(filter: quotation_as_customer.senter_message)%></option>
+                            <%end%>
+                            </select>
+                          </div>
+                        </div>

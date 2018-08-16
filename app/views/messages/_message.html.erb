@@ -1,0 +1,65 @@
+
+                  <ul class="timeline">
+                    
+                    <% if message.chat_room.senter_id == message.user.id %>
+                    <li class="timeline-inverted">
+                      <div class="timeline-badge danger">
+                        <i class="material-icons">card_travel</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-pill badge-danger"><%= message.user.name %> </span>
+                        </div>
+                        <div class="timeline-body">
+                          <p><%= message.body %></p>
+                        </div>
+                        <h6>
+                          <i class="ti-time"></i> <%= message.timestamp %>
+                        </h6>
+                      </div>
+                    </li>
+                    <%end%>
+
+                    <% if message.chat_room.senter_id != message.user.id %>
+                    <li>
+                      <div class="timeline-badge success">
+                        <i class="material-icons">extension</i>
+                      </div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <span class="badge badge-pill badge-success"><%= message.user.name %></span>
+                        </div>
+                        <div class="timeline-body">
+                          <p><%= message.body %></p>
+                        </div>
+                        <h6>
+                          <i class="ti-time"></i> <%= message.timestamp %>
+                        </h6>
+                      </div>
+                    </li>
+                    <% end %>
+                  </ul>
+
+
+
+
+
+      <!--
+
+<div class="card">
+  <div class="card-block">
+    <div class="row">
+      <div class="col-md-1">
+        <%= gravatar_for message.user %>
+      </div>
+      <div class="col-md-11">
+        <p class="card-text">
+          <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span><br>
+          <%= message.body %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+    -->
+
