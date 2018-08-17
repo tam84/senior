@@ -49,16 +49,20 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
+ #server 'ec2-18-191-49-166.us-east-2.compute.amazonaws.com',
+ #  user: 'deploy',
+ #  roles: %w{web app db},
 #   ssh_options: {
-#     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
+#     user: "deploy", # overrides user setting above
+#     keys: %w(~/.ssh/gsg-keypair),
+#     forward_agent: true,
+#     auth_methods: %w(publickey password),
+#     password: ""
 #   }
 
-server 'ec2-18-191-49-166', user: 'deploy', roles: %w{web app db}
+
+#set :stage, :production
+
+server 'ec2-18-191-49-166.us-east-2.compute.amazonaws.com', user: 'deploy', roles: %w{web app db}
+
 
