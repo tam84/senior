@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: tam84_v2_production
-  username: tam84_v2
+  database: postgres #tam84_v2_production
+  username: postgres #tam84_v2
   password: Rails.application.credentials.postgres[:password][:production]
