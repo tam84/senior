@@ -82,4 +82,4 @@ production:
   <<: *default
   database: tam84_v2_production
   username: tam84_v2
-  password: <%= ENV['TAM84_V2_DATABASE_PASSWORD'] %>
+  password: "chiquita3"
