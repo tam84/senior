@@ -81,6 +81,6 @@ test:
 production:
   <<: *default
   database: tam84_v2_production
-  username: tam84_v2
+  username: deploy
   password: Rails.application.credentials.postgres[:password][:production]
   #password: <%= ENV['TAM84_V2_DATABASE_PASSWORD'] %> || Rails.application.credentials.postgres[:password][:production]
