@@ -78,9 +78,19 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: tam84_v2_production
-  username: deploy
-  password: Rails.application.credentials.postgres[:password][:production]
+#production:
+#  <<: *default
+#  database: tam84_v2_production
+#  username: tam84_v2
+#  password: Rails.application.credentials.postgres[:password][:production]
   #password: <%= ENV['TAM84_V2_DATABASE_PASSWORD'] %> || Rails.application.credentials.postgres[:password][:production]
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: tam84_v2_production
+  username: tam84_v2
+  password: Rails.application.credentials.postgres[:password][:production]
+  host: localhost
+  port: 5432
+
