@@ -15,3 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 #Rails.application.config.assets.precompile += %w( default.js default.css.scss )
 
+Rails.application.config.assets.precompile += %w( application.js application.css.scss )
+
