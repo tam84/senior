@@ -27,3 +27,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
 
+bundle exec cap puma:start
+bundle exec cap puma:restart
+bundle exec cap puma:stop
+bundle exec cap puma:phased_restart
