@@ -264,6 +264,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  execjs (~> 2.7)
   figaro
   font-awesome-rails
   jbuilder (~> 2.5)
