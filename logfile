@@ -5,3 +5,7 @@
 2018-08-18 09:07:25.365 -03 [1018] LOG:  database system was shut down at 2018-08-18 09:07:00 -03
 2018-08-18 09:07:25.392 -03 [1017] LOG:  database system is ready to accept connections
 2018-08-18 09:07:42.388 -03 [1026] FATAL:  database "tam84_v2_development" does not exist
+2018-08-18 21:31:23.278 -03 [1017] LOG:  received smart shutdown request
+2018-08-18 21:31:23.341 -03 [1017] LOG:  worker process: logical replication launcher (PID 1024) exited with exit code 1
+2018-08-18 21:31:23.341 -03 [1019] LOG:  shutting down
+2018-08-18 21:31:23.515 -03 [1017] LOG:  database system is shut down
