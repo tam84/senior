@@ -1,4 +1,4 @@
-<% if params and params[:category_id] == "7" %>
+<% if params and params[:category_id] == "2" %>
 <div class="col-md-12">
   <div class="card ">
     <h3>Filtre sua busca</h3>
@@ -39,10 +39,14 @@
                           <% if @products != nil %>
                           <% @products.each do |product| %>
                           <div class="col-md-4">
-                            <div class="card card-product">
-                              <div class="card-header card-header-image" data-header-animation="false">
+                            <div class="card card-profile">
+                              <div class="card-avatar" data-header-animation="false">
                                 <a href="#pablo">
-                                  <img class="img" src="https://cdnext.credit-suisse.com/corporate/en/media/pictures/_jcr_content/content/pagetabscontainer/tabs/pagetab_1/tabContent/flexiblelist/flexibleListItems/flexiblelistitem/image.revampimg.656.high.jpg/credit-suisse-logo-color.jpg">
+                                  <% if product.firm.firm_photos.present? %>
+                                    <%= image_tag(product.firm.firm_photos.first.variant(resize: "300x300!")) %>
+                                  <% else %>
+                                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+                                    <% end %>
                                 </a>
                               </div>
                               <div class="card-body">
@@ -52,15 +56,15 @@
                                 <div class="text-center" >
 
                                   
-                                    <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %>
+                                    <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;'} %>
                                   
 
                                   <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
 
-                                    <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)) %>
+                                    <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)), {style:'color:#0094ec;'} %>
                                   </button>
 
-                                    <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)) %>
+                                    <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#0094ec;'} %>
 
 
 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -73,10 +77,11 @@
 
                                 </div>
                                 <h4 class="card-title">
-                                  <a href="#pablo" <%= link_to product.name,product_path(product)%></a>
+                                  <%= h truncate(product.name, :length => 32) %>
                                 </h4>
-                                <div class="card-description" style='height: 150px'>
-                                  <%= link_to product.description,product_path(product)%>
+                                <div class="card-description" style='color:#000;height: 150px'>
+                                  
+                                  <%= h truncate(product.description, :length => 230) %>
                                 </div>
                               </div>
                               <div class="card-footer">
@@ -84,7 +89,7 @@
                                   <h4><%= product.key_information%></h4>
                                 </div>
                                 <div class="stats">
-                                  <p class="card-category"><%= product.category.name%></p>
+                                  <p class="card-category"style='color:#000'><%= product.category.name%></p>
                                 </div>
                               </div>
                             </div>

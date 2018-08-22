@@ -5,11 +5,15 @@ class EmailMessagesController < ApplicationController
 	end
 
 	def create
-		
-		EmailMessage.save_email_message params, current_user
-
-		#@message_member = MessageMember.save_members params, current_user, @message			
-		
+		if EmailMessage.save_email_message params, current_user
+			flash[:success] = "Mensagem enviada com sucesso"
+		    redirect_back(fallback_location: root_path)
+			#redirect_to product_path(id: params[:email_message][:product_id])
+		else
+			flash[:error] = "Não foi possível enviar a mensagem. Por favor tente novamente"
+			redirect_back(fallback_location: root_path)			
+			#redirect_to product_path(id: params[:email_message][:product_id])
+		end		
 	end
 
 	def index

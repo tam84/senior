@@ -5,9 +5,17 @@ class ProductsController < ApplicationController
 		@product = Product.new
 	end
 
-	def create
-		#assetclass_id = Category.find_by(id: params[:product][:category_id])
-		@product = Product.create(product_params)#.merge(assetclass_id: assetclass_id)
+	def create 
+		assetclass_id = Category.find_by(id: params[:product][:category_id]).assetclass_id
+		params_merged = product_params.merge(assetclass_id: assetclass_id)
+		@product = Product.new(params_merged)
+		if @product.save
+      		flash[:success] = "Produto criado com sucesso!"
+      		redirect_to @product		
+		else
+      		flash[:error] = "Não foi possivel criar o produto, tente novamente!"
+      		redirect_to new_product_path		
+		end
 	end
 
 
@@ -16,7 +24,7 @@ class ProductsController < ApplicationController
 		#	@products = Product.where(assetclass_id: params[:assetclass_id])
 		#end
 		#if params[:category_id]
-		#	@products = Product.where(category_id: params[:category_id])
+			#@products = Product.where(category_id: params[:category_id])
 		#end
 		
 
@@ -37,6 +45,10 @@ class ProductsController < ApplicationController
 		
     	if params and params["/products"] and params["/products"]["management_firm"] and params["/products"]["category_name"] and params["/products"]["target_return_benchmark_to"]
     		@products = Product.filter_1 params
+    	elsif params[:category_id]
+    		@products = Product.where(category_id: params[:category_id])
+    	else
+    		@products = Product.all
     	end
 
 

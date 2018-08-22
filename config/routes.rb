@@ -26,11 +26,12 @@ Rails.application.routes.draw do
 
   get '/users',   to: 'users#index'
 
-  authenticated do
-    root :to => 'products#index'
-  end
+  #authenticated do
+  #  root :to => 'products#index'
+  #end
 
-  root 'landing#index'  
+  get '/landing', to: "landing#index"
+  root  to: 'landing#index'  
 
   resources :product_associates, only: [:new, :create, :index]
 

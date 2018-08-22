@@ -9,7 +9,6 @@ class EmailMessage < ApplicationRecord
 
 	def self.save_email_message params, current_user
 
-		#receivers_ids = params[:email_message][:email_message_members][:receiver_id].split.map{|i| i.to_i}
 		receivers_ids = params[:email_message][:receiver_id].split.map{|i| i.to_i}
 		receivers_ids.each do |receiver_id|
 
@@ -24,7 +23,7 @@ class EmailMessage < ApplicationRecord
 
 		email_message.update(email_message_id: email_message.id)
 
-		EmailMessageMailer.email_message_confirmation(email_message,current_user).deliver
+		#EmailMessageMailer.email_message_confirmation(email_message,current_user).deliver
 
 		end
 	end

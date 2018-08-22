@@ -1,26 +1,29 @@
 <div class="col-md-12">
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
-
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
 
-
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %><br/><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "Insira seu email" %><br/><br/>
 
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %><br/><br/>
+        <%= f.label :password, 'Senha' %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Insira sua senha" %><br/><br/>
 
         <% if devise_mapping.rememberable? -%>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :remember_me, 'Lembre-me a próxima vez' %>
           </div>
         <% end -%>
 
         <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
         <% end %>        
+
+
+        <div class="field">
+          <%= render "devise/shared/links" %>
+        </div>
 
       </div>
     </div>
@@ -28,4 +31,3 @@
 </div>
 
 
-<%= render "devise/shared/links" %>

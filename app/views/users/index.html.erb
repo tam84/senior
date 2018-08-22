@@ -1,7 +1,11 @@
-<%= form_tag users_path, method: :get do %>
-  <%= text_field_tag 'term', params[:term], placeholder: "Enter user's name or surname" %>
-  <%= submit_tag 'Search!' %>
-<% end %>
+  <div class="card "> 
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_tag users_path, method: :get do %>
+      <%= text_area 'term', params[:term], class: 'form-control', placeholder: "Procure uma pessoa pelo nome" %>
+      <%= submit_tag 'Buscar!', class: 'btn btn-sm' %>
+    <% end %>
+  </div>
+</div>
 
         <div class="row">
           <% for user in @users %>  
@@ -15,19 +19,18 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-category text-gray"><%= user.firm_name user%></h6>
-                  <h6 class="card-category text-gray"><%= user.job_title %></h6>
-                  <h4 class="card-title"><%= user.name %></h4>
-                  <p class="card-description" style='height: 150px'>
-                    <%= user.full_name %>
+                  <h6 class="card-title "><%= h truncate(user.job_title, lenght: 20) %></h6>
+                  <h4 class="card-title" style="font-size: 16px"><%= h truncate(user.full_name, lenght: 20) %></h4>
+                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px' '>
+                    <%= h truncate(user.description, :length => 220) %>
                   </p>
                     <%= form_for ChatRoom.new do |f| %>
                     <%= f.hidden_field :senter_id, value: current_user.id %>
                     <%= f.hidden_field :receiver_id, value: user.id %>
-                    <%= f.submit "Iniciar chat!", class:"btn btn-rose btn-round" %>
+                    <%= f.submit "Iniciar chat!", class:"btn btn-round" %>
                   <% end %>
-                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                   </button>
                   
                 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

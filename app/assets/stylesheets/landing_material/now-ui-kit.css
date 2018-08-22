@@ -522,7 +522,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .noUi-pips {
   position: absolute;
-  color: #999;
+  color: #0094ec;
 }
 
 /* Values;
@@ -5946,16 +5946,16 @@ img {
   display: none;
 }
 
-.clear-filter[filter-color="orange"] {
-  background: rgba(44, 44, 44, 0.2);
+.clear-filter[filter-color="blue"] {
+  background: rgba(45, 75, 111, 1);
   /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  background: -webkit-linear-gradient(90deg, rgba(45, 75, 111, 1), rgba(0, 0, 0, 0));
   /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  background: -o-linear-gradient(90deg, rgba(45, 75, 111, 1), rgba(0, 0, 0, 0));
   /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(90deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  background: -moz-linear-gradient(90deg, rgba(45, 75, 111, 1), rgba(0, 0, 0, 0));
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.6));
+  background: linear-gradient(0deg, rgba(45, 75, 111, 1), rgba(0, 0, 0, 0));
   /* Standard syntax */
 }
 
@@ -6365,7 +6365,7 @@ img {
     right: 0;
     z-index: 1032;
     visibility: visible;
-    background-color: #999;
+    background-color: #0094ec;
     overflow-y: visible;
     border-top: none;
     text-align: left;
@@ -6770,7 +6770,7 @@ img {
     right: 0;
     z-index: 1032;
     visibility: visible;
-    background-color: #999;
+    background-color: #0094ec;
     overflow-y: visible;
     border-top: none;
     text-align: left;

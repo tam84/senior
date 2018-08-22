@@ -1,5 +1,5 @@
-                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar email para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar email para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
                   </button>
 
 
@@ -40,14 +40,18 @@
                     <i class="material-icons">mail_outline</i>
                   </div>
                   <h4 class="card-title">Fotos</h4>
-                </div>
+         </div>
 
- 		       	<div class="col-md-4">
-        	      	<div class="card ">
+ 		       	<div class="row">
+        	
+    <div class="col-md-12">
 						<% @product.images.each do |image| %>
-						<%= link_to image_tag(image.variant(resize: "300x300!")), rails_blob_path(image, disposition: "attachment")%>
+
+						<%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
 						<% end %>
-              		</div>
+          </div>
+
         		</div>
         	</div>
         </div>
@@ -79,4 +83,7 @@
 <%= link_to "entrar em contato", new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id))%>
 
 
-<%= link_to "relacionar associados ao produto",  new_product_associate_path(product_id: @product.id) %>
+
+<% if current_user == User.last %>
+  <%= link_to "relacionar associados ao produto",  new_product_associate_path(product_id: @product.id) %>
+<% end %>

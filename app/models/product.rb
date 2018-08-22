@@ -6,6 +6,7 @@ class Product < ApplicationRecord
 	has_many_attached :images
 	has_many_attached :documents
 	has_one :product_specific
+    belongs_to :firm
 
 	accepts_nested_attributes_for :product_specific
 

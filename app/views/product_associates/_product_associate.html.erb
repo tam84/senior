@@ -17,10 +17,10 @@
                     <%= form_for ChatRoom.new do |f| %>
                     <%= f.hidden_field :senter_id, value: current_user.id %>
                     <%= f.hidden_field :receiver_id, value: product_associate.user_id %>
-                    <%= f.submit "Iniciar chat!", class:"btn btn-rose btn-round" %>
+                    <%= f.submit "Iniciar chat!", class:"btn btn-round" %>
                   <% end %>
-                  <button type="button" rel="tooltip" class="btn btn-success btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_id: @product, product_associates: product_associate.user_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_id: @product, product_associates: product_associate.user_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#FFFFFF;'}%>
                   </button>
                   
                 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

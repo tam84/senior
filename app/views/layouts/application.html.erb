@@ -89,14 +89,14 @@
 
           <% Assetclass.all.each do |assetclass| %>
           <li class="nav-item ">
-            <a class="nav-link" data-toggle="collapse" href= '#<%=assetclass.name%>' >
+            <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=assetclass.id%>' >
               <i class="material-icons">image</i>
               <p> <%= assetclass.name %>
                 <b class="caret"></b>
               </p>
             </a>
 
-            <div class="collapse" id= '<%=assetclass.name%>' >
+            <div class="collapse" id= '<%=assetclass.id%>' >
               <ul class="nav">
                 <% assetclass.categories.each do |category| %>              
                 <li class="nav-item ">
@@ -213,6 +213,15 @@
   
 </div>
 
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <div class="alert" style="background-color: #0094ec; color: #fff;font-weight: bold;">
+      <a class="close" data-dismiss="alert">x</a>      
+      <%= msg  %>
+    </div>
+  <% end %>
+  <!-- Rest of content -->
+</div>
 
     <%= yield %>
   </body>

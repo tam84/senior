@@ -1,6 +1,6 @@
 <div class="col-md-12">
-                        <% if current_user_has_quotations_as_seller %>
-
+    <% if current_user_has_quotations_as_seller %>
+              
               <div class="card">
                 <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
@@ -23,20 +23,29 @@
                       <tbody>
                       	<% for quotation_as_seller in @quotations_as_seller %>
                         <tr>
-                          <td class="text-center">1</td>
-                          <td><%= customer_name quotation_as_seller%></td>
-                          <td><%= quotation_as_seller.senter_message %></td>
-                          <td><%= quotation_as_seller.quote %></td>                          
+
+                          <td class="text-center"><%= h truncate(quotation_as_seller.updated_at.to_s, :length => 13) %></td>
+
+                          <td><%= h truncate(customer_name(quotation_as_seller), :length => 20) %></td>
+                          <td><%= h truncate(quotation_as_seller.senter_message, :length => 50) %></td>
+                          <td><%= h truncate(quotation_as_seller.quote, :length => 10) %></td>
+
                           <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
-                              <i class="material-icons">person</i>
+
+                            <% if !quotation_as_seller.quote? %>
+
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                            <%= link_to ("Cotar").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                             </button>
-                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+
+                            <% elsif quotation_as_seller.quote? %>                            
+
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                            <%= link_to ("Alterar").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                             </button>
-                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
-                              <i class="material-icons">close</i>
-                            </button>
+                            <% end %>
+
+
                           </td>
                         </tr>
                         <% end %>
@@ -54,22 +63,18 @@
 
 <% if !current_user_has_quotations_as_seller %>
 
-<div class="col-md-12">
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
     <%= form_for quotations_path, method: :get  do |f| %>
         <div class="form-group">
-        <%= f.label :body, "Escreve sua mensagem" %>
+        <%= f.select :search, options_for_senter_message, :prompt => 'Selecione um pedido de cotação para filtrar' %>
 
-        <%= f.select :search, options_for_senter_message, :prompt => 'Select One' %>
-
+        <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
 
         </div>
-        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
       <% end %>
     </div>
   </div>
-</div>
 
 <% if @quotations_searched.present? %>
              <div class="card">
@@ -94,20 +99,25 @@
 
 <% for quotation_searched in @quotations_searched %>
                         <tr>
-                          <td class="text-center">1</td>
-                          <td><%= firm_name(quotation_searched)%></td>
-                          <td><%= quotation_searched.quote %></td>                          
-                          <td><%= quotation_searched.receiver_message %></td>                         
+
+                          <td class="text-center"><%= h truncate(quotation_searched.updated_at.to_s, :length => 13) %></td>
+
+                          <td><%= h truncate(firm_name(quotation_searched), :length => 10) %></td>
+                          <td><%= h truncate(quotation_searched.quote, :length => 10) %></td>
+                          <td><%= h truncate(quotation_searched.receiver_message, :length => 40) %></td>
+
                           <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
-                              <i class="material-icons">person</i>
-                            </button>
-                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+
+                            <button type="button" rel="tooltip" class="btn " data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_searched.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+                  </button>
                               
-                            </button>
-                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
-                              <i class="material-icons">close</i>
-                            </button>
+
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                  <%= link_to ("+info").html_safe, quotation_path(quotation_searched),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window2', style:'color:#fff;'}%>
+                  </button>
+
+
                           </td>
                         </tr>
 
@@ -132,7 +142,7 @@
                           <th>Instituição</th>
                           <th>Cotação Recebida</th>                                                    
                           <th>Mensagem</th>
-                          <th class="text-right">Actions</th>
+                          <th class="text-center">Ações</th>
                         </tr>
                       </thead>
 
@@ -141,22 +151,22 @@
        
                         <% for quotation_as_customer in @quotations_as_customer %>
                         <tr>
-                          <td class="text-center">1</td>
-                          <td><%= firm_name(quotation_as_customer)%></td>
-                          <td><%= quotation_as_customer.quote %></td>                          
-                          <td><%= quotation_as_customer.receiver_message %></td>                         
+                          <td class="text-center"><%= h truncate(quotation_as_customer.updated_at.to_s, :length => 13) %></td>
+
+                          <td><%= h truncate(firm_name(quotation_as_customer), :length => 10) %></td>
+                          <td><%= h truncate(quotation_as_customer.quote, :length => 10) %></td>
+                          <td><%= h truncate(quotation_as_customer.receiver_message, :length => 40) %></td>
                           <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
-                              <i class="material-icons">person</i>
-                            </button>
-                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_as_customer.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}%>
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_as_customer.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                   </button>
                               
-                            </button>
-                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
-                              <i class="material-icons">close</i>
-                            </button>
+
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                  <%= link_to ("+info").html_safe, quotation_path(quotation_as_customer),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window2', style:'color:#fff;'}%>
+                  </button>
+                              
+
                           </td>
                         </tr>
                         <% end %>
@@ -183,13 +193,12 @@
   </div>
 </div>
 
-                        <div class="col-lg-12 col-md-6 col-sm-3">
-                          <div class="dropdown bootstrap-select">
-                            <select class="selectpicker" data-size="1000007" data-style="btn btn-primary btn-round" title="Single Select" tabindex="-98">
-                            <option class="bs-title-option" value=""></option>
-                            <% for quotation_as_customer in @quotations_as_customer %>
-                            <option ><%=link_to quotation_as_customer.senter_message, quotations_path(filter: quotation_as_customer.senter_message)%></option>
-                            <%end%>
-                            </select>
-                          </div>
-                        </div>
+<div id="modal-window2" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    </div>
+  </div>
+</div>
+
+

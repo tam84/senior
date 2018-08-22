@@ -9,7 +9,14 @@ class ProductAssociatesController < ApplicationController
 	end
 
 	def create
-		@product_associate = ProductAssociate.create(product_associate_params)
+		@product_associate = ProductAssociate.new(product_associate_params)
+		if @product_associate.save
+			flash[:success] = "Associado cadastrado com sucesso."
+			redirect_to @product_associate.product
+		else
+			flash[:error] = "Não foi possivel cadastrar o associado. Por favor tente novamente."
+			redirect_to users_paths
+		end			
 	end
 
 	private

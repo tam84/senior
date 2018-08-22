@@ -1,22 +1,56 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <h4 class="modal-title" id="myModalLabel">Preencha sua cotação</h4>
+</div><br />
 
+<div class="col-md-12">
+	<div class="card "> 
+		<div class="card-header card-header-rose card-header-icon">
+		<%= form_for @quotation  do |f| %>
+  			<div class="form-group">
+    	
+
+    		<%= f.label :quote, "Cotação" %>
+    		<%= f.text_area :quote, class: 'form-control', placeholder: "Insira somente a cotação. Ex: 130% CDI" %> <br />    		    		
+
+
+    		<%= f.label :receiver_message, "Mensagem" %>
+    		<%= f.text_area :receiver_message, class: 'form-control', placeholder: "Escreva a mensagem" %> <br />    		    		
+
+  			<%= f.hidden_field :category_id, value: params[:category_id]  %><br />
+
+
+  			<%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+
+			<% end %>
+    		</div>
+    	</div>
+    </div>
 
 
 <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal">x</button>
-  <h4 class="modal-title" id="myModalLabel"><%=customer_name @quotation%></h4>
+  <h4 class="modal-title" id="myModalLabel">Detalhes do pedido do cliente</h4>
 </div>
-<p class=modal-body form-group"><%=@quotation.senter_message %>  </p>
-<div class="modal-body form-group">
-<%= form_for @quotation  do |f| %>
-  Cotação para o cliente: <%= f.text_area :quote, class: 'form-control' %><br />
-  Mensagem para o cliente : <%= f.text_area :receiver_message, class: 'form-control' %><br />
-  <%= f.hidden_field :category_id, value: params[:category_id]  %><br />
-  
 
-  <%= f.submit%>
+
+<div class="col-md-12">
+	<div class="card "> 
+		<div class="card-header card-header-rose card-header-icon">
+
+	
+			<p class="card info-title">
+				Nome do cliente: <%= customer_name(@quotation) %>
+			</p>
+
+
+			<p class="card description">
+				Mensagem<br />
+            	<%= @quotation.senter_message %>
+        	</p>
+		
+    	</div>
+
+    </div>
 </div>
-<% end %>
-
-
 
 

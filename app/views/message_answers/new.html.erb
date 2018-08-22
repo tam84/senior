@@ -34,7 +34,7 @@
 
 
           <div class="card-footer ">                        
-                      <%= f.submit class: "btn btn-fill btn-rose"%> 
+                      <%= f.submit class: "btn btn-fill"%> 
                   </div>
                   <% end %>
 
@@ -59,18 +59,19 @@
 
 
         <% for message in @messages_history %>
-        <div class="card-body ">
-          <%= senter_name(message.senter_id) %><br /> 
-          <%= message.created_at %><br />
-          <%= message.text_message %>
+        <div class="card card-body ">
+          De: <%= senter_name(message.senter_id) %><br /> 
+          Data: <%= message.created_at %><br />
+          Assunto: <%= message.subject %><br />
+          Mensagem: <%= message.text_message %>
         </div>        
-          <% end %>       
+        <% end %>       
 
                 <div class="card-body ">
-                   <%= senter_name(first_message(params[:email_message_id]).senter_id) %><br /> 
-                   <%= first_message(params[:email_message_id]).created_at %><br />                 
-                   <%= first_message(params[:email_message_id]).subject %><br />
-                   <%= first_message(params[:email_message_id]).text_message %>
+                   De: <%= senter_name(first_message(params[:email_message_id]).senter_id) %><br /> 
+                   Data: <%= first_message(params[:email_message_id]).created_at %><br />                 
+                   Assunto: <%= first_message(params[:email_message_id]).subject %><br />
+                   Mensagem: <%= first_message(params[:email_message_id]).text_message %>
                 </div>
 
 

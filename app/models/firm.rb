@@ -1,6 +1,7 @@
 class Firm < ApplicationRecord
   has_many_attached :firm_photos
   has_many :users
+  has_many :products
 
 
   include PgSearch

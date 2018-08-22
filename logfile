@@ -9,3 +9,19 @@
 2018-08-18 21:31:23.341 -03 [1017] LOG:  worker process: logical replication launcher (PID 1024) exited with exit code 1
 2018-08-18 21:31:23.341 -03 [1019] LOG:  shutting down
 2018-08-18 21:31:23.515 -03 [1017] LOG:  database system is shut down
+2018-08-18 23:14:28.657 -03 [1603] LOG:  listening on IPv6 address "::1", port 5432
+2018-08-18 23:14:28.669 -03 [1603] LOG:  listening on IPv6 address "fe80::1%lo0", port 5432
+2018-08-18 23:14:28.669 -03 [1603] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-08-18 23:14:28.671 -03 [1603] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-08-18 23:14:28.692 -03 [1604] LOG:  database system was shut down at 2018-08-18 23:14:18 -03
+2018-08-18 23:14:28.699 -03 [1603] LOG:  database system is ready to accept connections
+2018-08-18 23:14:52.023 -03 [1622] FATAL:  database "tam84_v2_development" does not exist
+2018-08-21 07:29:48.245 -03 [5877] ERROR:  column "firmjj_id" does not exist at character 19
+2018-08-21 07:29:48.245 -03 [5877] HINT:  Perhaps you meant to reference the column "products.firm_id".
+2018-08-21 07:29:48.245 -03 [5877] STATEMENT:  SELECT "user_id", "firmjj_id" FROM "products" LEFT OUTER JOIN "product_associates" ON "product_associates"."product_id" = "products"."id" WHERE "products"."category_id" = $1
+2018-08-21 07:34:30.620 -03 [5877] ERROR:  column "user_id" does not exist at character 8
+2018-08-21 07:34:30.620 -03 [5877] STATEMENT:  SELECT "user_id", "products"."firm_id" FROM "products"
+2018-08-21 07:34:45.044 -03 [5877] ERROR:  column "user_id" does not exist at character 8
+2018-08-21 07:34:45.044 -03 [5877] STATEMENT:  SELECT "user_id" FROM "products"
+2018-08-21 07:51:00.549 -03 [5877] ERROR:  column "user_id" does not exist at character 8
+2018-08-21 07:51:00.549 -03 [5877] STATEMENT:  SELECT "user_id" FROM "quotations"

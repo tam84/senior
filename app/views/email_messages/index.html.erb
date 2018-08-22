@@ -22,29 +22,24 @@
                       <tbody>
                       	<% for received_message in @received_messages %>
                         <tr>
-                          <td class="text-center">1</td>
-                          <td><%= name_of_senter(received_message)%></td>
-                          <td><%= received_message.subject %></td>
+                          <td class="text-center"><%= h truncate(received_message.updated_at.to_s, :length => 13) %></td>
+                          <td><%= h truncate(name_of_senter(received_message), :length => 15)%></td>
+                          <td><%= h truncate(received_message.subject, :length => 30) %></td>
                           <% if received_message.product.present? %>
-                          <td><%= received_message.product.name %></td>                          
+                          <td><%= h truncate(received_message.product.name, :length => 25) %></td>                          
                           <% else %>
-                          <td>Essa mensagem não está atrelada a um produto em específico</td>
+                          <td>Nenhum produto vinculado</td>
                           <% end %>
 
                           <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" class="btn btn-info" data-original-title="" title="">
-                              <i class="material-icons">person</i>
-                            </button>
-                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
                               <% if !received_message.product.present? %>
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id)%>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id), {style:'color:#fff;'}%>
                               <% elsif received_message.product.present? %>
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id)%>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id), {style:'color:#fff;'}%>
                             <% end %>
 
-                            </button>
-                            <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
-                              <i class="material-icons">close</i>
                             </button>
                           </td>
                         </tr>
