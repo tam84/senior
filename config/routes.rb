@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   #end
 
   get '/landing', to: "landing#index"
-  root  to: 'landing#index'  
+  #root  to: 'landing#index'  
 
   resources :product_associates, only: [:new, :create, :index]
 
