@@ -4,6 +4,7 @@ class Firm < ApplicationRecord
   has_many :products
 
 
+
   include PgSearch
   pg_search_scope :search_by_name, against: [:name]
 
