@@ -30,7 +30,3 @@
 //= require landing_material/plugins/nouislider.min.js
 //= require landing_material/now-ui-kit.min.js
 
-jQuery ->
-  $("a[rel=popover]").popover()
-  $(".tooltip").tooltip()
-  $("a[rel=tooltip]").tooltip()
