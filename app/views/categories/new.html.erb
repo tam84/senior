@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for @category do |f| %>
+        <div class="form-group">
+        <%= f.label :name, "nome da categoria" %>
+        <%= f.text_area :name, class: 'form-control' %>       
+        <%= f.label :description, "nome da categoria" %>
+        <%= f.text_area :description, class: 'form-control' %>       
+      <%= f.select :assetclass_id, Assetclass.pluck(:id).uniq, :prompt => 'Emissor' %>
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>

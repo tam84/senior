@@ -35,4 +35,6 @@ Rails.application.routes.draw do
 
   resources :product_associates, only: [:new, :create, :index]
 
+  resources :categories
+  resources :assetclasses  
 end

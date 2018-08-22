@@ -1,0 +1,17 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for @assetclass do |f| %>
+        <div class="form-group">
+        <%= f.label :name, "Nome da classe de ativo" %>
+        <%= f.text_area :name, class: 'form-control' %>       
+        <%= f.label :description, "Descrição da classe de ativo" %>
+        <%= f.text_area :description, class: 'form-control' %>       
+
+        <small class="text-muted">De 2 to 1000 caracteres</small>     
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
