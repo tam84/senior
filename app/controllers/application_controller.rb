@@ -3,17 +3,9 @@ class ApplicationController < ActionController::Base
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
 #	before_filter :configure_permitted_parameters, if: :devise_controller?
-  	layout :layout_by_resource
 
 
 
-	def layout_by_resource
-  		if devise_controller? && resource_name == :user && action_name == "new"
-    		"registration_for_devise"
-  		else
-    		"application"
-  		end
-	end	
 
 
   	protected
