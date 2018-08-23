@@ -1,32 +1,19 @@
-<% if params and params[:category_id] == "2" %>
-<div class="col-md-12">
+<% if params and params[:category_id] == "2" || params["/products"] %>
   <div class="card ">
-    <h3>Filtre sua busca</h3>
+    <h4>Filtre sua busca de CDBs.</h4>
     <div class="card-header card-header-rose card-header-icon">
 
 
       <%= form_for products_path, method: :get  do |f| %>
       <div class="bootstrap-tagsinput info-badge">
-        <span class="btn btn-rose btn-sm">
-          <%= f.select :management_firm, Product.pluck(:management_firm).uniq, :prompt => 'Emissor' %>
-          <span data-role="remove">
-          </span>
-        </span>
-        <span class="btn btn-rose btn-sm">
-          <%= f.select :category_name, Category.pluck(:name).select{|category_name| category_name.include? "CDB"}, :prompt => 'Tipo de Remuneração' %>
-          <span data-role="remove">
-          </span>
-        </span> 
-        <span >
-          <%= f.text_area :target_return_benchmark_to, placeholder: "Acima de - Digite apenas números"  %>   
-          <span data-role="remove">
-          </span>
-        </span> 
+          <%= f.select(:management_firm, Product.pluck(:management_firm).uniq, {:prompt => 'Emissor'}, {class: "btn btn-sm", style: "background-color: gray"}) %>
+          <%= f.select :category_name, Category.pluck(:name).select{|category_name| category_name.include? "CDB"}, {:prompt => 'Tipo de Remuneração'}, {class: "btn btn-sm", style: "background-color: gray"} %>
+          <%= f.text_field :target_return_benchmark_to, placeholder: "Acima de - Digite apenas números", style: "border: solid 0.1em; width: 185px; font-size: 12px"  %>  
+          <%= f.hidden_field :category_id, value: params[:category_id]  %><br />                
       </div>
-      <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
       <% end %>
       </div>
-    </div>
   </div>
   <% end %>
 

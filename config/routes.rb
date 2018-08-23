@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'quotations/create'
   get 'quotations/show'
   get 'product_associates/index'
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #get '/products', to: 'products#index'
   #get 'products/:id', to: 'products#show'
@@ -26,15 +25,23 @@ Rails.application.routes.draw do
 
   get '/users',   to: 'users#index'
 
-  #authenticated do
-  #  root :to => 'products#index'
-  #end
+  devise_for :users
 
-  get '/landing', to: "landing#index"
-  #root  to: 'landing#index'  
+  authenticated do
+    root :to => 'products#index', as: :authenticated_root
+  end
+
+  root  to: 'landing#index'  
+#  !authenticated do
+#    root  to: 'landing#index'  
+#  end
+
+
+  #get '/landing', to: "landing#index"
+
 
   resources :product_associates, only: [:new, :create, :index]
 
-  resources :categories
-  resources :assetclasses  
+  resources :categories, only:[:new,:create]
+  resources :assetclasses, only:[:new,:create]  
 end
