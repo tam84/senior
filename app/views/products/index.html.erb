@@ -1,5 +1,6 @@
 <% if params and params[:category_id] == "2" || params["/products"] %>
   <div class="card ">
+    <div class="card-body ">
     <h4>Filtre sua busca de CDBs.</h4>
     <div class="card-header card-header-rose card-header-icon">
 
@@ -13,6 +14,7 @@
       </div>
       <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
       <% end %>
+        </div>
       </div>
   </div>
   <% end %>

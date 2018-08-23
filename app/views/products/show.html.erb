@@ -1,12 +1,29 @@
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar email para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
-                  </button>
+    <div class="col-md-12">
+
+
+
+                  <h3>Equipe do Produto - Fale com alguem!</h3>
+
+                </div></br>
 
 
 
 <div class="container-fluid">
 	<div class="row">
+
 				<%= render @product_associates %>
+
+        <div class="col-md-12">
+            <div class="card ">
+              <div class="card-body ">
+
+                  <p>Não encontrou quem deseja? Envie uma mensagem para toda a equipe</p>
+                  <button type="button" rel="tooltip" class="btn btn-round" style="background-color: gray"data-original-title="" title="">
+                  <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
+                  </button>         
+                </div>
+              </div>
+            </div>
         	
        	<div class="col-md-12">
               <div class="card ">
@@ -32,6 +49,10 @@
               </div>
         </div> 
 
+
+
+
+
        	<div class="col-md-12">
               <div class="card ">
 
@@ -44,7 +65,7 @@
 
  		       	<div class="row">
         	
-    <div class="col-md-12">
+          <div class="col-md-12">
 						<% @product.images.each do |image| %>
 
 						<%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
@@ -53,8 +74,43 @@
           </div>
 
         		</div>
-        	</div>
+        	</div>          
         </div>
+
+
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Documentos</h4>
+         </div> </br>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @product.documents.each do |document| %>
+
+            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold" %>
+
+            <% end %>
+          </div> 
+
+
+          <div class="card">
+          </div>
+
+
+            </div>
+          </div>          
+        </div>
+
+
+
 
 	</div>
 </div>

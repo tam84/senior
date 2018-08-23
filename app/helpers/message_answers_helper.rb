@@ -5,11 +5,11 @@ module MessageAnswersHelper
 	end
 
 	def senter_name user_id
-		user = User.find_by(id: user_id).name
+		user = User.find_by(id: user_id).full_name
 	end
 
 	def receiver_name id
-		user = User.find_by(id: user_id).name
+		user = User.find_by(id: user_id).full_name
 	end
 
 

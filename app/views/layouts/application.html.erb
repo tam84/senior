@@ -41,7 +41,7 @@
             <a data-toggle="collapse" href="#collapseExample" class="username">
               <span>
                 <% if user_signed_in? %>
-                <%= current_user.full_name %>
+                <%= h truncate(current_user.full_name, length: 16) %>
                 <%end%>
                 <b class="caret"></b>
               </span>

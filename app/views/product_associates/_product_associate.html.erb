@@ -5,14 +5,16 @@
                   <a href="#pablo">
                     <% if user_profile_photo(product_associate).present? %>
                     <%= image_tag(user_profile_photo(product_associate).variant(resize: "300x300!")) %>
-                    <% end %>
+                    <% else %>
+                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+                    <% end %>                    
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                  <h4 class="card-title"><%= user_name product_associate %></h4>
-                  <p class="card-description" style='height: 150px'>
-                    <%= user_description product_associate %>
+                  <h6 class="card-title "><%= h truncate(user_job_title(product_associate), length: 20) %></h6>
+                  <h4 class="card-title"><%= h truncate(user_name(product_associate), length: 20) %></h4>
+                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px' >
+                    <%= h truncate(user_description(product_associate), length: 150) %>
                   </p>
                     <%= form_for ChatRoom.new do |f| %>
                     <%= f.hidden_field :senter_id, value: current_user.id %>
