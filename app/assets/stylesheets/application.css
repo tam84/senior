@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require material/material-dashboard.css
+ *= require material/material-dashboard.min.css 
  *= require font-awesome
  */
 

@@ -29,7 +29,7 @@
                     <%= f.hidden_field :receiver_id, value: user.id %>
                     <%= f.submit "Iniciar chat!", class:"btn btn-round" %>
                   <% end %>
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <button type="button" rel="tooltip" class="btn btn-round-sm" data-original-title="" title="">
                   <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                   </button>
                   
