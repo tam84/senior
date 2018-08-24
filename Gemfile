@@ -90,3 +90,5 @@ group :development do
 end
 
 gem 'execjs', '~> 2.7'
+
+#gem 'aws-sdk-s3'
