@@ -83,16 +83,12 @@
       <div class="container">
         <div class="content-center brand">
           <img class="n-logo" src="./assets/img/now-logo.png" alt="">
-          <h1 class="h1-seo">Um network exclusivo para seus investimentos</h1>
-          <h6>Uma única plataforma com investimentos exclusivos em diversas classes de ativo. Acesso rápido, direto, sem conflito de interesse e sem custos as pessoas chaves de cada produto </h6>
+          <h1 class="h1-seo" style="font-size: 50px ">Um network exclusivo para</br>seus investimentos</h1>
+          <h6 class="h1-seo" style="font-size: 15px ">Uma única plataforma com investimentos exclusivos em diversas classes de ativo. Acesso rápido, direto, sem conflito de interesse e sem custos as pessoas chaves de cada produto </h6>
         </div>
-        <h6 class="category category-absolute">Designed by
-          <a href="http://invisionapp.com/" target="_blank">
-            <img src="./assets/img/invision-white-slim.png" class="invision-logo">
-          </a>. Coded by
-          <a href="https://www.creative-tim.com" target="_blank">
-            <img src="./assets/img/creative-tim-white-slim2.png" class="creative-tim-logo">
-          </a>.</h6>
+        <h1 style="margin-top: 400px; font-size: 30px">
+          <%= link_to "Faça parte dessa rede exclusiva >",new_user_session_path, style: "color:#0094ec; font-weigth: bold" %>
+        </h1>
       </div>
     </div>
     <div class="main">
@@ -117,17 +113,10 @@
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="text-center col-md-12 col-lg-8">
-              <h3 class="title">Desafios históricos</h3>
+              <h2>Desafios históricos</h2>
               <h5 class="description">A maioria dos investidores, seja eles, institucionais, family offices ou advisors acabam ficando restritos em seus investimentos a seu universo de relacionamento. Na correria do dia a dia muitos desses relacionamentos acabam sendo esquecidos ou pouco acessados. Alguns desses investidores recorrem ao google ou a periódicos de investimento para buscar novas alternativas de investimento mas infelizmente devido a falta de informações e dificuldades de contato com as pessaos chaves do produto essas tentativas acabam sendo pouco efetivas. É muito comum também após o investimento, o cliente ter pouco acesso aos managers, poucos calls, poucas informações. </h5>
             </div>
-            <div class="text-center col-md-12 col-lg-8">
-              <a href="https://www.creative-tim.com/product/now-ui-kit" class="btn btn-primary btn-lg btn-round" role="button">
-                Download HTML
-              </a>
-              <a href="https://www.invisionapp.com/now" target="_blank" class="btn btn-primary btn-lg btn-simple btn-round" role="button">
-                Download PSD/Sketch
-              </a>
-            </div>
+            
           </div>
           <br>
           <br>
@@ -139,9 +128,8 @@
                 <a href="http://demos.creative-tim.com/now-ui-kit-pro/presentation.html" target="_blank">Cote CDBs em massa com diversas instituições</a>. Em investimentos alternativos como Real Estate, Private Equities, hedge funds além de ter acesso rápido a mais materiais informativos como videos, conference calls, você poderá abrir conversas rápidas via chat ou mensagem com gestores e profissionais de relcações com investidores e ficará sempre por dentro de atualizações e novas oportunidades. Como um espaço esclusivo para investidores institucionais e HNWI você poderá aumentar seu network e encontrar novos parceiros de investimentos. Você poderá também se aproveitar da força da nossa plataforma para vender suas participações no mercado secundário.</h5>
             </div>
             <div class="col-md-12">
-              <a href="http://demos.creative-tim.com/now-ui-kit-pro/presentation.html" class="btn btn-neutral btn-round btn-lg" target="_blank">
-                <i class="now-ui-icons arrows-1_share-66"></i> Upgrade to PRO
-              </a>
+              <%= link_to "Faça dessa rede", new_user_session_path, class:"btn btn-neutral btn-round btn-lg" %>
+              
             </div>
           </div>
           <br>

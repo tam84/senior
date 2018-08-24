@@ -9,10 +9,10 @@
         <%= form_for @message_answer  do |f| %>                
                   <form method="get" action="/" class="form-horizontal">
                     <div class="row">
-                      <label class="col-sm-2 col-form-label">Assunto</label>
+                      <label class="col-sm-2 col-form-label"></label>
                       <div class="col-sm-10">
                         <div class="form-group bmd-form-group">
-                          <%= f.text_area :subject, class: 'form-control' %>
+                          <%= f.hidden_field :subject, value: subject_helper(params[:email_message_id]) %>
                           <span class="bmd-help">A block of help text that breaks onto a new line.</span>
                         </div>
                       </div>
@@ -34,7 +34,7 @@
 
 
           <div class="card-footer ">                        
-                      <%= f.submit class: "btn btn-fill"%> 
+                      <%= f.submit 'Responder', class: "btn btn-fill"%> 
                   </div>
                   <% end %>
 
@@ -67,12 +67,6 @@
         </div>        
         <% end %>       
 
-                <div class="card-body ">
-                   De: <%= senter_name(first_message(params[:email_message_id]).senter_id) %><br /> 
-                   Data: <%= first_message(params[:email_message_id]).created_at %><br />                 
-                   Assunto: <%= first_message(params[:email_message_id]).subject %><br />
-                   Mensagem: <%= first_message(params[:email_message_id]).text_message %>
-                </div>
 
 
         </div>

@@ -17,7 +17,7 @@ class EmailMessagesController < ApplicationController
 	end
 
 	def index
-		@received_messages = EmailMessage.messages_received current_user
+		@received_messages = EmailMessage.messages_received(current_user)
 		#@email_messages = current_user.email_messages
 		#puts @messages.first.subject
 	end

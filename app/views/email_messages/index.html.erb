@@ -35,9 +35,9 @@
 
                             <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
                               <% if !received_message.product.present? %>
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id), {style:'color:#fff;'}%>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id, id: received_message), {style:'color:#fff;'}%>
                               <% elsif received_message.product.present? %>
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id), {style:'color:#fff;'}%>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id, id: received_message), {style:'color:#fff;'}%>
                             <% end %>
 
                             </button>
