@@ -15,29 +15,54 @@
                           <th class="text-center">Data</th>
                           <th>Nome</th>
                           <th>Assunto</th>
+                          <th>Mensagem</th>                          
                           <th>Produto</th>                          
                           <th class="text-right">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
                       	<% for received_message in @received_messages %>
+
+
+
+                        <% if !message_answered(received_message, current_user) %>
                         <tr>
                           <td class="text-center"><%= h truncate(received_message.updated_at.to_s, :length => 13) %></td>
                           <td><%= h truncate(name_of_senter(received_message), :length => 15)%></td>
                           <td><%= h truncate(received_message.subject, :length => 30) %></td>
+                          <td><%= h truncate(received_message.text_message, :length => 30) %></td>
+
                           <% if received_message.product.present? %>
                           <td><%= h truncate(received_message.product.name, :length => 25) %></td>                          
                           <% else %>
                           <td>Nenhum produto vinculado</td>
                           <% end %>
 
+                          <%else%>
+
+                          <td class="text-center" style="font-weight: 900 "><%= h truncate(received_message.updated_at.to_s, :length => 13) %></td>
+                          <td style="font-weight: 900 "><%= h truncate(name_of_senter(received_message), :length => 15)%></td>
+                          <td style="font-weight: 900 "><%= h truncate(received_message.subject, :length => 30) %></td>
+                          <td style="font-weight: 900 "><%= h truncate(received_message.text_message, :length => 35) %></td>
+
+                          <% if received_message.product.present? %>
+                          <td style="font-weight: 900 "><%= h truncate(received_message.product.name, :length => 20) %></td>
+                          <% else %>
+                          <td style="font-weight: 900 ">Nenhum produto vinculado</td>
+                          <% end %>
+
+                          <%end%>                          
+
+
+
+
                           <td class="td-actions text-right">
 
                             <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
                               <% if !received_message.product.present? %>
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id, id: received_message), {style:'color:#fff;'}%>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_email_message_path(email_message_id: received_message.email_message_id, senter_id: received_message.senter_id, id: received_message), {style:'color:#fff;'}%>
                               <% elsif received_message.product.present? %>
-                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_message_answer_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id, id: received_message), {style:'color:#fff;'}%>
+                              <%= link_to ("<i class='material-icons'>edit</i>").html_safe, new_email_message_path(email_message_id: received_message.email_message_id, product_id: received_message.product.id, senter_id: received_message.senter_id, id: received_message), {style:'color:#fff;'}%>
                             <% end %>
 
                             </button>

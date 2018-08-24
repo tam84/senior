@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   #get 'products/:id', to: 'products#show'
   resources :products
   resources :email_messages#, only: [:new, :create, :show, :index]
-  resources :message_answers
   resources :quotations
 
   #get '/product_associates', to: 'product_associates#index'

@@ -2,6 +2,7 @@ class EmailMessagesController < ApplicationController
 
 	def new
 		@email_message = EmailMessage.new
+		@messages_history = EmailMessage.where(email_message_id: params[:email_message_id]).order(updated_at: :desc)		
 	end
 
 	def create
