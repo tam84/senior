@@ -35,7 +35,7 @@ class EmailMessage < ApplicationRecord
 		end
 
 
-		#EmailMessageMailer.email_message_confirmation(email_message,current_user).deliver
+		EmailMessageMailer.email_message_confirmation(email_message,current_user).deliver
 
 
 		end

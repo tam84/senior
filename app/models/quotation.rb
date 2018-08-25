@@ -26,7 +26,7 @@ class Quotation < ApplicationRecord
 				quotation.firm_id = array_item.last
 
 				quotation.save!
-				#QuotationMailer.quote_requested_confirmation(user, quotation).deliver
+				QuotationMailer.quote_requested_confirmation(user, quotation).deliver
 			end
 		end
 		
