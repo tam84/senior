@@ -9,10 +9,10 @@ local:
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 
 amazon_production:
-  service: s3
-  access_key_id: <%= Rails.application.credentials.dig(Rails.env.to_sym, :aws, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(Rails.env.to_sym, :aws, :secret_access_key) %>
+  service: S3
+  access_key_id: "AKIAJMBF5ZIQN2R5E37A"
+  secret_access_key: "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"
   region: "us-east-2"
-  bucket: <%= Rails.application.credentials.dig(Rails.env.to_sym, :aws, :bucket) %>
+  bucket: "tam84"
 
 
