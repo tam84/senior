@@ -10,15 +10,9 @@ local:
 
 amazon_production
   service: S3
-  access_key_id:
-    <%= Rails.application.credentials.dig(
-      Rails.env.to_sym, :aws, :access_key_id) %>
-  secret_access_key:
-    <%= Rails.application.credentials.dig(
-      Rails.env.to_sym, :aws, :secret_access_key) %>
+  access_key_id: <%= Rails.application.credentials.dig(Rails.env.to_sym, :aws, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(Rails.env.to_sym, :aws, :secret_access_key) %>
   region: "us-east-2"
-  bucket: 
-    <%= Rails.application.credentials.dig(
-      Rails.env.to_sym, :aws, :bucket) %>
+  bucket: <%= Rails.application.credentials.dig(Rails.env.to_sym, :aws, :bucket) %>
 
 
