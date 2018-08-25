@@ -34,8 +34,8 @@ class EmailMessage < ApplicationRecord
 			message_that_was_answered.update(status: 1)
 		end
 
-
-		EmailMessageMailer.email_message_confirmation(email_message,current_user).deliver
+		receiver_user = User.find_by(id: receiver_id)
+		EmailMessageMailer.email_message_confirmation(email_message,receiver_user).deliver
 
 
 		end
