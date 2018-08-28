@@ -65,11 +65,11 @@
     		<%= f.label :benchmark, "Benchmark do produto. Ex: CDI, Ibovespa" %>
     		<%= f.text_area :benchmark, class: 'form-control' %> <br />    		    		
 
-    		<%= f.label :name, "Descreva o nome do produto" %>
+    		<%= f.label :name, "Nome do produto" %>
     		<%= f.text_area :name, class: 'form-control' %> <br />    		    					
 
     		<%= f.label :description, "Faça uma descrição bastante completa, insira todas as informações que quiser. Não há problema em repetir informações" %>
-    		<%= f.text_area :description, class: 'form-control' %> <br />    		    					
+    		<%= f.text_area :description, rows: 5, cols: 25, class: "tinymce" %> <br />    		    					
 			
   			<%= f.fields_for :product_specific, ProductSpecific.new do |form| %>
 
@@ -144,3 +144,4 @@
 </div>
 
 
+<%= tinymce %> 

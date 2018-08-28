@@ -6,11 +6,12 @@ class QuotationMailer < ApplicationMailer
   #
   #   en.quotation_mailer.quote_requested_confirmation.subject
   #
-  def quote_requested_confirmation user, quotation
+  def quote_requested_confirmation receiver_user, senter_user, quotation
     @quotation = quotation
-    @user = user
+    @receiver_user = receiver_user
+    @senter_user = senter_user
 
-    mail to: user.email, subject: "Você tem um cliente querendo cotar um CDB"
+    mail to: @receiver_user.email, subject: "Você tem um cliente querendo cotar um CDB"
   end
 
 end

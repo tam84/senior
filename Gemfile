@@ -92,3 +92,5 @@ end
 gem 'execjs', '~> 2.7'
 
 gem "aws-sdk-s3", require: false
+
+gem 'tinymce-rails'

@@ -13,6 +13,11 @@ class User < ApplicationRecord
 
   belongs_to :firm
 
+  has_many :notifications
+
+  has_many :posts, as: :postable
+
+
   include PgSearch
   pg_search_scope :search_by_full_name, against: [:full_name]
 
@@ -30,5 +35,9 @@ class User < ApplicationRecord
   def firm_name user
     firm_name = user.firm.name
   end
+
+  def to_param
+    "#{id}-#{name}".parameterize
+  end    
 
 end

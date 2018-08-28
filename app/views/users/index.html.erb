@@ -29,11 +29,16 @@
                     <%= form_for ChatRoom.new do |f| %>
                     <%= f.hidden_field :senter_id, value: current_user.id %>
                     <%= f.hidden_field :receiver_id, value: user.id %>
-                    <%= f.submit "Iniciar chat!", class:"btn btn-round" %>
+                    <%#= f.submit "Iniciar chat!", class:"btn btn-round" %>
                   <% end %>
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+                  <%= link_to ("+Info").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+                  </button></br>
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Mensagem").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                   </button>
+
                   
                 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">

@@ -1,4 +1,6 @@
 class AssetclassesController < ApplicationController
+  before_action :authenticate_admin_user!
+  
 
   	def new
   		@assetclass = Assetclass.new

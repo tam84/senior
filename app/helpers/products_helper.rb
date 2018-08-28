@@ -29,5 +29,10 @@ module ProductsHelper
 		array
 	end
 
+	def current_user_is_product_associate product, user_id
+		@product_associates_ids = product.product_associates.pluck(:user_id)
+		@product_associates_ids.include?(user_id)
+	end
+
 
 end

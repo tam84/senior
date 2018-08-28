@@ -5,10 +5,11 @@ class EmailMessageMailer < ApplicationMailer
   #
   #   en.email_message_mailer.email_message_confirmation.subject
   #
-  def email_message_confirmation email_message, user
+  def email_message_confirmation email_message, receiver_user, senter_user
     @email_message = email_message
-    @user = user
+    @receiver_user = receiver_user
+    @senter_user = senter_user
 
-    mail to: user.email, subject: "Um cliente está interessado em um de seus produtos"
+    mail to: @receiver_user.email, subject: "Um cliente está interessado em um de seus produtos"
   end
 end

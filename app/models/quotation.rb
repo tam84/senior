@@ -6,7 +6,9 @@ class Quotation < ApplicationRecord
 
 		category = Category.find_by(id: params[:quotation][:category_id])
 		#receivers_ids = category.products.includes(:product_associates).pluck(:user_id)
-		array_of_receivers_and_firm_ids = category.products.includes(:product_associates).pluck(:user_id, :firm_id)
+		full_array_of_receivers_and_firm_ids = category.products.includes(:product_associates).pluck(:user_id, :firm_id)
+		array_of_receivers_and_firm_ids = full_array_of_receivers_and_firm_ids.delete_if {|x| x.first == nil}
+
 		#monta uma array como o ID de cada product_associate com a firma que ele pertence
 
 		r = Random.new_seed.to_s
@@ -25,11 +27,26 @@ class Quotation < ApplicationRecord
 				quotation.group_id = r #Random.new_seed_to_s << receiver_id << receiver_id << params[:quotation][:senter_message] << params[:quotation][:category_id]
 				quotation.firm_id = array_item.last
 
-				quotation.save!
-				QuotationMailer.quote_requested_confirmation(user, quotation).deliver
+				quotation.save! 
+
+				receiver_user = User.find_by(id: quotation.receiver_id)
+				#QuotationMailer.quote_requested_confirmation(receiver_user, user, quotation).deliver
+
+				quotation.notify_by_email receiver_user, user, quotation
+
+				quotation.notify_by_notification quotation.receiver_id
+
 			end
 		end
 		
+	end
+
+	def notify_by_email receiver_user, user, quotation
+		QuotationMailer.quote_requested_confirmation(receiver_user, user, quotation).deliver	
+	end
+
+	def notify_by_notification receiver_id
+		Notification.create_notification user_id: receiver_id, notification_type: 2
 	end
 
 

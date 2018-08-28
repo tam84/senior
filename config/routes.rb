@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get '/users',   to: 'users#index'
 
+  get '/users/:id',   to: 'users#show'
+
   devise_for :users
 
   authenticated do
@@ -43,4 +45,6 @@ Rails.application.routes.draw do
 
   resources :categories, only:[:new,:create]
   resources :assetclasses, only:[:new,:create]  
+
+  resources :posts
 end

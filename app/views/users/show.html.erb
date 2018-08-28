@@ -3,7 +3,7 @@
             <div class="card ">
               <div class="card-body ">
 
-                  <p>Quer falar com essa empresa?</p>
+                  <p>Quer falar com essa pessoa?</p>
                   <button type="button" rel="tooltip" class="btn btn-round" style="background-color: gray"data-original-title="" title="">
                   <%= link_to "Envie uma mensagem"%>
                   </button>         
@@ -29,20 +29,20 @@
                 </div>
 
                 <div class="card-body ">
-          <% if @firm != nil %>
+          <% if @user != nil %>
 
           <div class="card ">       
-            <%= @firm.name %>
+            <%= @user.full_name %>
           </div>
 
 
           <div class="card ">       
-            whatsapp: <%= @firm.whatsapp %></br>
-            skype: <%= @firm.skype %></br>
-            linkedin: <%= @firm.linkedin %>
+            whatsapp: <%= @user.whatsapp %></br>
+            skype: <%= @user.skype %></br>
+            linkedin: <%= @user.linkedin %>
           </div>
 
-            <%= @firm.description.html_safe %>
+            <%= @user.description.html_safe %>
 
           <%end%>
                 </div>  
@@ -84,7 +84,7 @@
  		       	<div class="row">
         	
           <div class="col-md-12">
-						<% @firm.firm_photos.each do |image| %>
+						<% @user.profile_photos.each do |image| %>
 
 						<%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
 
@@ -109,8 +109,8 @@
         <div class="form-group">
         <%= f.label :content, "Poste um conteúdo sobre o produto para que os investidores possam ficar atualizados" %>
         <%= f.text_area :content, class: 'form-control' %>       
-      <%= f.hidden_field :postable_id, value: @firm.id  %><br />                
-      <%= f.hidden_field :postable_type, value: "Firm"  %><br />                      
+      <%= f.hidden_field :postable_id, value: @user.id  %><br />                
+      <%= f.hidden_field :postable_type, value: "User"  %><br />                      
         <small class="text-muted">De 2 to 1000 caracteres</small>     
         </div>
         <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>

@@ -25,3 +25,15 @@
 2018-08-21 07:34:45.044 -03 [5877] STATEMENT:  SELECT "user_id" FROM "products"
 2018-08-21 07:51:00.549 -03 [5877] ERROR:  column "user_id" does not exist at character 8
 2018-08-21 07:51:00.549 -03 [5877] STATEMENT:  SELECT "user_id" FROM "quotations"
+2018-08-25 08:35:10.120 -03 [24249] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-08-25 09:56:26.407 -03 [25159] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-08-25 09:56:39.231 -03 [1608] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-08-25 09:57:11.698 -03 [25177] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2018-08-27 07:25:59.140 -03 [29267] ERROR:  column users.post_id does not exist at character 38
+2018-08-27 07:25:59.140 -03 [29267] STATEMENT:  SELECT  "users".* FROM "users" WHERE "users"."post_id" = $1 LIMIT $2
+2018-08-27 07:26:10.693 -03 [29267] ERROR:  missing FROM-clause entry for table "post" at character 147
+2018-08-27 07:26:10.693 -03 [29267] STATEMENT:  SELECT  DISTINCT "users"."id" FROM "users" LEFT OUTER JOIN "posts" ON "posts"."postable_id" = "users"."id" AND "posts"."postable_type" = $1 WHERE "post"."post_id" = $2 LIMIT $3
+2018-08-27 18:08:29.945 -03 [29845] ERROR:  column products.user_id does not exist at character 44
+2018-08-27 18:08:29.945 -03 [29845] STATEMENT:  SELECT  "products".* FROM "products" WHERE "products"."user_id" = $1 LIMIT $2
+2018-08-27 18:08:34.720 -03 [29845] ERROR:  column products.user_id does not exist at character 44
+2018-08-27 18:08:34.720 -03 [29845] STATEMENT:  SELECT  "products".* FROM "products" WHERE "products"."user_id" = $1 LIMIT $2

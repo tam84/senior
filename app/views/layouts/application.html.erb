@@ -115,7 +115,8 @@
                 <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo" style="color: #3C4858"><%= path_helper Rails.application.routes.recognize_path(request.url) %>
+</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -144,51 +145,43 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
+                  <i class="material-icons" style="color:black">notifications</i>
+                  <span class="notification"><%= current_user.notifications.where(check_status: 0).count %></span>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
+                  <%= link_to email_message_notifications(current_user).to_s + " novas mensagens", email_messages_path(notification_type: 1), {class:"dropdown-item"} %> 
+
+                  <%= link_to quotation_notifications(current_user).to_s + " novas cotações", quotations_path(notification_type: 2), {class:"dropdown-item"} %> 
+                  
                 </div>
               </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+                  <i class="material-icons" style="color:black">person</i>
                   <p class="d-lg-none d-md-block">
                     Some Actions
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   
-                    <% if user_signed_in? %>
-                      <%= link_to current_user.email  %>
+                  <% if user_signed_in? %>
+                  <a class="dropdown-item"><%= current_user.email  %></a>
                   
-                  <a class="dropdown-item" href="#"><%= link_to 'Edit profile', edit_user_registration_path %> |</a>
-                  <a class="dropdown-item" href="#"><%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
+                  <%= link_to 'Editar perfil', edit_user_registration_path, {class:"dropdown-item"} %>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
                     <% else %>
-                  <a class="dropdown-item" href="#"><%= link_to "Sign up", new_user_registration_path %></a>
-                  <a class="dropdown-item" href="#"><%= link_to "Login", new_user_session_path %></a>
+                  <%= link_to "Sign up", new_user_registration_path, {class:"dropdown-item"} %>
+                  <%= link_to "Login", new_user_session_path, {class:"dropdown-item"} %>
                   <%end%>
                 </div>
               </li>
 
 
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-              </li>
+
             </ul>
           </div>
         </div>

@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 
-
 	def new
 		@product = Product.new
 	end
@@ -62,6 +61,7 @@ class ProductsController < ApplicationController
 		if params[:id]
 			@product = Product.find_by(id: params[:id])	
 			@product_associates = @product.product_associates
+			@posts = @product.posts
 		end
 	end
 
@@ -75,6 +75,7 @@ class ProductsController < ApplicationController
 		product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
 			)
 	end
+
 
 
 end

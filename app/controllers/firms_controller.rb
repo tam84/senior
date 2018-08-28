@@ -1,4 +1,6 @@
 class FirmsController < ApplicationController
+  before_action :authenticate_admin_user!
+  
   
   def new
     @firm = Firm.new
@@ -25,6 +27,11 @@ class FirmsController < ApplicationController
 
 
   def show
+    @firm = Firm.find_by(id: params[:id])
+    @users = User.all
+    @products = Product.all#.includes(:product_associates).where(product_associate.user_id = current_user.id)
+    @posts = Post.all
+
   end
 
   def edit

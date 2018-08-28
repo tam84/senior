@@ -5,6 +5,13 @@ class QuotationsController < ApplicationController
     if params and params["/quotations"] and params["/quotations"]["search"]
       @quotations_searched= Quotation.where(senter_message: params["/quotations"]["search"], senter_id: current_user.id).order(updated_at: :desc)
     end
+
+    if params[:notification_type]
+      Notification.update_check_status current_user, params[:notification_type]
+      @quotations_as_seller = Quotation.where(receiver_id: current_user.id).order(updated_at: :desc)
+      @quotations_as_customer = Quotation.where(senter_id: current_user.id).order(updated_at: :desc)
+    end
+
   end
 
   def new

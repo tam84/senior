@@ -22,6 +22,7 @@
 //= require material/material-dashboard.js
 //= require activestorage
 //= require turbolinks
+//= require tinymce
 //= require_tree .
 //= require cable
 //= require landing_material/core/bootstrap.min.js

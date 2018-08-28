@@ -1,10 +1,4 @@
-    <div class="col-md-12">
 
-
-
-                  <h3>Equipe do Produto - Fale com alguem!</h3>
-
-                </div></br>
 
 
 
@@ -40,9 +34,9 @@
               		<div class="card ">				
 						<%= @product.name %>
 					</div>
-              		<div class="card ">								
-						<%= @product.description %>
-					</div>
+
+						<%= @product.description.html_safe %>
+
 					<%end%>
                 </div>	
 
@@ -111,6 +105,65 @@
 
 
 
+<% if current_user_is_product_associate @product, current_user.id %>
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for Post.new do |f| %>
+        <div class="form-group">
+        <%= f.label :content, "Poste um conteúdo sobre o produto para que os investidores possam ficar atualizados" %>
+        <%= f.text_area :content, class: 'form-control' %>       
+      <%= f.hidden_field :postable_id, value: @product.id  %><br />                
+      <%= f.hidden_field :postable_type, value: "Product"  %><br />                      
+        <small class="text-muted">De 2 to 1000 caracteres</small>     
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+
+
+
+
+            <div class="col-md-12">
+              <ul class="timeline timeline-simple">
+                <% for post in @posts %>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge danger >
+                    <i class="material-icons">card_travel</i>
+                  </div>
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <span class="badge badge-pill badge-danger">Some title</span>
+                    </div>
+                    <div class="timeline-body">
+                      <p><%= post.content %></p>
+                    </div>
+                    <h6>
+                      <i class="ti-time"></i> 11 hours ago via Twitter
+                    </h6>
+                  </div>
+                </li>
+                <% end %>
+
+              </ul>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 	</div>
 </div>
@@ -124,9 +177,6 @@
 
 
 
-<% @product.documents.each do |document| %>
-	<%= link_to image_tag(document), rails_blob_path(document, disposition: "attachment")%>
-<% end %>
 
 
 

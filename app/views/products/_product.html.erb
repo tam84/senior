@@ -1,0 +1,46 @@
+  
+          <div class="col-md-4" style="margin-top: 50px">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <% if product.firm.firm_photos.present? %>
+                    <%= image_tag(product.firm.firm_photos.first.variant(resize: "300x300!")) %>
+                    <% else %>
+                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+                    <% end %>                    
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title "><%= h truncate(product.name, length: 20) %></h6>
+                  <h4 class="card-title"><%= h truncate(product.name, length: 20) %></h4>
+                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px' >
+                    <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>
+                  </p>
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="" >
+                  <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#fff;'} %>
+                  </button>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+

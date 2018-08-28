@@ -1,4 +1,6 @@
 class ProductAssociatesController < ApplicationController
+  before_action :authenticate_admin_user!, only: [:new,:create]
+
 	def index
 		
 	end

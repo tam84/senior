@@ -15,4 +15,13 @@ class ApplicationController < ActionController::Base
     	devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
     	devise_parameter_sanitizer.permit(:account_update, keys: attributes)
   	end
+
+
+	def authenticate_admin_user!
+    	unless current_user == User.first
+      		flash[:error] = "Você não tem autorização para acessar essa página"
+      		redirect_to email_messages_path # halts request cycle
+    	end
+    end
+  	
 end

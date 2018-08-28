@@ -19,6 +19,11 @@ class EmailMessagesController < ApplicationController
 
 	def index
 		@received_messages = EmailMessage.messages_received(current_user)
+
+		if params[:notification_type]
+			Notification.update_check_status current_user, params[:notification_type]
+			@received_messages = EmailMessage.messages_received(current_user)
+		end
 		#@email_messages = current_user.email_messages
 		#puts @messages.first.subject
 	end
