@@ -33,7 +33,7 @@ namespace :rails do
   task :console do
     on roles(:app), primary: true do
       rails_env = fetch(:stage)
-      execute_interactively "#{bundle_cmd} #{current_path}/script/rails console #{rails_env}"
+      execute_interactively "#{bundle_cmd} #{current_path}/rails console #{rails_env}"
     end
   end
 
@@ -41,7 +41,7 @@ namespace :rails do
   task :dbconsole do
     on roles(:db), primary: true do
       rails_env = fetch(:stage)
-      execute_interactively "#{bundle_cmd} #{current_path}/script/rails dbconsole #{rails_env}"
+      execute_interactively "#{bundle_cmd} #{current_path}/rails dbconsole #{rails_env}"
     end
   end
 
