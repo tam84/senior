@@ -10,12 +10,18 @@
 
 
     <%= f.label :description, "Descrição" %>
-    <%= f.text_area :description, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Breve descrição da empresa, suas atividades atuais, key people etc..." %><br/><br/>
+    <%= f.text_area :description, rows: 5, cols: 25, class: "tinymce" %> <br /> <br/><br/>
 
 
     <%= f.label :email, "Email" %>
     <%= f.text_area :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Emai central da empresa ou da pessoa que receberá as notificações da empresa" %><br/><br/>
         </div>
+
+    <div class= "field" >
+      <%= f.label :documents, "Selecione os documentos do produto" %>
+      <%= f.file_field :documents, multiple: true, class: 'form-control' %> <br/>            
+    </div>  
+
 
 
     <div class= "field" >
@@ -52,3 +58,5 @@
     </div>
   </div>
 </div>
+
+<%= tinymce %> 

@@ -11,7 +11,8 @@
 
 
     <%= f.label :description, "Descrição" %>
-    <%= f.text_field :description, autofocus: true, class: 'form-control', placeholder: "Breve descrição das suas atividades atuais e caso queira fale um pouco do passado" %><br/><br/>
+    <%= f.text_area :description, rows: 5, cols: 25, class: "tinymce" %> <br />                     
+
 
 
     <%= f.label :email, "Email" %>
@@ -32,6 +33,11 @@
     <div class= "field" >
       <%= f.file_field :profile_photos, multiple: true, class: 'btn btn-rose btn-sm' %><br/><br/>
     </div>  
+
+    <div class= "field" >
+      <%= f.file_field :documents, multiple: true, class: 'btn btn-rose btn-sm' %><br/><br/>
+    </div>  
+
 
       <%= f.label :whatsapp, "insira seus dados de contato" %><br/><br/>
       <%= f.text_field :whatsapp, autofocus: true, placeholder: "Insira seu Whatsapp" %>
@@ -77,3 +83,4 @@
 
 
 
+<%= tinymce %> 

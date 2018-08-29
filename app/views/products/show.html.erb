@@ -61,9 +61,15 @@
         	
           <div class="col-md-12">
 						<% @product.images.each do |image| %>
+            <% if image.previewable? %>
 
+              <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+
+            <% else %>
 						<%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
 
+            <% end %>
 						<% end %>
           </div>
 
@@ -106,52 +112,29 @@
 
 
 <% if current_user_is_product_associate @product, current_user.id %>
-<div class="col-md-12">
-  <div class="card ">
-    <div class="card-header card-header-rose card-header-icon">
-    <%= form_for Post.new do |f| %>
-        <div class="form-group">
-        <%= f.label :content, "Poste um conteúdo sobre o produto para que os investidores possam ficar atualizados" %>
-        <%= f.text_area :content, class: 'form-control' %>       
-      <%= f.hidden_field :postable_id, value: @product.id  %><br />                
-      <%= f.hidden_field :postable_type, value: "Product"  %><br />                      
-        <small class="text-muted">De 2 to 1000 caracteres</small>     
-        </div>
-        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
-      <% end %>
-    </div>
-  </div>
-</div>
+  <%= render :partial => 'posts/form' %>
 <% end %>
 
 
+<div class="col-md-12">
+  <div class="card " style='background-color: #f2f2f2'>
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">Atualizações</h4>
+    </div>
 
 
+    <%= render @product.posts.last(10) %>
 
+    <div class="col-md-12", style="font-size: 20px">
+      <%= link_to "ver todas as atualizações", posts_path(postable_type: controller.controller_name.first(-1).capitalize, postable_id: @product) %>
+    </div>
 
-            <div class="col-md-12">
-              <ul class="timeline timeline-simple">
-                <% for post in @posts %>
-                <li class="timeline-inverted">
-                  <div class="timeline-badge danger >
-                    <i class="material-icons">card_travel</i>
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <span class="badge badge-pill badge-danger">Some title</span>
-                    </div>
-                    <div class="timeline-body">
-                      <p><%= post.content %></p>
-                    </div>
-                    <h6>
-                      <i class="ti-time"></i> 11 hours ago via Twitter
-                    </h6>
-                  </div>
-                </li>
-                <% end %>
+  </div>
+</div>
 
-              </ul>
-            </div>
 
 
 

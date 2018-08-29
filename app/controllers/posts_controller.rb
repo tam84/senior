@@ -15,6 +15,17 @@ class PostsController < ApplicationController
 
   end
 
+  def index
+    #if params[:product_id]
+    #  @product = Product.find_by(id: params[:product_id])
+    #  @posts = @product.posts
+    #end
+    if params[:postable_type]
+      @posts = Post.where(postable_type: params[:postable_type], postable_id: params[:postable_id])
+    end
+
+  end
+
   private
 
   def post_params

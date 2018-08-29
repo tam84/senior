@@ -44,7 +44,7 @@ class FirmsController < ApplicationController
   private
 
   def firm_params
-    params.require(:firm).permit(:name, :description, :email, :whatsapp, :skype, :linkedin, :facebook, :instagram, :firm_phone, :website, :cnpj, :address, firm_photos:[]
+    params.require(:firm).permit(:name, :description, :email, :whatsapp, :skype, :linkedin, :facebook, :instagram, :firm_phone, :website, :cnpj, :address, documents:[], firm_photos:[]
       )    
   end
 

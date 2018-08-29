@@ -1,11 +1,4 @@
-  <div class="card "> 
-    <div class="card-header card-header-rose card-header-icon">
-    <%= form_tag users_path, method: :get do %>
-      <%= text_area 'term', params[:term], class: 'form-control', placeholder: "Procure uma pessoa pelo nome" %>
-      <%= submit_tag 'Buscar!', class: 'btn btn-sm' %>
-    <% end %>
-  </div>
-</div>
+
 
         <div class="row">
           <% for user in @users %>  
@@ -24,7 +17,7 @@
                   <h6 class="card-title "><%= h truncate(user.job_title, length: 20) %></h6>
                   <h4 class="card-title" style="font-size: 16px"><%= h truncate(user.full_name, length: 20) %></h4>
                   <p class="card-description" style='height: 150px; color: #000; font-size: 15px' '>
-                  <%= h truncate(ActionView::Base.full_sanitizer.sanitize(user.description), :length => 170) %>
+                    <%= h truncate(user.description, :length => 170) %>
                   </p>
                     <%= form_for ChatRoom.new do |f| %>
                     <%= f.hidden_field :senter_id, value: current_user.id %>
@@ -32,7 +25,7 @@
                     <%#= f.submit "Iniciar chat!", class:"btn btn-round" %>
                   <% end %>
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("+Info").html_safe, user,  {style:'color:#fff;'}%>
+                  <%= link_to ("+Info").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
                   </button></br>
 
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">

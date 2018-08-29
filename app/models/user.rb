@@ -17,6 +17,9 @@ class User < ApplicationRecord
 
   has_many :posts, as: :postable
 
+  has_many_attached :documents
+  
+
 
   include PgSearch
   pg_search_scope :search_by_full_name, against: [:full_name]

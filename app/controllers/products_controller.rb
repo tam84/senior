@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
 		if params[:id]
 			@product = Product.find_by(id: params[:id])	
 			@product_associates = @product.product_associates
-			@posts = @product.posts
+			@posts = @product.posts.order(created_at: :desc)
 		end
 	end
 

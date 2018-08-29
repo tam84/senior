@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   get '/users',   to: 'users#index'
 
-  get '/users/:id',   to: 'users#show'
+ # get '/users/:id',   to: 'users#show'
 
   devise_for :users
 
@@ -47,4 +47,7 @@ Rails.application.routes.draw do
   resources :assetclasses, only:[:new,:create]  
 
   resources :posts
+
+  get 'user/:id' => 'users#show', as: :user
+
 end

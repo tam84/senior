@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for Post.new do |f| %>
+        <div class="form-group">
+        <%= f.label :content, "Poste um conteúdo sobre o produto para que os investidores possam ficar atualizados" %>
+        <%= f.text_area :content, rows: 5, cols: 25, class: "tinymce" %> <br />            
+        
+      
+      <%= f.hidden_field :postable_id, value: params[:id]  %><br />                
+      <%= f.hidden_field :postable_type, value: controller.controller_name.first(-1).capitalize  %><br />                      
+      
+
+
+        <small class="text-muted">De 2 to 1000 caracteres</small>     
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= tinymce %> 

@@ -68,6 +68,7 @@
             </div>
         	
 
+        <%= render @users.first(6) %>
 
 
 
@@ -97,57 +98,71 @@
 
 
 
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Documentos</h4>
+         </div> </br>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @firm.documents.each do |document| %>
+
+            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold" %>
+
+            <% end %>
+          </div> 
 
 
+          <div class="card">
+          </div>
 
 
-<% if current_user %>
-<div class="col-md-12">
-  <div class="card ">
-    <div class="card-header card-header-rose card-header-icon">
-    <%= form_for Post.new do |f| %>
-        <div class="form-group">
-        <%= f.label :content, "Poste um conteúdo sobre o produto para que os investidores possam ficar atualizados" %>
-        <%= f.text_area :content, class: 'form-control' %>       
-      <%= f.hidden_field :postable_id, value: @firm.id  %><br />                
-      <%= f.hidden_field :postable_type, value: "Firm"  %><br />                      
-        <small class="text-muted">De 2 to 1000 caracteres</small>     
+            </div>
+          </div>          
         </div>
-        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+
+
+
+
+
+
+<% if current_user.firm.id == @firm.id %>
+  <%= render :partial => 'posts/form' %>
 <% end %>
 
 
+<div class="col-md-12">
+  <div class="card " style='background-color: #f2f2f2'>
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">Atualizações</h4>
+    </div>
+
+
+    <%= render @firm.posts.last(10) %>
+
+    <div class="col-md-12", style="font-size: 20px">
+      <%= link_to "ver todas as atualizações", posts_path(product_id: @product) %>
+    </div>
+
+  </div>
+</div>
 
 
 
 
-            <div class="col-md-12">
-              <ul class="timeline timeline-simple">
-                <% for post in @posts %>
-                <li class="timeline-inverted">
-                  <div class="timeline-badge danger >
-                    <i class="material-icons">card_travel</i>
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <span class="badge badge-pill badge-danger">Some title</span>
-                    </div>
-                    <div class="timeline-body">
-                      <p><%= post.content %></p>
-                    </div>
-                    <h6>
-                      <i class="ti-time"></i> 11 hours ago via Twitter
-                    </h6>
-                  </div>
-                </li>
-                <% end %>
 
-              </ul>
-            </div>
+
+
 
 
 

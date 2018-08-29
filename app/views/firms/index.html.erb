@@ -23,11 +23,11 @@
                 <div class="card-body">
                   <h4 class="card-title"><%= h truncate(firm.name, lenght: 20) %></h4>
                   <p class="card-description" style='height: 150px; color: #000; font-size: 15px'>
-                    <%= h truncate(firm.description, :length => 220) %>
+                    <%= h truncate(ActionView::Base.full_sanitizer.sanitize(firm.description), :length => 170) %>
                   </p>
 
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("+ Info").html_safe, new_email_message_path(),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style: "color: #fff"}%>
+                  <%= link_to ("+ Info").html_safe, firm_path(firm),  {style: "color: #fff"}%>
                   </button></br>
 
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
