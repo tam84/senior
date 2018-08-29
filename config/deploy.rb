@@ -26,3 +26,21 @@ set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
+
+
+namespace :rails do
+  desc "Remote console"
+  task :console, :roles => :app do
+    run_interactively "bundle exec rails console #{rails_env}"
+  end
+
+  desc "Remote dbconsole"
+  task :dbconsole, :roles => :app do
+    run_interactively "bundle exec rails dbconsole #{rails_env}"
+  end
+end
+
+def run_interactively(command)
+  server ||= find_servers_for_task(current_task).first
+  exec %Q(ssh #{user}@#{myproductionhost} -t '#{command}')
+end

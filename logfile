@@ -37,3 +37,7 @@
 2018-08-27 18:08:29.945 -03 [29845] STATEMENT:  SELECT  "products".* FROM "products" WHERE "products"."user_id" = $1 LIMIT $2
 2018-08-27 18:08:34.720 -03 [29845] ERROR:  column products.user_id does not exist at character 44
 2018-08-27 18:08:34.720 -03 [29845] STATEMENT:  SELECT  "products".* FROM "products" WHERE "products"."user_id" = $1 LIMIT $2
+2018-08-29 13:50:04.106 -03 [1603] LOG:  received smart shutdown request
+2018-08-29 13:50:04.143 -03 [1603] LOG:  worker process: logical replication launcher (PID 1610) exited with exit code 1
+2018-08-29 13:50:04.143 -03 [1605] LOG:  shutting down
+2018-08-29 13:50:04.334 -03 [1603] LOG:  database system is shut down
