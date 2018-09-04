@@ -6,6 +6,7 @@ class User < ApplicationRecord
   #has_many :message_members
   #has_many :email_messages
   has_many :products
+  has_many :product_associates
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
 
@@ -18,6 +19,13 @@ class User < ApplicationRecord
   has_many :posts, as: :postable
 
   has_many_attached :documents
+
+  has_many :customer_to_product_associates
+
+
+
+  
+  
   
 
 

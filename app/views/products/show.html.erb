@@ -45,6 +45,36 @@
 
 
 
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Videos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @product.videos.each do |video| %>
+            <% if video.previewable? %>
+
+            <%= link_to image_tag("https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg"), rails_blob_path(video, disposition: "attachment"), class: "col-md-3" %>
+
+            <% else %>
+            <%= link_to image_tag(video.variant(resize: "200x200!")), rails_blob_path(video, disposition: "attachment"), class: "col-md-3" %>
+
+            <% end %>
+            <% end %>
+          </div>
+
+            </div>
+          </div>          
+        </div>
+
+
 
 
        	<div class="col-md-12">

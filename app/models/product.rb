@@ -5,6 +5,7 @@ class Product < ApplicationRecord
 	has_many :product_associates
 	has_many_attached :images
 	has_many_attached :documents
+    has_many_attached :videos    
 	has_one :product_specific
     belongs_to :firm
     has_many :posts, as: :postable

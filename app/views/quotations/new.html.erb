@@ -5,7 +5,8 @@
   			<div class="form-group">
     		<%= f.label :senter_message, "Descreva o que precisa, exemplo: Cotação para um CDB pós com vencimento de 2 anos, investimento em torno de R$10 milhões" %>
     		<%= f.text_area :senter_message, class: 'form-control' %> 			
-			<%= f.hidden_field :category_id, value: params[:category_id]  %><br />    		    		
+			<%= f.hidden_field :category_id, value: params[:category_id]  %><br />   
+	
     		<small class="text-muted">De 2 to 1000 caracteres</small>			
   			</div>
   			<%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>

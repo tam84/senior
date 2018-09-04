@@ -60,7 +60,12 @@ class ProductsController < ApplicationController
 	def show
 		if params[:id]
 			@product = Product.find_by(id: params[:id])	
-			@product_associates = @product.product_associates
+			current_user_segmentations = current_user.segmentation
+			if current_user.customer_to_product_associates.present?
+				@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)
+			else
+				@product_associates = @product.product_associates.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
+			end
 			@posts = @product.posts.order(created_at: :desc)
 		end
 	end
@@ -71,7 +76,7 @@ class ProductsController < ApplicationController
 
 
 	def product_params
-		params.require(:product).permit(:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :investment_period_from, :investment_period_to, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :benchmark ,images:[], documents:[], 
+		params.require(:product).permit(:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :investment_period_from, :investment_period_to, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :benchmark ,videos:[], images:[], documents:[], 
 		product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
 			)
 	end
