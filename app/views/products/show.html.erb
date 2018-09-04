@@ -7,12 +7,48 @@
 
 				<%= render @product_associates %>
 
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Fotos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @product.images.each do |image| %>
+            <% if image.previewable? %>
+
+              <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+
+            <% else %>
+            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+            <% end %>
+            <% end %>
+          </div>
+
+            </div>
+          </div>          
+        </div>
+
+
+
+
+
         <div class="col-md-12">
             <div class="card ">
               <div class="card-body ">
 
                   <p>Não encontrou quem deseja? Envie uma mensagem para toda a equipe</p>
-                  <button type="button" rel="tooltip" class="btn btn-round" style="background-color: gray"data-original-title="" title="">
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
                   <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
                   </button>         
                 </div>
@@ -45,6 +81,47 @@
 
 
 
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Notícias</h4>
+         </div> </br>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @product.releases.each do |release| %>
+          <div class="col-md-12">
+            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
+            <%= link_to release.filename, rails_blob_path(release, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
+
+          </div>
+
+            <% end %>
+          </div> 
+
+          <div class="card">
+          </div>
+
+
+            </div>
+          </div>          
+        </div>          
+
+
+
+
+
+
+
+
+
         <div class="col-md-12">
               <div class="card ">
 
@@ -58,16 +135,38 @@
             <div class="row">
           
           <div class="col-md-12">
-            <% @product.videos.each do |video| %>
-            <% if video.previewable? %>
 
-            <%= link_to image_tag("https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg"), rails_blob_path(video, disposition: "attachment"), class: "col-md-3" %>
 
-            <% else %>
-            <%= link_to image_tag(video.variant(resize: "200x200!")), rails_blob_path(video, disposition: "attachment"), class: "col-md-3" %>
 
-            <% end %>
-            <% end %>
+
+
+
+
+        <div class="row col-md-12">
+          <% for video in @product.videos %>  
+          <div class="col-md-3" >
+              <div class="card" >
+                <div class="card-avatar" style="background-color: #212529">
+                    <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+                </div>
+                <div class="card-body">
+                  <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.blob.filename.to_s, length:70) %></p>
+
+                  <p class="card-title" style="font-size: 12px; font-weight: bold">publicado <%= truncate(video.blob.created_at.to_s, length:14) %></p>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
+        </div>
+
           </div>
 
             </div>
@@ -76,36 +175,6 @@
 
 
 
-
-       	<div class="col-md-12">
-              <div class="card ">
-
-				<div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Fotos</h4>
-         </div>
-
- 		       	<div class="row">
-        	
-          <div class="col-md-12">
-						<% @product.images.each do |image| %>
-            <% if image.previewable? %>
-
-              <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-
-            <% else %>
-						<%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-            <% end %>
-						<% end %>
-          </div>
-
-        		</div>
-        	</div>          
-        </div>
 
 
 
@@ -124,8 +193,11 @@
           
           <div class="col-md-12">
             <% @product.documents.each do |document| %>
+          <div class="col-md-12">
+            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
+            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
 
-            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold" %>
+          </div>
 
             <% end %>
           </div> 
@@ -199,10 +271,11 @@
 
 
 
-<%= link_to "entrar em contato", new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id))%>
+<%= link_to "entrar em contato", new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id))%></br>
 
 
 
 <% if current_user == User.last %>
-  <%= link_to "relacionar associados ao produto",  new_product_associate_path(product_id: @product.id) %>
+  <%= link_to "relacionar associados ao produto",  new_product_associate_path(product_id: @product.id) %></br>
+  <%= link_to "editar produto", edit_product_path(@product) %> 
 <% end %>

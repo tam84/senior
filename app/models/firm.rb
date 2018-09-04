@@ -4,6 +4,9 @@ class Firm < ApplicationRecord
   has_many :products
   has_many :posts, as: :postable
   has_many_attached :documents
+  has_many_attached :releases
+  has_many_attached :videos
+
 
 
   include PgSearch

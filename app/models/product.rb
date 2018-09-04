@@ -9,6 +9,8 @@ class Product < ApplicationRecord
 	has_one :product_specific
     belongs_to :firm
     has_many :posts, as: :postable
+    has_many_attached :releases
+
 
 	accepts_nested_attributes_for :product_specific
 

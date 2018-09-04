@@ -71,12 +71,28 @@ class ProductsController < ApplicationController
 	end
 
 
+  def edit
+    @product = Product.find_by(id: params[:id])
+  end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+    if @product.update(product_params)
+      flash[:success] = "Produto atualizado com sucesso!"
+      redirect_to product_path(@product)
+    else
+      flash[:erro] = "Não foi possível atualizar o produto. Por favor tente novamente"
+      redirect_to product_path(@product)
+    end
+  end	
+
+
 	private
 
 
 
 	def product_params
-		params.require(:product).permit(:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :investment_period_from, :investment_period_to, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :benchmark ,videos:[], images:[], documents:[], 
+		params.require(:product).permit(:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :investment_period_from, :investment_period_to, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :benchmark ,videos:[], images:[], releases:[], documents:[], 
 		product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
 			)
 	end

@@ -1,3 +1,31 @@
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Fotos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @firm.firm_photos.each do |image| %>
+
+            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+            <% end %>
+          </div>
+
+            </div>
+          </div>          
+        </div>
+
+
+
+
+
 
         <div class="col-md-12">
             <div class="card ">
@@ -10,7 +38,6 @@
                 </div>
               </div>
             </div>
-
 
 
 
@@ -68,33 +95,154 @@
             </div>
         	
 
-        <%= render @users.first(6) %>
+
+
+        <div class="row">
+          <% for user in @users %>  
+          <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <% if user.profile_photos.present? %>
+                    <%= image_tag(user.profile_photos.first.variant(resize: "300x300!")) %>
+                    <% else %>
+                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+                    <% end %>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title "><%= h truncate(user.job_title, length: 20) %></h6>
+                  <h4 class="card-title" style="font-size: 16px"><%= h truncate(user.full_name, length: 20) %></h4>
+                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px' '>
+                    <%= h truncate(user.description, :length => 170) %>
+                  </p>
+                    <%= form_for ChatRoom.new do |f| %>
+                    <%= f.hidden_field :senter_id, value: current_user.id %>
+                    <%= f.hidden_field :receiver_id, value: user.id %>
+                    <%#= f.submit "Iniciar chat!", class:"btn btn-round" %>
+                  <% end %>
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("+Info").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+                  </button></br>
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Mensagem").html_safe, new_email_message_path(product_associates: user.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+                  </button>
+
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
+        </div> 
 
 
 
-       	<div class="col-md-12">
+
+
+
+
+        <div class="col-md-12">
               <div class="card ">
 
-				<div class="card-header card-header-rose card-header-icon">
+        <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
                     <i class="material-icons">mail_outline</i>
                   </div>
-                  <h4 class="card-title">Fotos</h4>
-         </div>
+                  <h4 class="card-title">Notícias</h4>
+         </div> </br>
 
- 		       	<div class="row">
-        	
+            <div class="row">
+          
           <div class="col-md-12">
-						<% @firm.firm_photos.each do |image| %>
+            <% @firm.releases.each do |release| %>
+          <div class="col-md-12">
+            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
+            <%= link_to release.filename, rails_blob_path(release, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
 
-						<%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-						<% end %>
           </div>
 
-        		</div>
-        	</div>          
+            <% end %>
+          </div> 
+
+          <div class="card">
+          </div>
+
+
+            </div>
+          </div>          
+        </div>          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Videos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+
+
+        <div class="row col-md-12">
+          <% for video in @firm.videos %>  
+          <div class="col-md-3" >
+              <div class="card" >
+                <div class="card-avatar" style="background-color: #212529">                    
+                    <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+                </div>
+                <div class="card-body">
+                  <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.blob.filename.to_s, length:70) %></p>
+
+                  <p class="card-title" style="font-size: 12px; font-weight: bold">publicado <%= truncate(video.blob.created_at.to_s, length:14) %></p>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
         </div>
+          </div>
+
+            </div>
+          </div>          
+        </div>
+
+
+
+
+
 
 
 
@@ -112,8 +260,11 @@
           
           <div class="col-md-12">
             <% @firm.documents.each do |document| %>
+          <div class="col-md-12">
+            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
+            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
 
-            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold" %>
+          </div>
 
             <% end %>
           </div> 
@@ -277,3 +428,8 @@
       </ul>
     </div>
   </div>
+
+
+<% if current_user.firm == @firm %>
+<%= link_to "editar perfil da empresa", edit_firm_path(@firm) %>
+<% end %>

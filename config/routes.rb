@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :firms, only: [:new, :edit, :udate, :create, :show, :index]
+  resources :firms, only: [:new, :edit, :update, :create, :show, :index]
   get 'landing/index'
   get 'quotations/index'
   get 'quotations/new'

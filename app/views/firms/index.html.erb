@@ -21,7 +21,7 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title"><%= h truncate(firm.name, lenght: 20) %></h4>
+                  <h4 class="card-title"><%= h truncate(firm.name, length: 20) %></h4>
                   <p class="card-description" style='height: 150px; color: #000; font-size: 15px'>
                     <%= h truncate(ActionView::Base.full_sanitizer.sanitize(firm.description), :length => 170) %>
                   </p>

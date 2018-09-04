@@ -35,16 +35,25 @@ class FirmsController < ApplicationController
   end
 
   def edit
+    @firm = Firm.find_by(id: params[:id])
   end
 
   def update
+    @firm = Firm.find_by(id: params[:id])
+    if @firm.update(firm_params)
+      flash[:success] = "Perfil da empresa atualizado com sucesso!"
+      redirect_to firms_path
+    else
+      flash[:erro] = "Não foi possível atualizar o perfil da empresa. Por favor tente novamente"
+      redirect_to new_firm_path
+    end
   end
 
 
   private
 
   def firm_params
-    params.require(:firm).permit(:name, :description, :email, :whatsapp, :skype, :linkedin, :facebook, :instagram, :firm_phone, :website, :cnpj, :address, documents:[], firm_photos:[]
+    params.require(:firm).permit(:name, :description, :email, :whatsapp, :skype, :linkedin, :facebook, :instagram, :firm_phone, :website, :cnpj, :address, documents:[], firm_photos:[], releases:[], videos:[]
       )    
   end
 
