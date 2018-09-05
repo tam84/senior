@@ -71,7 +71,7 @@
     		<%= f.label :description, "Faça uma descrição bastante completa, insira todas as informações que quiser. Não há problema em repetir informações" %>
     		<%= f.text_area :description, rows: 5, cols: 25, class: "tinymce" %> <br />    		    					
 			
-  			<%= f.fields_for @product.product_specific do |form| %>
+  			<%= f.fields_for :product_specific, ProductSpecific.new do |form| %>
 
     		<%= form.label :closing_expected, "Expectativa de fechamento da captação" %>
     		<%= form.text_field :closing_expected, class: 'form-control'  %><br/>  

@@ -4,6 +4,7 @@ class FirmsController < ApplicationController
   
   def new
     @firm = Firm.new
+    @youtube_video = YoutubeVideo.new
   end
 
   def create

@@ -10,6 +10,8 @@ class Product < ApplicationRecord
     belongs_to :firm
     has_many :posts, as: :postable
     has_many_attached :releases
+    has_many :youtube_videos, as: :videoable
+
 
 
 	accepts_nested_attributes_for :product_specific

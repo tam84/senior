@@ -192,6 +192,7 @@
 
 
 
+        <% if @firm.videos.present? %>
 
 
         <div class="col-md-12">
@@ -201,7 +202,7 @@
                   <div class="card-icon">
                     <i class="material-icons">mail_outline</i>
                   </div>
-                  <h4 class="card-title">Videos</h4>
+                  <h4 class="card-title">Videos Privados</h4>
          </div>
 
             <div class="row">
@@ -209,12 +210,20 @@
           <div class="col-md-12">
 
 
+
         <div class="row col-md-12">
           <% for video in @firm.videos %>  
           <div class="col-md-3" >
               <div class="card" >
                 <div class="card-avatar" style="background-color: #212529">                    
-                    <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+                    
+
+
+                <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+
+
+
+
                 </div>
                 <div class="card-body">
                   <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.blob.filename.to_s, length:70) %></p>
@@ -238,6 +247,66 @@
             </div>
           </div>          
         </div>
+
+      <% end %>
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Videos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+
+        <div class="row col-md-12">
+          <% for video in @firm.youtube_videos %>  
+          <div class="col-md-3" >
+              <div class="card" >
+                <div class="card-avatar" style="background-color: #212529">                    
+                    <%# link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+
+
+                <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), youtube_url %>
+
+
+                </div>
+                <div class="card-body">
+                  <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.title, length:70) %></p>
+
+                  <p class="card-title" style="font-size: 12px; font-weight: bold">publicado <%= truncate(video.created_at.to_s, length:14) %></p>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
+        </div>
+          </div>
+
+            </div>
+          </div>          
+        </div>        
 
 
 
@@ -433,3 +502,4 @@
 <%# if current_user.firm == @firm %>
 <%= link_to "editar perfil da empresa", edit_firm_path(@firm) %>
 <%# end %>
+<%= link_to "adicionar videos do youtube", new_youtube_video_path(firm_id: @firm) %>

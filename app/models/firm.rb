@@ -6,6 +6,7 @@ class Firm < ApplicationRecord
   has_many_attached :documents
   has_many_attached :releases
   has_many_attached :videos
+  has_many :youtube_videos, as: :videoable
 
 
 

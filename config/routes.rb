@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :products
   resources :email_messages#, only: [:new, :create, :show, :index]
   resources :quotations
+  resources :youtube_videos
+
 
   #get '/product_associates', to: 'product_associates#index'
 

@@ -34,5 +34,9 @@ module ProductsHelper
 		@product_associates_ids.include?(user_id)
 	end
 
+	def youtube_url
+		User.last.job_title
+	end
+
 
 end

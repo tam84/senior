@@ -147,7 +147,11 @@
           <div class="col-md-3" >
               <div class="card" >
                 <div class="card-avatar" style="background-color: #212529">
-                    <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+                    <%# link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>
+
+                <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), youtube_url %>
+              
+
                 </div>
                 <div class="card-body">
                   <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.blob.filename.to_s, length:70) %></p>

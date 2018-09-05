@@ -1,0 +1,24 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for @youtube_video do |f| %>
+        <div class="form-group">
+        <%= f.label :title, "titulo do video" %>
+        <%= f.text_area :title, class: 'form-control' %>       
+
+        <%= f.label :url, "url do video" %>
+        <%= f.text_area :url, class: 'form-control' %>       
+
+        <%= f.hidden_field :videoable_id, value: params[:firm_id]  %><br />   
+        <%= f.hidden_field :videoable_type, value: "Firm"  %><br />   
+
+  
+        <small class="text-muted">De 2 to 1000 caracteres</small>     
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
