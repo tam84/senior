@@ -9,7 +9,7 @@
             <%= f.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }), :prompt => 'Selecione o tipo de investimento' %><br/> <br/>     
 
             <%= f.label :firm_id, "Empresa" %><br/>
-            <%= f.select :firm_id, options_for_select(Firm.all.collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione a empresa proprietária do produto' %><br/> <br/>     
+            <%= f.select :firm_id, options_for_select(Firm.all.order(name: "asc").collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione a empresa proprietária do produto' %><br/> <br/>     
 
 
     		<%= f.label :admin_fee, "Taxa de administração" %>

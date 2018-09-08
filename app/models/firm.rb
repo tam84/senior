@@ -19,3 +19,10 @@ class Firm < ApplicationRecord
   end
 
 end
+
+
+
+
+
+
+
