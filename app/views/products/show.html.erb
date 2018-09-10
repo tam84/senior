@@ -1,4 +1,21 @@
+<div class="col-md-12">
+    <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
+      <%= f.hidden_field :followed_id, value: @product.id  %> 
+      <%= f.hidden_field :followed_type, value: "Product"  %>   
 
+        <%= f.submit "Seguir", class: 'btn btn-rose' %>
+      <% end %>
+</div>
+
+
+
+
+
+<div class="col-md-12">
+  <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+    <%= link_to ("Seguir").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
+  </button>         
+</div></br></br>
 
 
 

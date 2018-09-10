@@ -22,6 +22,11 @@ class PostsController < ApplicationController
     #end
     if params[:postable_type]
       @posts = Post.where(postable_type: params[:postable_type], postable_id: params[:postable_id])
+    else
+      array = current_user.connections.pluck(:followed_id, :followed_type)
+      postable_ids = array.map {|el| el[0]}
+      postable_types = array.map {|el| el[1]}
+      @posts = Post.where(postable_id: postable_ids, postable_type: postable_types )
     end
 
   end

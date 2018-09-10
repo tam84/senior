@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   has_many :customer_to_product_associates
 
+  has_many :connections
+
 
 
   
