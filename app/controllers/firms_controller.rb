@@ -24,6 +24,12 @@ class FirmsController < ApplicationController
     else
       @firms = Firm.all
     end
+
+      @firms
+      if params[:table_format]
+        render 'table_index'
+      end
+      
   end
 
 

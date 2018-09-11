@@ -1,3 +1,54 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <% if @user.profile_photos.present? %>
+          <%= image_tag(@user.profile_photos.first.variant(resize: "50x50!")) %>
+        <% else %>
+        <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+        <% end %>
+      </div>
+        <h4 class="card-title"><%= @user.name %></h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+              <div class="card-body ">
+                  <p>Seguindo o usuário, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
+
+                  <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
+                  <%= f.hidden_field :followed_id, value: @user.id  %> 
+                  <%= f.hidden_field :followed_type, value: "User"  %>   
+
+                  <%= f.submit "Seguir", class: 'btn btn-rose' %>
+                  <% end %>
+
+              </div>
+            </div>
+        </div>
+
+
+    </div>
+  </div>            
+</div>
+</br></br>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="col-md-12">
             <div class="card ">

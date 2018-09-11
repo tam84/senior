@@ -1,6 +1,3 @@
-<%= link_to "formato tabela", users_path(table_format: true)%>
-
-
   <div class="card "> 
     <div class="card-header card-header-rose card-header-icon">
     <%= form_tag users_path, method: :get do %>
@@ -29,10 +26,10 @@
                   <p class="card-description" style='height: 150px; color: #000; font-size: 15px' '>
                   <%= h truncate(ActionView::Base.full_sanitizer.sanitize(user.description), :length => 170) %>
                   </p>
-                    <%= form_for ChatRoom.new do |f| %>
-                    <%= f.hidden_field :senter_id, value: current_user.id %>
-                    <%= f.hidden_field :receiver_id, value: user.id %>
-                    <%#= f.submit "Iniciar chat!", class:"btn btn-round" %>
+                    <%= form_for ReservedRelation.new do |f| %>
+                    <%= f.hidden_field :user_id, value: user.id %>
+                    <%= f.hidden_field :product_id, value: params[:product_id] %>
+                    <%= f.submit "Criar Relação", class:"btn btn-round" %>
                   <% end %>
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
                   <%= link_to ("+Info").html_safe, user,  {style:'color:#fff;'}%>

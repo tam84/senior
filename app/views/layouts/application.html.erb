@@ -73,16 +73,6 @@
           </li>
 
 
-          <li class="nav-item active ">
-            <%= link_to ("<i class='material-icons'>dashboard</i><p>Cotar CDB e Privados</p>").html_safe, new_quotation_path(category_id: 1),class:"nav-link"%>
-          </li>
-
-          <li class="nav-item active ">
-            <%= link_to ("<i class='material-icons'>dashboard</i><p>Cotar Moedas</p>").html_safe, new_quotation_path(category_id: 1),class:"nav-link"%>
-          </li>
-
-
-
 
 
           <li class="nav-item ">
@@ -100,32 +90,17 @@
                 </li>
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/pages/pricing.html">
-                    <span class="sidebar-mini"> C </span>
-                    <span class="sidebar-normal"> Commodities Agrícolas </span>
-                  </a>
+                  <%= link_to "Commodities", new_quotation_path(category_id: 4), class:"nav-link" %>
                 </li>
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/pages/pricing.html">
-                    <span class="sidebar-mini"> C </span>
-                    <span class="sidebar-normal"> Commodities Metálicas </span>
-                  </a>
+                  <%= link_to "Juros", new_quotation_path(category_id: 4), class:"nav-link" %>
                 </li>
 
                 <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/pages/pricing.html">
-                    <span class="sidebar-mini"> C </span>
-                    <span class="sidebar-normal"> Travas com Opções </span>
-                  </a>
-                </li>
+                  <%= link_to "Ações", new_quotation_path(category_id: 4), class:"nav-link" %>
+                </li>                                
 
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/pages/pricing.html">
-                    <span class="sidebar-mini"> C </span>
-                    <span class="sidebar-normal"> Aluguél Ações </span>
-                  </a>
-                </li>
                 
               </ul>
             </div>            

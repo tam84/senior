@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :quotations
   resources :youtube_videos
   resources :connections
+  resources :reserved_relations
 
 
 

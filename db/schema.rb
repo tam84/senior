@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_09_095831) do
+ActiveRecord::Schema.define(version: 2018_09_10_102700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_095831) do
     t.string "country"
     t.integer "investment_period_from"
     t.integer "investment_period_to"
+    t.integer "view_status", default: 0
   end
 
   create_table "quotations", force: :cascade do |t|
@@ -204,6 +205,13 @@ ActiveRecord::Schema.define(version: 2018_09_09_095831) do
     t.string "group_id"
     t.integer "status", default: 0
     t.integer "product_id"
+  end
+
+  create_table "reserved_relations", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

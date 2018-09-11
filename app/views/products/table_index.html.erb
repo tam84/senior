@@ -1,0 +1,56 @@
+   <%= link_to "ver em outro formato", products_path%>
+         
+
+              <div class="card">
+                <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">assignment</i>
+                  </div>
+                  <h4 class="card-title">Mensagens Recebidas</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Data</th>
+                          <th>Empresa</th>
+                          <th>Nome</th>
+                          <th>Descrição</th>                          
+                          <th>Key Information</th>                          
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for product in @products %>
+
+
+
+                        <tr>
+                          <td class="text-center"><%= h truncate(product.created_at.to_s, :length => 15)%></td>
+                          <td ><%= h truncate(product.firm.name, :length => 13) %></td>
+                          <td><%= h truncate(product.name, :length => 15)%></td>
+                          <td><%= h truncate(product.description, :length => 30) %></td>
+                          <td><%= h truncate(product.key_information, :length => 30) %></td>
+
+                         
+
+
+
+
+                          <td class="td-actions text-right">
+
+                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                              <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#fff;'}%>
+
+                            </button>
+                          </td>
+                        </tr>
+                        <% end %>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>

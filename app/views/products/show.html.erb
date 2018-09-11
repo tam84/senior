@@ -1,21 +1,99 @@
-<div class="col-md-12">
-    <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
-      <%= f.hidden_field :followed_id, value: @product.id  %> 
-      <%= f.hidden_field :followed_type, value: "Product"  %>   
+<% if current_user.firm == @product.firm %>     
+        <div class="col-md-12">
+              <div class="card ">
 
-        <%= f.submit "Seguir", class: 'btn btn-rose' %>
-      <% end %>
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Exclusivo para os Administradores do produto</h4>
+         </div> </br>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+
+                <div class="col-md-12">
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Editar info do produto").html_safe, edit_product_path(@product), { :style=>'color:#FFFFFF;'}%>
+                  </button>         
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Inserir membros da equipe a esse produto").html_safe, new_product_associate_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
+                  </button>                     
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("adicionar usuário confidencial").html_safe, new_reserved_relation_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
+                  </button>  
+                </div>                  
+
+          </div> 
+
+
+
+          <div class="card">
+
+          </div>
+
+
+            </div>
+          </div>          
+        </div>    
+
+<% end %>        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <%= image_tag(@product.firm.firm_photos.first.variant(resize: "50x50!")) %>
+      </div>
+        <h4 class="card-title"><%= @product.name %></h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+              <div class="card-body ">
+                  <p>Seguindo o produto, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
+
+                  <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
+                  <%= f.hidden_field :followed_id, value: @product.id  %> 
+                  <%= f.hidden_field :followed_type, value: "Product"  %>   
+
+                  <%= f.submit "Seguir", class: 'btn btn-rose' %>
+                  <% end %>
+
+              </div>
+            </div>
+        </div>
+
+
+    </div>
+  </div>            
 </div>
+</br></br>         
 
 
 
 
 
-<div class="col-md-12">
-  <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-    <%= link_to ("Seguir").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
-  </button>         
-</div></br></br>
 
 
 
@@ -26,35 +104,6 @@
 
 
 
-        <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Fotos</h4>
-         </div>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-            <% @product.images.each do |image| %>
-            <% if image.previewable? %>
-
-              <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-
-            <% else %>
-            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-            <% end %>
-            <% end %>
-          </div>
-
-            </div>
-          </div>          
-        </div>
 
 
 
@@ -199,6 +248,45 @@
 
 
 
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Fotos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @product.images.each do |image| %>
+            <% if image.previewable? %>
+
+              <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+
+            <% else %>
+            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+            <% end %>
+            <% end %>
+          </div>
+
+            </div>
+          </div>          
+        </div>
+
+
+
+
+
+
+
+
+
+
 
         <div class="col-md-12">
               <div class="card ">
@@ -222,6 +310,18 @@
 
             <% end %>
           </div> 
+
+          <div class="col-md-12">
+            <% @product.firm.documents.each do |firm_document| %>
+          <div class="col-md-12">
+            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
+            <%= link_to firm_document.filename, rails_blob_path(firm_document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
+
+          </div>
+
+            <% end %>
+          </div> 
+
 
 
           <div class="card">
@@ -288,15 +388,3 @@
 
 
 
-
-
-
-
-<%= link_to "entrar em contato", new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id))%></br>
-
-
-
-<% if current_user == User.last %>
-  <%= link_to "relacionar associados ao produto",  new_product_associate_path(product_id: @product.id) %></br>
-  <%= link_to "editar produto", edit_product_path(@product) %> 
-<% end %>

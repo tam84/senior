@@ -12,6 +12,8 @@ class Product < ApplicationRecord
     has_many_attached :releases
     has_many :youtube_videos, as: :videoable
 
+    enum view_status: {revisando: 0, público: 1, confidencial: 2}   
+
 
 
 	accepts_nested_attributes_for :product_specific

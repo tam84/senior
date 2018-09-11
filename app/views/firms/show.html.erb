@@ -1,3 +1,6 @@
+
+
+<% if current_user.firm == @firm %>     
         <div class="col-md-12">
               <div class="card ">
 
@@ -5,22 +8,87 @@
                   <div class="card-icon">
                     <i class="material-icons">mail_outline</i>
                   </div>
-                  <h4 class="card-title">Fotos</h4>
-         </div>
+                  <h4 class="card-title">Exclusivo para os Administradores do perfil da empresa</h4>
+         </div> </br>
 
             <div class="row">
           
           <div class="col-md-12">
-            <% @firm.firm_photos.each do |image| %>
 
-            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+                <div class="col-md-12">
 
-            <% end %>
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Editar info perfil da empresa").html_safe, edit_firm_path(@firm), { :style=>'color:#FFFFFF;'}%>
+                  </button>         
+
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("adicionar videos do youtube").html_safe, new_youtube_video_path(firm_id: @firm), { :style=>'color:#FFFFFF;'}%>
+                  </button>                     
+
+                </div>                  
+
+          </div> 
+
+
+
+          <div class="card">
+
           </div>
+
 
             </div>
           </div>          
+        </div>    
+
+<% end %>  
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <%= image_tag(@firm.firm_photos.first.variant(resize: "50x50!")) %>
+      </div>
+        <h4 class="card-title"><%= @firm.name %></h4>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+              <div class="card-body ">
+                  <p>Seguindo a empresa, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
+
+                  <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
+                  <%= f.hidden_field :followed_id, value: @firm.id  %> 
+                  <%= f.hidden_field :followed_type, value: "Firm"  %>   
+
+                  <%= f.submit "Seguir", class: 'btn btn-rose' %>
+                  <% end %>
+
+              </div>
+            </div>
         </div>
+
+
+    </div>
+  </div>            
+</div>
+</br></br>         
+
+
+
+
+
 
 
 
@@ -322,6 +390,43 @@
                   <div class="card-icon">
                     <i class="material-icons">mail_outline</i>
                   </div>
+                  <h4 class="card-title">Fotos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+            <% @firm.firm_photos.each do |image| %>
+
+            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+
+            <% end %>
+          </div>
+
+            </div>
+          </div>          
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
                   <h4 class="card-title">Documentos</h4>
          </div> </br>
 
@@ -498,8 +603,3 @@
     </div>
   </div>
 
-
-<%# if current_user.firm == @firm %>
-<%= link_to "editar perfil da empresa", edit_firm_path(@firm) %>
-<%# end %>
-<%= link_to "adicionar videos do youtube", new_youtube_video_path(firm_id: @firm) %>
