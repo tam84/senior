@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_10_102700) do
+ActiveRecord::Schema.define(version: 2018_09_12_104554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,9 +187,9 @@ ActiveRecord::Schema.define(version: 2018_09_10_102700) do
     t.integer "target_return_benchmark_from"
     t.integer "target_return_benchmark_to"
     t.string "country"
-    t.integer "investment_period_from"
-    t.integer "investment_period_to"
     t.integer "view_status", default: 0
+    t.datetime "from_investment_period"
+    t.datetime "to_investment_period"
   end
 
   create_table "quotations", force: :cascade do |t|

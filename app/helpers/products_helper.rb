@@ -34,5 +34,17 @@ module ProductsHelper
 		@product_associates_ids.include?(user_id)
 	end
 
+	def firm_products firm
+    	if current_user.reserved_relations.present?
+    		@all_products = firm.products.where(view_status: "público")
+    		product_ids_from_reserved_relations = current_user.reserved_relations.pluck(:product_id)	 
+    		@all_reserved_products = firm.products.where(id: product_ids_from_reserved_relations )
+    		@products =  @all_reserved_products + @all_products
+    	else
+    		@products = firm.products.where(view_status: "público")
+    	end
+
+	end
+
 
 end

@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
     		@all_reserved_products = Product.where(id: product_ids_from_reserved_relations )
     		@products =  @all_reserved_products + @all_products
     	else
-    		@products = Product.all
+    		@products = Product.where(view_status: "público")
     	end
 
       @products
@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
 
 	def show
 		if params[:id]
-			@product = Product.find_by(id: params[:id])	
+			@product = Product.find_by(id: params[:id])	unless !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
 			current_user_segmentations = current_user.segmentation
 			if current_user.customer_to_product_associates.present?
 				@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)
@@ -107,13 +107,20 @@ class ProductsController < ApplicationController
     end
   end	
 
+  def import
+    Product.import(params[:file])
+    flash[:success] = "Importação feita com sucesso"
+    redirect_back(fallback_location: root_path) 
+
+  end  
+
 
 	private
 
 
 
 	def product_params
-		params.require(:product).permit(:view_status ,:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :investment_period_from, :investment_period_to, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :benchmark ,videos:[], images:[], releases:[], documents:[], 
+		params.require(:product).permit(:view_status ,:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :from_investment_period, :to_investment_period, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :benchmark ,videos:[], images:[], releases:[], documents:[], 
 		product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
 			)
 	end
