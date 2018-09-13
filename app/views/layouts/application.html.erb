@@ -29,6 +29,8 @@
         </a>
       </div>
       
+
+      <% if current_user %>
       <div class="sidebar-wrapper">
         
 
@@ -137,6 +139,7 @@
           <% end %>
         </ul>
       </div>
+      <% end %>
     </div>
 
 
@@ -211,7 +214,10 @@
                   <% if user_signed_in? %>
                   <a class="dropdown-item"><%= current_user.email  %></a>
                   
-                  <%= link_to 'Editar perfil', edit_user_registration_path, {class:"dropdown-item"} %>
+                  <%= link_to 'Editar perfil', edit_user_registration_path(change_profile: true), {class:"dropdown-item"} %>
+                  <%= link_to 'Mudar Senha', edit_user_registration_path(change_password: true), {class:"dropdown-item"} %>
+
+
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
                     <% else %>
                   <%= link_to "Sign up", new_user_registration_path, {class:"dropdown-item"} %>

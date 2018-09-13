@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+  before_action :check_if_current_user_is_product_associate, only: [:new, :create]
   
   def new
   end
@@ -37,5 +39,13 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, :postable_id, :postable_type)    
   end
 
+  def check_if_current_user_is_product_associate
+    user_id = current_user.id
+    product = Product.find_by(id: params[:post][:postable_id])
+    @product_associates_ids = product.product_associates.pluck(:user_id)
+    if !@product_associates_ids.include?(user_id)    
+      redirect_back(fallback_location: root_path)
+    end
+  end
 
 end

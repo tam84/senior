@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin_user!, only: [:new,:create]
 
 
 	def new
@@ -6,15 +7,17 @@ class ProductsController < ApplicationController
 	end
 
 	def create 
-		assetclass_id = Category.find_by(id: params[:product][:category_id]).assetclass_id
-		params_merged = product_params.merge(assetclass_id: assetclass_id)
+    if params[:product][:category_id].present? and params[:product][:assetclass_id].present?
+		  assetclass_id = Category.find_by(id: params[:product][:category_id]).assetclass_id
+		  params_merged = product_params.merge(assetclass_id: assetclass_id)
+    end
 		@product = Product.new(params_merged)
 		if @product.save
       		flash[:success] = "Produto criado com sucesso!"
       		redirect_to @product		
 		else
       		flash[:error] = "Não foi possivel criar o produto, tente novamente!"
-      		redirect_to new_product_path		
+          render 'new'
 		end
 	end
 
@@ -80,7 +83,7 @@ class ProductsController < ApplicationController
 
 	def show
 		if params[:id]
-			@product = Product.find_by(id: params[:id])	unless !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
+			@product = Product.find_by(id: params[:id])	unless Product.find_by(id: params[:id], view_status: "confidencial") and !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
 			current_user_segmentations = current_user.segmentation
 			if current_user.customer_to_product_associates.present?
 				@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)

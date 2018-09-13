@@ -2,7 +2,7 @@
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+        <%= link_to devise_error_messages! %>
         <div class="form-group">
 
 
@@ -11,7 +11,7 @@
 
 
     <%= f.label :description, "Descrição" %>
-    <%= f.text_area :description, rows: 5, cols: 25, class: "tinymce" %> <br />                     
+    <%= f.text_area :description, rows: 5, cols: 25, class: "tinymce", style: "height: 500px" %> <br />                     
    <%# f.select :segmentation, collection: User.segmentations.keys%>
 
     <%= f.label :segmentation, "Insira as tags separadas por virgula" %>

@@ -1,8 +1,9 @@
 class Quotation < ApplicationRecord
 	
-	#validates :senter_message, presence: true
-
 	enum status: {under_revision: 0, approved: 1}	
+
+	validates :senter_message, presence: true
+
 
 	def save_quotation params, user
 

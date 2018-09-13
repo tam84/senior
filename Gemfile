@@ -99,3 +99,4 @@ gem "roo"
 
 gem 'capistrano-rails-console', require: false
 
+#gem 'sidekiq'

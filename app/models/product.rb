@@ -5,21 +5,23 @@ class Product < ApplicationRecord
 	has_many :product_associates
 	has_many_attached :images
 	has_many_attached :documents
-    has_many_attached :videos    
+  has_many_attached :videos    
 	has_one :product_specific
-    belongs_to :firm
-    has_many :posts, as: :postable
-    has_many_attached :releases
-    has_many :youtube_videos, as: :videoable
+  belongs_to :firm
+  has_many :posts, as: :postable
+  has_many_attached :releases
+  has_many :youtube_videos, as: :videoable
 
-    enum view_status: {revisando: 0, público: 1, confidencial: 2}   
+  enum view_status: {revisando: 0, público: 1, confidencial: 2}   
 
 
 
 	accepts_nested_attributes_for :product_specific
 
-    require 'roo'
+  require 'roo'
 
+  validates :name, presence: true
+  validates :description, presence: true
 
 	def thumbnail input
 		return self.images[input].variant(resize: '300x300!').processed

@@ -28,10 +28,6 @@ class User < ApplicationRecord
 
 
 
-  
-  
-  
-
 
   include PgSearch
   pg_search_scope :search_by_full_name, against: [:full_name]
@@ -53,6 +49,15 @@ class User < ApplicationRecord
 
   def to_param
     "#{id}-#{name}".parameterize
+  end  
+
+
+  def active_for_authentication? 
+    super && approved? 
+  end 
+  
+  def inactive_message 
+    approved? ? super : :not_approved
   end    
 
 end

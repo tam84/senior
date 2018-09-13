@@ -1,73 +1,121 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 <div class="col-md-12">
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
+      <h2 style="color: black">Editar</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= link_to devise_error_messages! %>
         <div class="form-group">
 
-
-    <%= f.label :full_name, "Nome Completo" %>
-    <%= f.email_field :full_name, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Insira seu nome completo" %><br/><br/>
-
-
-    <%= f.label :description, "Descrição" %>
-    <%= f.email_field :description, autofocus: true, autocomplete: "email",class: 'form-control', placeholder: "Breve descrição das suas atividades atuais e caso queira fale um pouco do passado" %><br/><br/>
-
-
-    <%= f.label :email, "Email" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Seu principal email, é nele que você receberá as notificações" %><br/><br/>
-
-
-    <%= f.label :password, "Senha" %>
+    <% if params[:change_password] %>
+ 
+    <%= f.label :password, "Nova Senha" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %><br/><br/>
-  </div>
+     </div>
 
     <%= f.label :password_confirmation, "Confirmação de senha" %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/><br/>
 
 
+    <%= f.label :current_password, "Senha atual" %>
+    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %><br/><br/>
+
+    <% elsif params[:change_profile] %>
+ 
+    <%= f.label :current_password, "Senha atual" %>
+    <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %><br/><br/>
+
+    <%= f.label :full_name, "Nome Completo" %>
+    <%= f.text_field :full_name, autofocus: true, class: 'form-control', placeholder: "Insira seu nome completo" %><br/><br/>
+
+
+    <%= f.label :description, "Descrição" %>
+    <%= f.text_area :description, rows: 5, cols: 25, class: "tinymce", style: "height: 500px" %> <br />                     
+   <%# f.select :segmentation, collection: User.segmentations.keys%>
+
+    <%# f.label :segmentation, "Insira as tags separadas por virgula" %>
+    <%# f.text_area :segmentation, class: 'form-control', placeholder: "Insira as tags separadas por virgula" %>
+
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Seu principal email, é nele que você receberá as notificações" %><br/><br/>
+
+
+
     <div class= "field" >
-      <%= f.label :profile_photos, "Selecione as imagens do produto" %>
-      <%= f.file_field :profile_photos, multiple: true, class: 'form-control' %><br/><br/>
+      <%= f.file_field :profile_photos, multiple: true, class: 'btn btn-rose btn-sm' %><br/><br/>
     </div>  
 
+    <div class= "field" >
+      <%= f.file_field :documents, multiple: true, class: 'btn btn-rose btn-sm' %><br/><br/>
+    </div>  
+
+
       <%= f.label :whatsapp, "insira seus dados de contato" %><br/><br/>
-      <%= f.email_field :whatsapp, autofocus: true, placeholder: "Insira seu Whatsapp" %>
-      <%= f.email_field :skype, autofocus: true, placeholder: "Insira seu skype" %>
-      <%= f.email_field :linkedin, autofocus: true, placeholder: "Insira seu linkedin" %>
-      <%= f.email_field :facebook, autofocus: true, placeholder: "Insira seu facebook" %>
-      <%= f.email_field :instagram, autofocus: true, placeholder: "Insira seu instagram" %><br/><br/>
+      <%= f.text_field :whatsapp, autofocus: true, placeholder: "Insira seu Whatsapp" %>
+      <%= f.text_field :skype, autofocus: true, placeholder: "Insira seu skype" %>
+      <%= f.text_field :linkedin, autofocus: true, placeholder: "Insira seu linkedin" %>
+      <%= f.text_field :facebook, autofocus: true, placeholder: "Insira seu facebook" %>
+      <%= f.text_field :instagram, autofocus: true, placeholder: "Insira seu instagram" %><br/><br/>
 
 
       <%= f.label :website, "Website" %>
-      <%= f.email_field :website, autofocus: true, class: 'form-control', placeholder: "Website da empresa ou pessoal" %><br/><br/>
+      <%= f.text_field :website, autofocus: true, class: 'form-control', placeholder: "Website da empresa ou pessoal" %><br/><br/>
+
+      <%= f.label :firm_phone, "Telefone da empresa" %>
+      <%= f.text_field :firm_phone, autofocus: true, class: 'form-control', placeholder: "Telefone da empresa." %><br/><br/>
+
 
 
       <%= f.label :official_registration, "Registro Oficial" %>
-      <%= f.email_field :official_registration, autofocus: true, class: 'form-control', placeholder: "Insira seu Registro Oficial caso tenha" %><br/><br/>
-
-      <%= f.label :address, "Registro Oficial" %>
-      <%= f.email_field :address, autofocus: true, class: 'form-control', placeholder: "Informe seu endereçø completo" %><br/><br/>
+      <%= f.text_field :official_registration, autofocus: true, class: 'form-control', placeholder: "Insira seu Registro Oficial caso tenha" %><br/><br/>
 
 
+      <%= f.label :zip_code, "CEP" %>
+      <%= f.text_field :zip_code, autofocus: true, class: 'form-control', placeholder: "Informe seu CEP, Utilize somente números nesse campo. Não insira o - antes dos últimos três números" %><br/><br/>
 
-        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+
+      <%= f.label :address, "Endereço" %>
+      <%= f.text_field :address, autofocus: true, class: 'form-control', placeholder: "Informe seu endereçø completo" %><br/><br/>
+
+      <%= f.label :firm_id, "Sua empresa" %><br/>
+      <%= f.select :firm_id, options_for_select(Firm.all.collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione sua empresa' %><br/> <br/>     
+
       <% end %>
+
+
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %><br/><br />
+      <% end %>
+
+      <div>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
 
 
 
-<%= render "devise/shared/links" %>
+<%= tinymce %> 
 
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

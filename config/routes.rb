@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
  # get '/users/:id',   to: 'users#show'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   authenticated do
     root :to => 'products#index', as: :authenticated_root

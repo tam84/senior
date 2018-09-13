@@ -26,12 +26,12 @@ class QuotationsController < ApplicationController
 
   def create
   	@quotation = Quotation.new
-  	if @quotation.save_quotation params, current_user
+  	if params[:quotation][:senter_message].present? and @quotation.save_quotation params, current_user
       flash[:success] = 'Pedido enviado com sucesso! Acompanhe o recebimento de cotações.' 
       redirect_to quotations_path(status: "under_revision")
     else
-      flash[:error] = 'Não foi possível enviar o seu pedido. Por favor tente novamente!' 
-      redirect_to = new_quotation_path(category_id: 1)
+      flash[:error] = "Faltam informações no seu pedido"
+      redirect_back(fallback_location: root_path)
     end
   end
 
