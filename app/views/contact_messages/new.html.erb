@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_for @contact_message do |f| %>
+        <div class="form-group">
+        <%= f.label :name, "Nome" %>
+        <%= f.text_area :name, class: 'form-control' %> </br></br>
+        <%= f.label :email, "Email" %>
+        <%= f.text_area :email, class: 'form-control' %>       </br></br>
+
+        <%= f.label :contacts, "Contatos" %>
+        <%= f.text_area :contacts, class: 'form-control', placeholder: "Deixe seus contatos como telefone, skype, linkedin ou o que preferir para podemos procura-lo" %>       </br></br>
+
+        <%= f.label :firm, "Empresa" %>
+        <%= f.text_area :firm, class: 'form-control' %>       </br></br>
+
+        <%= f.label :content, "Escreva sua mensagem" %>
+        <%= f.text_area :content, class: 'form-control' %>       </br></br>
+
+        </div>
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :youtube_videos
   resources :connections
   resources :reserved_relations
+  resources :contact_messages, only: [:new, :create]
 
 
 
