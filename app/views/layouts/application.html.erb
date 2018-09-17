@@ -21,12 +21,10 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+        <a class="navbar-brand" href="https://demos.creative-tim.com/now-ui-kit/index.html" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+          <%= image_tag(("http://ec2-18-222-94-248.us-east-2.compute.amazonaws.com/assets/logo_liquibay_branco.png"), style:"width:235px; height: 50px") %>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a>
+
       </div>
       
 
@@ -165,24 +163,8 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
+
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons" style="color:black">notifications</i>
@@ -220,7 +202,7 @@
 
                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
                     <% else %>
-                  <%= link_to "Sign up", new_user_registration_path, {class:"dropdown-item"} %>
+                  <%# link_to "Sign up", new_user_registration_path, {class:"dropdown-item"} %>
                   <%= link_to "Login", new_user_session_path, {class:"dropdown-item"} %>
                   <%end%>
                 </div>
