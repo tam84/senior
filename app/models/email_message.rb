@@ -14,38 +14,24 @@ class EmailMessage < ApplicationRecord
 		receivers_ids = params[:email_message][:receiver_id].split.map{|i| i.to_i}
 		receivers_ids.each do |receiver_id|
 
-		email_message = EmailMessage.new
-		email_message.subject = params[:email_message][:subject]
-		email_message.text_message = params[:email_message][:text_message]
-		email_message.product_id = params[:email_message][:product_id]
-		email_message.receiver_id = receiver_id
-		email_message.senter_id = current_user.id
-		email_message.email_message_id = params[:email_message][:email_message_id]
+			email_message = EmailMessage.new
+			email_message.subject = params[:email_message][:subject]
+			email_message.text_message = params[:email_message][:text_message]
+			email_message.product_id = params[:email_message][:product_id]
+			email_message.receiver_id = receiver_id
+			email_message.senter_id = current_user.id
+			email_message.email_message_id = params[:email_message][:email_message_id]
+			email_message.confidential = params[:email_message][:confidential]
 
-		email_message.save!
+			email_message.save!
 
-		email_message.update_email_message_id email_message
+			email_message.update_email_message_id email_message
 
-		email_message.update_status_of_last_message params
+			email_message.update_status_of_last_message params
 
-		email_message.notify_by_email email_message, receiver_id, current_user
+			#email_message.notify_by_email email_message, receiver_id, current_user
 
-		email_message.notify_by_notification receiver_id
-
-
-#		if email_message.email_message_id == nil
-#			email_message.update(email_message_id: email_message.id)
-#		end
-
-
-#		message_that_was_answered = EmailMessage.find_by(id: params[:email_message][:message_to_be_answered_id])
-#		if message_that_was_answered
-#			message_that_was_answered.update(status: 1)
-#		end
-
-#		receiver_user = User.find_by(id: receiver_id)
-#		EmailMessageMailer.email_message_confirmation(email_message,receiver_user, current_user).deliver
-
+			email_message.notify_by_notification receiver_id
 		end
 	end
 

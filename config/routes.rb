@@ -28,6 +28,10 @@ Rails.application.routes.draw do
 
   resources :messages
 
+  resources :customer_to_bankers
+
+  resources :dark_orders
+
   mount ActionCable.server => '/cable'
 
   get '/users',   to: 'users#index'

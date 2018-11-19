@@ -1,10 +1,13 @@
 class QuotationsController < ApplicationController
   def index
     if params[:status] == "under_revision"
-      group_id = Quotation.where(senter_id: current_user.id).last.group_id
-      @quotations_under_revision = Quotation.where(senter_id: current_user.id, status: "under_revision", group_id: group_id).order(updated_at: :desc)   
-      firm_ids = @quotations_under_revision.pluck(:firm_id).uniq 
-      @firms = Firm.where(id: firm_ids)      
+      last_quotation = Quotation.where(senter_id: current_user.id).last
+      if last_quotation
+        group_id = last_quotation.group_id
+        @quotations_under_revision = Quotation.where(senter_id: current_user.id, status: "under_revision", group_id: group_id).order(updated_at: :desc)   
+        firm_ids = @quotations_under_revision.pluck(:firm_id).uniq 
+        @firms = Firm.where(id: firm_ids)      
+      end
 
     elsif params and params["/quotations"] and params["/quotations"]["search"]
       @quotations_searched= Quotation.where(senter_message: params["/quotations"]["search"], senter_id: current_user.id, status: "approved").order(updated_at: :desc)
@@ -27,7 +30,11 @@ class QuotationsController < ApplicationController
   def create
   	@quotation = Quotation.new
   	if params[:quotation][:senter_message].present? and @quotation.save_quotation params, current_user
-      flash[:success] = 'Pedido enviado com sucesso! Acompanhe o recebimento de cotações.' 
+      if params[:status] == "under_revision"
+        flash[:success] = 'Pedido enviado com sucesso! Acompanhe o recebimento de cotações.' 
+      else
+        flash[:success] = 'Revise seu pedido e veja se deseja excluir alguma mesa.'
+      end
       redirect_to quotations_path(status: "under_revision")
     else
       flash[:error] = "Faltam informações no seu pedido"
@@ -70,8 +77,8 @@ class QuotationsController < ApplicationController
       @quotations.confirm_request_quotation @quotations, current_user
     end
 
-    if !params[:status] == "under_revision" and !params[:firm_id] and !params[:group_id]    
-
+    #if !params[:status] == "under_revision" and !params[:firm_id] and !params[:group_id] and params[:quotation][:answer_quotation]   
+    if params[:quotation] and params[:quotation][:answer_quotation]   
   	 @quotation = Quotation.find_by(id: params[:id])
 
   	 if @quotation.update(quote: params[:quotation][:quote], receiver_message: params[:quotation][:receiver_message],category_id: params[:quotation][:category_id])
@@ -80,6 +87,21 @@ class QuotationsController < ApplicationController
       else
         flash[:error] = 'Não foi possível enviar a cotação ao cliente. Por favor tente novamente' 
         redirect_to quotations_path      
+      end
+    end
+  end
+
+  def destroy
+    if params[:status] == "under_revision"
+      last_quotation = Quotation.where(senter_id: current_user.id).last
+      if last_quotation
+        group_id = last_quotation.group_id
+        @quotations_under_revision = Quotation.where(senter_id: current_user.id, status: "under_revision", group_id: group_id).order(updated_at: :desc) 
+        if @quotations_under_revision.destroy_all 
+          cdb_category = Category.find_by(name: "CDB")             
+          redirect_to new_quotation_path(category_id: cdb_category) 
+          flash[:success] = 'Reformule seu pedido' 
+        end
       end
     end
   end

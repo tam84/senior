@@ -1,55 +1,31 @@
 
 
 <% if current_user.firm == @firm %>     
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">Exclusivo para os Administradores do perfil da empresa</h4>
+    </div></br>
+    <div class="row">
+      <div class="col-md-12">
         <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Exclusivo para os Administradores do perfil da empresa</h4>
-         </div> </br>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-
-                <div class="col-md-12">
-
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Editar info perfil da empresa").html_safe, edit_firm_path(@firm), { :style=>'color:#FFFFFF;'}%>
-                  </button>         
-
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("adicionar videos do youtube").html_safe, new_youtube_video_path(firm_id: @firm), { :style=>'color:#FFFFFF;'}%>
-                  </button>                     
-
-                </div>                  
-
-          </div> 
-
-
-
-          <div class="card">
-
-          </div>
-
-
-            </div>
-          </div>          
-        </div>    
-
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Editar info perfil da empresa").html_safe, edit_firm_path(@firm), { :style=>'color:#FFFFFF;'}%>
+          </button>         
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("adicionar videos do youtube").html_safe, new_youtube_video_path(firm_id: @firm), { :style=>'color:#FFFFFF;'}%>
+          </button>                     
+        </div>                  
+      </div> 
+      <div class="card">
+      </div>
+    </div>
+  </div>          
+</div>    
 <% end %>  
-
-
-
-
-
-
-
-
-
 
 
 
@@ -57,93 +33,85 @@
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
       <div class="card-icon">
+        <% if @firm.firm_photos.present? %>
         <%= image_tag(@firm.firm_photos.first.variant(resize: "50x50!")) %>
+        <% else %>
+        <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+        <% end %>
       </div>
         <h4 class="card-title"><%= @firm.name %></h4>
     </div>
-
     <div class="row">
-        <div class="col-md-12">
-            <div class="card ">
-              <div class="card-body ">
-                  <p>Seguindo a empresa, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
-
-                  <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
-                  <%= f.hidden_field :followed_id, value: @firm.id  %> 
-                  <%= f.hidden_field :followed_type, value: "Firm"  %>   
-
-                  <%= f.submit "Seguir", class: 'btn btn-rose' %>
-                  <% end %>
-
-              </div>
-            </div>
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-body ">
+            <p>Seguindo a empresa, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
+            <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
+            <%= f.hidden_field :followed_id, value: @firm.id  %> 
+            <%= f.hidden_field :followed_type, value: "Firm"  %>   
+            <%= f.submit "Seguir", class: 'btn btn-rose' %>
+            <% end %>
+          </div>
         </div>
-
-
+      </div>
     </div>
-  </div>            
+  </div>
 </div>
-</br></br>         
+       
 
 
-
-
-
-
-
-
-
-
-
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">Quer falar com essa empresa?</h4>
+    </div></br>
+    <div class="row">
+      <div class="col-md-12">
         <div class="col-md-12">
-            <div class="card ">
-              <div class="card-body ">
-
-                  <p>Quer falar com essa empresa?</p>
-                  <button type="button" rel="tooltip" class="btn btn-round" style="background-color: gray"data-original-title="" title="">
-                  <%= link_to "Envie uma mensagem"%>
-                  </button>         
-                </div>
-              </div>
-            </div>
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Fundos de Investimento").html_safe, edit_firm_path(@firm), { :style=>'color:#FFFFFF;'}%>
+          </button>         
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Renda Fixa").html_safe, new_youtube_video_path(firm_id: @firm), { :style=>'color:#FFFFFF;'}%>
+          </button>                     
+        </div>                  
+      </div> 
+      <div class="card">
+      </div>
+    </div>
+  </div>          
+</div>    
 
 
 
 <div class="container-fluid">
 	<div class="row">
-
-
-        <div class="col-md-12">
-              <div class="card ">
-
+    <div class="col-md-12">
+      <div class="card ">
         <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">+Info</h4>
-                </div>
-
-                <div class="card-body ">
-          <% if @firm != nil %>
-
-          <div class="card ">       
-            <%= @firm.name %>
+          <div class="card-icon">
+            <i class="material-icons">mail_outline</i>
           </div>
-
-
+          <h4 class="card-title">+Info</h4>
+        </div>
+        <div class="card-body ">
+          <% if @firm != nil %>
           <div class="card ">       
+            <%= @firm.name %>              
+          </div>
+          <div class="card ">
             whatsapp: <%= @firm.whatsapp %></br>
             skype: <%= @firm.skype %></br>
             linkedin: <%= @firm.linkedin %>
           </div>
-
-            <%= @firm.description.html_safe %>
-
+          <%= @firm.description.html_safe %>
           <%end%>
-                </div>  
-
-              </div>
-        </div> 
+        </div>  
+      </div>
+    </div> 
 
 
 

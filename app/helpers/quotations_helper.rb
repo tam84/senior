@@ -12,11 +12,11 @@ module QuotationsHelper
 	end
 
 	def current_user_has_quotations_as_seller
-		@quotation = Quotation.where(receiver_id: current_user.id).count > 0 
+		@quotation = Quotation.where(receiver_id: current_user.id, status: 1).count > 0 
 	end
 
 	def current_user_has_quotations_as_customer
-		@quotation = Quotation.where(senter_id: current_user.id).count > 0
+		@quotation = Quotation.where(senter_id: current_user.id, status: 1).count > 0
 	end
 
 	def firm_name quotation

@@ -1,259 +1,222 @@
 <div class="col-md-12">
-
-    <% if @quotations_under_revision and @firms %>
-              
-              <div class="card">
-                <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">assignment</i>
-                  </div>
-                  <h4 class="card-title">Pedido a ser aprovado</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th class="text-center">Data</th>
-                          <th>Empresa</th>
-                          <th>Pedido do cliente</th>
-                          <th>Cotação Enviada</th>                          
-                          <th class="text-right">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% for firm in @firms %>
-                        <tr>
-
-                          <td class="text-center"></td>
-
-                          <td><%= h truncate(firm.name, :length => 10) %></td>
-                          <td></td>
-                          <td></td>
-
-                          <td class="td-actions text-right">
-
-                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                            <%= link_to ("Remover").html_safe, quotation_path(id:  @quotations_under_revision.first,group_id: @quotations_under_revision.first.group_id, status: "under_revision", firm_id: firm.id ), {method: :put}%>
-                            </button>
-
-
-                          </td>
-                        </tr>
-                        <% end %>
-
-
-                      </tbody>
-                    </table>
-                    <%= link_to "confirmar", quotation_path(id:  @quotations_under_revision.first,group_id: @quotations_under_revision.first.group_id, status: "to_be_approved"), {method: :put} %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-    <% if current_user_has_quotations_as_seller %>
-              
-              <div class="card">
-                <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">assignment</i>
-                  </div>
-                  <h4 class="card-title">Pedidos Recebidos</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th class="text-center">Data</th>
-                          <th>Cliente</th>
-                          <th>Pedido do cliente</th>
-                          <th>Cotação Enviada</th>                          
-                          <th class="text-right">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      	<% for quotation_as_seller in @quotations_as_seller %>
-                        <tr>
-
-                          <td class="text-center"><%= h truncate(quotation_as_seller.updated_at.to_s, :length => 13) %></td>
-
-                          <td><%= h truncate(customer_name(quotation_as_seller), :length => 20) %></td>
-                          <td><%= h truncate(quotation_as_seller.senter_message, :length => 50) %></td>
-                          <td><%= h truncate(quotation_as_seller.quote, :length => 10) %></td>
-
-                          <td class="td-actions text-right">
-
-                            <% if !quotation_as_seller.quote? %>
-
-                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                            <%= link_to ("Cotar").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
-                            </button>
-
-                            <% elsif quotation_as_seller.quote? %>                            
-
-                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                            <%= link_to ("Alterar").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
-                            </button>
-                            <% end %>
-
-
-                          </td>
-                        </tr>
-                        <% end %>
-
-
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-                        <% end %>
-
-
-
-
-<% if !current_user_has_quotations_as_seller %>
-
-  <div class="card ">
+  <% if @quotations_under_revision and @firms %>
+  <div class="card">
     <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">assignment</i>
+      </div>
+      <h4 class="card-title">Revise o seu pedido</h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center">Empresa</th>
+              <th class="text-center">Empresa</th>
+              <th class="text-center">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for firm in @firms %>
+            <tr>
+              <td class="text-center">                          
+                <% if firm.firm_photos.present? %>
+                <%= image_tag(firm.firm_photos.first.variant(resize: "50x50!")) %>
+                <% else %>
+                <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+                <% end %>            
+              </td>
+              <td class="text-center"><%= h truncate(firm.name, :length => 10) %></td>
+              <td class="td-actions text-center">
+                <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+                  <%= link_to ("Remover").html_safe, quotation_path(id:  @quotations_under_revision.first,group_id: @quotations_under_revision.first.group_id, status: "under_revision", firm_id: firm.id ), {method: :put, style: "color: #fff"}%>    
+                </button>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+          <%= link_to "Disparar Pedido", quotation_path(id:  @quotations_under_revision.first,group_id: @quotations_under_revision.first.group_id, status: "to_be_approved"), {method: :put, style:"color: #fff"} %>
+        </button>
+        <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+          <%= link_to "Começar tudo de novo", quotation_path(id: 1, status: "under_revision"), {method: :delete, style:"color: #fff"} %>
+        </button>
+
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+<% if current_user_has_quotations_as_seller %>            
+<div class="card">
+  <div class="card-header card-header-rose card-header-icon">
+    <div class="card-icon">
+      <i class="material-icons">assignment</i>
+    </div>
+    <h4 class="card-title">Pedidos Recebidos</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Data</th>
+            <th>Cliente</th>
+            <th>Pedido do cliente</th>
+            <th>Cotação Enviada</th>                          
+            <th class="text-right">Ações</th>
+          </tr>
+        </thead>
+        <% if @quotations_as_seller %>
+        <tbody>
+          <% for quotation_as_seller in @quotations_as_seller %>
+          <tr>
+            <td class="text-center"><%= h truncate(quotation_as_seller.updated_at.to_s, :length => 13) %>
+            </td>
+            <td><%= h truncate(customer_name(quotation_as_seller), :length => 20) %></td>
+            <td><%= h truncate(quotation_as_seller.senter_message, :length => 50) %></td>
+            <td><%= h truncate(quotation_as_seller.quote, :length => 10) %></td>
+            <td class="td-actions text-right">
+              <% if !quotation_as_seller.quote? %>
+              <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                <%= link_to ("Cotar").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+              </button>
+
+              <button type="button" rel="tooltip" class="btn btn-danger" data-original-title="" title="">
+
+              <%= form_for CustomerToBanker.new, method: :post  do |f| %>
+              <%= f.hidden_field :user_id, value: quotation_as_seller.senter_id  %>
+              <%= f.hidden_field :banker_id, value: quotation_as_seller.receiver_id  %>
+              <%= f.hidden_field :firm_id, value: User.find_by(id: quotation_as_seller.senter_id).firm.id  %>                 
+              <%= f.hidden_field :product_id, value: quotation_as_seller.product_id  %>
+              <%= f.hidden_field :quotation_id, value: quotation_as_seller.id  %>
+              <%= f.submit "Esse cliente não é meu", class: 'btn btn-danger' %>
+              <% end %>
+              </button>
+
+
+              <% elsif quotation_as_seller.quote? %>                            
+              <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+                <%= link_to ("Alterar").html_safe, edit_quotation_path(id: quotation_as_seller, category_id: quotation_as_seller.category_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+              </button>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+<% if !current_user_has_quotations_as_seller and !params[:status] %>
+<div class="card ">
+  <div class="card-header card-header-rose card-header-icon">
     <%= form_for quotations_path, method: :get  do |f| %>
-        <div class="form-group">
-        <%= f.select :search, options_for_senter_message, :prompt => 'Selecione um pedido de cotação para filtrar' %>
-
-        <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
-
-        </div>
+    <div class="form-group">
+      <%= f.select :search, options_for_senter_message, :prompt => 'Selecione um pedido de cotação para filtrar' %>
+      <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
+      </div>
       <% end %>
     </div>
   </div>
 
-<% if @quotations_searched.present? %>
-             <div class="card">
-                <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">assignment</i>
-                  </div>
-                  <h4 class="card-title">Pedidos Enviados</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th class="text-center">Data</th>
-                          <th>Instituição</th>
-                          <th>Cotação Recebida</th>                                                    
-                          <th>Mensagem</th>
-                          <th class="text-right">Actions</th>
-                        </tr>
-                      </thead>
+  <% if @quotations_searched.present? %>
+  <div class="card">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">assignment</i>
+      </div>
+      <h4 class="card-title">Pedidos Enviados</h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center">Data</th>
+              <th>Instituição</th>
+              <th>Cotação Recebida</th>                                                    
+              <th>Mensagem</th>
+              <th class="text-right">Ações</th>
+            </tr>
+          </thead>
 
 <% for quotation_searched in @quotations_searched %>
-                        <tr>
-
-                          <td class="text-center"><%= h truncate(quotation_searched.updated_at.to_s, :length => 13) %></td>
-
-                          <td><%= h truncate(firm_name(quotation_searched), :length => 10) %></td>
-                          <td><%= h truncate(quotation_searched.quote, :length => 10) %></td>
-                          <td><%= h truncate(quotation_searched.receiver_message, :length => 40) %></td>
-
-                          <td class="td-actions text-right">
-
-                            <button type="button" rel="tooltip" class="btn " data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_searched.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
-                  </button>
-                              
-
-                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                  <%= link_to ("+info").html_safe, quotation_path(quotation_searched),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window2', style:'color:#fff;'}%>
-                  </button>
-
-
-                          </td>
-                        </tr>
-
+<tr>
+  <td class="text-center"><%= h truncate(quotation_searched.updated_at.to_s, :length => 13) %></td>
+  <td><%= h truncate(firm_name(quotation_searched), :length => 10) %></td>
+  <td><%= h truncate(quotation_searched.quote, :length => 10) %></td>
+  <td><%= h truncate(quotation_searched.receiver_message, :length => 40) %></td>
+  <td class="td-actions text-right">
+    <button type="button" rel="tooltip" class="btn " data-original-title="" title="">
+      <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_searched.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>    
+    </button>
+    <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+      <%= link_to ("+info").html_safe, quotation_path(quotation_searched),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window2', style:'color:#fff;'}%>    
+    </button>
+  </td>
+</tr>
 <% end %>
 <% else %>
-
-
-
-              <div class="card">
-                <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">assignment</i>
-                  </div>
-                  <h4 class="card-title">Pedidos Enviados</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th class="text-center">Data</th>
-                          <th>Instituição</th>
-                          <th>Cotação Recebida</th>                                                    
-                          <th>Mensagem</th>
-                          <th class="text-center">Ações</th>
-                        </tr>
-                      </thead>
-
-
-                      <tbody>
-       
-                        <% if @quotations_as_customer %>
-                        <% for quotation_as_customer in @quotations_as_customer %>
-                        <tr>
-                          <td class="text-center"><%= h truncate(quotation_as_customer.updated_at.to_s, :length => 13) %></td>
-
-                          <td><%= h truncate(firm_name(quotation_as_customer), :length => 10) %></td>
-                          <td><%= h truncate(quotation_as_customer.quote, :length => 10) %></td>
-                          <td><%= h truncate(quotation_as_customer.receiver_message, :length => 40) %></td>
-                          <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_as_customer.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
-                  </button>
-                              
-
-                            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                  <%= link_to ("+info").html_safe, quotation_path(quotation_as_customer),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window2', style:'color:#fff;'}%>
-                  </button>
-                              
-
-                          </td>
-                        </tr>
-                        <% end %>
-                        <% end %>
-                        <% end %>
-                        <% end %>
-
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-
-
-
+<div class="card">
+  <div class="card-header card-header-rose card-header-icon">
+    <div class="card-icon">
+      <i class="material-icons">assignment</i>
+    </div>
+    <h4 class="card-title">Pedidos Enviados</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Data</th>
+            <th>Instituição</th>
+            <th>Cotação Recebida</th>                                                    
+            <th>Mensagem</th>
+            <th class="text-center">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @quotations_as_customer %>
+          <% for quotation_as_customer in @quotations_as_customer %>
+          <tr>
+            <td class="text-center"><%= h truncate(quotation_as_customer.updated_at.to_s, :length => 13) %>
+          </td>
+          <td><%= h truncate(firm_name(quotation_as_customer), :length => 10) %></td>
+          <td><%= h truncate(quotation_as_customer.quote, :length => 10) %></td>
+          <td><%= h truncate(quotation_as_customer.receiver_message, :length => 40) %></td>
+          <td class="td-actions text-right">
+            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+              <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_associates: quotation_as_customer.receiver_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;'}%>
+            </button>
+            <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
+              <%= link_to ("+info").html_safe, quotation_path(quotation_as_customer),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window2', style:'color:#fff;'}%>
+            </button>
+          </td>
+        </tr>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
 
 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
+      
     </div>
   </div>
 </div>

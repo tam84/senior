@@ -20,8 +20,6 @@ class User < ApplicationRecord
 
   has_many_attached :documents
 
-  has_many :customer_to_product_associates
-
   has_many :connections
 
   has_many :reserved_relations

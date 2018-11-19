@@ -9,12 +9,15 @@ class Quotation < ApplicationRecord
 
 		category = Category.find_by(id: params[:quotation][:category_id])
 		product = category.products.first
-		if product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", user.id).present?
-			full_array_of_receivers_and_firm_ids = product.product_associates.joins(:customer_to_product_associates, :user).where("customer_to_product_associates.user_id = ?", user.id).pluck(:user_id, :firm_id)				
-		else
-			current_user_segmentations = user.segmentation			
-			full_array_of_receivers_and_firm_ids = product.product_associates.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations).pluck(:user_id, :firm_id)	
-		end	
+		#if CustomerToBanker.where(user_id: user.id).present?
+			current_user_segmentations = user.segmentation						
+			a = CustomerToBanker.where(user_id: user.id, product_id: product.id).pluck(:banker_id, :firm_id)
+			b = product.product_associates.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations).pluck(:user_id, :firm_id)	
+			full_array_of_receivers_and_firm_ids = b - a
+		#else
+		#	current_user_segmentations = user.segmentation			
+		#	full_array_of_receivers_and_firm_ids = product.product_associates.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations).pluck(:user_id, :firm_id)	
+		#end	
 
 		array_of_receivers_and_firm_ids = full_array_of_receivers_and_firm_ids.delete_if {|x| x.first == nil}
 
@@ -40,10 +43,10 @@ class Quotation < ApplicationRecord
 
 				quotation.save! 
 
-				product_associates = ProductAssociate.where(user_id: quotation.receiver_id, product_id: quotation.product_id)
-				for product_associate in product_associates
-					CustomerToProductAssociate.find_or_create_by(user_id: user.id, product_associate_id: product_associate.id )		
-				end
+				#product_associates = ProductAssociate.where(user_id: quotation.receiver_id, product_id: quotation.product_id)
+				#for product_associate in product_associates
+				#	CustomerToBanker.find_or_create_by(user_id: user.id, product_id: quotation.product_id, banker_id: product_associate.user_id, status: 1, firm_id: product_associate.user.firm_id)		
+				#end
 
 
 			end
@@ -56,7 +59,7 @@ class Quotation < ApplicationRecord
 			quotation.update(status: "approved")
 
 			receiver_user = User.find_by(id: quotation.receiver_id)
-			quotation.notify_by_email receiver_user, user, quotation
+			#quotation.notify_by_email receiver_user, user, quotation
 			quotation.notify_by_notification quotation.receiver_id
 		end
 	end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_175019) do
+ActiveRecord::Schema.define(version: 2018_10_02_153116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,9 +79,11 @@ ActiveRecord::Schema.define(version: 2018_09_13_175019) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "customer_to_product_associates", force: :cascade do |t|
+  create_table "customer_to_bankers", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "product_associate_id"
+    t.integer "banker_id"
+    t.integer "product_id"
+    t.integer "firm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,6 +98,7 @@ ActiveRecord::Schema.define(version: 2018_09_13_175019) do
     t.datetime "updated_at", null: false
     t.integer "email_message_id"
     t.integer "status", default: 0
+    t.boolean "confidential", default: false
   end
 
   create_table "firms", force: :cascade do |t|
@@ -200,6 +203,7 @@ ActiveRecord::Schema.define(version: 2018_09_13_175019) do
     t.integer "view_status", default: 0
     t.datetime "from_investment_period"
     t.datetime "to_investment_period"
+    t.integer "total_investment"
   end
 
   create_table "quotations", force: :cascade do |t|

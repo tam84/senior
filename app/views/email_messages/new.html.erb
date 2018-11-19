@@ -28,6 +28,9 @@
                       <div class="col-sm-10">
                         <div class="form-group bmd-form-group">
               <%= f.text_area :text_message, class: 'form-control' %><br />
+
+        <p style="color:black"><%= f.check_box :confidential, value: true %> Desejo manter meu nome confidencial</p> <br />                       
+              
                         </div>
                       </div>
                     </div>
@@ -68,7 +71,11 @@
 
         <% for message in @messages_history %>
         <div class="card card-body ">
+          <% if message.confidential %>
+          <%= "De: confidencial"%><br /> 
+          <% else %>
           De: <%= senter_name(message.senter_id) %><br /> 
+          <% end %>
           Data: <%= message.created_at %><br />
           Assunto: <%= message.subject %><br />
           Mensagem: <%= message.text_message %>

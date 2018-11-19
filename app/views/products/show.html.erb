@@ -1,59 +1,32 @@
-<% if current_user.firm == @product.firm %>     
+<% if current_user.firm == @product.firm || current_user == User.first %>
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">Exclusivo para os Administradores do produto</h4>
+    </div> </br>
+    <div class="row">      
+      <div class="col-md-12">
         <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Exclusivo para os Administradores do produto</h4>
-         </div> </br>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-
-                <div class="col-md-12">
-
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Editar info do produto").html_safe, edit_product_path(@product), { :style=>'color:#FFFFFF;'}%>
-                  </button>         
-
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Inserir membros da equipe a esse produto").html_safe, new_product_associate_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
-                  </button>                     
-
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("adicionar usuário confidencial").html_safe, new_reserved_relation_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
-                  </button>  
-                </div>                  
-
-          </div> 
-
-
-
-          <div class="card">
-
-          </div>
-
-
-            </div>
-          </div>          
-        </div>    
-
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Editar info do produto").html_safe, edit_product_path(@product), { :style=>'color:#FFFFFF;'}%> 
+          </button>         
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Inserir membros da equipe a esse produto").html_safe, new_product_associate_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>                
+          </button>                     
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("adicionar usuário confidencial").html_safe, new_reserved_relation_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
+          </button>  
+        </div>                  
+      </div> 
+      <div class="card">
+      </div>
+    </div>
+  </div>          
+</div>    
 <% end %>        
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,30 +38,28 @@
         <% if @product.firm.firm_photos.present? %>
         <%= image_tag(@product.firm.firm_photos.first.variant(resize: "50x50!")) %>
         <% else %>
-
         <% end %>
       </div>
-        <h4 class="card-title"><%= @product.name %></h4>
+      <h4 class="card-title"><%= @product.name %></h4>
     </div>
-
     <div class="row">
-        <div class="col-md-12">
-            <div class="card ">
-              <div class="card-body ">
-                  <p>Seguindo o produto, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
-
-                  <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
-                  <%= f.hidden_field :followed_id, value: @product.id  %> 
-                  <%= f.hidden_field :followed_type, value: "Product"  %>   
-
-                  <%= f.submit "Seguir", class: 'btn btn-rose' %>
-                  <% end %>
-
-              </div>
-            </div>
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-body ">
+            <% if current_connection(current_user, @product, 'Product').present? %>
+            <p>Você é um seguidor desse produto e já recebe atualizações em seu feed</p>
+            <%= link_to "Deixar de seguir", connection_path(id: current_connection(current_user, @product, 'Product').id), method: :delete, class: 'btn' %>
+            <% else %>
+            <p>Seguindo o produto, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
+            <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
+            <%= f.hidden_field :followed_id, value: @product.id  %> 
+            <%= f.hidden_field :followed_type, value: "Product"  %>   
+            <%= f.submit "Seguir", class: 'btn' %>
+            <% end %>
+            <% end %>
+          </div>
         </div>
-
-
+      </div>
     </div>
   </div>            
 </div>
@@ -96,34 +67,21 @@
 
 
 
-
-
-
-
-
 <div class="container-fluid">
 	<div class="row">
-
-				<%= render @product_associates %>
-
-
-
-
-
-
-
-
-        <div class="col-md-12">
-            <div class="card ">
-              <div class="card-body ">
-
-                  <p>Não encontrou quem deseja? Envie uma mensagem para toda a equipe</p>
-                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>
-                  </button>         
-                </div>
-              </div>
-            </div>
+    <% if @product.management_firm != "confidencial" %>
+    <%= render @product_associates %>
+    <% end %>
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-body ">
+          <p>Não encontrou quem deseja? Envie uma mensagem para toda a equipe</p>
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>        
+          </button>         
+        </div>
+      </div>
+    </div>
         	
        	<div class="col-md-12">
               <div class="card ">

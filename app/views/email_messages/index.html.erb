@@ -28,7 +28,11 @@
                         <% if !message_answered(received_message, current_user) %>
                         <tr>
                           <td class="text-center"><%= h truncate(received_message.updated_at.to_s, :length => 13) %></td>
+                          <% if received_message.confidential? %>
+                          <td><%= "Confidencial" %></td>
+                          <% else %>
                           <td><%= h truncate(name_of_senter(received_message), :length => 15)%></td>
+                          <% end %>
                           <td><%= h truncate(received_message.subject, :length => 30) %></td>
                           <td><%= h truncate(received_message.text_message, :length => 30) %></td>
 
@@ -41,7 +45,11 @@
                           <%else%>
 
                           <td class="text-center" style="font-weight: 900 "><%= h truncate(received_message.updated_at.to_s, :length => 13) %></td>
+                          <% if received_message.confidential? %>
+                          <td style="font-weight: 900"><%= "Confidencial" %></td>
+                          <% else %>                          
                           <td style="font-weight: 900 "><%= h truncate(name_of_senter(received_message), :length => 15)%></td>
+                          <% end %>
                           <td style="font-weight: 900 "><%= h truncate(received_message.subject, :length => 30) %></td>
                           <td style="font-weight: 900 "><%= h truncate(received_message.text_message, :length => 35) %></td>
 

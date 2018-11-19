@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_admin_user!, only: [:index, :show]
+
+
   def index
     if params[:term]
       @users = User.search_by_full_name(params[:term])

@@ -43,7 +43,10 @@ module ProductsHelper
     	else
     		@products = firm.products.where(view_status: "público")
     	end
+	end
 
+	def cdb_category
+		category = Category.find_by(name: "CDB")
 	end
 
 

@@ -1,4 +1,43 @@
-   <%= link_to "ver em outro formato", products_path%>
+
+<button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+<%= link_to ">>> Ver em outro formato", products_path(category_id: params[:category_id]), style: "color: #fff; font-weight: bold"%>
+</button>
+</br>
+
+
+<% if params and params[:category_id] == "1" || params["/products"] %>
+<div class="card ">
+  <div class="card-body ">
+
+    <h5>Está achando as taxas padrões muito baixas? </h5>
+    <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="">
+      <%= link_to "Cote em várias mesas", new_quotation_path(category_id: cdb_category), class:"nav-link", style: "color: #fff; font-weight: bold" %>
+    </button>
+  </div>
+</div>
+<% end %>
+
+<% if params and params[:category_id] == "1" || params["/products"] %>
+<div class="card ">
+  <div class="card-body ">
+    <h4>Filtre sua busca de CDBs.</h4>
+    <div class="card-header card-header-rose card-header-icon">
+      <%= form_for products_path, method: :get  do |f| %>
+      <div class="bootstrap-tagsinput info-badge">
+        <%= f.select(:management_firm, Product.pluck(:management_firm).uniq, {:prompt => 'Emissor +'}, {class: "btn btn-sm", style: "background-color: gray"}) %>
+
+        <%= f.select :category_name, ["CDB", "debentures"], {:prompt => 'Tipo de Remuneração +'}, {class: "btn btn-sm", style: "background-color: gray"} %>
+        <%= f.text_field :target_return_benchmark_to, placeholder: "Acima de - Digite apenas números", style: "border: solid 0.1em; width: 185px; font-size: 12px"  %>  
+        <%= f.hidden_field :category_id, value: params[:category_id]  %>
+        <%= f.hidden_field :table_format, value: true  %><br />
+      </div>
+      <%= f.submit "Filtrar", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
          
 
               <div class="card">
@@ -6,19 +45,19 @@
                   <div class="card-icon">
                     <i class="material-icons">assignment</i>
                   </div>
-                  <h4 class="card-title">Mensagens Recebidas</h4>
+                  <h4 class="card-title">Produtos</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
-                          <th class="text-center">Data</th>
-                          <th>Empresa</th>
-                          <th>Nome</th>
+                          <th class="text-center">Vencimento</th>
+                          <th>Vendedor</th>
+                          <th>Emissor</th>
                           <th>Descrição</th>                          
-                          <th>Key Information</th>                          
-                          <th class="text-right">Actions</th>
+                          <th>Rentabilidade</th>                          
+                          <th class="text-right">Ações</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -27,11 +66,11 @@
 
 
                         <tr>
-                          <td class="text-center"><%= h truncate(product.created_at.to_s, :length => 15)%></td>
-                          <td ><%= h truncate(product.firm.name, :length => 13) %></td>
+                          <td class="text-center"><%= h truncate(product.to_investment_period.to_s, :length => 15)%></td>
+                          <td ><%= h truncate(product.management_firm, :length => 13) %></td>
+                          <td><%= h truncate(product.destribuitor, :length => 15)%></td>
                           <td><%= h truncate(product.name, :length => 15)%></td>
-                          <td><%= h truncate(product.description, :length => 30) %></td>
-                          <td><%= h truncate(product.key_information, :length => 30) %></td>
+                          <td><%= product.target_return_benchmark_to %>% CDI</td>
 
                          
 
@@ -40,17 +79,43 @@
 
                           <td class="td-actions text-right">
 
+
+          <% if product.product_associates.present? %>                            
+                            <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="" style="background-color: #4caf50">
+            <%= link_to ("<i class='material-icons'>mail_outline</i>mensagem").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>        
+          </button>                           
+          <% end %>          
+
                             <button type="button" rel="tooltip" class="btn" data-original-title="" title="">
-                              <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#fff;'}%>
+                              <%= link_to ("<i class='material-icons'>info</i>Comprar").html_safe, edit_product_path(id: product, total_investment: true), {style:'color:#fff;'}%>
 
                             </button>
+
                           </td>
                         </tr>
-                        <% end %>
-
+                        <% end %>                          
 
                       </tbody>
                     </table>
+
+<div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @products %>
+  </div>
+  <%= will_paginate @products, :container => false %>
+</div>                    
+
                   </div>
                 </div>
               </div>
+
+
+
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+
+

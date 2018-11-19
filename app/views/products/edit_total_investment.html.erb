@@ -1,0 +1,80 @@
+
+<div class="col-md-12">
+  
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">+Info</h4>
+    </div>
+    <div class="card-body ">
+      <% if @product != nil %>
+      <div class="card ">				
+        <%= @product.name %>
+        </div>
+        <%= @product.description.html_safe %>
+        <%end%>
+      </div>	
+    </div>
+  </div> 
+
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header card-header-rose card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">mail_outline</i>
+        </div>
+        <h4 class="card-title">Documentos</h4>
+      </div> </br>
+      <div class="row">
+        <div class="col-md-12">
+          <% @product.documents.each do |document| %>
+          <div class="col-md-12">
+            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
+            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
+              
+          </div>
+          <% end %>
+        </div> 
+        <div class="card">
+          
+        </div>
+      </div>
+    </div>          
+  </div>
+
+
+
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-body ">
+          <p>Está com alguma dúvida? Fale com o dono do produto</p>
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("Envie uma mensagem! ").html_safe, new_email_message_path(product_id: @product, product_associates: @product.product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>        
+          </button>         
+        </div>
+      </div>
+
+
+
+  <div class="card "> 
+    <div class="card-header card-header-rose card-header-icon">
+    <%= form_with model: @product, url: product_path, method: :put, local: true do |f| %>
+        <div class="form-group">        
+        <%= f.label :total_investment, "Valor a ser investido" %>
+        <%= f.text_area :total_investment, class: 'form-control' %> <br />               
+        <%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>

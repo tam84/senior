@@ -99,4 +99,6 @@ gem "roo"
 
 gem 'capistrano-rails-console', require: false
 
+gem 'will_paginate'
+
 #gem 'sidekiq'

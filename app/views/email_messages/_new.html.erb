@@ -10,7 +10,9 @@
 
 
         <%= f.label :text_message, "Mensagem" %>
-        <%= f.text_area :text_message, class: 'form-control', placeholder: "Escreva a mensagem" %> <br />               
+        <%= f.text_area :text_message, class: 'form-control', placeholder: "Escreva a mensagem" %><br />                       
+
+        <p style="color:black"><%= f.check_box :confidential, value: true %> Desejo manter meu nome confidencial</p> <br />                       
 
         <%= f.hidden_field :product_id, value: params[:product_id]  %>
         <%= f.hidden_field :receiver_id, value: params[:product_associates]  %>
