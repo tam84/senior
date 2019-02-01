@@ -1,13 +1,16 @@
 class CondominioController < ApplicationController
 	layout 'condominio', :only => [:index]
 	layout 'quem_somos', :only => [:quem_somos]
-	layout 'antecipacao', :only => [:antecipacao]
-  layout 'inadimplencia', :only => [:inadimplencia]  
-  layout 'garantido', :only => [:garantido]
-  layout 'para_imobiliarias', :only => [:para_imobiliarias]
-  layout 'para_proprietarios', :only => [:para_proprietarios]
+	layout 'falencias', :only => [:falencias]
+  layout 'legal_finance', :only => [:legal_finance]  
+  layout 'imobiliario', :only => [:imobiliario]
+  layout 'advogados', :only => [:advogados]
+  layout 'credores', :only => [:credores]
+  layout 'devedores', :only => [:devedores]
+  layout 'investidores', :only => [:devedores]
+  layout 'npl', :only => [:npl]
 
-	skip_before_action :authenticate_user!, :only => [:index,:quem_somos, :antecipacao, :garantido, :inadimplencia,:para_imobiliarias, :para_proprietarios]	
+	skip_before_action :authenticate_user!, :only => [:index,:quem_somos, :falencias, :imobiliario, :legal_finance,:advogados, :credores, :devedores, :investidores, :npl]	
 
   def index
     respond_to do |format|
@@ -21,35 +24,56 @@ class CondominioController < ApplicationController
     end
   end
 
-  def antecipacao
+  def falencias
     respond_to do |format|
-      format.html {render :layout => 'antecipacao'}
+      format.html {render :layout => 'falencias'}
     end    
   end
 
-  def inadimplencia
+  def legal_finance
     respond_to do |format|
-      format.html {render :layout => 'inadimplencia'}
+      format.html {render :layout => 'legal_finance'}
     end    
   end
 
 
-  def garantido
+  def npl
     respond_to do |format|
-      format.html {render :layout => 'garantido'}
+      format.html {render :layout => 'npl'}
     end    
   end
 
-  def para_imobiliarias
+
+  def imobiliario
     respond_to do |format|
-      format.html {render :layout => 'para_imobiliarias'}
+      format.html {render :layout => 'imobiliario'}
     end    
   end
 
-  def para_proprietarios
+  def advogados
     respond_to do |format|
-      format.html {render :layout => 'para_proprietarios'}
+      format.html {render :layout => 'advogados'}
     end    
   end
+
+  def credores
+    respond_to do |format|
+      format.html {render :layout => 'credores'}
+    end    
+  end
+
+  def devedores
+    respond_to do |format|
+      format.html {render :layout => 'devedores'}
+    end    
+  end
+
+  def investidores
+    respond_to do |format|
+      format.html {render :layout => 'investidores'}
+    end    
+  end
+
+
 
 end

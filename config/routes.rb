@@ -53,12 +53,14 @@ Rails.application.routes.draw do
   get '/landing', to: "landing#index"
   get '/condominio', to: "condominio#index"
   get '/quem_somos', to: "condominio#quem_somos"
-  get '/antecipacao', to: "condominio#antecipacao"
-  get '/inadimplencia', to: "condominio#inadimplencia"  
-  get '/garantido', to: "condominio#garantido"
-  get '/para_imobiliarias', to: "condominio#para_imobiliarias"
-  get '/para_proprietarios', to: "condominio#para_proprietarios"
-
+  get '/falencias', to: "condominio#falencias"
+  get '/legal_finance', to: "condominio#legal_finance"  
+  get '/imobiliario', to: "condominio#imobiliario"
+  get '/advogados', to: "condominio#advogados"
+  get '/credores', to: "condominio#credores"
+  get '/devedores', to: "condominio#devedores"
+  get '/investidores', to: "condominio#investidores"
+  get '/npl', to: "condominio#npl"  
 
   resources :product_associates, only: [:new, :create, :index]
 

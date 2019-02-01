@@ -14,7 +14,7 @@
 
 <body class="index-page sidebar-collapse">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="400">
+  <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="http://ec2-18-222-94-248.us-east-2.compute.amazonaws.com" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -32,7 +32,7 @@
 
 
           <li class="nav-item">
-              <p><%= link_to 'Quem Somos', new_user_session_path,style:"color:#000" %> </p>
+              <p><%= link_to 'Quem Somos', quem_somos_path %> </p>
           </li>
 
 
@@ -40,31 +40,30 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
-              <p>Produtos</p>
+              <p>Unidades de Negócio</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
-              <a class="dropdown-item" href="./index.html">
-                <%= link_to 'Inadimplência', new_user_session_path, style:"color:#000" %>
-              </a>
-              <a class="dropdown-item" target="_blank" href="https://demos.creative-tim.com/now-ui-kit/docs/1.0/getting-started/introduction.html">
-                <%= link_to 'Seguros', new_user_session_path, style:"color:#000" %>
-
-              </a>
-              <a class="dropdown-item" target="_blank" href="https://demos.creative-tim.com/now-ui-kit/docs/1.0/getting-started/introduction.html">
-                <%= link_to 'Investimentos', new_user_session_path, style:"color:#000" %>
-              </a>              
+                <%= link_to 'Falências e RJs', falencias_path, style:"color:#000;" %></br>
+                <%= link_to 'NPLs', npl_path, style:"color:#000" %></br>
+                <%= link_to 'Imobiliário', imobiliario_path, style:"color:#000" %></br>                
+                <%= link_to 'Legal Finance', legal_finance_path, style:"color:#000" %></br>                               
             </div>
           </li>
 
 
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Proprietários', new_user_session_path,style:"color:#000" %> </p>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
+              <i class="now-ui-icons design_app"></i>
+              <p>Parceiros</p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
+                <%= link_to 'Advogados', advogados_path, style:"color:#000;" %></br>
+                <%= link_to 'Credor', credores_path, style:"color:#000" %></br>
+                <%= link_to 'Devedor', devedores_path, style:"color:#000" %></br>                
+                <%= link_to 'Investidores', investidores_path, style:"color:#000" %></br>                               
+            </div>
           </li>
 
-
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Imobiliárias', new_user_session_path,style:"color:#000" %> </p>
-          </li>
 
 
           <li class="nav-item" style="margin-left: 15px">
@@ -72,7 +71,6 @@
               <p><%= link_to 'Login', new_user_session_path, class: "nav-link btn btn-neutral" %> </p>
             
           </li>
-
 
         </ul>
       </div>
@@ -101,41 +99,33 @@
             <div class="col-lg-6 col-md-12">
               <h2 class="title description">Quem Somos</h2>
               <h5 >
-                 Somos uma empresa com DNA financeiro e atuamos exclusivamente com soluções financeiras para antecipação de pagamento, inadimplência e seguros. Os proprietários de imóveis são nossos clientes e as imobiliárias são nossas parceiras. 
-              </h5>
-              <h5 >
-                 Estamos levando consagradas soluções e produtos do mercado financeiro os proprietários de imóveis. Com isso estamos conseguindo eliminar o velho problema da inadimplência e espera pelo dinheiro permitindo uma melhora no fluxo de caixa dos proprietários de imóveis. Além disso estamos maximizando a contratação de soluções de seguro para os imóveis alugados
-              </h5>
-              <h5 >
-                 Atuamos em parceria com as maiores instituições financeiras e fundos de investimento do Brasil. Com uma plataforma completa oferecemos - por meio de uma grande diversidade de produtos financeiros - soluções transparentes e imparciais a todos os perfis de proprietários de imóveis.
-              </h5>
-              <h5 >
-                 Nossas operações de aquisição de crédito e assessoria de investimento são supervisionadas pela CVM e Banco Central, gerando total legalidade e segurança na operação bem como transparência no processo de aquisição de Direitos Creditórios.
-              </h5>
+                 
+              Somos uma empresa que atua no mercado de ativos estressados. Atuamos com soluções financeiras em recuperação judiciais, falências, créditos inadimplentes corporativos, legal finance e portfolio imobiliários estressados. 
+              
+</h5>
+<h5>
+                Atuamos em parceria com instituições financeiras, investidores, fundos e empresas. 
+
+  </h5>
+
+
+
               <!-- <div class="nucleo-container">
               <img src="assets/img/nucleo.svg" alt="">
             </div> -->
 
             </div>
+
             <div class="col-lg-6 col-md-12">
               <div class="icons-container">
-                <i class="now-ui-icons ui-1_send"></i>
-                <i class="now-ui-icons ui-2_like"></i>
-                <i class="now-ui-icons transportation_air-baloon"></i>
-                <i class="now-ui-icons text_bold"></i>
-                <i class="now-ui-icons tech_headphones"></i>
-                <i class="now-ui-icons emoticons_satisfied"></i>
-                <i class="now-ui-icons shopping_cart-simple"></i>
-                <i class="now-ui-icons objects_spaceship"></i>
-                <i class="now-ui-icons media-2_note-03"></i>
-                <i class="now-ui-icons ui-2_favourite-28"></i>
-                <i class="now-ui-icons design_palette"></i>
-                <i class="now-ui-icons clothes_tie-bow"></i>
-                <i class="now-ui-icons location_pin"></i>
-                <i class="now-ui-icons objects_key-25"></i>
-                <i class="now-ui-icons travel_istanbul"></i>
+
+              <div class="team-player">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvsFI1wZ7nVgr5i8Btnf9h0VH6H2r6hS8jtnBB1t3QxVJUvpl1" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised"  style="width: 500px; height: 400px">
+              </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>
@@ -195,63 +185,18 @@
 
 <footer class="footer" data-background-color="black" style="background-color: #000; line-height: 70px">
       <div class="container">
-  <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="http://ec2-18-222-94-248.us-east-2.compute.amazonaws.com" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
-          <%= image_tag(("http://ec2-18-222-94-248.us-east-2.compute.amazonaws.com/assets/logo_liquibay_branco.png"), style:"width:235px; height: 50px") %>
-        </a>
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-bar top-bar"></span>
-          <span class="navbar-toggler-bar middle-bar"></span>
-          <span class="navbar-toggler-bar bottom-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse justify-content-end has-image" id="navigation" style="background: url(&quot;./assets/img/blurred-image-1.jpg&quot;) 0% 0% / cover;">
-        <ul class="navbar-nav">
+        <nav>
+          <ul>
+            <%= link_to "Quem Somos",quem_somos_path, style: "color:#fff; font-weigth: bold; margin-right: 10px" %>
+
+            <%= link_to "Entre em contato",new_contact_message_path, style: "color:#fff; font-weigth: bold; margin-right: 10px" %>
+
+            <%= link_to "Seja um Parceiro",new_contact_message_path, style: "color:#fff; font-weigth: bold;margin-right: 10px" %>
 
 
 
-          <li class="nav-item">
-              <p><%= link_to 'Quem Somos', quem_somos_path %> </p>
-          </li>
-
-
-
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
-              <i class="now-ui-icons design_app"></i>
-              <p>Produtos</p>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
-                <%= link_to 'Antecipação', antecipacao_path, style:"color:#000;" %></br>
-                <%= link_to 'Inadimplência', inadimplencia_path, style:"color:#000" %></br>
-                <%= link_to 'Garantido', inadimplencia_path, style:"color:#000" %></br>                
-            </div>
-          </li>
-
-
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Proprietários', para_proprietarios_path %> </p>
-          </li>
-
-
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Imobiliárias', para_imobiliarias_path %> </p>
-          </li>
-
-
-          <li class="nav-item" style="margin-left: 15px">
-            
-              <p><%= link_to 'Login', new_user_session_path, class: "nav-link btn btn-neutral" %> </p>
-            
-          </li>
-
-
-        </ul>
-      </div>
-    </div>
-  </nav>
+          </ul>
+        </nav>
         <div class="copyright" id="copyright" style=
         "color:#0094ec;line-height: 70px">
           ©
@@ -295,6 +240,5 @@
       }
     }
   </script>
-
 
 

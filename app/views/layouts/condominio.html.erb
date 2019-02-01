@@ -40,26 +40,30 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
-              <p>Produtos</p>
+              <p>Unidades de Negócio</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
-
-                <%= link_to 'A vista', a_vista_path, style:"color:#000" %></br>
-                <%= link_to 'Garantido', garantido_path, style:"color:#000" %></br>
-                <%= link_to 'Seguros', new_user_session_path, style:"color:#000" %></br>
-                <%= link_to 'Investimentos', new_user_session_path, style:"color:#000" %>
+                <%= link_to 'Falências e RJs', falencias_path, style:"color:#000;" %></br>
+                <%= link_to 'NPLs', npl_path, style:"color:#000" %></br>
+                <%= link_to 'Imobiliário', imobiliario_path, style:"color:#000" %></br>                
+                <%= link_to 'Legal Finance', legal_finance_path, style:"color:#000" %></br>                               
             </div>
           </li>
 
 
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Sindícos', para_sindicos_path %> </p>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
+              <i class="now-ui-icons design_app"></i>
+              <p>Parceiros</p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
+                <%= link_to 'Advogados', advogados_path, style:"color:#000;" %></br>
+                <%= link_to 'Credor', credores_path, style:"color:#000" %></br>
+                <%= link_to 'Devedor', devedores_path, style:"color:#000" %></br>                
+                <%= link_to 'Investidores', investidores_path, style:"color:#000" %></br>                               
+            </div>
           </li>
 
-
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Administradores', para_administradoras_path %> </p>
-          </li>
 
 
           <li class="nav-item" style="margin-left: 15px">
@@ -67,7 +71,6 @@
               <p><%= link_to 'Login', new_user_session_path, class: "nav-link btn btn-neutral" %> </p>
             
           </li>
-
 
         </ul>
       </div>

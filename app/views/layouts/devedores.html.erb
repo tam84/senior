@@ -40,24 +40,30 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
               <i class="now-ui-icons design_app"></i>
-              <p>Produtos</p>
+              <p>Unidades de Negócio</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
-                <%= link_to 'Antecipação', antecipacao_path, style:"color:#000;" %></br>
-                <%= link_to 'Inadimplência', inadimplencia_path, style:"color:#000" %></br>
-                <%= link_to 'Garantido', inadimplencia_path, style:"color:#000" %></br>                
+                <%= link_to 'Falências e RJs', falencias_path, style:"color:#000;" %></br>
+                <%= link_to 'NPLs', npl_path, style:"color:#000" %></br>
+                <%= link_to 'Imobiliário', imobiliario_path, style:"color:#000" %></br>                
+                <%= link_to 'Legal Finance', legal_finance_path, style:"color:#000" %></br>                               
             </div>
           </li>
 
 
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Proprietários', para_proprietarios_path %> </p>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
+              <i class="now-ui-icons design_app"></i>
+              <p>Parceiros</p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1" style="text-align: center">
+                <%= link_to 'Advogados', advogados_path, style:"color:#000;" %></br>
+                <%= link_to 'Credor', credores_path, style:"color:#000" %></br>
+                <%= link_to 'Devedor', devedores_path, style:"color:#000" %></br>                
+                <%= link_to 'Investidores', investidores_path, style:"color:#000" %></br>                               
+            </div>
           </li>
 
-
-          <li class="nav-item" style="margin-left: 15px">
-              <p><%= link_to 'Imobiliárias', para_imobiliarias_path %> </p>
-          </li>
 
 
           <li class="nav-item" style="margin-left: 15px">
@@ -65,7 +71,6 @@
               <p><%= link_to 'Login', new_user_session_path, class: "nav-link btn btn-neutral" %> </p>
             
           </li>
-
 
         </ul>
       </div>
@@ -77,7 +82,7 @@
       <div class="container">
         <div class="content-center brand">
           <img class="n-logo" src="./assets/img/now-logo.png" alt="">
-          <h3 class="h1-seo" style="font-size: 54px; margin-top: 130px; color:#fff; text-align: center ">Para Imobiliárias</h3>          
+          <h3 class="h1-seo" style="font-size: 54px; margin-top: 130px; color:#fff; text-align: center ">Parceria com Devedores</h3>          
         </div>
       </div>
     </div>
@@ -92,24 +97,14 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-12">
-              <h2 class="title description">Melhor Parceiro das Imobiliárias</h2>
+              <h2 class="title description">Devedores</h2>
               <h5 >
-                 No modelo de negócio da XXX com imobiliárias e corretores pensamos em um modelo no qual a imobiliária e o corretor não percam o controle de seus clientes e nos vejam sempre como parceiros e nunca como competidores, afinal não somos e não temos nenhuma intenção de nos tornarmos imobiliárias. Nosso DNA é financeiro e focamos todos os nossos serviços na antecipação dos pagamentos de aluguéis, venda de seguros e assessoria de investimentos. Nosso modelo de crescimento principal é baseado na parceria com as imobiliárias e corretores, falamos com proprietários apenas nos casos em que o proprietário e a imobiliária estão em comum acordo. 
-              </h5>
-              <h2 class="title description">Parceria - Antecipação Aluguél</h2>              
-              <h5 >
-                 As imobiliárias e os corretores podem contar com nosso capital para oferecer a seus clientes a antecipação do pagamento de 3 meses de aluguél independentemente do tamanho e valor desses aluguéis. Nesse modelo, a imobiliária e o corretor encontram em sua base de clientes, os proprietários de imóveis que querem receber o aluguel antecipado e sugerem a antecipação desse aluguél a nossa empresa. Como resultado disso a imobiliária e o corretor ajudam o seu cliente (proprietário) e obtem uma excelente remuneração pela originação do negócio. Trabalhamos com dois modelos de remuneração, um baseado na indicação e outro baseado na divisão de resultados e a imobiliária e o corretor podem escolher o que for mais adequado para o seu negócio. 
-              </h5>
+                 
+              Diminua Custos, negocie descontos e prazos com o mercado
 
-              <h2 class="title description">Parceria - Cobrança Administrativa e Judicial</h2>                            
-              <h5 >
-                 Quando ocorre a inadimplência de aluguel nos casos em que fazemos parte do negócio como antecipadores, as imobiliárias e os proprietários dos imóveis podem contar com o nosso esforço para a cobrança administrativa e judicial. Aliás, somos os maiores interessados em recuperar esse dinheiro já que como antecipamos o aluguel ao proprietário e a imobiliária, temos que nós mesmos executar essa cobrança. Contamos com uma equipe especializada em cobranças administrativas e judiciais e as imobiliárias parcerias não precisam gastar seus recursos para efetuar essas cobranças. 
-              </h5>
+.</h5>
 
-              <h2 class="title description">Parceria - Seguros</h2>                            
-              <h5 >
-                 Estamos transformando o mercado de seguros para contratos de locação e imóveis no Brasil. Nossa missão é oferecer - por meio de uma grande diversidade de produtos de seguros - soluções transparentes e imparciais a todos os perfis de imóveis. No modelo de negócio da XXX para imobiliárias e corretores, as imobiliárias e corretores contam com um treinamento intensivo e com a ajuda de nossos assessores para poderem oferecer com segurança os melhores produtos de seguros para seus clientes (locatário e locador).
-              </h5>
+
 
               <!-- <div class="nucleo-container">
               <img src="assets/img/nucleo.svg" alt="">
@@ -194,9 +189,6 @@
 
             <%= link_to "Seja um Parceiro",new_contact_message_path, style: "color:#fff; font-weigth: bold;margin-right: 10px" %>
 
-            <%= link_to "Para Imobiliárias",para_imobiliarias_path, style: "color:#fff; font-weigth: bold;margin-right: 10px" %>
-
-            <%= link_to "Para Proprietários",para_proprietarios_path, style: "color:#fff; font-weigth: bold;margin-right: 10px" %>
 
 
           </ul>
