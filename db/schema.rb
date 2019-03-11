@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_153116) do
+ActiveRecord::Schema.define(version: 2019_03_11_202514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,16 @@ ActiveRecord::Schema.define(version: 2018_10_02_153116) do
     t.integer "email_message_id"
     t.integer "status", default: 0
     t.boolean "confidential", default: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "content"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "firms", force: :cascade do |t|

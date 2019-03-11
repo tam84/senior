@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :connections
   resources :reserved_relations
   resources :contact_messages, only: [:new, :create]
+  resources :events, only: [:new, :create]
 
 
 

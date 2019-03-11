@@ -59,12 +59,12 @@ class ProductsController < ApplicationController
 
 	def show
 		if params[:id]
-			@product = Product.find_by(id: params[:id])	unless Product.find_by(id: params[:id], view_status: "confidencial") and !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
-			current_user_segmentations = current_user.segmentation
+			@product = Product.find_by(id: params[:id])	#unless Product.find_by(id: params[:id], view_status: "confidencial") #and !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
+			#current_user_segmentations = current_user.segmentation
 			#if current_user.customer_to_product_associates.present?
 			#	@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)
 			#else
-				@product_associates = @product.product_associates.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
+				@product_associates = @product.product_associates#.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
 			#end
 			@posts = @product.posts.order(created_at: :desc)
 		end

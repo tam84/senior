@@ -1,0 +1,53 @@
+                    <%= form_for Event.new do |f| %>
+
+                      <div class="form-group has-default bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #fff">
+                              <i class="material-icons">face</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff" %>
+                        </div>
+                      </div> </br>                  
+                      <div class="form-group has-default bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #fff">
+                              <i class="material-icons">mail</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :email, class: 'form-control', placeholder: "Email", style:"color:#fff" %>
+                        </div></br>                  
+                      </div>
+                      <div class="form-group has-default bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #fff">
+                              <i class="material-icons">phone</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :phone, class: 'form-control', placeholder: "Telefone", style:"color:#fff" %>
+                        </div>
+                      </div></br>                  
+
+                      <div class="form-group has-default bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #fff">
+                              <i class="material-icons">message</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :content, class: 'form-control', placeholder: "Mensagem", style:"color:#fff" %>
+                        </div>
+                      </div></br>                  
+
+                      <%= f.hidden_field :description, value: "Próximo evento - Dia 22/03/2019 - Av: Faria Lima 1500, 10 andar. Das 9:00 as 12:00. Gratuíto!" %>
+
+
+                      <div class="text-center" style="margin-top: -20px">
+                        <%= f.submit "Quero ir no próximo evento", class: 'btn btn-rose btn-round mt-4' %></br></br>
+
+                      </div>
+
+                    <% end %>

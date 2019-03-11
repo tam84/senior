@@ -1,4 +1,4 @@
-<% if current_user.firm == @product.firm || current_user == User.first %>
+<% if current_user and current_user.firm == @product.firm || current_user == User.first %>
 <div class="col-md-12">
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
@@ -18,7 +18,11 @@
           </button>                     
           <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
             <%= link_to ("adicionar usuário confidencial").html_safe, new_reserved_relation_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
-          </button>  
+          </button>
+          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+            <%= link_to ("adicionar videos do youtube").html_safe, new_youtube_video_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
+          </button>                     
+
         </div>                  
       </div> 
       <div class="card">
@@ -31,39 +35,112 @@
 
 
 
+
+
 <div class="col-md-12">
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
       <div class="card-icon">
-        <% if @product.firm.firm_photos.present? %>
-        <%= image_tag(@product.firm.firm_photos.first.variant(resize: "50x50!")) %>
-        <% else %>
-        <% end %>
+        <i class="material-icons">mail_outline</i>
       </div>
-      <h4 class="card-title"><%= @product.name %></h4>
+      <h4 class="card-title">Fotos</h4>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="card ">
-          <div class="card-body ">
-            <% if current_connection(current_user, @product, 'Product').present? %>
-            <p>Você é um seguidor desse produto e já recebe atualizações em seu feed</p>
-            <%= link_to "Deixar de seguir", connection_path(id: current_connection(current_user, @product, 'Product').id), method: :delete, class: 'btn' %>
-            <% else %>
-            <p>Seguindo o produto, você recebe em seu feed novas informações sobre vídeos, fotos, documentos e outras atualizações</p>
-            <%= form_for :connection, url: connections_path, method: :post, local: true do |f| %>
-            <%= f.hidden_field :followed_id, value: @product.id  %> 
-            <%= f.hidden_field :followed_type, value: "Product"  %>   
-            <%= f.submit "Seguir", class: 'btn' %>
-            <% end %>
-            <% end %>
-          </div>
-        </div>
+        <% @product.images.each do |image| %>
+        <% if image.previewable? %>
+        <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+        <% else %>
+        <%= link_to image_tag(image.variant(resize: "200x200!"),style: "margin-top:20px;"), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
+        <% end %>
+        <% end %>
       </div>
     </div>
-  </div>            
+  </div>          
 </div>
-</br></br>         
+
+
+
+<div class="col-md-12">
+  <div class="card ">
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">mail_outline</i>
+      </div>
+      <h4 class="card-title">+Info</h4>
+    </div>
+    <div class="card-body ">
+      <% if @product != nil %>
+      <div class="card ">       
+        <%= @product.name %>          
+        </div>
+        <%= @product.description.html_safe %>
+        <%end%>
+      </div>  
+    </div>
+  </div> 
+
+
+
+
+
+
+        <div class="col-md-12">
+              <div class="card ">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">mail_outline</i>
+                  </div>
+                  <h4 class="card-title">Videos</h4>
+         </div>
+
+            <div class="row">
+          
+          <div class="col-md-12">
+
+        <div class="row col-md-12">
+          <% for video in @product.youtube_videos %>  
+          <div class="col-md-3" >
+              <div class="card" >
+                <div class="card-avatar" style="background-color: #212529">                    
+                    <%# link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
+
+
+                <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), video.url %>
+
+
+                </div>
+                <div class="card-body">
+                  <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.title, length:70) %></p>
+
+                  <p class="card-title" style="font-size: 12px; font-weight: bold">publicado <%= truncate(video.created_at.to_s, length:14) %></p>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
+          <% end %>
+        </div>
+          </div>
+
+            </div>
+          </div>          
+        </div>        
+
+
+    
+      
+
+
+
+
 
 
 
@@ -77,36 +154,12 @@
         <div class="card-body ">
           <p>Não encontrou quem deseja? Envie uma mensagem para toda a equipe</p>
           <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-            <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_email_message_path(product_id: @product, product_associates: @product_associates.pluck(:user_id)),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>        
+            <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>        
           </button>         
         </div>
       </div>
     </div>
-        	
-       	<div class="col-md-12">
-              <div class="card ">
-
-				<div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">+Info</h4>
-                </div>
-
-                <div class="card-body ">
-					<% if @product != nil %>
-              		<div class="card ">				
-						<%= @product.name %>
-					</div>
-
-						<%= @product.description.html_safe %>
-
-					<%end%>
-                </div>	
-
-              </div>
-        </div> 
-
+        
 
 
 
@@ -150,153 +203,9 @@
 
 
 
-        <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Videos</h4>
-         </div>
-
-            <div class="row">
-          
-          <div class="col-md-12">
 
 
-
-
-
-
-
-        <div class="row col-md-12">
-          <% for video in @product.videos %>  
-          <div class="col-md-3" >
-              <div class="card" >
-                <div class="card-avatar" style="background-color: #212529">
-                    <%# link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>
-
-                <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), youtube_url %>
-              
-
-                </div>
-                <div class="card-body">
-                  <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.blob.filename.to_s, length:70) %></p>
-
-                  <p class="card-title" style="font-size: 12px; font-weight: bold">publicado <%= truncate(video.blob.created_at.to_s, length:14) %></p>
-                  
-                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    </div>
-                  </div>
-                </div>
-                  
-                </div>
-              </div>
-          </div>
-          <% end %>
-        </div>
-
-          </div>
-
-            </div>
-          </div>          
-        </div>
-
-
-
-
-
-
-        <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Fotos</h4>
-         </div>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-            <% @product.images.each do |image| %>
-            <% if image.previewable? %>
-
-              <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-
-            <% else %>
-            <%= link_to image_tag(image.variant(resize: "200x200!")), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-
-            <% end %>
-            <% end %>
-          </div>
-
-            </div>
-          </div>          
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-        <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
-                  </div>
-                  <h4 class="card-title">Documentos</h4>
-         </div> </br>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-            <% @product.documents.each do |document| %>
-          <div class="col-md-12">
-            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
-            <%= link_to document.filename, rails_blob_path(document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
-
-          </div>
-
-            <% end %>
-          </div> 
-
-          <div class="col-md-12">
-            <% @product.firm.documents.each do |firm_document| %>
-          <div class="col-md-12">
-            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
-            <%= link_to firm_document.filename, rails_blob_path(firm_document, disposition: "attachment" ), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
-
-          </div>
-
-            <% end %>
-          </div> 
-
-
-
-          <div class="card">
-          </div>
-
-
-            </div>
-          </div>          
-        </div>
-
-
-
-<% if current_user_is_product_associate @product, current_user.id %>
+<% if current_user and current_user_is_product_associate @product, current_user.id %>
   <%= render :partial => 'posts/form' %>
 <% end %>
 

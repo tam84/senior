@@ -17,7 +17,9 @@
                     <%= h truncate(user_description(product_associate), length: 150) %>
                   </p>
                     <%= form_for ChatRoom.new do |f| %>
+                    <% if current_user %>
                     <%= f.hidden_field :senter_id, value: current_user.id %>
+                    <% end %>
                     <%= f.hidden_field :receiver_id, value: product_associate.user_id %>
                     <%#= f.submit "Iniciar chat!", class:"btn btn-round" %>
                   <% end %>
