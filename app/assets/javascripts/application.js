@@ -23,6 +23,7 @@
 //= require activestorage
 //= require turbolinks
 //= require tinymce
+//= require tinymce-jquery
 //= require_tree .
 //= require cable
 //= require landing_material/core/bootstrap.min.js

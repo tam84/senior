@@ -112,6 +112,7 @@ Rails.application.configure do
 
   #config.tinymce.install = :compile
   config.tinymce.install = :copy
+  config.assets.precompile << "tinymce-jquery.js"
 
 
 end
