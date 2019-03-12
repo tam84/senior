@@ -10,7 +10,7 @@ class CondominioController < ApplicationController
   layout 'investidores', :only => [:devedores]
   layout 'npl', :only => [:npl]
 
-	skip_before_action :authenticate_user!, :only => [:index,:quem_somos, :falencias, :imobiliario, :legal_finance,:advogados, :credores, :devedores, :investidores, :npl]	
+	#skip_before_action :authenticate_user!, :only => [:index,:quem_somos, :falencias, :imobiliario, :legal_finance,:advogados, :credores, :devedores, :investidores, :npl]	
 
   def index
     respond_to do |format|
