@@ -58,7 +58,8 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
-  config.tinymce.install = :compile
+  #config.tinymce.install = :compile
+  #config.tinymce.install = :copy
 
 
   # Use a different cache store in production.
@@ -108,4 +109,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #config.tinymce.install = :compile
+  config.tinymce.install = :copy
+
+
 end
