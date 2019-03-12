@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin_user!, only: [:new,:create]
+  #before_action :authenticate_admin_user!, only: [:new,:create]
   require 'will_paginate/array'
 
 
