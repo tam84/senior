@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   has_many :posts, as: :postable
   has_many_attached :releases
   has_many :youtube_videos, as: :videoable
+  has_many :product_articles
 
   enum view_status: {revisando: 0, público: 1, confidencial: 2}   
 

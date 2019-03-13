@@ -67,6 +67,8 @@ Rails.application.routes.draw do
 
   resources :categories, only:[:new,:create]
   resources :assetclasses, only:[:new,:create]  
+  resources :product_articles
+
 
   resources :posts
 
