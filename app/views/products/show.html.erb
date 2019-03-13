@@ -179,8 +179,7 @@
           <div class="col-md-12">
             <% @product.product_articles.each do |release| %>
           <div class="col-md-12">
-            <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAGFBMVEX////b29sAAAB/f3+vr68LCwuAgIC7u7sjiAehAAAAV0lEQVQYlW3QURKAIAhFUcEn7H/HQaEw5P2qEzhjY9zj7BBFa3IbMXqN587IamRxWwyylj8D1EnlRxB0km+skMLngCT1V4gI7wvFQWXRPlOjlEN8+T21B1jAAg7SLhsEAAAAAElFTkSuQmCC" %>
-            <%= link_to release, product_article_path(id: release), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
+            <%= link_to release.title, product_article_path(id: release), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
 
           </div>
 
