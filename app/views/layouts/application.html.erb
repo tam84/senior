@@ -15,7 +15,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg" style="background-color: #000">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
@@ -155,6 +155,8 @@
   
 </div>
 
+
+
 <div class="container">
   <% flash.each do |name, msg| %>
     <div class="alert" style="background-color: #0094ec; color: #fff;font-weight: bold;">
@@ -165,6 +167,138 @@
   <!-- Rest of content -->
 </div>
 
+
+
     <%= yield %>
+
+<footer class="Footer Footer--global" style="background-color: #000; line-height: 70px">
+    <div class="container" >
+        <div class="row" ">
+            <div style="height: 5px">
+                <a>
+                    <svg class="Iperceptions--icon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#speechBubblePink"></use></svg>
+                </a>
+            </div>
+        </div>
+
+            <div class="col-sm-12" style="color: #fff; text-align: center">
+              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;font-size:30px;'} %>
+
+            </div></br></br>
+        <div class="row" style="margin-top: -120px">
+            <div class="col-sm-3" style="color: #fff">
+                
+                <h5 style="font-weight: bold; font-size: 14px" >Acesso Rápido</h5>
+                <nav style="color: #000; margin-top: -80px" >
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></p>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#procedimentos" style="color:#fff;font-size: 14px">Procedimentos</a></p>
+                  </li>                                   
+
+                </nav>
+            </div>
+
+            <div class="col-sm-3" style="color: #fff">
+                <h5 style="font-weight: bold; font-size: 14px;" >Procedimentos</h5>
+                <nav style="color: #000; margin-top: -80px" >
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/206" style="color:#fff;font-size: 14px">Prótese de Silicone</a></p>
+                  </li>          
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/207" style="color:#fff;font-size: 14px">Lipoaspiração</a></p>
+                  </li>                            
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/208" style="color:#fff;font-size: 14px">Toxina Botulínica</a></p>
+                  </li>               
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/209" style="color:#fff;font-size: 14px">Preenchimento Facial</a></p>
+                  </li>               
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/210" style="color:#fff;font-size: 14px">Rinoplastia</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/211" style="color:#fff;font-size: 14px">Lifting Facial</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/212" style="color:#fff;font-size: 14px">Mamoplastia Redutora</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/213" style="color:#fff;font-size: 14px">Mastopexia com Prótese</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/214" style="color:#fff;font-size: 14px">Mastopexia sem Prótese</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/215" style="color:#fff;font-size: 14px">Abnominoplastia</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/216" style="color:#fff;font-size: 14px">Cirurgia Íntima</a></p>
+                  </li>               
+
+                </nav>
+            </div>
+
+            <div class="col-sm-3" style="color: #fff">
+                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
+                <nav style="color: #000; margin-top: -80px" >
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></p>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#procedimentos" style="color:#fff;font-size: 14px">Procedimentos</a></p>
+                  </li>                                   
+
+                </nav>
+            </div>
+
+            <div class="col-sm-3" style="color: #fff">
+                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
+                <nav style="color: #000; margin-top: -80px" >
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></p>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#procedimentos" style="color:#fff;font-size: 14px">Procedimentos</a></p>
+                  </li>                                   
+
+                </nav>
+            </div>
+
+
+        </div>
+    </div>
+
+                <div>
+        </div>
+    
+
+    <div class="Footer-copyright" style="text-align: center; color: #fff; margin-top: 100px">
+        © 2019 RealSelf, Inc. All rights reserved.
+        RealSelf is a registered trademark of RealSelf, Inc.
+    </div>
+
+</footer>
+
+
   </body>
+
+
 </html>
