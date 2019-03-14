@@ -29,32 +29,9 @@ class ProductsController < ApplicationController
 
 
 	def index		
-    	if params and params["/products"] and params["/products"]["destribuitor"] and params["/products"]["category_name"] and params["/products"]["target_return_benchmark_to"] and !params["/products"]["table_format"]
-    		@products = Product.filter_1 params
-      elsif params and params["/products"] and params["/products"]["destribuitor"] and params["/products"]["category_name"] and params["/products"]["target_return_benchmark_to"] and params["/products"]["table_format"]
-        @products = Product.filter_1 params
-        render 'table_index'
-    	elsif params[:category_id] and !current_user.reserved_relations.present?
-    		@products = Product.where(category_id: params[:category_id], view_status: "público").order(target_return_benchmark_to: 'desc').paginate(:page => params[:page], :per_page => 5)
-
-    	elsif params[:category_id] and current_user.reserved_relations.present?
-    		@all_category_products = Product.where(category_id: params[:category_id], view_status: "público")    		
-    		product_ids_from_reserved_relations = current_user.reserved_relations.pluck(:product_id)	 
-    		@all_reserved_products = Product.where(id: product_ids_from_reserved_relations )
-    		@products =  (@all_reserved_products + @all_category_products).paginate(:page => params[:page], :per_page => 5)    		
-    	elsif current_user.reserved_relations.present?
-    		@all_products = Product.where(view_status: "público")
-    		product_ids_from_reserved_relations = current_user.reserved_relations.pluck(:product_id)	 
-    		@all_reserved_products = Product.where(id: product_ids_from_reserved_relations )
-    		@products =  @all_reserved_products + @all_products
-    	else
-    		@products = Product.where(view_status: "público")
-    	end
-
-      @products
-      if params[:table_format]
-        render 'table_index'
-      end
+    if params[:category_id]
+      @products = Product.where(assetclass_id: params[:category_id])
+    end
 	end
 
 	def show

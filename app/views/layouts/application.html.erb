@@ -32,85 +32,10 @@
       <div class="sidebar-wrapper">
         
 
-        <div class="user">
-          <div class="photo">
-            <% if current_user and current_user.profile_photos.present? %>
-            <%=image_tag(current_user.profile_photos.first.variant(resize: "100x100!"))%>
-            <% end %>
-          </div>
-          <div class="user-info">
-            <a data-toggle="collapse" href="#collapseExample" class="username">
-              <span>
-                <% if user_signed_in? %>
-                <%= h truncate(current_user.full_name, length: 16) %>
-                <%end%>
-                <b class="caret"></b>
-              </span>
-            </a>
-            <div class="collapse" id="collapseExample">
-              <ul class="nav">
-                <li class="nav-item">
-                    <%= link_to 'Meu perfil', class: "nav-link"%> 
-                </li>                    
-                <li class="nav-item">
-                    <%= link_to 'Minhas mensagens', email_messages_path, class: "nav-link" %> 
-                </li>    
-                <li class="nav-item">
-                    <%= link_to 'Minhas cotações', quotations_path, class: "nav-link" %> 
-                </li>                                
-              </ul>
-            </div>
-          </div>
-        </div>
-
 
         <ul class="nav">
-          <li class="nav-item active ">
-            <a class="nav-link" href="../examples/dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p> Dashboard </p>
-            </a>
-          </li>
-
-
-
-
-          <li class="nav-item ">
-            <a class="nav-link collapsed" data-toggle="collapse" href= '#DDD' >
-              <i class="material-icons">image</i>
-              <p>  Cotar Ativos 
-                <b class="caret"></b>
-              </p>
-            </a>
-
-            <div class="collapse" id= 'DDD' >
-              <ul class="nav">
-                <li class="nav-item ">
-                  <%= link_to "Câmbio", new_quotation_path(category_id: 4), class:"nav-link" %>
-                </li>
-
-                <li class="nav-item ">
-                  <%= link_to "Commodities", new_quotation_path(category_id: 4), class:"nav-link" %>
-                </li>
-
-                <li class="nav-item ">
-                  <%= link_to "Juros", new_quotation_path(category_id: 4), class:"nav-link" %>
-                </li>
-
-                <li class="nav-item ">
-                  <%= link_to "Ações", new_quotation_path(category_id: 4), class:"nav-link" %>
-                </li>                                
-
-
-                <li class="nav-item ">
-                  <%= link_to "COEs", new_quotation_path(category_id: 4), class:"nav-link" %>
-                </li>                                
-
-                
-              </ul>
-            </div>            
-          </li>
           
+
 
 
 
