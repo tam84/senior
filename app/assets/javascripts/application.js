@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery2
-//= require jquery_ujs
 //= require rails-ujs
 //= require popper
 //= require material/core/bootstrap-material-design.min.js
