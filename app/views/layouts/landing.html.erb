@@ -1153,16 +1153,20 @@
 
 
 <footer class="Footer Footer--global" style="background-color: #000; line-height: 70px">
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-12 Iperceptions">
-                <a class="Iperceptions--card Link Link--coral" href="https://ips-invite.iperceptions.com/webValidator.aspx?sdfc=355b766d-127247-c733c77b-141a-42d7-be9f-2e52b426622b&amp;lID=1&amp;source=102226&amp;referrer=https%3A%2F%2Fwww.realself.com%2Freviews" target="_blank" rel="noopener noreferrer nofollow">
-                    <span>Share RealSelf.com feedback</span>
+    <div class="container" >
+        <div class="row" ">
+            <div style="height: 5px">
+                <a>
                     <svg class="Iperceptions--icon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#speechBubblePink"></use></svg>
                 </a>
             </div>
         </div>
-        <div class="row">
+
+            <div class="col-sm-12" style="color: #fff; text-align: center">
+              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;font-size:30px;'} %>
+
+            </div></br></br>
+        <div class="row" style="margin-top: -120px">
             <div class="col-sm-3" style="color: #fff">
                 
                 <h5 style="font-weight: bold; font-size: 14px" >Acesso Rápido</h5>
@@ -1183,27 +1187,50 @@
 
             <div class="col-sm-3" style="color: #fff">
                 <h5 style="font-weight: bold; font-size: 14px;" >Procedimentos</h5>
-                <nav style="color: #000;" >
+                <nav style="color: #000; margin-top: -100px" >
 
-                  <% Product.all.each do |product| %>
-                  <%= link_to product.name, product_path(id: product.id), {style:"color:#fff;font-size: 14px; height:30px;", class:"nav-item"} %>
-                  <% end %>
                   <li class="nav-item" style="height: 30px">
-                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Procedimentos</a></p>
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/206" style="color:#fff;font-size: 14px">Prótese de Silicone</a></p>
                   </li>          
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/207" style="color:#fff;font-size: 14px">Lipoaspiração</a></p>
+                  </li>                            
 
                   <li class="nav-item" style="height: 30px">
-                    <p><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></p>
-                  </li>                 
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/208" style="color:#fff;font-size: 14px">Toxina Botulínica</a></p>
+                  </li>               
+
                   <li class="nav-item" style="height: 30px">
-                    <p><a href="#procedimentos" style="color:#fff;font-size: 14px">Procedimentos</a></p>
-                  </li>                                   
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/209" style="color:#fff;font-size: 14px">Preenchimento Facial</a></p>
+                  </li>               
+
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/210" style="color:#fff;font-size: 14px">Rinoplastia</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/211" style="color:#fff;font-size: 14px">Lifting Facial</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/212" style="color:#fff;font-size: 14px">Mamoplastia Redutora</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/213" style="color:#fff;font-size: 14px">Mastopexia com Prótese</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/214" style="color:#fff;font-size: 14px">Mastopexia sem Prótese</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/215" style="color:#fff;font-size: 14px">Abnominoplastia</a></p>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/216" style="color:#fff;font-size: 14px">Cirurgia Íntima</a></p>
+                  </li>               
 
                 </nav>
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px" >Acesso Rápido</h5>
+                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
                 <nav style="color: #000; margin-top: -100px" >
                   <li class="nav-item" style="height: 30px">
                     <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
@@ -1219,85 +1246,42 @@
                 </nav>
             </div>
 
-            <div class="col-sm-3 u-marginMedium">
-                <h5 class="Footer-listHeadline Headline Headline--4">My Account</h5>
+            <div class="col-sm-3" style="color: #fff">
+                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
+                <nav style="color: #000; margin-top: -100px" >
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
+                  </li>          
 
-                <ul class="Footer-linkList List List--vertical">
-                                                                        <li class="List-item">
-                                <a href="/user/4621510" rel="nofollow" class="Link Link--contrast">Profile</a>
-                            </li>
-                            <li class="List-item">
-                                <a href="/user/messages" rel="nofollow" class="Link Link--contrast">Inbox</a>
-                            </li>
-                                            
-                    <li class="List-item"><a href="https://help.realself.com" rel="nofollow" class="Link Link--contrast">Help</a></li>
-                </ul>
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></p>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <p><a href="#procedimentos" style="color:#fff;font-size: 14px">Procedimentos</a></p>
+                  </li>                                   
+
+                </nav>
             </div>
+
+
         </div>
     </div>
 
                 <div>
-            <rs-subscribe-directive style-variant="'footer'"><!---->
-</rs-subscribe-directive>
         </div>
     
-    <div class="Footer-socialLinks">
-        <a href="https://www.instagram.com/realself" class="Footer-socialLink Link" rel="nofollow">
-            <svg class="Footer-socialLinkIcon Icon"><use xlink:href="/build/socialInstagram.svg?977a581294132804cb397021734e653e#socialInstagram"></use></svg>
-        </a>
-        <a href="https://www.facebook.com/Realself" class="Footer-socialLink Link" rel="nofollow">
-            <svg class="Footer-socialLinkIcon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#socialFacebook"></use></svg>
-        </a>
-        <a href="https://twitter.com/RealSelf" class="Footer-socialLink Link" rel="nofollow">
-            <svg class="Footer-socialLinkIcon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#socialTwitter"></use></svg>
-        </a>
-        <a href="https://www.pinterest.com/realself" class="Footer-socialLink Link" rel="nofollow">
-            <svg class="Footer-socialLinkIcon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#socialPinterest"></use></svg>
-        </a>
-    </div>
 
-    <div class="Footer-copyright">
+    <div class="Footer-copyright" style="text-align: center; color: #fff; margin-top: 100px">
         © 2019 RealSelf, Inc. All rights reserved.
         RealSelf is a registered trademark of RealSelf, Inc.
     </div>
 
-    <ul class="Footer-policyLinks List List--bulleted List--horizontal List--horizontalBulleted">
-        <li class="List-item">
-            <a href="/policies" id="footer-guidelines" class="Link Link--contrast">Guidelines &amp; Policies</a>
-        </li>
-        <li class="List-item">
-            <a href="/real_self_cookie_policy.html" class="Link Link--contrast">Cookie Policy</a>
-        </li>
-    </ul>
 </footer>
 
 
 
 
 
-
-<footer class="footer" data-background-color="black" style="background-color: #000; line-height: 70px">
-      <div class="container">
-        <nav>
-          <ul>
-            <%= link_to "Quem Somos",quem_somos_path, style: "color:#fff; font-weigth: bold; margin-right: 10px" %>
-
-            <%= link_to "Entre em contato",new_contact_message_path, style: "color:#fff; font-weigth: bold; margin-right: 10px" %>
-
-            <%= link_to "Seja um Parceiro",new_contact_message_path, style: "color:#fff; font-weigth: bold;margin-right: 10px" %>
-
-
-
-          </ul>
-        </nav>
-        <div class="copyright" id="copyright" style=
-        "color:#0094ec;line-height: 70px">
-          ©
-          <script>
-          </script>2019, Desenvolvido por Liquibay
-        </div>
-      </div>
-    </footer>
 
 
 
