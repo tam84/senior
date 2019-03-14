@@ -32,10 +32,10 @@
                 </div>
               </div>
             </div>
-            <h4 class="card-title" style="height: 20px">
+             <h4 class="card-title" style="height: 20px; color:#0094ec">
               <%= h truncate(product.name, :length => 32) %>              
             </h4>
-            <div class="card-description" style='color:#000;height: 150px'>
+            <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
               <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>                  
             </div>
             </div>
