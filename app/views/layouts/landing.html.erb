@@ -260,7 +260,7 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_associates%5B%5D=3&amp;product_id=30-confidencial-1"><i class="material-icons">email</i>email</a>
+          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;'} %>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
             <a style="color:#0094ec;" href="/email_messages/new?product_associates%5B%5D=3&amp;product_id=30-confidencial-1"><i class="material-icons">chat</i>chat</a>
               </button>
@@ -295,6 +295,9 @@
             
           </div>
       </div>
+
+
+
   <div class="col-md-4">
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
@@ -1118,6 +1121,12 @@
       </div>
 
 
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
 
 
 
@@ -1170,7 +1179,6 @@
         </div>
       </div>
     </footer>
-
 
 
 
