@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
 
 	def index		
     if params[:category_id]
-      @products = Product.where(assetclass_id: params[:category_id])
+      @products = Product.where(category_id: params[:category_id])
     end
 	end
 
