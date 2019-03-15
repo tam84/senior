@@ -1,42 +1,10 @@
-<% if current_user and current_user.firm == @product.firm || current_user == User.first %>
-<div class="col-md-12">
-  <div class="card ">
-    <div class="card-header card-header-rose card-header-icon">
-      <div class="card-icon">
-        <i class="material-icons">mail_outline</i>
-      </div>
-      <h4 class="card-title">Exclusivo para os Administradores do produto</h4>
-    </div> </br>
-    <div class="row">      
-      <div class="col-md-12">
-        <div class="col-md-12">
-          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-            <%= link_to ("Editar info do produto").html_safe, edit_product_path(@product), { :style=>'color:#FFFFFF;'}%> 
-          </button>         
-          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-            <%= link_to ("Inserir membros da equipe a esse produto").html_safe, new_product_associate_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>                
-          </button>                     
-          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-            <%= link_to ("adicionar usuário confidencial").html_safe, new_reserved_relation_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
-          </button>
-          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-            <%= link_to ("adicionar videos do youtube").html_safe, new_youtube_video_path(product_id: @product.id), { :style=>'color:#FFFFFF;'}%>
-          </button>                     
-
-        </div>                  
-      </div> 
-      <div class="card">
-      </div>
-    </div>
-  </div>          
-</div>    
-<% end %>        
+      
 
 
 
 
 
-
+<% if @product.images.present? %>
 <div class="col-md-12">
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
@@ -58,6 +26,7 @@
     </div>
   </div>          
 </div>
+<% end %>
 
 
 
@@ -84,6 +53,7 @@
 
 
 
+<% if @product.youtube_videos.present? %>
 
         <div class="col-md-12">
               <div class="card ">
@@ -134,7 +104,7 @@
           </div>          
         </div>        
 
-
+<% end %>
     
       
 
@@ -146,24 +116,40 @@
 
 <div class="container-fluid">
 	<div class="row">
-    <% if @product.management_firm != "confidencial" %>
-    <%= render @product_associates %>
-    <% end %>
-    <div class="col-md-12">
-      <div class="card ">
-        <div class="card-body ">
-          <p>Não encontrou quem deseja? Envie uma mensagem para toda a equipe</p>
-          <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-            <%= link_to ("Enviar mensagem para toda a equipe do produto ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#FFFFFF;'}%>        
-          </button>         
-        </div>
-      </div>
-    </div>
-        
+
+          <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="#pablo">
+                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>              
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title ">Especista em plástica</h6>
+                  <h4 class="card-title">Marcela</h4>
+                  <p class="card-description" style='height: 150px; color: #000; font-size: 15px' >
+                    Meu nome é Marcela e irei tirar todas as suas dúvidas sobre cirurgia plástica, envie sua mensagem que em breve entrarei em contato para conversarmos via whatsapp
+                  </p>
+                  <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
+                  <%= link_to ("Enviar Email").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#FFFFFF;'}%>
+                  </button>
+                  
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
+              </div>
+          </div>
 
 
 
 
+
+        <% if @product.product_articles.present? %>
         <div class="col-md-12">
               <div class="card ">
 
@@ -193,7 +179,7 @@
             </div>
           </div>          
         </div>          
-
+        <% end %>
 
 
 

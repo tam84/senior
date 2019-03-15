@@ -3,28 +3,17 @@
               <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="#pablo">
-                    <% if user_profile_photo(product_associate).present? %>
-                    <%= image_tag(user_profile_photo(product_associate).variant(resize: "300x300!")) %>
-                    <% else %>
-                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
-                    <% end %>                    
+                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>              
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-title "><%= h truncate(user_job_title(product_associate), length: 20) %></h6>
-                  <h4 class="card-title"><%= h truncate(user_name(product_associate), length: 20) %></h4>
+                  <h6 class="card-title ">Especista em plástica %></h6>
+                  <h4 class="card-title">Marcela</h4>
                   <p class="card-description" style='height: 150px; color: #000; font-size: 15px' >
-                    <%= h truncate(user_description(product_associate), length: 150) %>
+                    Meu nome é Marcela e irei tirar todas as suas dúvidas sobre cirurgia plástica, envie sua mensagem que em breve entrarei em contato para conversarmos via whatsapp
                   </p>
-                    <%= form_for ChatRoom.new do |f| %>
-                    <% if current_user %>
-                    <%= f.hidden_field :senter_id, value: current_user.id %>
-                    <% end %>
-                    <%= f.hidden_field :receiver_id, value: product_associate.user_id %>
-                    <%#= f.submit "Iniciar chat!", class:"btn btn-round" %>
-                  <% end %>
                   <button type="button" rel="tooltip" class="btn btn-round" data-original-title="" title="">
-                  <%= link_to ("Enviar Email").html_safe, new_email_message_path(product_id: @product, product_associates: product_associate.user_id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#FFFFFF;'}%>
+                  <%= link_to ("Enviar Email").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#FFFFFF;'}%>
                   </button>
                   
                 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
