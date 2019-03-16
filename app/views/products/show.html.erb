@@ -9,7 +9,7 @@
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
       <div class="card-icon">
-        <i class="material-icons">mail_outline</i>
+        <i class="material-icons" style="color: #0a2644">info</i>
       </div>
       <h4 class="card-title">Fotos</h4>
     </div>
@@ -32,9 +32,9 @@
 
 <div class="col-md-12">
   <div class="card ">
-    <div class="card-header card-header-rose card-header-icon">
+    <div class="card-header card-header-rose card-header-icon" >
       <div class="card-icon">
-        <i class="material-icons">mail_outline</i>
+        <i class="material-icons" style="color: #02dbff">info</i>
       </div>
       <h4 class="card-title">+Info</h4>
     </div>
@@ -118,10 +118,10 @@
 	<div class="row">
 
           <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
+              <div class="card card-product">
+                <div class="card-header card-header-image">
                   <a href="#pablo">
-                    <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>              
+                    <%= image_tag "https://st.depositphotos.com/1039548/4459/v/600/depositphotos_44598575-stock-video-cheerful-woman-video-chatting.jpg" %>              
                   </a>
                 </div>
                 <div class="card-body">
@@ -205,6 +205,23 @@
 </div>
 
 
+
+<div class="fixed-plugin" style="background-color: #0a2644;">
+                <div class="dropdown show-dropdown show" >
+                  <a href="#" data-toggle="dropdown" aria-expanded="true" >
+                    <i class="fa fa-cog fa-2x" style="color:#02dbff"></i>
+
+                  </a>
+                  <ul class="dropdown-menu show" x-placement="top-start" style="position: absolute; top: -630px; left: -231px; will-change: top; background-color: #0a2644">
+
+
+                  <%= render 'contact_messages/modal' %>
+
+
+
+                  </ul>
+                </div>
+              </div>
 
 
 		

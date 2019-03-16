@@ -27,33 +27,29 @@
         </button>
       </div>
       <div class="collapse navbar-collapse justify-content-end has-image" id="navigation" style="background: url(&quot;./assets/img/blurred-image-1.jpg&quot;) 0% 0% / cover;">
-        <ul class="navbar-nav" style="color:#fff">
+        <ul class="navbar-nav" >
 
           <li class="nav-item" style="margin-right: 30px;">
-              <p><%= link_to 'Home', root_path %> </p>
+              <p><%= link_to 'Home', root_path, {style:"color:#0a2644; font-weight:bold"} %> </p>
           </li>
 
 
           <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#como_funciona">Como Funciona</a></p>
+              <p><a href="#como_funciona" style="color:#0a2644; font-weight:bold">Como Funciona</a></p>
           </li>          
 
 
           <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#eventos">Eventos</a></p>
+              <p><a href="#eventos"style="color:#0a2644; font-weight:bold">Eventos</a></p>
           </li>          
 
           <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#procedimentos">Procedimentos</a></p>
+              <p><a href="#procedimentos" style="color:#0a2644; font-weight:bold">Procedimentos</a></p>
           </li>          
 
-
-
-          <li class="nav-item" style="margin-left: 15px">
-            
-              <p><%= link_to 'Login', new_user_session_path, class: "nav-link btn btn-neutral" %> </p>
-            
-          </li>
+          <li class="nav-item" style="margin-right: 30px;">
+              <p><%= link_to 'Agendamento', new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;color:#0a2644; font-weight:bold'} %> </p>
+          </li>      
 
 
         </ul>
@@ -64,7 +60,12 @@
   <div class="wrapper" style= "height: 750px;">
      
     <div class="page-header clear-filter " >
-      <div class="page-header-image" data-parallax="true" style="background-image:url('https://www.lendico.com.br/cms/cirurgia-plastica/financiamento-para-cirurgia-plastica/@@images/22e3ab9e-f444-4554-9661-0019ac08f90d.jpeg">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('https://lovelacemedicalgroup.com/sites/default/files/service-images/plastic_surgery_iStock-685846144.jpg');        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";" >
       </div>
 
 
@@ -73,55 +74,49 @@
           <div class="col-md-12 ml-auto mr-auto" >
             <div style="margin-top: 10px;">
 
-              <div class="card-body" style="background-color: rgba(0, 0, 0, 0.6);height: 650px">
+              <div class="card-body" style="background-color: rgba(0, 0, 0, 0);height: 650px">
                 <div class="row">
-                  <div class="col-md-6 ml-auto" style="margin-top: -10px">
-                    <div class="info info-horizontal">
-                      <div class="icon icon-rose" style="color:#fff;">
+                  <div class="col-md-12 mr-auto" style="text-align: left">
+                    <div class="social text-center" style="margin-top: -20px">
+                      <p class="mt-3" style="color: #0a2644; font-weight: bold;font-size: 30px; text-align: left"> Sua plástica, nas melhores clínicas </br>e com os menores preços </p></br>
+                      
+
+                    </div>
+
+                    <div class="info info-horizontal" style="margin-top: -100px; margin-left: -8px">
+                      <div class="icon icon-rose" style="color:#0a2644;">
                         <i class="material-icons">attach_money</i>
                         </div>
                       <div class="description">
-                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 25px">Ganhe R$500 em sua próxima plástica</h4>
+                        <h4 class="info-title" style=" color: #0a2644; font-weight: bold;text-align: left; font-size: 25px">Batemos seu preço. Economize até R$3.000</h4>
                       </div>
                     </div>
 
-                    <div class="info info-horizontal" style="margin-top: -100px">
-                      <div class="icon icon-rose" style="color:#fff">
+                    <div class="info info-horizontal" style="margin-top: -100px; margin-left: -8px">
+                      <div class="icon icon-rose" style="color:#0a2644">
                         <i class="material-icons">credit_card</i>
                         </div>
                       <div class="description">
-                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 25px">Parcele em até 36x</h4>
+                        <h4 class="info-title" style=" color: #0a2644;font-weight: bold; text-align: left; font-size: 25px">Parcele em até 36x</h4>
                       </div>
                     </div>
 
-                    <div class="info info-horizontal" style="margin-top: -100px">
-                      <div class="icon icon-rose" style="color:#fff;">
+                    <div class="info info-horizontal" style="margin-top: -100px; margin-left: -8px">
+                      <div class="icon icon-rose" style="color:#0a2644;">
                         <i class="material-icons">people</i>
                       </div>
                       <div class="description">
-                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 25px">Participe de nossos eventos gratuitamente<h4>
-                      </div>
-                    </div>
-                    <div class="info info-horizontal" style="margin-top: -100px">
-                      <div class="icon icon-rose" style="color:#fff">
-                        <i class="material-icons">list</i>
-                      </div>
-                      <div class="description">
-                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 25px">Compare preços e cirurgiões. Economize até R$3.000</h4>
+                        <h4 class="info-title" style=" color: #0a2644; font-weight: bold;text-align: left; font-size: 25px">Consulta Gratuíta<h4>
                       </div>
                     </div>
 
 
-                  </div>
-                  <div class="col-md-6 mr-auto">
-                    <div class="social text-center" style="margin-top: -20px">
-                      <p class="mt-3" style="color: #0094ec; font-size: 30px;"> Sua plástica, nas melhores clínicas e com os menores preços </p></br>
-                      <p style="color: #fff; font-size: 14px; margin-top: -30px"> Compare os preços de mais de 100 cirurgiões em São Paulo.</br> É gratuíto! Fale com nossos coachs!</p></br>
-                    </div>
+          <button type="button" rel="tooltip" class="btn" data-original-title="" title="" style="background-color: #02dbff; margin-left: -8px; width: 300px">
+            <%= link_to ("AGENDE SUA CONSULTA ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0a2644; font-size:15px'}%>        
+          </button>         
 
-                    <%= render 'contact_messages/new' %>
                   
-                  </div>
+                  </div>                  
                 </div>
               </div>
             </div>
@@ -141,39 +136,39 @@
 
     <div id="como_funciona" style="text-align: center; color:#fff; background-color: #fff; margin-top: -20px">
       <div class="container">
-        <h2 class="title description" style="color:#000">Como Funciona</h2></br>
+        <h2 class="title description" style="color:#616a74">Como Funciona</h2></br>
         <div class="team">
           <div class="row">
             <div class="col-md-4">
 
               <div class="team-player">
-                                  <i class="material-icons" style="color:#000; font-size: 50px">people</i>
+                                  <i class="material-icons" style="color:#02dbff; font-size: 50px">people</i>
 
-                <h4 class="title description" style="color:#000;  font-size: 30px">Coach Gratuíto</h4>
-                <p style="height: 150px; font-size: 16px; color: #000">Compare preços, veja fotos de antes e depois de vários cirurgiões, tenha acesso a experiência de outras pessoas. Nossa equipe ajuda você com todas as suas dúvidas.</p>
+                <h4 class="title description" style="color:#616a74;  font-size: 30px">Coach Gratuíto</h4>
+                <p style="height: 150px; font-size: 16px; color: #616a74">Compare preços, veja fotos de antes e depois de vários cirurgiões, tenha acesso a experiência de outras pessoas. Nossa equipe ajuda você com todas as suas dúvidas.</p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="team-player">
-                                  <i class="material-icons" style="color:#000; font-size: 50px">attach_money</i>
+                <i class="material-icons" style="color:#02dbff; font-size: 50px">attach_money</i>
 
-                <h4 class="title description" style="color:#000;  font-size: 30px">Batemos seu preço!</h4>
-                <p style="height: 150px; font-size: 16px; color:#000">Quer pagar quanto? Temos excelentes clínicas conveniadas para todos os bolsos! Todos os dias levamos diversos pacientes para as clínicas conveniadas, por isso recebemos muitos descontos.  </p>
+                <h4 class="title description" style="color:#616a74;  font-size: 30px">Batemos seu preço!</h4>
+                <p style="height: 150px; font-size: 16px; color:#616a74">Quer pagar quanto? Temos excelentes clínicas conveniadas para todos os bolsos! Todos os dias levamos diversos pacientes para as clínicas conveniadas, por isso recebemos muitos descontos.  </p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="team-player">
                 
-                  <i class="material-icons" style="color:#000; font-size: 50px">credit_card</i>
+                  <i class="material-icons" style="color:#02dbff; font-size: 50px">credit_card</i>
                 
 
-                <h4 class="title description" style="color:#000;  font-size: 30px">Parcele em ate 36x</h4>
-                <p style="height: 150px; font-size: 16px; color:#000"> Nossos coachs irão buscar a solução de pagamento que cabe no seu bolso. </p>
+                <h4 class="title description" style="color:#616a74;  font-size: 30px">Parcele em ate 36x</h4>
+                <p style="height: 150px; font-size: 16px; color:#616a74"> Nossos coachs irão buscar a solução de pagamento que cabe no seu bolso. </p>
                 <p></p>
               </div>
             </div>
           </div>
-        <p  style="color:#000; ">Tudo isso com um suporte de seu coach totalmente personalizado para você de forma gratuíta!
+        <p  style="color:#616a74; ">Tudo isso com um suporte de seu coach totalmente personalizado para você de forma gratuíta!
 </p></br>
         </div>
       </div>
@@ -188,7 +183,7 @@
   <div class="wrapper" style= "height: 750px;" id="eventos">
      
     <div class="page-header clear-filter " >
-      <div class="page-header-image" data-parallax="true" style="background-image:url('/assets/eventos.png">
+      <div class="page-header-image" data-parallax="true" style="background-color: #0a2644">
       </div>
 
 
@@ -198,13 +193,13 @@
           <div class="col-md-12 ml-auto mr-auto" >
             <div style="margin-top: 0px;">
 
-              <div class="card-body" style="background-color: rgba(0, 0, 0, 0.7);height: 650px">
+              <div class="card-body" style="background-color: rgba(0, 0, 0, 0);height: 650px">
                 <div class="row">
                   <div class="col-md-6 ml-auto" style="margin-top: 20px">
                     <div class="info info-horizontal">
                       <div class="description">
                         <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 20px">Fique por dentro dos fatos</h4>
-                        <h1 class="info-title" style=" color: #0094ec; text-align: left; font-size: 40px">ProPlastica Eventos</h1>
+                        <h1 class="info-title" style=" color: #02dbff; text-align: left; font-size: 40px">ProPlastica Eventos</h1>
 
                         <p class="description" style="font-size: 20px; color: #fff; text-align: left">
                           Nossa missão é dar informações sobre cirurgias plásticas e dar a você a chance de tirar todas as suas dúvidas conosco e compartilhar suas experências com outras pessoas! Increva-se para o próximo evento. 
@@ -239,10 +234,10 @@
 
 
 
-<div id="procedimentos" class="main" style="margin-top: -30px">
+<div id="procedimentos" class="main" style="margin-top: -30px"></br>
         
 
-<h2 class="title description" style="text-align: center" >Procedimentos Estéticos</h2>
+<h2 class="title description" style="text-align: center; color:#0a2644; font-weight: bold; " >PROCEDIMENTOS ESTETICOS</h2>
 <div class="section section-nucleo-icons">
         <div class="container">
           <div class="row">
@@ -250,7 +245,7 @@
 
 
 
-<div class="row">
+<div class="row" style="margin-top: -50px">
   <div class="col-md-4">
     <div class="card card-product">
       <div class="card-header card-header-image" data-header-animation="false">
@@ -260,13 +255,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;'} %>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#616a74;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-                      <%= link_to ("<i class='material-icons'>email</i>chat").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;'} %>
-
+            <a style="color:#616a74;" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">chat</i>chat</a>
               </button>
-                      <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(id: Product.first.id),{style:'color:#0094ec;'} %>
-
+            <a style="color:#616a74;" href="/products/7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -274,7 +267,7 @@
                 </div>
               </div>
             </div>
-            <h4 class="card-title" style="height: 20px; color:#0094ec">
+            <h4 class="card-title" style="height: 20px; color:#616a74; font-weight: bold">
               Prótese de Silicone
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -288,7 +281,7 @@
           </div>
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -309,11 +302,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#616a74;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#616a74;" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/7-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#616a74;" href="/products/7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -321,10 +314,10 @@
                 </div>
               </div>
             </div>
-            <h4 class="card-title" style="height: 20px; color:#0094ec">
+            <h4 class="card-title" style="height: 20px; color:#616a74; font-weight: bold">
               Lipoaspiração
             </h4>
-            <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
+            <div class="card-description" style="color:#616a74;height: 150px; margin-top: 20px">
               Fizemos um guia de Lipoaspiração. 
               1.) O que é Lipoaspiração
               2.) Lipo x flacidez na barriga 
@@ -339,7 +332,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -358,11 +351,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=6-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#616a74;" data-remote="true" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=6-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#616a74;" href="/email_messages/new?product_id=7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/6-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#616a74;" href="/products/7-project-shoes-multi-brand-s"><i style="color:#02dbff" class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -370,7 +363,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+            <h4 class="card-title" style="height: 20px; color:#616a74; font-weight: bold">
               Abdominoplastia
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -387,7 +380,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -406,11 +399,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=16-9"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=16-9"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=16-9"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=16-9"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/16-9"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/16-9"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -418,7 +411,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Rinoplastia
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -435,7 +428,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -455,11 +448,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=2-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=2-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=2-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=2-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/2-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/2-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -467,7 +460,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Mamoplastia Redutora
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -483,7 +476,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -503,11 +496,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=3-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=3-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=3-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=3-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/3-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/3-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -515,7 +508,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Toxina Botulínica
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -533,7 +526,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -552,11 +545,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=4-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=4-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=4-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=4-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/4-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/4-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -564,7 +557,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Preenchimento Facial
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -578,7 +571,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -598,11 +591,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=9-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=9-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=9-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=9-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/9-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/9-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -610,7 +603,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Lifting Facial – Ritidoplastia
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -627,7 +620,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -646,11 +639,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=17"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=17"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=17"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=17"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/17"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/17"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -658,7 +651,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
                    Otoplastia - Cirurgia Orelha         
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -677,7 +670,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -696,11 +689,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=10-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=10-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=10-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=10-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/10-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/10-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -708,7 +701,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Implante de Glúteo
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -724,7 +717,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -744,11 +737,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=11-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=11-project-shoes-multi-brand-s"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=11-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=11-project-shoes-multi-brand-s"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/11-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/11-project-shoes-multi-brand-s"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -756,7 +749,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Transplante Capilar
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -771,7 +764,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -791,11 +784,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_associates%5B%5D=2&amp;product_associates%5B%5D=1&amp;product_id=14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_associates%5B%5D=2&amp;product_associates%5B%5D=1&amp;product_id=14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_associates%5B%5D=2&amp;product_associates%5B%5D=1&amp;product_id=14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_associates%5B%5D=2&amp;product_associates%5B%5D=1&amp;product_id=14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/14-hdskjdhkjhdkjdhkjdksjhdkjsdhk"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -803,7 +796,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Como tratar Queloide
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -820,7 +813,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -839,11 +832,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=19-8"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=19-8"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=19-8"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=19-8"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/19-8"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/19-8"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -851,7 +844,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Cirurgia Íntima / Ninfoplastia
 
             </h4>
@@ -868,7 +861,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -888,11 +881,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_associates%5B%5D=7&amp;product_associates%5B%5D=2&amp;product_id=20-tesouraria-julius-baer"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_associates%5B%5D=7&amp;product_associates%5B%5D=2&amp;product_id=20-tesouraria-julius-baer"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_associates%5B%5D=7&amp;product_associates%5B%5D=2&amp;product_id=20-tesouraria-julius-baer"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_associates%5B%5D=7&amp;product_associates%5B%5D=2&amp;product_id=20-tesouraria-julius-baer"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/20-tesouraria-julius-baer"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/20-tesouraria-julius-baer"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -900,7 +893,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Cirurgia Plástica para as Pálpebras
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -916,7 +909,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -935,11 +928,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=21-3"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=21-3"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=21-3"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=21-3"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/21-3"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/21-3"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -947,7 +940,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Mastopexia com Prótese            
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -965,7 +958,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -984,11 +977,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=22-3"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=22-3"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=22-3"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=22-3"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/22-3"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/22-3"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -996,7 +989,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Implante de Mento - Plástica Queixo
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -1013,7 +1006,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -1032,11 +1025,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=23-8"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=23-8"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=23-8"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=23-8"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/23-8"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/23-8"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -1044,7 +1037,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Mastopexia sem Prótese            
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -1062,7 +1055,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -1081,11 +1074,11 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <a data-toggle="modal" data-target="#modal-window" style="color:#0094ec;" data-remote="true" href="/email_messages/new?product_id=26-teste203"><i class="material-icons">email</i>email</a>
+          <a data-toggle="modal" data-target="#modal-window" style="color:#0a2644;" data-remote="true" href="/email_messages/new?product_id=26-teste203"><i class="material-icons">email</i>email</a>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <a style="color:#0094ec;" href="/email_messages/new?product_id=26-teste203"><i class="material-icons">chat</i>chat</a>
+            <a style="color:#0a2644;" href="/email_messages/new?product_id=26-teste203"><i class="material-icons">chat</i>chat</a>
               </button>
-            <a style="color:#0094ec;" href="/products/26-teste203"><i class="material-icons">info</i>+info</a>
+            <a style="color:#0a2644;" href="/products/26-teste203"><i class="material-icons">info</i>+info</a>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    
@@ -1093,7 +1086,7 @@
                 </div>
               </div>
             </div>
-             <h4 class="card-title" style="height: 20px; color:#0094ec">
+             <h4 class="card-title" style="height: 20px; color:#0a2644">
               Ginecomastia - Peito Homens
             </h4>
             <div class="card-description" style="color:#000;height: 150px; margin-top: 20px">
@@ -1111,7 +1104,7 @@
 
             <div class="card-footer">
               <div class="stats">
-                <p class="card-category" style="color:#0094ec;">De R$3 mil a R$10 mil </p></br>
+                <p class="card-category" style="color:#0a2644;">De R$3 mil a R$10 mil </p></br>
               </div>            
               <div class="stats">
                 <p class="card-category" style="color:#000">Antes e Depois</p>
@@ -1141,7 +1134,22 @@
   
 
 
+<div class="fixed-plugin" style="background-color: #0a2644;">
+                <div class="dropdown show-dropdown show" >
+                  <a href="#" data-toggle="dropdown" aria-expanded="true" >
+                    <i class="fa fa-cog fa-2x" style="color:#02dbff"></i>
 
+                  </a>
+                  <ul class="dropdown-menu show" x-placement="top-start" style="position: absolute; top: -630px; left: -231px; will-change: top; background-color: #0a2644">
+
+
+                  <%= render 'contact_messages/modal' %>
+
+
+
+                  </ul>
+                </div>
+              </div>
 
     <!-- Sart Modal -->
  
@@ -1152,7 +1160,7 @@
 
 
 
-<footer class="Footer Footer--global" style="background-color: #000; line-height: 70px">
+<footer class="Footer Footer--global" style="background-color: #0a2644; line-height: 70px">
     <div class="container" >
         <div class="row" ">
             <div style="height: 5px">
@@ -1163,13 +1171,13 @@
         </div>
 
             <div class="col-sm-12" style="color: #fff; text-align: center">
-              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;font-size:30px;'} %>
+              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#02dbff;font-size:30px;'} %>
 
             </div></br></br>
         <div class="row" style="margin-top: -120px">
             <div class="col-sm-3" style="color: #fff">
                 
-                <h5 style="font-weight: bold; font-size: 14px" >Acesso Rápido</h5>
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Acesso Rápido</h5>
                 <nav style="color: #000; margin-top: -100px" >
                   <li class="nav-item" style="height: 30px">
                     <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
@@ -1186,7 +1194,7 @@
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px;" >Procedimentos</h5>
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Procedimentos</h5>
                 <nav style="color: #000; margin-top: -100px" >
 
                   <li class="nav-item" style="height: 30px">
@@ -1230,7 +1238,7 @@
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Artigos</h5>
                 <nav style="color: #000; margin-top: -100px" >
                   <li class="nav-item" style="height: 30px">
                     <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
@@ -1247,7 +1255,7 @@
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Artigos</h5>
                 <nav style="color: #000; margin-top: -100px" >
                   <li class="nav-item" style="height: 30px">
                     <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>

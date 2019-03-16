@@ -55,11 +55,11 @@
       </div>
       <div class="card-body">
         <div class="text-center" >
-          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;'} %>
+          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0a2644;'} %>
           <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-            <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)), {style:'color:#0094ec;'} %>
+            <%= link_to ("<i class='material-icons'>chat</i>chat").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)), {style:'color:#0a2644;'} %>
               </button>
-            <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#0094ec;'} %>
+            <%= link_to ("<i class='material-icons'>info</i>+info").html_safe, product_path(product), {style:'color:#0a2644;'} %>
             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">                    

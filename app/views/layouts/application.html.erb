@@ -15,7 +15,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg" style="background-color: #000">
+    <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg" style="background-color: #0a2644">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
@@ -36,19 +36,21 @@
         <ul class="nav">
           
 
+          <li class="nav-item " style="background-color: #02dbff;height: :300px">
+            <a class="nav-link collapsed" data-toggle="collapse" href= '' >
+              <i class="material-icons" style="color: #0a2644">schedule</i>
+              <p> 
+                <b ></b>
+              </p>
+            </a>
 
-
-
-
-
-
-
-
+                  <%= link_to "AGENDE SUA CONSULTA", new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class:"nav-link", style:"color:#0a2644; margin-top:-10px; font-weight:bold; font-size:14px"} %>
+           </li>
 
           <% Assetclass.all.each do |assetclass| %>
           <li class="nav-item ">
             <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=assetclass.id%>' >
-              <i class="material-icons">image</i>
+              <i class="material-icons">info</i>
               <p> <%= assetclass.name %>
                 <b class="caret"></b>
               </p>
@@ -159,7 +161,7 @@
 
 <div class="container">
   <% flash.each do |name, msg| %>
-    <div class="alert" style="background-color: #0094ec; color: #fff;font-weight: bold;">
+    <div class="alert" style="background-color: #0a2644; color: #fff;font-weight: bold;">
       <a class="close" data-dismiss="alert">x</a>      
       <%= msg  %>
     </div>
@@ -171,7 +173,7 @@
 
     <%= yield %>
 
-<footer class="Footer Footer--global" style="background-color: #000; line-height: 70px; ">
+<footer class="Footer Footer--global" style="background-color: #0a2644; line-height: 70px">
     <div class="container" >
         <div class="row" ">
             <div style="height: 5px">
@@ -182,16 +184,16 @@
         </div>
 
             <div class="col-sm-12" style="color: #fff; text-align: center">
-              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;font-size:30px;'} %>
+              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#02dbff;font-size:30px;'} %>
 
             </div></br></br>
         <div class="row" style="margin-top: -120px">
             <div class="col-sm-3" style="color: #fff">
                 
-                <h5 style="font-weight: bold; font-size: 14px" >Acesso Rápido</h5>
-                <nav style="color: #000; margin-top: -80px" >
-                  <li class="nav-item" style="height: 30px">
-                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Acesso Rápido</h5>
+                <nav style="color: #000; margin-top: -100px" >
+                  <li class="nav-item" style="height: 30px; margin-top: 30px">
+                    <p><a href="#como_funciona" style="color:#fff;font-size: 14px; ">Como Funciona</a></p>
                   </li>          
 
                   <li class="nav-item" style="height: 30px">
@@ -205,10 +207,10 @@
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px;" >Procedimentos</h5>
-                <nav style="color: #000; margin-top: -80px" >
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Procedimentos</h5>
+                <nav style="color: #000; margin-top: -100px" >
 
-                  <li class="nav-item" style="height: 30px">
+                  <li class="nav-item" style="height: 30px;margin-top: 30px">
                     <p><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/206" style="color:#fff;font-size: 14px">Prótese de Silicone</a></p>
                   </li>          
                   <li class="nav-item" style="height: 30px">
@@ -249,9 +251,9 @@
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
-                <nav style="color: #000; margin-top: -80px" >
-                  <li class="nav-item" style="height: 30px">
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Artigos</h5>
+                <nav style="color: #000; margin-top: -100px" >
+                  <li class="nav-item" style="height: 30px; margin-top: 30px">
                     <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
                   </li>          
 
@@ -266,9 +268,9 @@
             </div>
 
             <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px" >Artigos</h5>
-                <nav style="color: #000; margin-top: -80px" >
-                  <li class="nav-item" style="height: 30px">
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Artigos</h5>
+                <nav style="color: #000; margin-top: -100px" >
+                  <li class="nav-item" style="height: 30px; margin-top: 30px">
                     <p><a href="#como_funciona" style="color:#fff;font-size: 14px">Como Funciona</a></p>
                   </li>          
 
