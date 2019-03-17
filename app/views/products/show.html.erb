@@ -9,7 +9,7 @@
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
       <div class="card-icon">
-        <i class="material-icons" style="color: #0a2644">photo_came</i>
+        <i class="material-icons" style="color: #75ff02">photo_came</i>
       </div>
       <h4 class="card-title">Fotos</h4>
     </div>
@@ -34,20 +34,20 @@
   <div class="card ">
     <div class="card-header card-header-rose card-header-icon">
       <div class="card-icon">
-        <i class="material-icons" style="color: #02dbff">info</i>
+        <i class="material-icons" style="color: #75ff02">info</i>
       </div>
       <h4 class="card-title">+Info</h4>
     </div>
-    <div class="card-body ">
+    <div class="card-body " style="margin-top: 20px">
       <% if @product != nil %>
-      <div class="card ">       
-        <%= @product.name %>          
-        </div>
-        <%= @product.description.html_safe %>
-        <%end%>
-      </div>  
-    </div>
-  </div> 
+             
+      <p style="font-size: 20px"><%= @product.name %></p></br>        
+      
+      <%= @product.description.html_safe %>
+      <%end%>
+    </div>  
+  </div>
+</div> 
 
 
 
@@ -60,7 +60,7 @@
 
         <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">slow_motion_video</i>
+                    <i class="material-icons" style="color: #75ff02">slow_motion_video</i>
                   </div>
                   <h4 class="card-title">Videos</h4>
          </div>
@@ -184,7 +184,7 @@
 
         <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">mail_outline</i>
+                    <i class="material-icons" style="color: #75ff02">info</i>
                   </div>
                   <h4 class="card-title">Notícias</h4>
          </div> </br>
