@@ -41,9 +41,9 @@ class ProductsController < ApplicationController
 			#if current_user.customer_to_product_associates.present?
 			#	@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)
 			#else
-				@product_associates = @product.product_associates#.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
+				#@product_associates = @product.product_associates#.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
 			#end
-			@posts = @product.posts.order(created_at: :desc)
+			#@posts = @product.posts.order(created_at: :desc)
 		end
 	end
 
