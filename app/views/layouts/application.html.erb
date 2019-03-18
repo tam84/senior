@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Liquibay</title>
+    <% if @product.present? %>
+    <title><%= @product.name %></title>
+    <% else %>
+    <title>Cirúrgia plástica parcelada com o melhor cirurgião plástico - Silicone</title>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
