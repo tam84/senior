@@ -37,6 +37,12 @@
           <h4 style="text-align: right; margin-top: -10px; color:#75ff02;font-weight: bold"> NA WEB </h4>
           <%# image_tag(("http://ec2-18-217-155-28.us-east-2.compute.amazonaws.com/assets/logo_liquibay_branco-fd00d8005b22ef903bbf567ea3de8e28b5d9548e29a827a14fd3920f7ed6ab8f.png"), style:"width:235px; height: 50px") %>
         </a>
+
+          <button type="button" rel="tooltip" class="btn" data-original-title="" title="" style="background-color: #75ff02; margin-right: : 0px;">
+            <%= link_to ("AGENDE SUA CONSULTA ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0a2644; font-size:15px; font-weight:bold'}%>        
+          </button>         
+
+        
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar top-bar"></span>
           <span class="navbar-toggler-bar middle-bar"></span>
@@ -68,12 +74,6 @@
           <li class="nav-item" style="margin-right: 30px;">
               <p><a href="#procedimentos" style="color:#0a2644; font-weight:bold; font-size:16px; ">Preço</a></p>
           </li>          
-
-
-
-          <button type="button" rel="tooltip" class="btn" data-original-title="" title="" style="background-color: #75ff02; margin-right: : 0px;">
-            <%= link_to ("AGENDE SUA CONSULTA ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0a2644; font-size:15px; font-weight:bold'}%>        
-          </button>         
 
 
         </ul>
