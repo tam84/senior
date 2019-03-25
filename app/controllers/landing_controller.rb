@@ -6,5 +6,9 @@ class LandingController < ApplicationController
 
   end
 
+  def preco_peito_silicone
+  	render layout: "preco_peito_silicone"
+  end
+
 
 end
