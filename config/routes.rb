@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get '/landing', to: "landing#index"
   get '/preco_peito_silicone', to: "landing#preco_peito_silicone"  
   get '/preco_antes_depois_rinoplastia', to: "landing#preco_antes_depois_rinoplastia"  
+  get '/preco_antes_depois_otoplastia', to: "landing#preco_antes_depois_otoplastia"  
 
 
   resources :product_associates, only: [:new, :create, :index]
