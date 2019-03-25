@@ -1,112 +1,43 @@
-      
 
 
 
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px"></br>
+        
+        
+
+<div class="container">
+  <div class="row">
 
 
-<% if @product.images.present? %>
-<div class="col-md-12">
+<div class="col-md-8">
   <div class="card ">
-    <div class="card-header card-header-rose card-header-icon">
-      <div class="card-icon">
-        <i class="material-icons" style="color: #75ff02">photo_came</i>
-      </div>
-      <h4 class="card-title">Fotos</h4>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <% @product.images.each do |image| %>
-        <% if image.previewable? %>
-        <%= link_to image.filename, rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-        <% else %>
-        <%= link_to image_tag(image.variant(resize: "200x200!"),style: "margin-top:20px;"), rails_blob_path(image, disposition: "attachment"), class: "col-md-3" %>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>          
-</div>
-<% end %></br>
-
-
-
-<div class="col-md-12">
-  <div class="card ">
+    
     <div class="card-header card-header-rose card-header-icon">
       <div class="card-icon">
         <i class="material-icons" style="color: #75ff02">info</i>
       </div>
-      <h4 class="card-title">+Info</h4>
+      <h4 class="card-title">Informações</h4></br></br>
     </div>
-    <div class="card-body " style="margin-top: 20px">
+   
+
+    <div class="col-md-12" style="margin-left: 00px; text-align: left">
+      <div href="#pablo">
+
+
+
       <% if @product != nil %>
              
       <h1 style="font-size: 20px"><%= @product.name %></h1></br>        
       
       <%= @product.description.html_safe %>
       <%end%>
-    </div>  
-  </div>
-</div> 
 
 
 
 
-
-<% if @product.youtube_videos.present? %>
-
-        <div class="col-md-12">
-              <div class="card ">
-
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons" style="color: #75ff02">slow_motion_video</i>
-                  </div>
-                  <h4 class="card-title">Videos</h4>
-         </div>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-
-        <div class="row col-md-12">
-          <% for video in @product.youtube_videos %>  
-          <div class="col-md-3" >
-              <div class="card" >
-                <div class="card-avatar" style="background-color: #212529">                    
-                    <%# link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), rails_blob_path(video, disposition: "attachment") %>              
-
-
-                <%= link_to image_tag("http://weblinks.sigmachi.org/preview/grand_consul_message/Noblest_Best/images/YouTube_Play_Icon.png"), video.url %>
-
-
-                </div>
-                <div class="card-body">
-                  <p class="card-title" style="height: 110px; font-size: 15px"><%= truncate(video.title, length:70) %></p>
-
-                  <p class="card-title" style="font-size: 12px; font-weight: bold">publicado <%= truncate(video.created_at.to_s, length:14) %></p>
-                  
-                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="background-color: #0a2644">
-                    </div>
-                  </div>
-                </div>
-                  
-                </div>
-              </div>
-          </div>
-          <% end %>
-        </div>
-          </div>
-
-            </div>
-          </div>          
-        </div>        
-
-<% end %>
-    
-      
+      </div>
+    </div></br>
+</br>
 
 
 
@@ -115,7 +46,7 @@
 
 
 <div class="container-fluid">
-	<div class="row">
+  <div class="row">
 
           
           <div class="col-md-4">
@@ -226,24 +157,42 @@
 
 
 
-
-
-
-
-	</div>
+  </div>
 </div>
 
 
 
 
-		
 
 
 
 
 
+  </div>          
+</div>
 
 
 
 
+<div class="col-md-4">
+  <div class="card ">
+    
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons" style="color: #75ff02">photo_came</i>
+      </div>
+      <h4 class="card-title">Fotos</h4></br></br>
+    </div>
+   
 
+   <%= render "/landing/antes_depois_silicone" %>
+
+
+  </div>          
+</div>
+
+
+  </div>
+</div>
+      
+</div>
