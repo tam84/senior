@@ -10,5 +10,9 @@ class LandingController < ApplicationController
   	render layout: "preco_peito_silicone"
   end
 
+  def preco_antes_depois_rinoplastia
+  	render layout: "preco_antes_depois_rinoplastia"
+  end
+
 
 end
