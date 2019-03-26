@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   get '/preco_antes_depois_otoplastia', to: "landing#preco_antes_depois_otoplastia"  
   get '/preco_antes_depois_mastopexia', to: "landing#preco_antes_depois_mastopexia"  
   get '/antes_depois_preco_mamoplastia_redutora', to: "landing#antes_depois_preco_mamoplastia_redutora"  
+  get '/preco_antes_depois_ninfoplastia', to: "landing#preco_antes_depois_ninfoplastia"  
 
 
   resources :product_associates, only: [:new, :create, :index]
