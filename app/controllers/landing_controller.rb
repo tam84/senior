@@ -22,5 +22,9 @@ class LandingController < ApplicationController
     render layout: "preco_antes_depois_mastopexia"
   end
 
+  def antes_depois_preco_mamoplastia_redutora
+    render layout: "antes_depois_preco_mamoplastia_redutora"
+  end
+
 
 end
