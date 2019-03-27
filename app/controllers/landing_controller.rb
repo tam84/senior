@@ -30,5 +30,25 @@ class LandingController < ApplicationController
     render layout: "preco_antes_depois_ninfoplastia"
   end
 
+  def preco_antes_depois_abdominoplastia
+    render layout: "preco_antes_depois_abdominoplastia"
+  end
+
+
+  def antes_depois_preco_lifting_facial_ritidoplastia
+    render layout: "antes_depois_preco_lifting_facial_ritidoplastia"
+  end
+
+
+  def preco_antes_depois_lipoaspiracao
+    render layout: "preco_antes_depois_lipoaspiracao"
+  end
+
+  def preco_antes_depois_blefaroplastia
+    render layout: "preco_antes_depois_blefaroplastia"
+  end
+  
+
+
 
 end

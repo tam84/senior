@@ -58,6 +58,10 @@ Rails.application.routes.draw do
   get '/preco_antes_depois_mastopexia', to: "landing#preco_antes_depois_mastopexia"  
   get '/antes_depois_preco_mamoplastia_redutora', to: "landing#antes_depois_preco_mamoplastia_redutora"  
   get '/preco_antes_depois_ninfoplastia', to: "landing#preco_antes_depois_ninfoplastia"  
+  get '/preco_antes_depois_abdominoplastia', to: "landing#preco_antes_depois_abdominoplastia"  
+  get '/antes_depois_preco_lifting_facial_ritidoplastia', to: "landing#antes_depois_preco_lifting_facial_ritidoplastia"  
+  get '/preco_antes_depois_lipoaspiracao', to: "landing#preco_antes_depois_lipoaspiracao"  
+  get '/preco_antes_depois_blefaroplastia', to: "landing#preco_antes_depois_blefaroplastia"  
 
 
   resources :product_associates, only: [:new, :create, :index]
