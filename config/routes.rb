@@ -62,7 +62,11 @@ Rails.application.routes.draw do
   get '/antes_depois_preco_lifting_facial_ritidoplastia', to: "landing#antes_depois_preco_lifting_facial_ritidoplastia"  
   get '/preco_antes_depois_lipoaspiracao', to: "landing#preco_antes_depois_lipoaspiracao"  
   get '/preco_antes_depois_blefaroplastia', to: "landing#preco_antes_depois_blefaroplastia"  
-
+  get '/preco_antes_depois_botox_toxina_botulinica', to: "landing#preco_antes_depois_botox_toxina_botulinica"  
+  get '/preco_antes_depois_acido_hialuronico_preenchimento_facial', to: "landing#preco_antes_depois_acido_hialuronico_preenchimento_facial"  
+  get '/preco_antes_depois_mentoplastia', to: "landing#preco_antes_depois_mentoplastia"  
+  get '/preco_antes_depois_queloide', to: "landing#preco_antes_depois_queloide"  
+  get '/preco_antes_depois_gluteoplastia', to: "landing#preco_antes_depois_gluteoplastia"  
 
   resources :product_associates, only: [:new, :create, :index]
 

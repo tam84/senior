@@ -48,7 +48,25 @@ class LandingController < ApplicationController
     render layout: "preco_antes_depois_blefaroplastia"
   end
   
+  def preco_antes_depois_botox_toxina_botulinica
+    render layout: "preco_antes_depois_botox_toxina_botulinica"
+  end
 
+  def preco_antes_depois_acido_hialuronico_preenchimento_facial
+    render layout: "preco_antes_depois_acido_hialuronico_preenchimento_facial"
+  end
+
+  def preco_antes_depois_mentoplastia
+    render layout: "preco_antes_depois_mentoplastia"
+  end
+
+  def preco_antes_depois_queloide
+    render layout: "preco_antes_depois_queloide"
+  end
+
+  def preco_antes_depois_gluteoplastia
+    render layout: "preco_antes_depois_gluteoplastia"
+  end
 
 
 end

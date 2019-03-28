@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136930452-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136930452-1');
+</script>
+
+
+    <title>Antes Depois e Preço otoplastia plastica orelha de abano</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+
+  </head>
+
+
+<body class="index-page sidebar-collapse">
+  <!-- Navbar -->
+  <!-- End Navbar quando quiser colocar o filter utilize  <div class="page-header clear-filter"-->
+  
+
+
+
+  <!-- End Navbar quando quiser colocar o filter utilize  <div class="page-header clear-filter"-->
+  
+
+  <div class="wrapper" style="height: 100%">
+
+
+  <nav class="navbar navbar-expand-lg fixed-top " color-on-scroll="400">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="http://ec2-18-222-94-248.us-east-2.compute.amazonaws.com" rel="tooltip" title="Designed by Invision. Coded by Creative Tim" data-placement="bottom" target="_blank">
+          <p style="font-size: 40px; text-transform: lowercase; color: #0a2644; font-weight: bold; 
+"> plástica </p>
+          <h4 style="text-align: right; margin-top: -10px; color:#75ff02;font-weight: bold"> NA WEB </h4>
+          <%# image_tag(("http://ec2-18-217-155-28.us-east-2.compute.amazonaws.com/assets/logo_liquibay_branco-fd00d8005b22ef903bbf567ea3de8e28b5d9548e29a827a14fd3920f7ed6ab8f.png"), style:"width:235px; height: 50px") %>
+        </a>
+
+          <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="" style="background-color: #75ff02; margin-right: : 0px;">
+            <%= link_to ("CONSULTA GRATUITA").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0a2644; font-size:13px; font-weight:bold'}%>        
+          </button>         
+
+
+        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar top-bar"></span>
+          <span class="navbar-toggler-bar middle-bar"></span>
+          <span class="navbar-toggler-bar bottom-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end has-image" id="navigation" style="background: url(&quot;./assets/img/blurred-image-1.jpg&quot;) 0% 0% / cover;">
+        <ul class="navbar-nav" >
+
+          <li class="nav-item" style="margin-right: 30px;">
+              <p><%= link_to 'Home', root_path, {style:"color:#0a2644; font-weight:bold"} %> </p>
+          </li>
+
+
+          <li class="nav-item" style="margin-right: 30px;">
+              <p><a href="#como_funciona" style="color:#0a2644; font-weight:bold; font-size:16px; ">Plástica Parcelada</a></p>
+          </li>          
+
+
+          <li class="nav-item" style="margin-right: 30px;">
+              <p><a href="#eventos"style="color:#0a2644; font-weight:bold">Eventos</a></p>
+          </li>          
+
+          <li class="nav-item" style="margin-right: 30px; ">
+              <p><a href="#procedimentos" style="color:#0a2644; font-weight:bold; font-size:16px; ">Antes Depois</a></p>
+          </li>          
+
+
+          <li class="nav-item" style="margin-right: 30px;">
+              <p><a href="#procedimentos" style="color:#0a2644; font-weight:bold; font-size:16px; ">Preço</a></p>
+          </li>          
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>     
+
+
+    <div class="page-header clear-filter " style="height: 100%" >
+      <div class="page-header-image" data-parallax="true" style="background-image:url('https://lovelacemedicalgroup.com/sites/default/files/service-images/plastic_surgery_iStock-685846144.jpg') ; -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";" >
+      </div>
+
+                <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color: #0a2644">
+                    </div>
+                  </div>
+                </div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ml-auto mr-auto" >
+        <div style="margin-top: 35px;">              
+
+          <div class="card-body" style="background-color: rgba(0, 0, 0, 0);">
+            <div class="row">
+              <div class="col-md-6 mr-auto" style="text-align: left;margin-top: 10px">
+                <div class="social text-center" >
+                  <h1 class="mt-3" style="color: #0a2644; font-weight: bold;font-size: 27px; text-align: left;"> Antes e Depois e Preço - Otoplastia</h1>
+                  </div></br>
+
+                    <div class="info info-horizontal" style="margin-top: -90px; margin-left: -8px">
+                    <div class="icon icon-rose" style="color:#0a2644;">
+                      <i class="material-icons">attach_money</i>
+                    </div>
+                      <div class="description">
+                        <h3 class="info-title" style=" color: #0a2644; font-weight: bold;text-align: left; font-size: 21px">De R$4.635 até R$25.000(Tudo)</h3>
+                        <h4 class="info-title" style=" color: #0a2644; font-weight: bold;text-align: left; font-size: 21px; margin-top: -12px">Depende do cirurgião escolhido</h4>
+                      </div>
+                    </div>
+
+
+                    <div class="info info-horizontal" style="margin-top: -80px; margin-left: -8px">
+                      <div class="icon icon-rose" style="color:#0a2644;">
+                        <i class="material-icons">credit_card</i>
+                        </div>
+                      <div class="description">
+                        <h2 class="info-title" style=" color: #0a2644; font-weight: bold;text-align: left; font-size: 21px">Plástica parcelada 36x</h2>
+                      </div>
+                    </div>
+
+
+                    <div class="info info-horizontal" style="margin-top: -80px; margin-left: -8px">
+                      <div class="icon icon-rose" style="color:#0a2644;">
+                        <i class="material-icons">people</i>
+                        </div>
+                      <div class="description">
+                        <h2 class="info-title" style=" color: #0a2644; font-weight: bold;text-align: left; font-size: 21px">Consulta Gratuíta</h2>
+                      </div>
+                    </div>
+
+
+
+
+          <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="" style="background-color: #75ff02; margin-left: -8px; width: 300px">
+            <%= link_to ("AGENDE SUA CONSULTA - Grátis ").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0a2644; font-size:15px; font-weight:bold'}%>        
+          </button>         
+
+                  
+                  </div>  
+
+
+                  <div class="col-md-3 mr-auto" style="text-align: left; "></div>
+
+                  <div class="col-md-3 mr-auto" style="text-align: left; background-color: #0a2644;height: 100%; margin-top: 30px">
+
+                  <h3 style="margin-top: 20px; color: #fff; font-weight: bold; font-size: 18px; text-align: center">AGENDE SUA CONSULTA</h3></br>
+
+                    <%= form_for ContactMessage.new do |f| %>
+
+
+
+
+                      <div class="col-md-12 form-group has-default bmd-form-group" >
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #333;">
+                              <i class="material-icons" style="color:#fff">face</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff;" %>
+                        </div>
+                      </div> </br>                  
+                      <div class="col-md-12  form-group has-default bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #333">
+                              <i class="material-icons" style="color:#fff">mail</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :email, class: 'form-control', placeholder: "Email", style:"color:#fff" %>
+                        </div></br>                  
+                      </div>
+                      <div class="col-md-12  form-group has-default bmd-form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-style: none; color: #333">
+                              <i class="material-icons"style="color:#fff">phone</i>
+                            </span>
+                          </div>
+                          <%= f.text_field :contacts, class: 'form-control', placeholder: "Telefone", style:"color:#fff" %>
+                        </div>
+                      </div></br>                  
+
+
+
+                      <div class="text-center" style="margin-top: -20px">
+                        <%= f.submit "Quero ficar mais bonita",  {class: 'btn btn-rose mt-4', style: "background-color:#02dbff; color:#0a2644; font-weight:bold"} %></br></br>
+
+                      </div>
+
+                    <% end %>
+
+
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
+
+
+  </div>
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px"></br>
+        
+        
+
+<div class="container">
+  <div class="row">
+
+
+
+
+<div class="col-md-4">
+  <div class="card ">
+    
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons" style="color: #75ff02">photo_came</i>
+      </div>
+      <h4 class="card-title">Fotos</h4></br></br>
+    </div>
+   
+
+   <%= render "antes_depois_queloide" %>
+
+
+  </div>          
+</div>
+
+
+
+<div class="col-md-8">
+  <div class="card ">
+    
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons" style="color: #75ff02">info</i>
+      </div>
+      <h4 class="card-title">Informações</h4></br></br>
+    </div>
+   
+
+    <div class="col-md-12" style="margin-left: 00px; text-align: left">
+      <div href="#pablo">
+        
+
+
+
+<h2>Correção de Cicatriz inestética</h2>
+<p>O processo de reparo de uma lesão na pele (corte, incisão cirúrgica, queimaduras, escoriações…) é chamado de cicatriz, onde há formação de colágeno. O resultado deste reparo pode ser de melhor ou de pior qualidade dependendo de inúmeros fatores como etnia, sexo, idade, local do corpo, presença de infecções, tensão da pele…</p>
+<p>Nem toda cicatriz ruim pode ser chamada de queloide</p>
+<ol>
+<li>
+<h3><strong>QUAIS SÃO AS CICATRIZES INESTÉTICAS MAIS COMUNS E PROCURADAS NO PROCEDIMENTO DE CORREÇÃO DE CICATRIZ?</strong></h3>
+<h4><em><strong>a) Queloides</strong></em></h4>
+<p>São “cicatrizes que não param de crescer”, onde há uma produção exagerada de colágeno.<br>
+São cicatrizes endurecidas que aumentam progressivamente.<br>
+Tem como característica ultrapassar as margens da cicatriz. Ela é firme, avermelhada e muitas vezes, vem acompanhada de prurido (coceira).<br>
+Geralmente não diminui de espessura.<br>
+Acontece mais frequentemente em negros e asiáticos e é mais comum em regiões de pele espessa como tórax (anterior e posterior).</p>
+<h4><strong><em>b) Cicatriz</em> <em>Hipertrófica</em></strong></h4>
+<p>Cicatriz também espessa, porém não ultrapassa as margens da lesão. As fibras de colágeno nesta cicatriz estão desordenadas.<br>
+Frequentemente melhora com o tempo, reduzindo sua espessura, porém não melhora sua largura.<br>
+Existem tratamentos que ajudam a acelerar esse processo.<br>
+<em><strong> </strong></em></p>
+<h4><em><strong>c) Cicatrizes Alargadas</strong></em></h4>
+<p>São semelhantes a estrias. Tem a pele bem fina e frouxa e podem estar abaixo do nível da pele (rasa).<br>
+Acontecem mais comumente em áreas de maior tensão de pele.</p>
+<h4><em><strong>d) Cicatrizes</strong><strong> discrômicas</strong></em></h4>
+<p>Cicatrizes com cor diferente da tonalidade da pele.<br>
+Podem ser hipercrômicas (quando escuras) ou hipocrômicas (quando mais claras).<br>
+É importante que não sejam confundidas com fases precoces da cicatrização, onde geralmente as cicatrizes se apresentam mais escuras que a pele (até 1 ano e meio).</p></li>
+<li>
+<h3><strong>QUAIS SÃO OS TRATAMENTOS PARA A CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>A prevenção ainda é o melhor tratamento.<br>
+A identificação dos motivos que levaram à cicatriz inestética,aumenta a chance da eficácia do tratamento.Mas os resultados são variáveis.<br>
+Opções de tratamento:<em><strong><br>
+</strong></em></p>
+<h4><em><strong>a)</strong> <strong>Queloides</strong></em></h4>
+<p>1. Curativos Compressivos<br>
+2. Placas de silicone<br>
+3. Produtos tópicos e massagens<br>
+4. Cirurgia de reparo da cicatriz. Neste caso muitas vezes é associada a outros tipos de tratamentos com o intuito de diminuir o aparecimento de um novo queloide.<br>
+5. Injeções de corticoides: são aplicadas no interior da cicatriz a cada 15 dias.<br>
+6. Crio cirurgia: Uso do nitrogênio em temperatura muito baixa<br>
+7. Radioterapia (Beta terapia): radioterapia superficial, com efeito, apenas na pele. Realizada em 10 sessões, iniciando após 24 a 48 horas após a retirada da cicatriz.</p>
+<h4><em><strong>b) Cicatrizes</strong> <strong>hipertróficas:</strong></em></h4>
+<p>1. Curativos Compressivos<br>
+2. Placas de silicone<br>
+3. Produtos tópicos e massagens<br>
+4. Cirurgia de reparo da cicatriz. Neste caso muitas vezes é associada a outros tipos de tratamentos com o intuito de diminuir o aparecimento de uma nova cicatriz hipertrófica.<br>
+5. Injeções de corticoides: são aplicadas no interior da cicatriz a cada 15 dias.</p>
+<h4><em><strong>c) Cicatrizes</strong> <strong>Alargadas:</strong></em></h4>
+<p>1. Cirurgia de reparo, associada a curativos contensores.</p></li>
+<li>
+<h3><strong>COMO É FEITA A CIRURGIA PARA A CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>A cicatriz é retirada completamente e novamente refeita com pontos internos.</p></li>
+<li>
+<h3><strong>QUAL O TIPO DE ANESTESIA É USADA NA CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>Utilizamos anestesia local. Em cicatrizes muito extensas ou em pacientes de condição especial a sedação venosa pode ser associada à anestesia local.</p></li>
+<li>
+<h3><strong>É NECESSÁRIO ALGUM TIPO DE REPOUSO APÓS A CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>Interrupção de atividades físicas por 7 dias, não sendo necessário o afastamento do trabalho ou de atividades rotineiras.<br>
+Mas cada caso deve ser avaliado isoladamente.</p></li>
+<li>
+<h3><strong>O PÓS-OPERATÓRIO DA CORREÇÃO DE CICATRIZ DÓI?</strong></h3>
+<p>Geralmente não.</p></li>
+<li>
+<h3><strong>SÃO NECESSÁRIOS OUTROS TRATAMENTOS PARA A CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>Dependendo do tipo de cicatriz que será retirada indicaremos a associação de um ou mais tratamentos citados no texto acima.</p></li>
+<li>
+<h3><strong>POSSO TOMAR SOL APÓS A CORREÇÃO DE CICATRIZES?</strong></h3>
+<p>Somente após 30 dias da cirurgia e é imprescindível a utilização de filtro solar.</p></li>
+<li>
+<h3><strong>EXISTEM RISCOS DE COMPLICAÇÕES NESTE TIPO DE CIRURGIA DE CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>Este procedimento é normalmente seguro, porém complicações fazem parte de qualquer procedimento cirúrgico. Podem acontecer infecções, sangramentos, algum tipo de reação à anestesia e até mesmo o aparecimento de uma nova cicatriz inestética.</p></li>
+<li>
+<h3><strong>QUANDO TEREI O RESULTADO DEFINITIVO APÓS A CORREÇÃO DE CICATRIZ?</strong></h3>
+<p>O resultado definitivo poderá ser observado após 1 ano, onde a cicatriz geralmente atinge seu resultado definitivo.</p></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>          
+</div>
+
+
+
+  </div>
+</div>
+      
+</div>
+  
+
+    <!-- Sart Modal -->
+ 
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+          <div class="col-md-12 ml-auto mr-auto" style="background-color: #0a2644" >
+
+              <div class="card-body" >
+                <div class="row">
+                  <div class="col-md-6 ml-auto" style="margin-top: 0px">
+                    <div class="info info-horizontal">
+                      <div class="description">
+                        <h4 class="info-title" style=" color: #fff; text-align: left; font-size: 20px">Fique por dentro dos fatos</h4>
+                        <h4 class="info-title" style=" color:#75ff02; text-align: left; font-size: 40px">PlásticaNaWeb Eventos</h4>
+
+                        <p class="description" style="font-size: 20px; color: #fff; text-align: left">
+                          Os eventos funcionam para dar informações sobre cirurgias plásticas e dar a você a chance de tirar todas as suas dúvidas conosco e compartilhar suas experências com outras pessoas! Increva-se para o próximo evento.
+                        </p>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-6 mr-auto" style="margin-top: 30px">
+                    <p class="mt-3" style="color: #fff; font-size: 24px;"> Próximo evento - Dia 05/04/2019 - Webnário sobre Plástica. Das 9:00 as 12:00. Gratuíto!</p></br>                    
+                    <%= render 'events/new' %>
+
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+        
+
+
+
+
+
+
+    <div id="como_funciona" style="text-align: center; color:#fff; background-color: #fff; margin-top: -20px">
+      <div class="container">
+        <h2 class="title description" style="color:#616a74">Benefícios</h2></br>
+        <div class="team">
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="team-player">
+                
+                  <i class="material-icons" style="color:#02dbff; font-size: 50px">credit_card</i>
+                
+
+                <h2 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Plástica Parcelada 36x</h2>
+                <p style="height: 150px; font-size: 17px; color:#616a74;"> Plástica parcelada em até 36x. Temos produtos como financiamento plástica, consórcio plástica e outros. Nossos coachs irão buscar a solução de pagamento que cabe no seu bolso. </p>
+                <p></p>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="team-player">
+                <i class="material-icons" style="color:#02dbff; font-size: 50px">attach_money</i>
+
+                <h2 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Melhor Valor na Plástica</h2>
+                <p style="height: 150px; font-size: 16px; color:#616a74">Batemos seu preço. A Plástica que cabe no seu bolso! Temos excelentes clínicas conveniadas para todos os bolsos! Todos os dias levamos diversos pacientes para as clínicas conveniadas, por isso recebemos muitos descontos.  </p>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+
+              <div class="team-player">
+                <i class="material-icons" style="color:#02dbff; font-size: 50px">people</i>
+
+                <h2 class="title description" style="color:#616a74;  font-size: 25px; height: 50px">Melhor cirurgião plástico</h2>
+                <p style="height: 150px; font-size: 16px; color: #616a74">Você encontra o melhor cirurgião plástico. Compare preços, veja fotos de antes e depois de vários cirurgiões, tenha acesso a experiência de outras pessoas. Nossa equipe ajuda você com todas as suas dúvidas.</p>
+              </div>
+            </div>
+
+          </div>
+        <p  style="color:#75ff02; font-weight: bold; font-size: 24px; margin-top: 20px "> 
+          Segurança e Qualidade! Trabalhamos apenas com cirurgiões plásticos de excelente reputação.
+      </p></br>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<footer class="Footer Footer--global" style="background-color: #0a2644; line-height: 70px">
+    <div class="container" >
+        <div class="row" ">
+            <div style="height: 5px">
+                <a>
+                    <svg class="Iperceptions--icon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#speechBubblePink"></use></svg>
+                </a>
+            </div>
+        </div>
+
+            <div class="col-sm-12" style="color: #fff; text-align: center">
+              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#02dbff;font-size:30px;'} %>
+
+            </div></br></br>
+        <div class="row" style="margin-top: -120px">
+            <div class="col-sm-3" style="color: #fff">
+                
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Acesso Rápido</h5>
+                <nav style="color: #0a2644; margin-top: -120px" >
+                  <li class="nav-item" style="height: 30px; ">
+                    <h2><a href="#como_funciona" style="color:#fff;font-size: 14px;">Como Funciona</h2></h2>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></h2>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">antes e depois cirurgia plástica</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Empréstimo para cirurgia plástica</a></h2>
+                  </li>                    
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Consórcio para cirurgia plástica</a></h2>
+                  </li>                    
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Plástica Parcelada</a></h2>
+                  </li>                    
+
+
+                </nav>
+
+
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02; margin-top: 100px" >Perguntas</h5>
+                <nav style="color: #0a2644; margin-top: -120px " >
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#como_funciona" style="color:#fff;font-size: 14px">Quanto custa para colocar silicone</h2></p>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#eventos" style="color:#fff;font-size: 14px">Preço para colocar botox no rosto</a></h2>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Qual valor da cirurgia plástica no nariz</a></h2>
+                  </li>                                   
+
+                </nav>
+
+            </div>
+
+            <div class="col-sm-3" style="color: #fff">
+                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Procedimentos</h5>
+                <nav style="color: #0a2644; margin-top: -120px" >
+
+                  <li class="nav-item" style="height: 30px; ">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/206" style="color:#fff;font-size: 14px">Colocar Silicone</a></h2>
+                  </li>          
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/207" style="color:#fff;font-size: 14px">Lipoaspiração</a></h2>
+                  </li>                            
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/208" style="color:#fff;font-size: 14px">Toxina Botulínica</a></h2>
+                  </li>               
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/209" style="color:#fff;font-size: 14px">Preenchimento Facial</a></h2>
+                  </li>               
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/210" style="color:#fff;font-size: 14px">Rinoplastia</a></h2>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/211" style="color:#fff;font-size: 14px">Lifting Facial</a></h2>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/212" style="color:#fff;font-size: 14px">Mamoplastia Redutora</a></h2>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/213" style="color:#fff;font-size: 14px">Mastopexia com Prótese</a></h2>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/214" style="color:#fff;font-size: 14px">Mastopexia sem Prótese</a></h2>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/215" style="color:#fff;font-size: 14px">Abnominoplastia</a></h2>
+                  </li>               
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/216" style="color:#fff;font-size: 14px">Cirurgia Íntima</a></h2>
+                  </li>               
+
+                </nav>
+            </div>
+
+            <div class="col-sm-3" style="color: #fff">
+                <h2 style="font-weight: bold; font-size: 14px; color:#75ff02" >Valor / Preço Cirurgia Plástica</h2>
+                <nav style="color: #0a2644; margin-top: -90px" >
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="##procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Silicone</a></h2>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="##procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Rinoplastia</a></h2>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Abdominoplastia</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Botox</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Preenchimento facial</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Lipoaspiração</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Mamoplastia Redutora</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Mastopexia com prótese</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço silicone bumbum</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço otoplastia orelha</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço cirurgia queixo</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço implante capilar</a></h2>
+                  </li>                                   
+
+                </nav>
+            </div>
+
+            <div class="col-sm-3" style="color: #fff">
+                <h2 style="font-weight: bold; font-size: 14px; color:#75ff02" >Antes e Depois Cirurgia Plástica</h2>
+                <nav style="color: #0a2644; margin-top: -90px" >
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois  Silicone</a></h2>
+                  </li>          
+
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Rinoplastia</a></h2>
+                  </li>                 
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Abdominoplastia</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Botox</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Preenchimento facial</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Lipoaspiração</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Mamoplastia Redutora</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Mastopexia com prótese</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois silicone bumbum</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois otoplastia orelha</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois cirurgia queixo</a></h2>
+                  </li>                                   
+                  <li class="nav-item" style="height: 30px">
+                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois implante capilar</a></h2>
+                  </li>                                   
+
+                </nav>
+            </div>
+
+
+        </div>
+    </div>
+
+                <div>
+        </div>
+    
+
+    <div class="Footer-copyright" style="text-align: center; color: #fff; margin-top: 100px">
+        © 2019 PlásticaNaWeb, Inc. Todos os direitos reservados.
+        
+    </div>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="./assets/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+  <script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+  <script>
+    $(document).ready(function() {
+      // the body of this function is in assets/js/now-ui-kit.js
+      nowuiKit.initSliders();
+    });
+
+    function scrollToDownload() {
+
+      if ($('.section-download').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.section-download').offset().top
+        }, 1000);
+      }
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
