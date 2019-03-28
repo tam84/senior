@@ -8,6 +8,118 @@
   <div class="row">
 
 
+<div class="col-md-4">
+  <div class="card ">
+    
+    <div class="card-header card-header-rose card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons" style="color: #75ff02">photo_came</i>
+      </div>
+      <h4 class="card-title">Fotos</h4></br></br>
+    </div>
+   
+  <% if @product.name == "Colocar Silicone - Preço - Antes e Depois - Cirurgião Plástico" %>
+
+   <%= render "/landing/antes_depois_silicone" %>
+
+  <%end%>
+
+
+
+  <% if @product.name == "Otoplastia cirurgia orelha de abano - Preço - antes e depois - Cirurgião Plástico\r\n"   %>
+
+   <%= render "/landing/preco_antes_depois_otoplastia" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Mamoplastia Redutora - Preço - Informações - Cirurgião Plástico\r\n"    %>
+
+   <%= render "/landing/antes_depois_preco_mamoplastia_redutora" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Mastopexia com Prótese Preço - antes e depois e +info\r\n"    %>
+
+   <%= render "/landing/preco_antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Mastopexia sem Prótese - Valor - informações - cirurgião plástico\r\n"    %>
+
+   <%= render "/landing/preco_antes_depois_mastopexia" %>
+
+  <%end%>
+
+
+  <% if @product.name == "Lipoaspiração Lipo - preço - informações - cirurgião plástico" %>
+
+   <%= render "/landing/preco_antes_depois_lipoaspiracao" %>
+
+  <%end%>
+
+  <% if @product.name == "Toxina Botulínica - Rugas Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/preco_antes_depois_botox_toxina_botulinica" %>
+
+  <%end%>
+
+  <% if @product.name == "Bioplastia ou Preenchimento Facial Preço Antes Depois Informações\r\n"  %>
+
+   <%= render "/preco_antes_depois_acido_hialuronico_preenchimento_facial" %>
+
+  <%end%>
+
+  <% if @product.name == "Rinoplastia cirurgia nariz - preço - antes e depois - informações \r\n"   %>
+
+   <%= render "/preco_antes_depois_rinoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Lifting Facial – Ritidoplastia - preço - antes e depois - cirurgião plástico\r\n"    %>
+
+   <%= render "/antes_depois_preco_lifting_facial_ritidoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Abdominoplastia - valor - antes e depois e informações\r\n"     %>
+
+   <%= render "/preco_antes_depois_abdominoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Cirurgia Íntima / Ninfoplastia - Preço - antes e depois - +info\r\n"      %>
+
+   <%= render "/preco_antes_depois_ninfoplastia" %>
+
+  <%end%>
+
+  <% if @product.name == "Blefaroplastia Cirúrgia Plástica Pálpebras - Preço - Antes e Depois \r\n"       %>
+
+   <%= render "/preco_antes_depois_blefaroplastia" %>
+
+  <%end%>
+
+  <% if @product.name ==  "Silicone bumbum / bunda - Preço - Cirurgião Plástico\r\n"        %>
+
+   <%= render "/preco_antes_depois_gluteoplastia" %>
+
+  <%end%>
+
+
+  <% if @product.name ==  "Mentoplastia - Preço - Antes e Depois - Cirurgia Plástica"         %>
+
+   <%= render "/preco_antes_depois_mentoplastia" %>
+
+  <%end%>
+
+
+  </div>          
+</div>
+
+
 <div class="col-md-8">
   <div class="card ">
     
@@ -173,116 +285,7 @@
 
 
 
-<div class="col-md-4">
-  <div class="card ">
-    
-    <div class="card-header card-header-rose card-header-icon">
-      <div class="card-icon">
-        <i class="material-icons" style="color: #75ff02">photo_came</i>
-      </div>
-      <h4 class="card-title">Fotos</h4></br></br>
-    </div>
-   
-  <% if @product.name == "Colocar Silicone - Preço - Antes e Depois - Cirurgião Plástico" %>
 
-   <%= render "/landing/antes_depois_silicone" %>
-
-  <%end%>
-
-
-
-  <% if @product.name == "Otoplastia cirurgia orelha de abano - Preço - antes e depois - Cirurgião Plástico\r\n"   %>
-
-   <%= render "/landing/preco_antes_depois_otoplastia" %>
-
-  <%end%>
-
-
-  <% if @product.name == "Mamoplastia Redutora - Preço - Informações - Cirurgião Plástico\r\n"    %>
-
-   <%= render "/landing/antes_depois_preco_mamoplastia_redutora" %>
-
-  <%end%>
-
-
-  <% if @product.name == "Mastopexia com Prótese Preço - antes e depois e +info\r\n"    %>
-
-   <%= render "/landing/preco_antes_depois_mastopexia" %>
-
-  <%end%>
-
-
-  <% if @product.name == "Mastopexia sem Prótese - Valor - informações - cirurgião plástico\r\n"    %>
-
-   <%= render "/landing/preco_antes_depois_mastopexia" %>
-
-  <%end%>
-
-
-  <% if @product.name == "Lipoaspiração Lipo - preço - informações - cirurgião plástico" %>
-
-   <%= render "/landing/preco_antes_depois_lipoaspiracao" %>
-
-  <%end%>
-
-  <% if @product.name == "Toxina Botulínica - Rugas Preço Antes Depois Informações\r\n"  %>
-
-   <%= render "/preco_antes_depois_botox_toxina_botulinica" %>
-
-  <%end%>
-
-  <% if @product.name == "Bioplastia ou Preenchimento Facial Preço Antes Depois Informações\r\n"  %>
-
-   <%= render "/preco_antes_depois_acido_hialuronico_preenchimento_facial" %>
-
-  <%end%>
-
-  <% if @product.name == "Rinoplastia cirurgia nariz - preço - antes e depois - informações \r\n"   %>
-
-   <%= render "/preco_antes_depois_rinoplastia" %>
-
-  <%end%>
-
-  <% if @product.name == "Lifting Facial – Ritidoplastia - preço - antes e depois - cirurgião plástico\r\n"    %>
-
-   <%= render "/antes_depois_preco_lifting_facial_ritidoplastia" %>
-
-  <%end%>
-
-  <% if @product.name == "Abdominoplastia - valor - antes e depois e informações\r\n"     %>
-
-   <%= render "/preco_antes_depois_abdominoplastia" %>
-
-  <%end%>
-
-  <% if @product.name == "Cirurgia Íntima / Ninfoplastia - Preço - antes e depois - +info\r\n"      %>
-
-   <%= render "/preco_antes_depois_ninfoplastia" %>
-
-  <%end%>
-
-  <% if @product.name == "Blefaroplastia Cirúrgia Plástica Pálpebras - Preço - Antes e Depois \r\n"       %>
-
-   <%= render "/preco_antes_depois_blefaroplastia" %>
-
-  <%end%>
-
-  <% if @product.name ==  "Silicone bumbum / bunda - Preço - Cirurgião Plástico\r\n"        %>
-
-   <%= render "/preco_antes_depois_gluteoplastia" %>
-
-  <%end%>
-
-
-  <% if @product.name ==  "Mentoplastia - Preço - Antes e Depois - Cirurgia Plástica"         %>
-
-   <%= render "/preco_antes_depois_mentoplastia" %>
-
-  <%end%>
-
-
-  </div>          
-</div>
 
 
   </div>

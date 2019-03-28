@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :reserved_relations
   resources :contact_messages, only: [:new, :create]
   resources :events, only: [:new, :create]
-
+ 
 
 
   #get '/product_associates', to: 'product_associates#index'
