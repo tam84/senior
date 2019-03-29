@@ -67,6 +67,9 @@ Rails.application.routes.draw do
   get '/preco_antes_depois_mentoplastia', to: "landing#preco_antes_depois_mentoplastia"  
   get '/preco_antes_depois_queloide', to: "landing#preco_antes_depois_queloide"  
   get '/preco_antes_depois_gluteoplastia', to: "landing#preco_antes_depois_gluteoplastia"  
+  get '/preco_antes_depois_ginecomastia', to: "landing#preco_antes_depois_ginecomastia"  
+
+
 
   resources :product_associates, only: [:new, :create, :index]
 

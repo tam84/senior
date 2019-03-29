@@ -68,5 +68,8 @@ class LandingController < ApplicationController
     render layout: "preco_antes_depois_gluteoplastia"
   end
 
+  def preco_antes_depois_ginecomastia
+    render layout: "preco_antes_depois_ginecomastia"
+  end
 
 end
