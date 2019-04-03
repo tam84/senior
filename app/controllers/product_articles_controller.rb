@@ -24,6 +24,22 @@ class ProductArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @product_article = ProductArticle.find_by(id: params[:id])
+  end
+
+  def update
+    @product_article = ProductArticle.find_by(id: params[:id])
+    if @product_article.update(product_article_params)
+      flash[:success] = "Produto atualizado com sucesso!"
+      redirect_to product_article_path(@product_article)
+    else
+      flash[:erro] = "Não foi possível atualizar o produto. Por favor tente novamente"
+      redirect_to product_article_path(@product_article)
+    end
+
+  end
+
 	private
 
 	def product_article_params
