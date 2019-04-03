@@ -13,6 +13,8 @@
     
     <% if @product.present? %>
     <title><%= @product.name %></title>
+    <% elsif @product_article.present? %>
+    <title><%= @product_article.title %></title>  
     <% else %>
     <title>Cirúrgia plástica parcelada com o melhor cirurgião plástico - Silicone</title>
     <% end %>
