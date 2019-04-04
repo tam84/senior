@@ -1276,9 +1276,8 @@
 
                 <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Peito de Silicone</h2>
                 <% Product.first.product_articles.each do |article| %>
-                <h2 style="font-size: 14px; color:#0a2644; height: 20px;   white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis;"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
+                <h2 style="font-size: 14px; color:#0a2644; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
                 <% end %>
               </div>
 
@@ -1286,7 +1285,8 @@
                 <div class="team-player">                
                   <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Rinoplastia</h2>
                   <% Product.find_by(id:210).product_articles.each do |article| %>
-                  <h2 style="font-size: 14px; color:#0a2644; height: 20px; "><%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
+                  <h2 style="font-size: 14px; color:#0a2644; height: 20px;white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis "><%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
                   <% end %>
                 </div>              
               </div>
@@ -1299,7 +1299,8 @@
 
                   <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Mamoplastia</h2>
                   <% Product.find_by(id:212).product_articles.each do |article| %>
-                  <h2 style="font-size: 14px; color:#0a2644; height: 20px; "> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
+                  <h2 style="font-size: 14px; color:#0a2644; height: 20px;white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis "> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
                   <% end %>
                 </div>
               </div>
@@ -1311,7 +1312,8 @@
 
                   <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Abdominoplastia</h2>
                   <% Product.find_by(id:207).product_articles.each do |article| %>
-                  <h2 style="font-size: 14px; color:#0a2644; height: 20px;"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
+                  <h2 style="font-size: 14px; color:#0a2644; height: 20px;white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2>
                   <% end %>
                 </div>
               </div>            
