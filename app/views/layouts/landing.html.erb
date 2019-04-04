@@ -1273,27 +1273,24 @@
         </div>
 
             <div class="col-sm-12" style="color: #0a2644; text-align: center">
-              <%= link_to ("<i class='material-icons'>info</i>Veja matérias sobre cirurgia plástica").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#02dbff;font-size:30px;'} %>
+              <%= link_to ("<i class='material-icons'>info</i>Veja matérias sobre cirurgia plástica").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0a2644;font-size:30px;'} %>
 
             </div></br></br>
         <div class="row" style="margin-top: -120px">
             <div class="col-sm-4" style="color: #0a2644">
                 
                 <h5 style="font-weight: bold; font-size: 14px; color:#0a2644" >Peito de Silicone</h5>
-                <nav style="color: #75ff02; margin-top: -120px" >
+                <nav style="color: #75ff02; margin-top: 0px" >
                   <% Product.first.product_articles.each do |article| %>
                   <li class="nav-item" style="height: 30px; ">
                     <h2><a href="#como_funciona" style="color:#0a2644;font-size: 14px;"><%= article.title %></h2></h2>
                   </li>  
                   <% end %>        
-
-
-
                 </nav>
 
 
                 <h5 style="font-weight: bold; font-size: 14px; color:#0a2644; margin-top: 100px" >Rinoplastia</h5>
-                <nav style="color: #75ff02; margin-top: -120px " >
+                <nav style="color: #75ff02; margin-top: 0px " >
                   <% Product.find_by(id:210).product_articles.each do |article| %>                  
                   <li class="nav-item" style="height: 30px">
                     <h2><a href="#como_funciona" style="color:#0a2644;font-size: 14px"><%= article.title %></h2></p>
@@ -1309,7 +1306,7 @@
 
             <div class="col-sm-4" style="color: #0a2644">
                 <h2 style="font-weight: bold; font-size: 14px; color:#0a2644" >Valor / Preço Cirurgia Plástica</h2>
-                <nav style="color: #75ff02; margin-top: -90px" >
+                <nav style="color: #75ff02; margin-top: 0px" >
                   <% Product.find_by(id:207).product_articles.each do |article| %>                                    
                   <li class="nav-item" style="height: 30px">
                     <h2><a href="##procedimentos" style="color:#0a2644;font-size: 14px"><%=article.title%></a></h2>
@@ -1321,7 +1318,7 @@
 
             <div class="col-sm-4" style="color: #0a2644">
                 <h2 style="font-weight: bold; font-size: 14px; color:#0a2644" >Mamoplastia Redutora</h2>
-                <nav style="color: #75ff02; margin-top: -90px" >
+                <nav style="color: #75ff02; margin-top: 0px" >
                   <% Product.find_by(id:212).product_articles.each do |article| %>                                                      
                   <li class="nav-item" style="height: 30px">
                     <h2><a href="#procedimentos" style="color:#0a2644;font-size: 14px"><%=article.title %></a></h2>
@@ -1332,7 +1329,7 @@
 
 
                 <h2 style="font-weight: bold; font-size: 14px; color:#0a2644; margin-top: 100px" >Rinoplastia</h2>
-                <nav style="color: #75ff02; margin-top: -120px " >
+                <nav style="color: #75ff02; margin-top: 0px " >
                   <% Product.find_by(id:215).product_articles.each do |article| %>                  
                   <li class="nav-item" style="height: 30px">
                     <h2><a href="#como_funciona" style="color:#0a2644;font-size: 14px"><%= article.title %></h2></p>
@@ -1352,10 +1349,6 @@
         </div>
     
 
-    <div class="Footer-copyright" style="text-align: center; color: #0a2644; margin-top: 100px">
-         Fique sempre por dentro. Sempre postamos matérias novas
-        
-    </div>
 
 </footer>
 
