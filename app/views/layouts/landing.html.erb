@@ -1161,6 +1161,70 @@
 
 
 
+<div id="como_funciona" style="text-align: center; color:#fff; background-color: #75ff02; margin-top: -20px">
+      <div class="container">
+        <h2 class="title description" style="color:#0a2644">Notícias Cirurgia Plástica</h2></br>
+        <div class="team">
+          <div class="row" style="margin-top: -80px">
+
+            <div class="col-md-4" style="text-align: left">
+              <div class="team-player">
+                
+                
+
+                <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Peito de Silicone</h2>
+                <% Product.first.product_articles.each do |article| %>
+                <h2 style="height: 150px; font-size: 14px; color:#0a2644; height: 10px"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2></br>
+                <% end %>
+              </div>
+
+
+                <div class="team-player">                
+                  <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Rinoplastia</h2>
+                  <% Product.find_by(id:210).product_articles.each do |article| %>
+                  <h2 style="height: 150px; font-size: 14px; color:#0a2644; height: 10px"><%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2></br>
+                  <% end %>
+                </div>              
+              </div>
+
+
+              <div class="col-md-4" style="text-align: left">
+                <div class="team-player">
+                  
+                  
+
+                  <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Mamoplastia</h2>
+                  <% Product.find_by(id:212).product_articles.each do |article| %>
+                  <h2 style="height: 150px; font-size: 14px; color:#0a2644; height: 10px"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2></br>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="col-md-4" style="text-align: left">
+                <div class="team-player">
+                  
+                  
+
+                  <h2 class="title description" style="color:#0a2644;  font-size: 16px; height: 50px; font-weight: bold">Abdominoplastia</h2>
+                  <% Product.find_by(id:207).product_articles.each do |article| %>
+                  <h2 style="height: 150px; font-size: 14px; color:#0a2644; height: 10px"> <%=link_to article.title, product_article_path(id: article.id), {style: "color:#0a2644"} %></h2></br>
+                  <% end %>
+                </div>
+              </div>            
+
+
+
+          
+
+          </div>
+        <p  style="color:#75ff02; font-weight: bold; font-size: 24px; margin-top: 20px "> 
+          Segurança e Qualidade! Trabalhamos apenas com cirurgiões plásticos de excelente reputação.
+      </p></br>
+        </div>
+      </div>
+    </div>
+
+
 
 
 
@@ -1259,79 +1323,12 @@
 
 
 
-
-
-
-<footer class="Footer Footer--global" style="background-color: #75ff02;">
-    <div class="container" >
-        <div class="row" ">
-            <div style="height: 5px">
-                <a>
-                    <svg class="Iperceptions--icon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#speechBubblePink"></use></svg>
-                </a>
-            </div>
-        </div>
-
-            <div class="col-sm-12" style="color: #0a2644; text-align: center">
-              <%= link_to ("<i class='material-icons'>info</i>Veja matérias sobre cirurgia plástica").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0a2644;font-size:30px;'} %>
-
-            </div></br></br>
-        <div class="row" style="margin-top: 0px">
-            <div class="col-sm-4" style="color: #0a2644">
-                
-                <h5 style="font-weight: bold; font-size: 14px; color:#0a2644" >Peito de Silicone</h5>
-                  <% Product.first.product_articles.each do |article| %>
-                    <h2><a href="#como_funciona" style="color:#0a2644;font-size: 14px;"><%= article.title %></h2></br>
-                  <% end %>        
-
-
-                <h5 style="font-weight: bold; font-size: 14px; color:#0a2644; margin-top: 100px" >Rinoplastia</h5>
-
-                  <% Product.find_by(id:210).product_articles.each do |article| %>                  
-                    <h2><a href="#como_funciona" style="color:#0a2644;font-size: 14px"><%= article.title %></h2></br>
-                  <%end%>       
-
-                                
-
-
-            </div>
-
-
-            <div class="col-sm-4" style="color: #0a2644">
-                <h2 style="font-weight: bold; font-size: 14px; color:#0a2644" >Valor / Preço Cirurgia Plástica</h2>
-                  <% Product.find_by(id:207).product_articles.each do |article| %>                                    
-                    <h2><a href="##procedimentos" style="color:#0a2644;font-size: 14px"><%=article.title%></h2></br>
-                  <% end %>
-
-            </div>
-
-            <div class="col-sm-4" style="color: #0a2644">
-                <h2 style="font-weight: bold; font-size: 14px; color:#0a2644" >Mamoplastia Redutora</h2>
-                  <% Product.find_by(id:212).product_articles.each do |article| %>                                                      
-                    <h2><a href="#procedimentos" style="color:#0a2644;font-size: 14px"><%=article.title %></h2></br>
-                  <% end %>
-
-
-
-                <h2 style="font-weight: bold; font-size: 14px; color:#0a2644; margin-top: 0px" >Rinoplastia</h2>
-                  <% Product.find_by(id:215).product_articles.each do |article| %>                  
-                    <h2><a href="#como_funciona" style="color:#0a2644;font-size: 14px"><%= article.title %></h2></br>
-                  <%end%>       
-
-                                
-
-            </div>
-
-
-        </div>
-    </div>
-
-                <div>
-        </div>
     
 
 
-</footer>
+
+
+
 
 
 
