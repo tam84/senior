@@ -1,63 +1,91 @@
     <div class="col-md-12" style="margin-left: 0px; text-align: center">
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/colocar-silicone-antes-depois-1" alt="antes e depois dos resultados para colocar silicone">
-        </div></br>
-
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/colocar-silicone-preco-antes-depois-2" alt="peito de silicone fotos de antes e depois dos resultados da cirurgia">
-      </div></br>
-
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/peito-de-silicone-antes-depois" alt="como ficam os seios com protese de silicone">
-      </div></br>
 
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/preco-colocar-silicone-antes-depois" alt="antes e depois e resultados cirurgia protese de silicone nos seios">
-      </div></br>
+      <div class="col-md-12 mr-auto" style="text-align: left; background-color: #0a2644;height: 100%; margin-top: 0px"></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/protese-de-silicone-antes-depois" alt="mamas após prótese de silicone fotos e imagens de antes e depois">
-      </div></br>
+      <h3 style="color: #fff; font-weight: bold; font-size: 18px; text-align: center">AGENDE SUA CONSULTA</h3></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/quanto-custa-colocar-silicone" alt="exemplos e fotos de peitos de silicone 100ml 150ml 200ml 250ml 300ml 350ml 400ml">
-      </div></br>
+        <%= form_for ContactMessage.new do |f| %>
 
 
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/silicone-seios-antes-depois" alt="exemplos e fotos de peitos de silicone formato gota redondo leste oeste espacado ">
-      </div></br>
+
+          <div class="col-md-12 form-group has-default bmd-form-group" >
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333;">
+                  <i class="material-icons" style="color:#fff">face</i>
+                </span>
+              </div>
+              <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff;" %>
+            </div>
+          </div> </br>                  
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons" style="color:#fff">mail</i>
+                </span>
+              </div>
+              <%= f.text_field :email, class: 'form-control', placeholder: "Email", style:"color:#fff" %>
+            </div></br>                  
+          </div>
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons"style="color:#fff">phone</i>
+                </span>
+              </div>
+              <%= f.text_field :contacts, class: 'form-control', placeholder: "Telefone", style:"color:#fff" %>
+            </div>
+          </div></br>                  
 
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/antes-depois-silicone-peitos" alt="seios de silicone quanto custa para colocar protese de silicone">
-      </div></br>
+
+          <div class="text-center" style="margin-top: -20px">
+            <%= f.submit "Quero engravidar",  {class: 'btn btn-rose mt-4', style: "background-color:#f79d94; color:#0a2644; font-weight:bold"} %></br></br>
+
+          </div>
+
+        <% end %>
 
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/quanto-custa-colocar-silicone-2" alt="antes e depois protese de silicone nos peitos">
-      </div></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/antes-depois-cirurgia-plastica-silicone" alt="cirurgia plastia para colocar peito de silicone antes e depois">
-      </div></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/protese-mama-antes-depois" alt="fotos seios de silicone">
-      </div></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/antes-depois-famosas-silicone" alt="fotos mama de silicone antes e depois">
-      </div></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/valor-colocar-silicone" alt="exemplo de seio de silicone apos cirurgia para colocar protese de silicone">
-      </div></br>
 
-      <div href="#pablo">
-        <img style="width: 100%" src="/assets/colocar_silicone/valor-protese-silicone" alt="solocar silicone exemplo de tamanhos e tipos de peito">
-      </div></br>
+      </div>
+
+
+        <% if @product.product_articles.present? %>
+        <div class="card " style="text-align: left;white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;">
+
+        <div class="card-header card-header-rose card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons" style="color: #f79d94">info</i>
+                  </div>
+                  <h4 class="card-title">Notícias</h4>
+         </div> </br>
+
+          <div class="row">
+          
+          <div class="col-md-12">
+            <% @product.product_articles.each do |release| %>
+          <div class="col-md-12">
+            <%= link_to release.title, product_article_path(id: release), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
+
+          </div>
+
+            <% end %>
+          </div> 
+          <% end %>
+        </div>
+      </div>
+
+
+
 
     </div>

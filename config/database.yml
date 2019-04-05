@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: tam84_v2_development
+  database: fertilizacao_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: tam84_v2_test
+  database: fertilizacao_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,16 +80,16 @@ test:
 #
 #production:
 #  <<: *default
-#  database: tam84_v2_production
-#  username: tam84_v2
+#  database: fertilizacao_production
+#  username: fertilizacao
 #  password: Rails.application.credentials.postgres[:password][:production]
-  #password: <%= ENV['TAM84_V2_DATABASE_PASSWORD'] %> || Rails.application.credentials.postgres[:password][:production]
+  #password: <%= ENV['fertilizacao_DATABASE_PASSWORD'] %> || Rails.application.credentials.postgres[:password][:production]
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: tam84_v2_production
-  username: tam84_v2
+  database: fertilizacao_production
+  username: fertilizacao
   password: Rails.application.credentials.postgres[:password][:production]
   host: localhost
   port: 5432
