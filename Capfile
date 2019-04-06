@@ -22,6 +22,8 @@ require 'capistrano/puma'
 
 require 'capistrano/rails/console'
 
+require 'capistrano/linked_files'
+
 
 install_plugin Capistrano::Puma, load_hooks: false  # Default puma tasks without hooks
 
