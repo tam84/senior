@@ -102,7 +102,5 @@ gem 'capistrano-rails-console', require: false
 
 gem 'will_paginate'
 
-gem 'capistrano-linked-files'
-
 
 #gem 'sidekiq'
