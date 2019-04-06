@@ -3,7 +3,7 @@ lock '3.11.0'
 set :application, 'fertilizacao'
 set :repo_url, 'git@github.com:tam84/fertilizacao.git' # Edit this to match your repository
 set :branch, :master
-set :deploy_to, '/home/deploy/fertilizacao'
+set :deploy_to, '/home/deploy/tam84_v2'
 set :pty, true
 set :linked_files, %w(config/database.yml config/secrets.yml)
 set :linked_dirs, %w(bin log tmp)
