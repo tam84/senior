@@ -6,42 +6,42 @@ class LandingController < ApplicationController
 
   end
 
-  def preco_peito_silicone
-  	render layout: "preco_peito_silicone"
+  def preco_fertilizacao_in_vitro
+  	render layout: "preco_fertilizacao_in_vitro"
   end
 
-  def preco_antes_depois_rinoplastia
-  	render layout: "preco_antes_depois_rinoplastia"
+  def preco_inseminacao_artificial
+  	render layout: "preco_inseminacao_artificial"
   end
 
-  def preco_antes_depois_otoplastia
-    render layout: "preco_antes_depois_otoplastia"
+  def preco_relacao_sexual_programada
+    render layout: "preco_relacao_sexual_programada"
   end
 
-  def preco_antes_depois_mastopexia
-    render layout: "preco_antes_depois_mastopexia"
+  def preco_transferencia_de_embriao_congelado
+    render layout: "preco_transferencia_de_embriao_congelado"
   end
 
-  def antes_depois_preco_mamoplastia_redutora
-    render layout: "antes_depois_preco_mamoplastia_redutora"
+  def preco_doacao_de_ovulos
+    render layout: "preco_doacao_de_ovulos"
   end
  
-  def preco_antes_depois_ninfoplastia
-    render layout: "preco_antes_depois_ninfoplastia"
+  def preco_doacao_de_semen
+    render layout: "preco_doacao_de_semen"
   end
 
-  def preco_antes_depois_abdominoplastia
-    render layout: "preco_antes_depois_abdominoplastia"
-  end
-
-
-  def antes_depois_preco_lifting_facial_ritidoplastia
-    render layout: "antes_depois_preco_lifting_facial_ritidoplastia"
+  def preco_doacao_de_embriao
+    render layout: "preco_doacao_de_embriao"
   end
 
 
-  def preco_antes_depois_lipoaspiracao
-    render layout: "preco_antes_depois_lipoaspiracao"
+  def preco_barriga_de_aluguel
+    render layout: "preco_barriga_de_aluguel"
+  end
+
+
+  def preco_congelamento_de_ovulos
+    render layout: "preco_congelamento_de_ovulos"
   end
 
   def preco_antes_depois_blefaroplastia
