@@ -57,17 +57,13 @@ Rails.application.routes.draw do
   get '/preco_relacao_sexual_programada', to: "landing#preco_relacao_sexual_programada"  
   get '/preco_transferencia_de_embriao_congelado', to: "landing#preco_transferencia_de_embriao_congelado"  
   get '/preco_doacao_de_embriao', to: "landing#preco_doacao_de_embriao"  
-  get '/antes_depois_preco_mamoplastia_redutora', to: "landing#antes_depois_preco_mamoplastia_redutora"  
+
   get '/preco_doacao_de_ovulos', to: "landing#preco_doacao_de_ovulos"  
-  get '/preco_antes_depois_abdominoplastia', to: "landing#preco_antes_depois_abdominoplastia"  
-  get '/antes_depois_preco_lifting_facial_ritidoplastia', to: "landing#antes_depois_preco_lifting_facial_ritidoplastia"  
+
   get '/preco_barriga_de_aluguel', to: "landing#preco_barriga_de_aluguel"  
-  get '/preco_antes_depois_blefaroplastia', to: "landing#preco_antes_depois_blefaroplastia"  
-  get '/preco_antes_depois_botox_toxina_botulinica', to: "landing#preco_antes_depois_botox_toxina_botulinica"  
-  get '/preco_antes_depois_acido_hialuronico_preenchimento_facial', to: "landing#preco_antes_depois_acido_hialuronico_preenchimento_facial"  
   get '/preco_doacao_de_semen', to: "landing#preco_doacao_de_semen"  
   get '/preco_congelamento_de_ovulos', to: "landing#preco_congelamento_de_ovulos"  
-  get '/preco_antes_depois_ginecomastia', to: "landing#preco_antes_depois_ginecomastia"  
+
 
 
 
