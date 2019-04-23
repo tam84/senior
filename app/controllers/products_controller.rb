@@ -29,9 +29,14 @@ class ProductsController < ApplicationController
 
 
 	def index		
-    if params[:category_id]
+    if params[:category_id] == "1"
       @products = Product.where(category_id: params[:category_id])
     end
+    if params[:category_id] != "1"
+      @products = Product.where(category_id: params[:category_id])
+      render "article_index"
+    end
+
 	end
 
 	def show
