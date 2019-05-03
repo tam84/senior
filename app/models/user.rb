@@ -6,13 +6,9 @@ class User < ApplicationRecord
   #has_many :message_members
   #has_many :email_messages
   has_many :products
-  has_many :product_associates
-  has_many :chat_rooms, dependent: :destroy
-  has_many :messages, dependent: :destroy
 
   has_many_attached :profile_photos
 
-  belongs_to :firm
 
   has_many :notifications
 
@@ -22,7 +18,10 @@ class User < ApplicationRecord
 
   has_many :connections
 
-  has_many :reserved_relations
+  has_many :profiles
+
+  has_many :products
+
 
 
 
@@ -50,9 +49,9 @@ class User < ApplicationRecord
   end  
 
 
-  def active_for_authentication? 
-    super && approved? 
-  end 
+  #def active_for_authentication? 
+  #  super && approved? 
+  #end 
   
   def inactive_message 
     approved? ? super : :not_approved

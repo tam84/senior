@@ -1,46 +1,44 @@
-
-
-<div class="container">
-<div class="row " style="margin-top: 0px;">
-  
-
-
-  <div class="col-md-9" ></br>
-    <a href="#pablo">
-      <img style="width: 100%" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg">
-    </a>  
-  </div>
-
-  <div class="col-md-3" ></br>
-    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 15px">
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos
-    </h4>
-    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 5px">
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos 
-    </h4>
-    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 5px">
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos 
-    </h4>
-    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 5px">
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos 
-    </h4>
-    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 5px">
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos 
-    </h4>
-    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 5px">
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos 
-    </h4>    
-  </div>
-
-
-
-</div>
-</div>      
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: -50px"></br>
+  <div class="row">
 
 
 
 
+    <div class="col-md-8">
+      <div class="card ">
+    
+        <div class="card-header card-header-rose card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons" style="color: #ffbc02">info</i>
+          </div>
+          <h4 class="card-title"><%= category_name params[:category_id]%></h4></br></br>
+        </div>
+   
 
+
+
+<div class="col-md-12">
+  <div class="container">
+    <div class="row " style="margin-top: 0px;">
+      <div class="col-md-9" ></br>
+        <a href="#pablo">
+          <img style="width: 100%" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg">
+        </a>  
+      </div>
+
+
+      <div class="col-md-3" ></br>
+        <% @articles.last(8).each do |article| %>    
+        <h4 style="border-bottom:1px solid #eee;margin-top: 15px">
+        <%= link_to (raw article.title.truncate(500)), product_articles_path(id: article.id), style: "font-size: 24px;font-family: HelveticaNeue-Light;color: #2c2c2c" %>
+        </h4>
+        <% end %>
+      </div>
+
+
+
+    </div>
+  </div>      
 
 
 
@@ -49,7 +47,7 @@
         
 
 <div class="section section-nucleo-icons">
-        <div class="container" style="border-bottom:1px solid #f1f1f1;">
+        <div class="container" >
           <div class="row">
 
 
@@ -61,17 +59,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-  <div class="col-md-3">
+  <% @articles.where(id: 6..8).each do |article| %>    
+  <div class="col-md-4">
     <div >
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
@@ -88,112 +77,22 @@
               </div>
             </div>
             <h2 class="card-title" style="height: 20px; text-align: left; color:#ffbc02; font-weight: bold;font-size: 18px">
-              Descontos em Serviços
+              <%= article.title %>
             </h2>
             <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px; ">
 
-                     Tenha descontos em restaurantes, viagens, seguros, planos de saúde, automóveis, advogados, serviços para casa e muito mais.
+              <%= article.content.html_safe %>
                      
             </h2>
           </div>
             
           </div>
       </div>
-
-
-
-  <div class="col-md-3">
-    <div >
-      <div class="card-header card-header-image" data-header-animation="false">
-        <a href="#pablo">
-          <img style="height: 165px" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg">
-          </a>
-      </div>
-      <div class="card-body">
-        <div class="text-left">
-            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">                    
-                </div>
-                </div>
-              </div>
-            </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#ffbc02; font-weight: bold;font-size: 18px">
-              Saúde
-            </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
-              Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos exclusivos em tratamentos, medicamentos e planos de saúde. Acompanhe as últimas notícias relacionadas a saúde.  
-            </h2>
-            </div>
+    <% end %>
 
 
 
 
-        </div>
-      </div>
-
-
-  <div class="col-md-3">
-    <div class="">
-      <div class="card-header card-header-image" data-header-animation="false">
-        <a href="#pablo">
-          <img style="height: 165px" src="/assets/inseminacao-artificial.jpg">
-          </a>
-      </div>
-      <div class="card-body">
-        <div class="text-left">
-            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">                    
-                </div>
-                </div>
-              </div>
-            </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#ffbc02; font-weight: bold;font-size: 18px">
-              Cuidados em casa
-            </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
-
-              Tenha acesso aos melhores provedores de soluções de home care, cuidadores de idosos, residenciais para idosos. 
-            </h2>
-            </div>
-
-
-
-        </div>
-      </div>
-  <div class="col-md-3">
-    <div class="">
-      <div class="card-header card-header-image" data-header-animation="false">
-        <a href="#pablo">
-          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
-          </a>
-      </div>
-      <div class="card-body">
-        <div class="text-left">
-          
-            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">                    
-                </div>
-                </div>
-              </div>
-            </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#ffbc02; font-weight: bold; font-size: 18px">
-
-              Empregos e Negócios
-            </h2>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left;font-size: 14px">
-
-              Tenha acesso a vagas de emprego para a terceira idade e oportunidades de negócio. Tenha acesso a informações que vão ajudar no seu desempenho profissional. 
-            </h2>
-            </div>
-
-
-
-
-        </div>
-      </div>
 
 
 
@@ -204,32 +103,43 @@
         </div>
       </div>
 
-</br></br></br>
 
-<div class="container">
-  <h4 style="font-size: 32px; font-weight: bold; border-bottom: 1px solid #4a4a4a;"> Últimas notícias </h4>
+
+
+
+
+
+
+
+<div class="container" style="margin-top: 0px">
+  <h4 style="font-size: 36px; font-family: HelveticaNeue-Light; border-bottom: 1px solid #eee;"> Últimas notícias </h4>
 </div></br>
 
 
 <div class="container">
-<div class="row " style="margin-top: 0px;">
+
+<% @articles.last(15).each do |article| %>    
+
+<div class="row " style="margin-top: 0px; text-align: left;border-bottom: 1px solid #eee;" >
   
 
 
-  <div class="col-md-3"style="border-bottom: 1px solid #4a4a4a;" ></br>
-    <h4 style="font-weight: bold; font-size: 22px"> Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos exclusivos em </h3>
+  <div class="col-md-4" ></br>
+    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light" > <%= link_to article.title, product_articles_path(id: article.id), style: "font-size: 22px;font-family: HelveticaNeue-Light;color: #2c2c2c" %> </h4>
   </div>
 
-  <div class="col-md-3" style="border-bottom: 1px solid #4a4a4a;"></br>
-    <p style="font-size: 14px"> 
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos exclusivos em tratamentos, medicamentos e planos de saúde. Acompanhe as últimas notícias relacionadas a saúde.  
+  <div class="col-md-4" ></br>
+    <p style="font-size: 14px; margin-top: -15px"> 
+
+      <%= link_to (raw article.content.truncate(500)), product_articles_path(id: article.id), style: "font-size: 16px;color: #2c2c2c"  %>
+
     </p>
   </div>
 
 
-  <div class="col-md-3" style="border-bottom: 1px solid #4a4a4a;"></br>
-      <div class="card-header card-header-image" data-header-animation="false">
-        <a href="#pablo">
+  <div class="card col-md-4" ></br>
+      <div class="card-header card-header-image" data-header-animation="false" >
+        <a href="#pablo" >
           <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
           </a>
       </div>    
@@ -237,32 +147,41 @@
 
 </div>
 
+<% end %>
 
 
 
-<div class="row " style="margin-top: 0px;">
-  
+</div>    
+
+</div>  
 
 
-  <div class="col-md-3"style="border-bottom: 1px solid #4a4a4a;" ></br>
-    <h4 style="font-weight: bold; font-size: 22px"> Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos exclusivos em </h3>
-  </div>
-
-  <div class="col-md-3" style="border-bottom: 1px solid #4a4a4a;"></br>
-    <p style="font-size: 14px"> 
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos exclusivos em tratamentos, medicamentos e planos de saúde. Acompanhe as últimas notícias relacionadas a saúde.  
-    </p>
-  </div>
 
 
-  <div class="col-md-3" style="border-bottom: 1px solid #4a4a4a;"></br>
-      <div class="card-header card-header-image" data-header-animation="false">
-        <a href="#pablo">
-          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
-          </a>
-      </div>    
-  </div>
+
+
+
+
+
+
+
+  </div>   
+
 
 </div>
 
-</div>      
+ </div>
+
+
+
+
+ </div>
+     <div class="col-md-4">
+      <div class="card "></br>
+        <%= render "/landing/produtos_da_categoria" %>
+      </div>
+    </div>
+
+  </div>
+   </div>
+

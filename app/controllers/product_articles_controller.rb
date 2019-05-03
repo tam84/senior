@@ -18,9 +18,18 @@ class ProductArticlesController < ApplicationController
     end
   end
 
+  def index
+    current_category = Category.find_by(id: params[:category_id])
+    @articles = current_category.product_articles
+    @products = current_category.products
+  end
+
   def show
     if params[:id]
       @product_article = ProductArticle.find_by(id: params[:id])
+      current_category = Category.find_by(id: @product_article.category_id)      
+      @articles = current_category.product_articles
+      @products = current_category.products
     end
   end
 
@@ -43,7 +52,7 @@ class ProductArticlesController < ApplicationController
 	private
 
 	def product_article_params
-    params.require(:product_article).permit(:product_id, :title, :content)    		
+    params.require(:product_article).permit(:product_id, :title, :content, :assetclass_id, :category_id, images:[] )    		
 	end
 
 

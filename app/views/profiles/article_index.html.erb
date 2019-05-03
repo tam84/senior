@@ -1,0 +1,147 @@
+
+
+<div class="container">
+<div class="row " style="margin-top: 0px;">
+  
+
+
+  <div class="col-md-9" ></br>
+    <a href="#pablo">
+      <img style="width: 100%" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg">
+    </a>  
+  </div>
+
+
+  <div class="col-md-3" ></br>
+    <% @products.last(8).each do |product| %>    
+    <h4 style="font-weight: bold; font-size: 16px;border-bottom:1px solid #f1f1f1;margin-top: 15px">
+      <%=product.name %>
+    </h4>
+    <% end %>
+  </div>
+
+
+
+</div>
+</div>      
+
+
+
+
+
+
+
+
+
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px;"></br>
+        
+
+<div class="section section-nucleo-icons">
+        <div class="container" style="border-bottom:1px solid #f1f1f1;">
+          <div class="row">
+
+
+
+
+<div class="row" style="margin-top: 0px; ">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <% @products.where(id: 5..8).each do |product| %>    
+  <div class="col-md-3">
+    <div >
+      <div class="card-header card-header-image" data-header-animation="false">
+        <a href="#pablo">
+          <img style="height: 165px" src="/assets/fertilizacao-in-vitro.jpg">
+          </a>
+      </div>
+      <div class="card-body">
+        <div class="text-left">
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" >                    
+                </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#ffbc02; font-weight: bold;font-size: 18px">
+              <%= product.name %>
+            </h2>
+            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px; ">
+
+              <%= product.description.html_safe %>
+                     
+            </h2>
+          </div>
+            
+          </div>
+      </div>
+    <% end %>
+
+
+
+
+
+
+
+
+
+           
+          </div>
+        </div>
+      </div>
+
+</br>
+
+<div class="container">
+  <h4 style="font-size: 32px; font-weight: bold; border-bottom: 1px solid #2c2c2c;"> Últimas notícias </h4>
+</div></br>
+
+
+<div class="container">
+
+<% @products.last(15).each do |product| %>    
+
+<div class="row " style="margin-top: 0px; text-align: left">
+  
+
+
+  <div class="col-md-3"style="border-bottom: 1px solid #2c2c2c;" ></br>
+    <h4 style="font-weight: bold; font-size: 22px"> <%= product.name %> </h3>
+  </div>
+
+  <div class="col-md-3" style="border-bottom: 1px solid #2c2c2c;"></br>
+    <p style="font-size: 14px; margin-top: -15px"> 
+
+      <%= raw product.description.truncate(100) %>
+
+    </p>
+  </div>
+
+
+  <div class="col-md-3" style="border-bottom: 1px solid #2c2c2c;"></br>
+      <div class="card-header card-header-image" data-header-animation="false">
+        <a href="#pablo">
+          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
+          </a>
+      </div>    
+  </div>
+
+</div>
+
+<% end %>
+
+
+
+</div>      

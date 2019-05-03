@@ -1,0 +1,80 @@
+<div class="col-md-12">
+	<div class="card "> 
+		<div class="card-header card-header-rose card-header-icon">
+		<%= form_with model: @profile, local: true do |f| %>
+            <% @profile.errors.full_messages.each do |message| %>
+                <li>
+                    <%= link_to message %>
+                </li>
+            <% end %>
+  			<div class="form-group">
+    		
+            <%= f.label :long_profile, "Descreva suas experências" %>
+            <%= f.text_area :long_profile, class: 'form-control' %> <br />                                  
+            <%= f.label :short_profile, "Resumo do currículo" %>
+            <%= f.text_area :short_profile, class: 'form-control' %> <br />
+
+
+            <%= f.label :english_level, "Inglês" %><br/>
+            <%= f.select :english_level, Profile.english_levels.keys %><br/> <br/>     
+
+            <%= f.label :spanish_level, "Espanhol" %><br/>
+            <%= f.select :spanish_level, Profile.spanish_levels.keys %><br/> <br/>     
+
+            <%= f.label :educational_level, "Escolaridade" %><br/>
+            <%= f.select :educational_level, Profile.educational_levels.keys %><br/> <br/>     
+
+            <%= f.label :age, "Idade" %>
+            <%= f.text_area :age, class: 'form-control' %>                             
+
+            
+
+            <div class= "field" >
+            <%= f.label :images, "Selecione sua foto de perfil" %>
+            <%= f.file_field :images, multiple: true, class: 'form-control' %> <br />                   
+            </div>  
+
+            <div class= "field" >
+            <%= f.label :documents, "Anexe seu currículo" %>
+            <%= f.file_field :documents, multiple: true, class: 'form-control' %> <br />                
+            </div>  
+
+            <%= f.label :street_name, "Nome da Rua" %>
+            <%= f.text_area :street_name, class: 'form-control' %>                             
+
+            <%= f.label :street_number, "Número da Rua" %>
+            <%= f.text_area :street_number, class: 'form-control' %>
+
+            <%= f.label :room_number, "Complemento" %>
+            <%= f.text_area :room_number, class: 'form-control' %>                                                                     
+
+            <%= f.label :neighborhood, "Bairro" %>
+            <%= f.text_area :neighborhood, class: 'form-control' %>                             
+
+            <%= f.label :zip_code, "CEP" %>
+            <%= f.text_area :zip_code, class: 'form-control' %>                             
+
+
+            <%= f.label :city, "Firm" %><br/>
+            <%= f.select :city, options_for_select(list_of_cities), :prompt => 'Selecione a cidade' %><br/> <br/>     
+
+
+
+
+
+  			<%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<h2>Import Products</h2>
+
+<%= form_tag import_products_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+
+<%= tinymce %>
+

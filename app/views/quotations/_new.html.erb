@@ -1,0 +1,22 @@
+<div class="col-md-12" style="background-color: #ffbc02">
+		<div class="card-header card-header-rose card-header-icon" style="background-color: #ffbc02">
+      <%= form_for @quotation do |f| %>	
+      <% @quotation.errors.full_messages.each do |message| %>
+      <li>
+        <%= link_to message %>    
+      </li>
+      <% end %> 
+      <div class="form-group">
+        <p style="color:#fff; font-weight: bold"> Confirma o cadastramento para a vaga? </p>  
+
+        <%# f.label :senter_message, "Descreva o que precisa, exemplo: Cotação para um CDB pós com vencimento de 2 anos, investimento em torno de R$10 milhões" %>
+    		<%# f.text_area :senter_message, class: 'form-control' %> 			
+			  <%= f.hidden_field :product_id, value: params[:product_id]  %><br />   
+        
+      </div>
+      <%= f.submit "Confirmar Inscrição", class: 'btn btn-rose btn-sm' %>
+      <% end %>
+		</div>
+</div>
+
+

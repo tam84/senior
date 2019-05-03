@@ -1,0 +1,58 @@
+ 
+
+
+
+
+
+<div class="row">
+  <% if @products != nil %>
+  <% @products.each do |product| %>
+  <div class="col-md-4">
+    <div class="card card-product">
+      <div class="card-header card-header-image" data-header-animation="false">
+        <a href="#pablo">
+          <% if product.images.present? %>
+          <%= image_tag(product.images.first.variant(resize: "510x265!")) %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+          </a>
+      </div>
+      <div class="card-body">
+        <div class="text-left" >
+          <%= link_to ("<i class='material-icons'>email</i>email").html_safe, new_email_message_path(product_id: product, product_associates: product.product_associates.pluck(:user_id)),{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#0094ec;'} %>
+          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
+          
+            <a style="color:#0092a8;" href="/preco_relacao_sexual_programada"><i class="material-icons">attach_money</i>preço</a>
+          <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
+            <a style="color:#0092a8;" href="/preco_relacao_sexual_programada"><i class="material-icons">info</i>+info</a>
+              </button>            
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">                    
+                </div>
+                </div>
+              </div>
+            </div>
+            <h4 class="card-title" style="height: 20px; text-align: left; color:#ffbc02; font-weight: bold;font-size: 18px">              
+              <%= h truncate(product.name, :length => 32) %>              
+            </h4>
+            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+
+              <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>                  
+            </h2>
+            </div>
+            <div class="card-footer">
+              <div class="price">
+                <h4>ffffff</h4>
+              </div>
+            <div class="stats">
+              <p class="card-category"style='color:#000'><%= product.category.name%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+

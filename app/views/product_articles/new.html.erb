@@ -10,8 +10,11 @@
   			<div class="form-group">
     		
 
-            <%= f.label :product_id, "Produto" %><br/>
-            <%= f.select :product_id, options_for_select(Product.all.collect { | product | [product.name, product.id] }), :prompt => 'Selecione o produto que pertence o artigo' %><br/> <br/>     
+            <%= f.label :category_id, "Produto" %><br/>
+            <%= f.select :category_id, options_for_select(Category.all.collect { | product | [product.name, product.id] }), :prompt => 'Selecione a categoria que pertence a notícia' %><br/> <br/>     
+
+            <%= f.label :assetclass_id, "Produto" %><br/>
+            <%= f.select :assetclass_id, options_for_select(Assetclass.all.collect { | product | [product.name, product.id] }), :prompt => 'Selecione o grupo que pertence o notícia' %><br/> <br/>     
 
 
 
@@ -21,6 +24,10 @@
     		<%= f.label :content, "Escreva o conteúdo do artigo" %>
     		<%= f.text_area :content, rows: 5, cols: 25, class: "tinymce", style: "height:500px" %> <br />    		    					
 			
+            <div class= "field" >
+            <%= f.label :images, "Selecione as imagens do produto" %>
+            <%= f.file_field :images, multiple: true, class: 'form-control' %> <br />                   
+            </div>  
 		
 
 

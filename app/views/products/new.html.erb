@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-12"> 
 	<div class="card "> 
 		<div class="card-header card-header-rose card-header-icon">
 		<%= form_with model: @product, local: true do |f| %>
@@ -13,160 +13,50 @@
             <%= f.select :view_status, Product.view_statuses.keys %><br/> <br/>     
 
 
-            <%= f.label :category_id, "Tipo de investimento" %><br/>
+            <%= f.label :category_id, "Cargo" %><br/>
             <%= f.select :category_id, options_for_select(Category.all.collect { | category | [category.name, category.id] }), :prompt => 'Selecione o tipo de investimento' %><br/> <br/>     
 
-            <%= f.label :firm_id, "Firm" %><br/>
-            <%= f.select :firm_id, options_for_select(Firm.all.order(name: "asc").collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione a empresa proprietária do produto' %><br/> <br/>     
+            <%= f.label :firm_id, "Empresa" %><br/>
+            <%= f.select :firm_id, options_for_select(Firm.all.order(name: "asc").collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione a empresa proprietária do produto' %><br/> <br/>    
 
-            <%= f.label :management_firm, "Managament Firm" %><br/>
-            <%= f.select :management_firm, options_for_select(Firm.all.order(name: "asc").collect { | firm | [firm.name, firm.name] }), :prompt => 'Confidencial' %><br/> <br/>     
+            <%= f.label :name, "Título da Vaga" %>
+            <%= f.text_area :name, class: 'form-control' %> <br />                                  
 
-            <%= f.label :destribuitor, "Emissor" %><br/>
-            <%= f.select :destribuitor, options_for_select(Firm.all.order(name: "asc").collect { | firm | [firm.name, firm.name] }), :prompt => 'Selecione o emissor do papel' %><br/> <br/>     
-
-
-            <%# f.label :key_information, "Informação para a primeira página do produto" %>
-            <%# f.text_area :key_information, class: 'form-control' %>                  
-
-    		<%# f.label :admin_fee, "Taxa de administração" %>
-    		<%# f.text_area :admin_fee, class: 'form-control' %> 
-
-    		<%# f.label :performance_fee, "Taxa de performance" %>
-    		<%# f.text_area :performance_fee, class: 'form-control' %>     		    				
-    		<%# f.label :status, "Status" %>
-    		<%# f.text_area :status, class: 'form-control' %> 
-
-    		<%# f.label :other_obs, "Outras observações" %>
-    		<%# f.text_area :other_obs, class: 'form-control' %>  		    	
-
-    		<%# f.label :target_return_benchmark_from, "Retorno mínimo em relação ao benchmark esperado" %>
-    		<%# f.text_area :target_return_benchmark_from, class: 'form-control' %>    		    		    	
-
-    		<%# f.label :target_return_benchmark_to, "Retorno máximo em relação ao benchmark esperado" %>
-    		<%# f.text_area :target_return_benchmark_to, class: 'form-control' %>     		    		    		    			
-    		<%# f.label :country, "País que está baseada a empresa proprietária do produto" %>
-    		<%# f.text_area :country, class: 'form-control' %>    	    				
-
-    		<%# f.label :investment_period_from, "Período mínimo projetado de maturação no investimento" %>
-    		<%# f.text_area :investment_period_from, class: 'form-control' %>     		
-
-    		<%# f.label :investment_period_to, "Período máximo projetado de maturação no investimento" %>
-    		<%# f.text_area :investment_period_to, class: 'form-control' %> 
-
-    		<%# f.label :manager, "Nome do gestor do produto" %>
-    		<%# f.text_area :manager, class: 'form-control' %>     		    				
-    		<%# f.label :administrator, "Nome do administrador do fundo ou produto" %>
-    		<%# f.text_area :administrator, class: 'form-control' %>  		    					
-    		<%# f.label :destribuitor, "Nome do distribuidor do produto" %>
-    		<%# f.text_area :destribuitor, class: 'form-control' %> 				
-
-    		<%# f.label :cnpj, "CNPJ da empresa proprietária do produto" %>
-    		<%# f.text_area :cnpj, class: 'form-control' %> 		
-
-    		<%# f.label :inception_date, "Data de início do fundo ou produto" %>
-    		<%# f.text_area :inception_date, class: 'form-control' %>     			
-
-    		<%# f.label :minimal_investment, "Investimento mínimo" %>
-    		<%# f.text_area :minimal_investment, class: 'form-control' %> 	    		
-
-    		<%# f.label :maximum_investment, "Investimento máximo" %>
-    		<%# f.text_area :maximum_investment, class: 'form-control' %> 	    		
-
-    		<%# f.label :target_investor, "Perfil exigido do investidor" %>
-    		<%# f.text_area :target_investor, class: 'form-control' %>     		
-
-    		<%# f.label :benchmark, "Benchmark do produto. Ex: CDI, Ibovespa" %>
-    		<%# f.text_area :benchmark, class: 'form-control' %> 	
-
-    		<%= f.label :name, "Nome do produto" %>
-    		<%= f.text_area :name, class: 'form-control' %> <br />    		    					
-
-    		<%= f.label :description, "Faça uma descrição bastante completa, insira todas as informações que quiser. Não há problema em repetir informações" %>
-    		<%= f.text_area :description, rows: 5, cols: 25, class: "tinymce", style: "height:500px" %> <br />    		    					
-			
-  			<%# f.fields_for :product_specific, ProductSpecific.new do |form| %>
-
-    		<%# form.label :closing_expected, "Expectativa de fechamento da captação" %>
-    		<%# form.text_field :closing_expected, class: 'form-control'  %>
-
-    		<%# form.label :net_debt, "Dívida líquida" %>
-    		<%# form.text_field :net_debt, class: 'form-control'  %>  
-
-    		<%# form.label :investment_structure, "Estrutura de investimento" %>
-    		<%# form.text_field :investment_structure, class: 'form-control'  %>  
-
-    		
-    		<%# form.label :irr_from, "TIR mínima projetada" %>
-    		<%# form.text_field :irr_from  %>  
-    		
-    		<%# form.label :irr_to, "TIR máxima projetada" %>
-    		<%# form.text_field :irr_to  %>
-
-    		<%# form.label :coc_from, "CoC mínima projetada" %>
-    		<%# form.text_field :coc_from  %>  
-    		
-    		<%# form.label :coc_to, "CoC máxima projetada" %>
-    		<%# form.text_field :coc_to  %>  
-
-    		<%# form.label :deal_size_from, "Patrimonio mínimo projetado" %>
-    		<%# form.text_field :deal_size_from  %>  
-    		
-    		<%# form.label :deal_size_to, "Patrimonio máximo projetado" %>
-    		<%# form.text_field :deal_size_to  %>  
-
-    		<%# form.label :stake_offered_from, "Participação mínima do negócio oferecida" %>
-    		<%# form.text_field :stake_offered_from  %>  
-    		
-    		<%# form.label :stake_offered_to, "Participação máxima do negócio oferecida" %>
-    		<%# form.text_field :stake_offered_to  %>  
-
-    		<%# form.label :revenue_from, "Receita mínima projetada" %>
-    		<%# form.text_field :revenue_from  %>  
-    		
-    		<%# form.label :revenue_to, "Receita máxima projetada" %>
-    		<%# form.text_field :revenue_to  %>    
-
-    		<%# form.label :ebtida_from, "Ebtida mínima projetada" %> %>
-    		<%# form.text_field :ebtida_from  %>  
-    		
-    		<%# form.label :ebtida_to, "Ebtida máxima projetada" %>
-    		<%# form.text_field :ebtida_to  %>  
+            <%= f.label :description, "Descrição da Vaga" %>
+            <%= f.text_area :description, rows: 25, cols: 25, class: "tinymce", style: "height:500px" %> <br />                                 
 
 
-    		<%# end %>  		
+ 		    		    		    			
+
+            <%= f.label :street_name, "Nome da Rua" %>
+            <%= f.text_area :street_name, class: 'form-control' %>                             
+
+            <%= f.label :street_number, "Número da Rua" %>
+            <%= f.text_area :street_number, class: 'form-control' %>
+
+            <%= f.label :room_number, "Complemento" %>
+            <%= f.text_area :room_number, class: 'form-control' %>                            
 
 
-    		<small class="text-muted">De 2 to 1000 caracteres</small>			
-  			</div>
+            <%= f.label :neighborhood, "Bairro" %>
+            <%= f.text_area :neighborhood, class: 'form-control' %>                             
+
+            <%= f.label :zip_code, "CEP" %>
+            <%= f.text_area :zip_code, class: 'form-control' %>                             
+
+
+            <%= f.label :city, "Cidade" %><br/>
+            <%= f.select :city, options_for_select(list_of_cities), :prompt => 'Selecione a cidade' %><br/> <br/>     
+				
+
 
     		<div class= "field" >
     		<%= f.label :images, "Selecione as imagens do produto" %>
     		<%= f.file_field :images, multiple: true, class: 'form-control' %> <br />    		    	
     		</div>	
 
-    		<div class= "field" >
-    		<%= f.label :documents, "Selecione os documentos do produto" %>
-    		<%= f.file_field :documents, multiple: true, class: 'form-control' %> <br />    		    
-    		</div>	
+  
 
-            <div class= "field" >
-            <%# f.label :videos, "Selecione os Videos do produto" %>
-            <%# f.file_field :videos, multiple: true, class: 'form-control' %>                 
-            </div>  
-
-            <div class= "field" >
-            <%= f.label :releases, "Selecione as notícias do produto" %>
-            <%= f.file_field :releases, multiple: true, class: 'form-control' %> <br />                
-            </div>   
-
-            <div class= "field" >   
-        
-            
-            <%= f.date_select :to_investment_period, :order => [:day, :month, :year] %>
-
-
-            </div>
 
 
 
@@ -176,12 +66,7 @@
 	</div>
 </div>
 
-<h2>Import Products</h2>
 
-<%= form_tag import_products_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 
 
 <%= tinymce %>

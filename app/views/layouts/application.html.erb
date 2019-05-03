@@ -8,7 +8,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-138589882-1');
+  gtag('config', 'UA-138589882-1'); 
 </script>
     
     <% if @product.present? %>
@@ -20,7 +20,7 @@
     <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+ 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
@@ -47,14 +47,45 @@
       
 
       <%# if current_user %>
-      <div class="sidebar-wrapper">
-        
+      
+      <div class="sidebar-wrapper" style="margin-top: 20px">
+        <div class="user">
+          <div class="photo">
+            <% if current_user and current_user.profile_photos.present? %>
+            <%=image_tag(current_user.profile_photos.first.variant(resize: "100x100!"))%>
+            <% end %>
+          </div>
+          <div class="user-info">
+            <a data-toggle="collapse" href="#collapseExample" class="username">
+              <span>
+                <% if user_signed_in? %>
+                <%= h truncate(current_user.full_name, length: 16) %>
+                <%end%>
+                <b class="caret"></b>
+              </span>
+            </a>
+            <div class="collapse" id="collapseExample">
+              <ul class="nav">
+                <li class="nav-item">
+                    <%= link_to 'Meu perfil', class: "nav-link"%> 
+                </li>                    
+                <li class="nav-item">
+                    <%= link_to 'Minhas mensagens', email_messages_path, class: "nav-link" %> 
+                </li>    
+                <li class="nav-item">
+                    <%= link_to 'Minhas cotações', quotations_path, class: "nav-link" %> 
+                </li>                                
+              </ul>
+            </div>
+          </div>
+        </div>
+
 
 
         <ul class="nav">
           
 
-          <li class="nav-item " style="background-color: #ffbc02;height: :300px">
+          <li class="nav-item " style="background-color: #2c2c2c;height: :300px">
             <a class="nav-link collapsed" data-toggle="collapse" href= '' >
               <i class="material-icons" style="color: #0092a8">schedule</i>
               <p> 
@@ -63,12 +94,40 @@
             </a>
 
             <%= link_to "", new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class:"nav-link", style:"color:#0092a8; margin-top:-10px; font-weight:bold; font-size:14px"} %>              
-              <p style="margin-top: -13px; color:#0092a8; font-weight: bold; font-size: 14px"> AGENDE SUA CONSULTA
+              <p style="margin-top: -13px; color:#fff; font-weight: bold; font-size: 14px"> AGENDE SUA CONSULTA
               </p>
 
            </li>
 
-          <% Assetclass.all.each do |assetclass| %>
+
+
+          <li class="nav-item ">
+            <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=Assetclass.first.id%>' >
+              <i class="material-icons">info</i>
+              <p> <%= Assetclass.first.name %>
+                <b class="caret"></b>
+              </p>
+            </a>
+
+            <div class="collapse" id= '<%=Assetclass.first.id%>' >
+              <ul class="nav">
+              
+
+                <% Assetclass.first.categories.each do |category| %>              
+                <li class="nav-item ">
+                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link" %>
+                </li>
+              
+                <% end %>
+
+              </ul>
+            </div>            
+          </li>
+
+
+
+
+          <% Assetclass.where(id: 2..5).each do |assetclass| %>
           <li class="nav-item ">
             <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=assetclass.id%>' >
               <i class="material-icons">info</i>
@@ -79,19 +138,27 @@
 
             <div class="collapse" id= '<%=assetclass.id%>' >
               <ul class="nav">
+              
+
                 <% assetclass.categories.each do |category| %>              
                 <li class="nav-item ">
-                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link" %>
+                  <%= link_to category.name, product_articles_path(category_id: category.id), class:"nav-link" %>
                 </li>
+              
                 <% end %>
+
               </ul>
             </div>            
           </li>
           <% end %>
         </ul>
       </div>
+      </div>
+      
       <%# end %>
-    </div>
+
+
+
 
 
 
@@ -104,14 +171,15 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="http://plasticanaweb.com.br" rel="tooltip" title="Plastica na Web" data-placement="bottom" target="_blank">
-          <p style="font-size: 40px; text-transform: lowercase; color: #0092a8; font-weight: bold; 
-"> fértil </p>
-          <h4 style="text-align: right; margin-top: -10px; color:#ffbc02;font-weight: bold"> EU </h4>
-          <%# image_tag(("http://ec2-18-217-155-28.us-east-2.compute.amazonaws.com/assets/logo_liquibay_branco-fd00d8005b22ef903bbf567ea3de8e28b5d9548e29a827a14fd3920f7ed6ab8f.png"), style:"width:235px; height: 50px") %>
+
+          <p style="font-size: 40px; text-transform: lowercase; color: #ffbc02; font-weight: bold; 
+"> idoso </p>
+          <h4 style="text-align: right; margin-top: -10px; color:#0092a8;font-weight: bold"> NA WEB </h4>
+
         </a>
 
-          <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="" style="background-color: #ffbc02; margin-right: : 0px;">
-            <%= link_to ("CONSULTA GRATUITA").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#0092a8; font-size:13px; font-weight:bold'}%>        
+          <button type="button" rel="tooltip" class="btn btn-sm" data-original-title="" title="" style="background-color: #0092a8; margin-right: : 0px;">
+            <%= link_to ("Torne-se Membro").html_safe, new_contact_message_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :style=>'color:#fff; font-size:13px; font-weight:bold'}%>        
           </button>         
 
 
@@ -124,34 +192,99 @@
       <div class="collapse navbar-collapse justify-content-end has-image" id="navigation" style="background: url(&quot;./assets/img/blurred-image-1.jpg&quot;) 0% 0% / cover;">
         <ul class="navbar-nav" >
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><%= link_to 'Home', root_path, {style:"color:#0092a8; font-weight:bold"} %> </p>
+          <li class="nav-item" style="margin-right: 30px; text-transform: uppercase;">
+              <p><%= link_to 'Home', root_path, {style:"color:#2c2c2c; font-family: HelveticaNeue-Light;"} %> </p>
           </li>
 
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#como_funciona" style="color:#0092a8; font-weight:bold; font-size:16px; ">Plástica Parcelada</a></p>
+          <li class="nav-item" style="margin-right: 30px; text-transform: uppercase;">
+              <p><a href="#como_funciona" style="color:#2c2c2c; font-family: HelveticaNeue-Light; font-size:16px; ">Como Funciona</a></p>
           </li>          
 
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#eventos"style="color:#0092a8; font-weight:bold">Eventos</a></p>
-          </li>          
-
-          <li class="nav-item" style="margin-right: 30px; ">
-              <p><a href="#procedimentos" style="color:#0092a8; font-weight:bold; font-size:16px; ">Antes Depois</a></p>
+          <li class="nav-item" style="margin-right: 30px; text-transform: uppercase;">
+              <p><a href="#peca_seu_cartao"style="color:#2c2c2c; font-family: HelveticaNeue-Light;">Peça seu cartão</a></p>
           </li>          
 
 
-          <li class="nav-item" style="margin-right: 30px;">
-              <p><a href="#procedimentos" style="color:#0092a8; font-weight:bold; font-size:16px; ">Preço</a></p>
-          </li>          
+
+
+
+
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#2c2c2c; font-family: HelveticaNeue-Light; font-size:16px; margin-top: 4px;   ">
+                  Descontos
+                  
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to 'Bem Estar', edit_user_registration_path(change_profile: true), {class:"dropdown-item"} %>
+                  <%= link_to 'Beleza', edit_user_registration_path(change_password: true), {class:"dropdown-item"} %>
+
+
+                  <%= link_to "Alimentação", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                  <%= link_to "Gastronomia", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Saúde", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Cuidados em Casa", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Emprego e Negócios", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Aposentadoria", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Viagem", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Crédito & Finanças", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Advogado & Outros", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Vida Social", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Lazer & Entretenimento", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Automóveis", new_user_session_path, {class:"dropdown-item"} %>                  
+                  <%= link_to "Games", new_user_session_path, {class:"dropdown-item"} %>                                    
+                </div>
+
+
+
+
+
+              </li>
+
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#2c2c2c; font-family: HelveticaNeue-Light; font-size:16px; margin-top: 4px;   ">
+                  Notícias
+                  
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to 'Bem Estar', edit_user_registration_path(change_profile: true), {class:"dropdown-item"} %>
+                  <%= link_to 'Beleza', edit_user_registration_path(change_password: true), {class:"dropdown-item"} %>
+
+
+                  <%= link_to "Alimentação", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                  <%= link_to "Gastronomia", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Saúde", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Cuidados em Casa", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Emprego e Negócios", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Aposentadoria", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Viagem", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Crédito & Finanças", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Advogado & Outros", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Vida Social", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Lazer & Entretenimento", new_user_session_path, {class:"dropdown-item"} %>
+                  <%= link_to "Automóveis", new_user_session_path, {class:"dropdown-item"} %>                  
+                  <%= link_to "Games", new_user_session_path, {class:"dropdown-item"} %>                                    
+                </div>
+
+
+
+
+
+              </li>
+
+
+
 
 
         </ul>
       </div>
     </div>
-  </nav>
+  </nav>    
 
 
 
@@ -182,212 +315,192 @@
 
     <%= yield %>
 
-<footer class="Footer Footer--global" style="background-color: #0092a8; line-height: 70px">
-    <div class="container" >
-        <div class="row" ">
-            <div style="height: 5px">
-                <a>
-                    <svg class="Iperceptions--icon Icon"><use xlink:href="/build/sprite-critical.svg?c0e4f53c7fb86c64dea3b33c9fc4fbb6#speechBubblePink"></use></svg>
-                </a>
-            </div>
-        </div>
+<footer id="como_funciona" style="text-align: center; color:#fff; background-color: #2c2c2c; margin-bottom:  -30px; ">
+      <div class="container"></br></br>
 
-            <div class="col-sm-12" style="color: #fff; text-align: center">
-              <%= link_to ("<i class='material-icons'>chat</i>Fale com um especialista").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#02dbff;font-size:30px;'} %>
+        <div class="col-sm-12" style="text-align: center;">
+          <%= link_to ("<i class='material-icons'>chat</i>Fale conosco e peça seu cartão de benefício").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#ffbc02;font-size:30px;font-family: HelveticaNeue-Light; '} %>
 
-            </div></br></br>
-        <div class="row" style="margin-top: -120px">
-            <div class="col-sm-3" style="color: #fff">
+        </div></br></br></br>
+
+        <div class="team">
+          <div class="row" style="margin-top: -80px;">
+
+            <div class="col-md-4" style="text-align: left;">
+              <div class="team-player" >
                 
-                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Acesso Rápido</h5>
-                <nav style="color: #0092a8; margin-top: -100px" >
-                  <li class="nav-item" style="height: 30px; ">
-                    <h2><a href="#como_funciona" style="color:#fff;font-size: 14px;">Como Funciona</h2></h2>
-                  </li>          
+                
 
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#eventos" style="color:#fff;font-size: 14px">Eventos</a></h2>
-                  </li>                 
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">antes e depois cirurgia plástica</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Empréstimo para cirurgia plástica</a></h2>
-                  </li>                    
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Consórcio para cirurgia plástica</a></h2>
-                  </li>                    
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Plástica Parcelada</a></h2>
-                  </li>                    
+                <h2 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Acesso rápido</h2>
+
+                <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Como Funciona</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Eventos</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Empréstimo para Fertilização</h2>
 
 
-                </nav>
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Consórcio para Fertilização</h2>
 
 
-                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02; margin-top: 100px" >Perguntas</h5>
-                <nav style="color: #0092a8; margin-top: -100px " >
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#como_funciona" style="color:#fff;font-size: 14px">Quanto custa para colocar silicone</h2></p>
-                  </li>          
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Fertilização Parcelada</h2>
 
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#eventos" style="color:#fff;font-size: 14px">Preço para colocar botox no rosto</a></h2>
-                  </li>                 
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Qual valor da cirurgia plástica no nariz</a></h2>
-                  </li>                                   
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Notícias Fertilização</h2>
 
-                </nav>
+              </div>
+  
 
-            </div>
-
-            <div class="col-sm-3" style="color: #fff">
-                <h5 style="font-weight: bold; font-size: 14px; color:#75ff02" >Procedimentos</h5>
-                <nav style="color: #0092a8; margin-top: -100px" >
-
-                  <li class="nav-item" style="height: 30px; ">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/206" style="color:#fff;font-size: 14px">Colocar Silicone</a></h2>
-                  </li>          
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/207" style="color:#fff;font-size: 14px">Lipoaspiração</a></h2>
-                  </li>                            
-
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/208" style="color:#fff;font-size: 14px">Toxina Botulínica</a></h2>
-                  </li>               
-
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/209" style="color:#fff;font-size: 14px">Preenchimento Facial</a></h2>
-                  </li>               
-
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/210" style="color:#fff;font-size: 14px">Rinoplastia</a></h2>
-                  </li>               
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/211" style="color:#fff;font-size: 14px">Lifting Facial</a></h2>
-                  </li>               
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/212" style="color:#fff;font-size: 14px">Mamoplastia Redutora</a></h2>
-                  </li>               
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/213" style="color:#fff;font-size: 14px">Mastopexia com Prótese</a></h2>
-                  </li>               
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/214" style="color:#fff;font-size: 14px">Mastopexia sem Prótese</a></h2>
-                  </li>               
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/215" style="color:#fff;font-size: 14px">Abnominoplastia</a></h2>
-                  </li>               
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="http://ec2-18-223-28-154.us-east-2.compute.amazonaws.com/products/216" style="color:#fff;font-size: 14px">Cirurgia Íntima</a></h2>
-                  </li>               
-
-                </nav>
-            </div>
-
-            <div class="col-sm-3" style="color: #fff">
-                <h2 style="font-weight: bold; font-size: 14px; color:#75ff02" >Valor / Preço Cirurgia Plástica</h2>
-                <nav style="color: #0092a8; margin-top: -90px" >
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#como_funciona" style="color:#fff;font-size: 14px">Valor / Preço Silicone</a></h2>
-                  </li>          
-
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#eventos" style="color:#fff;font-size: 14px">Valor / Preço Rinoplastia</a></h2>
-                  </li>                 
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Abdominoplastia</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Botox</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Preenchimento facial</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Lipoaspiração</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Mamoplastia Redutora</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço Mastopexia com prótese</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço silicone bumbum</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço otoplastia orelha</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço cirurgia queixo</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Valor / Preço implante capilar</a></h2>
-                  </li>                                   
-
-                </nav>
-            </div>
-
-            <div class="col-sm-3" style="color: #fff">
-                <h2 style="font-weight: bold; font-size: 14px; color:#75ff02" >Antes e Depois Cirurgia Plástica</h2>
-                <nav style="color: #0092a8; margin-top: -90px" >
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#como_funciona" style="color:#fff;font-size: 14px">Antes e Depois  Silicone</a></h2>
-                  </li>          
-
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#eventos" style="color:#fff;font-size: 14px">Antes e Depois Rinoplastia</a></h2>
-                  </li>                 
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Abdominoplastia</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Botox</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Preenchimento facial</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Lipoaspiração</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Mamoplastia Redutora</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois Mastopexia com prótese</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois silicone bumbum</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois otoplastia orelha</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois cirurgia queixo</a></h2>
-                  </li>                                   
-                  <li class="nav-item" style="height: 30px">
-                    <h2><a href="#procedimentos" style="color:#fff;font-size: 14px">Antes e Depois implante capilar</a></h2>
-                  </li>                                   
-
-                </nav>
-            </div>
+          </div>
 
 
-        </div>
-    </div>
 
-                <div>
-        </div>
-    
 
-    <div class="Footer-copyright" style="text-align: center; color: #fff; margin-top: 100px">
-        © 2019 GrávidaNaWeb, Inc. Todos os direitos reservados.
+            <div class="col-md-4" style="text-align: left">
+              <div class="team-player">
+                
+                
+
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Notícias Terceira Idade</h4>
+
+                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Bem estar Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Beleza Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Alimentação idoso</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Gastronomia Terceira Idade</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Saúde Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Cuidados em Casa</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Empregos e Negócios Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Aposentadoria Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Viagem Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Crédito & Finanças Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Advogado & outros idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Vida Social Idosos</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Lazer & Entretenimento Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Automóveis Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Games Idoso</h2>
+
+
+
+              </div>
+  
+
+          </div>
+
+
+            <div class="col-md-4" style="text-align: left">
+              <div class="team-player">
+                
+                
+
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Descontos Terceira Idade</h4>
+
+                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Bem estar Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Beleza Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Alimentação idoso</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Gastronomia Terceira Idade</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Saúde Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Cuidados em Casa</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Empregos e Negócios Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Aposentadoria Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Viagem Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Crédito & Finanças Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Advogado & outros idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Vida Social Idosos</h2>
+
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Lazer & Entretenimento Terceira Idade</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Automóveis Idoso</h2>
+
+                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> Games Idoso</h2>
+
+
+
+              </div>
+  
+
+          </div>
+
+
+    <div class="col-md-12 Footer-copyright" style="text-align: center; color: #ffbc02; margin-top: 100px">
+        © 2019 IdosoNaWeb, Inc. Todos os direitos reservados.
         
     </div>
 
-</footer>
+
+
+
+
+        </div></br>
+      </div>
+    </footer>
 
 
   </body>

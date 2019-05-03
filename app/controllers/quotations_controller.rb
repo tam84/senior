@@ -1,5 +1,5 @@
 class QuotationsController < ApplicationController
-  def index
+  def index 
     if params[:status] == "under_revision"
       last_quotation = Quotation.where(senter_id: current_user.id).last
       if last_quotation
@@ -24,18 +24,15 @@ class QuotationsController < ApplicationController
   end
 
   def new
-  	@quotation = Quotation.new
+    if current_user
+  	 @quotation = Quotation.new
+    end
   end
 
   def create
   	@quotation = Quotation.new
-  	if params[:quotation][:senter_message].present? and @quotation.save_quotation params, current_user
-      if params[:status] == "under_revision"
+  	if @quotation.save_quotation params, current_user
         flash[:success] = 'Pedido enviado com sucesso! Acompanhe o recebimento de cotações.' 
-      else
-        flash[:success] = 'Revise seu pedido e veja se deseja excluir alguma mesa.'
-      end
-      redirect_to quotations_path(status: "under_revision")
     else
       flash[:error] = "Faltam informações no seu pedido"
       redirect_back(fallback_location: root_path)

@@ -10,13 +10,13 @@
     
    
  
-   <%= render "/landing/antes_depois_silicone" %>
+   <%= render "/landing/produtos_da_categoria" %>
 
 
 
 
 
-
+ 
 
   </div>          
 </div>
@@ -25,12 +25,6 @@
 <div class="col-md-8">
   <div class="card ">
     
-    <div class="card-header card-header-rose card-header-icon">
-      <div class="card-icon">
-        <i class="material-icons" style="color: #75ff02">info</i>
-      </div>
-      <h4 class="card-title">Informações</h4></br></br>
-    </div>
    
 
     <div class="col-md-12" style="margin-left: 00px; text-align: left">
@@ -40,9 +34,20 @@
 
     <div class="card-body ">
       <% if @product_article != nil %>
-      <div >       
-        <h1 style="font-size: 20px"><%= @product_article.title %></h1> </br>         
+        <div >       
+          <h1 style="font-size: 26px; font-family: HelveticaNeue-Light"><%= @product_article.title %></h1> </br>
         </div>
+
+
+
+          <% if @product_article.images.present? %>
+          <%= image_tag(@product_article.images.first.variant(resize: "100%x60%")) %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+
+</br></br></br>
+
         <%= @product_article.content.html_safe %>
         <%end%>
       </div>  
@@ -126,37 +131,7 @@
           
 
 
-        <% if @product_article.product.product_articles.present? %>
-        <div class="col-md-12">
-              <div class="card ">
 
-        <div class="card-header card-header-rose card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons" style="color: #75ff02">info</i>
-                  </div>
-                  <h4 class="card-title">Notícias</h4>
-         </div> </br>
-
-            <div class="row">
-          
-          <div class="col-md-12">
-            <% @product_article.product.product_articles.each do |release| %>
-          <div class="col-md-12">
-            <%= link_to release.title, product_article_path(id: release), class: "col-md-3", style: "color: gray; font-weight: bold;" %>
-
-          </div>
-
-            <% end %>
-          </div> 
-
-          <div class="card">
-          </div>
-
-
-            </div>
-          </div>          
-        </div>          
-        <% end %>
 
 
 

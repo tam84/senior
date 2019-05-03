@@ -1,0 +1,141 @@
+    <div class="col-md-12" style="margin-left: 0px; text-align: center">
+
+
+      <div class="col-md-12 mr-auto" style="text-align: left; background-color: #0092a8;height: 100%; margin-top: 0px"></br>
+
+      <h3 style="color: #fff; font-weight: bold; font-size: 18px; text-align: center">Peça seu cartão fidelidade</h3></br>
+
+        <%= form_for ContactMessage.new do |f| %>
+
+ 
+
+
+          <div class="col-md-12 form-group has-default bmd-form-group" >
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333;">
+                  <i class="material-icons" style="color:#fff">face</i>
+                </span>
+              </div>
+              <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff;" %>
+            </div>
+          </div> </br>                  
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons" style="color:#fff">mail</i>
+                </span>
+              </div>
+              <%= f.text_field :email, class: 'form-control', placeholder: "Email", style:"color:#fff" %>
+            </div></br>                  
+          </div>
+          <div class="col-md-12  form-group has-default bmd-form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="border-style: none; color: #333">
+                  <i class="material-icons"style="color:#fff">phone</i>
+                </span>
+              </div>
+              <%= f.text_field :contacts, class: 'form-control', placeholder: "Telefone", style:"color:#fff" %>
+            </div>
+          </div></br>                  
+
+
+
+          <div class="text-center" style="margin-top: -20px">
+            <%= f.submit "Quero descontos",  {class: 'btn btn-rose mt-4', style: "background-color:#f58a00; color:#fff; font-weight:bold"} %></br></br>
+
+          </div>
+
+        <% end %>
+
+
+
+
+      </div>
+
+</br></br></br>
+
+
+<div class="container" style="text-align: left">
+  <h4 style="font-size: 32px; border-bottom: 1px solid #eee;font-family: HelveticaNeue-Light"> Últimas notícias </h4>
+</div></br>
+
+
+<div class="container" style="text-align: left">
+<div class="row " style="margin-top: 0px;">
+  
+  <% @articles.each do |article| %>
+
+
+  <div class="col-md-12"style="border-bottom: 1px solid #eee;" ></br>
+    <h4 style="font-family: HelveticaNeue-Light;font-size: 16px"> <%= article.title %> </h3>      
+  </div>
+
+  <% end %>
+
+
+
+</div>
+</div>
+
+
+</br></br>
+
+<div class="container" style="text-align: left">
+  <h4 style="font-size: 32px; border-bottom: 1px solid #eee;font-family: HelveticaNeue-Light"> Descontos </h4>
+</div></br>
+
+
+
+<div class="row">
+  <% if @products != nil %>
+  <% @products.each do |product| %>
+  <div class="col-md-12">
+    <div class="card card-product">
+      <div class="card-header card-header-image" data-header-animation="false">
+        <a href="#pablo">
+          <% if product.images.present? %>
+          <%= image_tag(product.images.first.variant(resize: "100x100")) %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+          </a>
+      </div>
+      <div class="card-body">
+        <div class="text-left" >
+            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">                    
+                </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#0092a8;font-size: 24px; font-family: HelveticaNeue-Light">
+              <%= h truncate(product.name, :length => 32) %>              
+            </h4>
+            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+
+              <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>                  
+            </h2>
+            </div>
+            <div class="card-footer">
+              <div class="stats">          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>+Info").html_safe, product_path(id: product.id),{style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+            
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+
+
+
+
+    </div>

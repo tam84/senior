@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
   require 'will_paginate/array'
 
 
-
 	def new
 		@product = Product.new
 	end
@@ -14,7 +13,7 @@ class ProductsController < ApplicationController
       if product_params[:management_firm] == ""
         params_merged = product_params.merge(assetclass_id: assetclass_id, management_firm: "confidencial")        
       else
-		    params_merged = product_params.merge(assetclass_id: assetclass_id)
+		    params_merged = product_params.merge(assetclass_id: assetclass_id, user_id: User.first.id)
       end
     end
 		@product = Product.new(params_merged)
@@ -29,27 +28,22 @@ class ProductsController < ApplicationController
 
 
 	def index		
-    if params[:category_id] == "1"
+    if params and params[:category_id]
       @products = Product.where(category_id: params[:category_id])
+    elsif params and params[:product] and params[:product][:city] and params[:product][:category_id]
+      @products = Product.where(city: params[:product][:city].to_s, category_id: params[:product][:category_id])
+    else
+      @products = Product.all      
     end
-    if params[:category_id] != "1"
-      @products = Product.where(category_id: params[:category_id])
-      render "article_index"
-    end
-
 	end
 
 	def show
 		if params[:id]
-			@product = Product.find_by(id: params[:id])	#unless Product.find_by(id: params[:id], view_status: "confidencial") #and !ReservedRelation.where(user_id: current_user.id, product_id: params[:id]).present?
-			#current_user_segmentations = current_user.segmentation
-			#if current_user.customer_to_product_associates.present?
-			#	@product_associates = @product.product_associates.joins(:customer_to_product_associates).where("customer_to_product_associates.user_id = ?", current_user.id)
-			#else
-				#@product_associates = @product.product_associates#.joins(:user).where("users.segmentation@> ARRAY[?]::varchar[]", current_user_segmentations)
-			#end
-			#@posts = @product.posts.order(created_at: :desc)
+			@product = Product.find_by(id: params[:id])	
 		end
+    current_category = @product.category
+    @articles = current_category.product_articles
+    @products = current_category.products
 	end
 
 
@@ -96,12 +90,12 @@ class ProductsController < ApplicationController
 
 
 	def product_params
-		params.require(:product).permit(:view_status ,:name, :description, :category_id, :assetclass_id, :firm_id, :admin_fee, :performance_fee, :status, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :country, :from_investment_period, :to_investment_period, :manager, :administrator, :destribuitor, :cnpj, :inception_date, :minimal_investment, :maximum_investment,:target_investor, :total_investment, :management_firm ,:benchmark ,videos:[], images:[], releases:[], documents:[], 
-		product_specific_attributes: [ :deal_size_from, :deal_size_to, :closing_expected, :net_debt, :investment_structure, :irr_from, :irr_to, :coc_from, :coc_to, :deal_size, :deal_size_t, :stake_offered_from, :stake_offered_to, :revenue_from, :revenue_to, :ebtida_from, :ebtida_to ]
+		params.require(:product).permit(:requirement,:room_number, :street_name,:street_number,:zip_code,:neighborhood,:city,:english_level,:spanish_level,:educational_level,:skill_tags,:age,:view_status ,:name, :description, :category_id, :assetclass_id, :firm_id, :other_obs, :target_return_benchmark_from, :target_return_benchmark_to, :destribuitor, :inception_date, :management_firm,:to_investment_period ,videos:[], images:[], releases:[], documents:[], 
+		
 			)
 	end
 
-
+ 
 
 
 end

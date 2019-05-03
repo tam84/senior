@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: one
+  street_name: MyString
+  street_number: MyString
+  zip_code: 1
+  city: MyString
+  english_level: 1
+  spanish_level: 1
+  educational_level: 1
+  short_profile: MyText
+  skill_tags: MyString
+  age: 1
+  long_profile: MyText
+
+two:
+  user_id: two
+  street_name: MyString
+  street_number: MyString
+  zip_code: 1
+  city: MyString
+  english_level: 1
+  spanish_level: 1
+  educational_level: 1
+  short_profile: MyText
+  skill_tags: MyString
+  age: 1
+  long_profile: MyText

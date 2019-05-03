@@ -10,13 +10,6 @@
     <%= f.text_field :full_name, autofocus: true, class: 'form-control', placeholder: "Insira seu nome completo" %><br/><br/>
 
 
-    <%= f.label :description, "Descrição" %>
-    <%= f.text_area :description, rows: 5, cols: 25, class: "tinymce", style: "height: 500px" %> <br />                     
-   <%# f.select :segmentation, collection: User.segmentations.keys%>
-
-    <%= f.label :segmentation, "Insira as tags separadas por virgula" %>
-    <%= f.text_area :segmentation, class: 'form-control', placeholder: "Insira as tags separadas por virgula" %><br/><br/>
-
     <%= f.label :email, "Email" %>
     <%= f.text_field :email, autofocus: true, autocomplete: "email",class: 'form-control',placeholder: "Seu principal email, é nele que você receberá as notificações" %><br/><br/>
 
@@ -30,46 +23,6 @@
 
     <%= f.label :password_confirmation, "Confirmação de senha" %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/><br/>
-
-
-    <div class= "field" >
-      <%= f.file_field :profile_photos, multiple: true, class: 'btn btn-rose btn-sm' %><br/><br/>
-    </div>  
-
-    <div class= "field" >
-      <%= f.file_field :documents, multiple: true, class: 'btn btn-rose btn-sm' %><br/><br/>
-    </div>  
-
-
-      <%= f.label :whatsapp, "insira seus dados de contato" %><br/><br/>
-      <%= f.text_field :whatsapp, autofocus: true, placeholder: "Insira seu Whatsapp" %>
-      <%= f.text_field :skype, autofocus: true, placeholder: "Insira seu skype" %>
-      <%= f.text_field :linkedin, autofocus: true, placeholder: "Insira seu linkedin" %>
-      <%= f.text_field :facebook, autofocus: true, placeholder: "Insira seu facebook" %>
-      <%= f.text_field :instagram, autofocus: true, placeholder: "Insira seu instagram" %><br/><br/>
-
-
-      <%= f.label :website, "Website" %>
-      <%= f.text_field :website, autofocus: true, class: 'form-control', placeholder: "Website da empresa ou pessoal" %><br/><br/>
-
-      <%= f.label :firm_phone, "Telefone da empresa" %>
-      <%= f.text_field :firm_phone, autofocus: true, class: 'form-control', placeholder: "Telefone da empresa." %><br/><br/>
-
-
-
-      <%= f.label :official_registration, "Registro Oficial" %>
-      <%= f.text_field :official_registration, autofocus: true, class: 'form-control', placeholder: "Insira seu Registro Oficial caso tenha" %><br/><br/>
-
-
-      <%= f.label :zip_code, "CEP" %>
-      <%= f.text_field :zip_code, autofocus: true, class: 'form-control', placeholder: "Informe seu CEP, Utilize somente números nesse campo. Não insira o - antes dos últimos três números" %><br/><br/>
-
-
-      <%= f.label :address, "Endereço" %>
-      <%= f.text_field :address, autofocus: true, class: 'form-control', placeholder: "Informe seu endereçø completo" %><br/><br/>
-
-      <%= f.label :firm_id, "Sua empresa" %><br/>
-      <%= f.select :firm_id, options_for_select(Firm.all.collect { | firm | [firm.name, firm.id] }), :prompt => 'Selecione sua empresa' %><br/> <br/>     
 
 
 
