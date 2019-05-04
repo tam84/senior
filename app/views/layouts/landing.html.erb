@@ -1323,65 +1323,19 @@
 
             <div class="col-md-4" style="text-align: left">
               <div class="team-player">
-                
-                
+                               
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Notícias Terceira Idade</h4>
+              
+                <% Assetclass.where(id: 2..58).order(id: :asc).each do |assetclass| %>
 
-                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Notícias Terceira Idade</h4>
+                <h3 style="font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;"> 
 
-                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Bem estar Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Beleza Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Alimentação idoso</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Gastronomia Terceira Idade</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Saúde Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Cuidados em Casa</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Empregos e Negócios Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Aposentadoria Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Viagem Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Crédito & Finanças Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Advogado & outros idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Vida Social Idosos</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Lazer & Entretenimento Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Automóveis Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Games Idoso</h2>
-
-
-
+                  <%= link_to assetclass.name, product_articles_path(assetclass_id: assetclass.id), class:"nav-link", style:"font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;" %>
+                </h3>
+                <% end %>
               </div>
-  
-
           </div>
 
 

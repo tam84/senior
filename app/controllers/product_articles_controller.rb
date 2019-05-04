@@ -19,9 +19,14 @@ class ProductArticlesController < ApplicationController
   end
 
   def index
-    current_category = Category.find_by(id: params[:category_id])
-    @articles = current_category.product_articles
-    @products = current_category.products
+    if params[:assetclass_id]
+      current_assetclass = Assetclass.find_by(id: params[:assetclass_id])
+      @articles = current_assetclass.product_articles
+    else
+      current_category = Category.find_by(id: params[:category_id])
+      @articles = current_category.product_articles
+      @products = current_category.products
+    end
   end
 
   def show
