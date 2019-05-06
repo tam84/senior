@@ -16,7 +16,7 @@
     <% elsif @product_article.present? %>
     <title><%= @product_article.title %></title>  
     <% else %>
-    <title>Fertilização in vitro e inseminação artificial, parcelamento e preço acessível </title>
+    <title>Notícias e descontos para a terceira idade</title>
     <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -171,7 +171,7 @@
   <nav class="navbar navbar-expand-lg fixed-top " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="http://plasticanaweb.com.br" rel="tooltip" title="Plastica na Web" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="/" rel="tooltip" title="Plastica na Web" data-placement="bottom" target="_blank">
 
           <p style="font-size: 40px; text-transform: lowercase; color: #ffbc02; font-weight: bold; 
 "> idoso </p>
@@ -216,27 +216,17 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#2c2c2c; font-family: HelveticaNeue-Light; font-size:16px; margin-top: 4px;   ">
-                  Descontos
+                  Notícias
                   
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to 'Bem Estar', edit_user_registration_path(change_profile: true), {class:"dropdown-item"} %>
-                  <%= link_to 'Beleza', edit_user_registration_path(change_password: true), {class:"dropdown-item"} %>
+                  <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
 
+                  <%= link_to assetclass.name, product_articles_path(assetclass_id: assetclass.id), {class:"dropdown-item"} %>
 
-                  <%= link_to "Alimentação", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-                  <%= link_to "Gastronomia", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Saúde", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Cuidados em Casa", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Emprego e Negócios", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Aposentadoria", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Viagem", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Crédito & Finanças", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Advogado & Outros", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Vida Social", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Lazer & Entretenimento", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Automóveis", new_user_session_path, {class:"dropdown-item"} %>                  
-                  <%= link_to "Games", new_user_session_path, {class:"dropdown-item"} %>                                    
+                  <% end %>
+
+                                    
                 </div>
 
 
@@ -249,27 +239,16 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#2c2c2c; font-family: HelveticaNeue-Light; font-size:16px; margin-top: 4px;   ">
-                  Notícias
+                  Descontos
                   
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to 'Bem Estar', edit_user_registration_path(change_profile: true), {class:"dropdown-item"} %>
-                  <%= link_to 'Beleza', edit_user_registration_path(change_password: true), {class:"dropdown-item"} %>
+                  <% Category.where(id: 73..88).order(id: :asc).each do |category| %>
 
 
-                  <%= link_to "Alimentação", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-                  <%= link_to "Gastronomia", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Saúde", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Cuidados em Casa", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Emprego e Negócios", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Aposentadoria", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Viagem", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Crédito & Finanças", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Advogado & Outros", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Vida Social", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Lazer & Entretenimento", new_user_session_path, {class:"dropdown-item"} %>
-                  <%= link_to "Automóveis", new_user_session_path, {class:"dropdown-item"} %>                  
-                  <%= link_to "Games", new_user_session_path, {class:"dropdown-item"} %>                                    
+                  <%= link_to category.name, products_path(category_id: category.id), {class:"dropdown-item"} %>
+                  <% end %>
+
                 </div>
 
 
@@ -334,25 +313,12 @@
 
                 <h2 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Acesso rápido</h2>
 
-                <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Como Funciona</h2>
+                <a style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;" href="#como_funciona"> Como Funciona</a></br>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Eventos</h2>
+                  <a style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;" href="#peca_seu_cartao"> Cartão Fidelidade</a>
 
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Empréstimo para Fertilização</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Consórcio para Fertilização</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Fertilização Parcelada</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Notícias Fertilização</h2>
 
               </div>
   
@@ -364,130 +330,38 @@
 
             <div class="col-md-4" style="text-align: left">
               <div class="team-player">
-                
-                
+                               
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Notícias Terceira Idade</h4>
+              
+                <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
 
-                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Notícias Terceira Idade</h4>
+                <h3 style="font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis; margin-bottom: -25px"> 
 
-                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Bem estar Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Beleza Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Alimentação idoso</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Gastronomia Terceira Idade</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Saúde Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Cuidados em Casa</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Empregos e Negócios Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Aposentadoria Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Viagem Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Crédito & Finanças Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Advogado & outros idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Vida Social Idosos</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Lazer & Entretenimento Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Automóveis Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Games Idoso</h2>
-
-
-
+                  <%= link_to assetclass.name, product_articles_path(assetclass_id: assetclass.id), class:"nav-link", style:"font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;" %>
+                </h3>
+                <% end %>
               </div>
-  
-
           </div>
 
 
             <div class="col-md-4" style="text-align: left">
               <div class="team-player">
-                
-                
+                               
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Descontos Terceira Idade</h4>
+              
+                <% Category.where(id: 73..88).order(id: :asc).each do |category| %>
 
-                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Descontos Terceira Idade</h4>
+                <h3 style="font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis; margin-bottom: -25px"> 
 
-                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Bem estar Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Beleza Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Alimentação idoso</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Gastronomia Terceira Idade</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Saúde Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Cuidados em Casa</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Empregos e Negócios Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Aposentadoria Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Viagem Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Crédito & Finanças Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Advogado & outros idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Vida Social Idosos</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Lazer & Entretenimento Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Automóveis Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Games Idoso</h2>
-
-
-
+                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link", style:"font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;" %>
+                </h3>
+                <% end %>
               </div>
-  
-
-          </div>
+          </div>  
 
 
     <div class="col-md-12 Footer-copyright" style="text-align: center; color: #ffbc02; margin-top: 100px">
