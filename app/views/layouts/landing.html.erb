@@ -316,7 +316,7 @@
         
 
 <h5 class="title description" style="text-align: center; font-family: HelveticaNeue-Light ;color:#2c2c2c;background-color: #fff;  font-size: 34px;" >Nossas Soluções</h5>
-<div class="section section-nucleo-icons">
+<div class="section section-nucleo-icons" >
         <div class="container">
           <div class="row">
 
@@ -329,8 +329,8 @@
 
 
 
-  <div class="col-md-4">
-    <div class="card card-product">
+  <div class="col-md-4" >
+    <div class="card card-product" style="background-color: #fffcf3">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
           <img style="height: 165px" src="https://gazetadebebedouro.com.br/wp-content/uploads/terceiraidade.jpg">
@@ -356,16 +356,16 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
-            
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 44),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 73),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
         </div>
       </div>
   <div class="col-md-4">
-    <div class="card card-product">
+    <div class="card card-product" style="background-color: #fffcf3">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
           <img style="height: 165px" src="https://www.mundodomarketing.com.br/images/editoriais2/Notona-Beleza-na-Terceira-Idade.jpg">
@@ -392,9 +392,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 46),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 75),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -419,7 +419,7 @@
               </div>
             </div>
             <h2 class="card-title" style="height: 20px; text-align: left; color:#0092a8; font-size: 24px; font-family: HelveticaNeue-Light">
-              Alimentação
+              Nutrição
             </h2>
             <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
               Acesse matérias e guias completos sobre alimentação saudável. Tenha acesso a descontos na compra de alimentos orgânicos e conheça boas opções de restaurantes saudáveis em sua cidade. 
@@ -428,9 +428,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 47),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 76),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -474,9 +474,9 @@
           </div>
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 48),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 77),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
             
@@ -514,9 +514,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 45),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 74),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -552,9 +552,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 49),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 79),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -591,9 +591,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 50),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 80),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -630,9 +630,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 51),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 81),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -669,9 +669,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 52),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 82),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -707,9 +707,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 53),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 83),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -747,9 +747,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 54),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 84),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -789,9 +789,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 55),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 85),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -828,9 +828,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 56),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 86),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -866,9 +866,9 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 57),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
-                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
+                  <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe,products_path(category_id: 87),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
             </div>
 
@@ -905,7 +905,7 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>Notícias").html_safe, product_articles_path(assetclass_id: 58),{ style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
                   <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>attach_money</i>Descontos").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:110px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
@@ -1329,7 +1329,7 @@
                 <% Assetclass.where(id: 1..58).order(id: :asc).each do |assetclass| %>
 
                 <h3 style="font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis; margin-bottom: -20px"> 
+  overflow: hidden; text-overflow: ellipsis; margin-bottom: -25px"> 
 
                   <%= link_to assetclass.name, product_articles_path(assetclass_id: assetclass.id), class:"nav-link", style:"font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;" %>
@@ -1339,68 +1339,26 @@
           </div>
 
 
+
             <div class="col-md-4" style="text-align: left">
               <div class="team-player">
-                
-                
+                               
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Descontos Terceira Idade</h4>
+              
+                <% Categories.where(id: 73..88).order(id: :asc).each do |category| %>
 
-                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;">Descontos Terceira Idade</h4>
+                <h3 style="font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis; margin-bottom: -25px"> 
 
-                <h2 href="/preco_fertilizacaoinvitro" style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Bem estar Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Beleza Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Alimentação idoso</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Gastronomia Terceira Idade</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Saúde Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Cuidados em Casa</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Empregos e Negócios Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Aposentadoria Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Viagem Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Crédito & Finanças Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Advogado & outros idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Vida Social Idosos</h2>
-
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Lazer & Entretenimento Terceira Idade</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Automóveis Idoso</h2>
-
-                  <h2 style="font-size: 14px; color:#fff; height: 20px; white-space: nowrap; 
-  overflow: hidden; text-overflow: ellipsis;"> Games Idoso</h2>
-
-
-
+                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link", style:"font-size: 14px; color:#fff; height: 30px; white-space: nowrap; 
+  overflow: hidden; text-overflow: ellipsis;" %>
+                </h3>
+                <% end %>
               </div>
-  
+          </div>          
 
-          </div>
+
+
 
 
     <div class="col-md-12 Footer-copyright" style="text-align: center; color: #ffbc02; margin-top: 100px">
