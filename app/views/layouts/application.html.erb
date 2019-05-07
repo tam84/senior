@@ -138,11 +138,10 @@
 
             <div class="collapse" id= '<%=assetclass.id%>' >
               <ul class="nav">
-              
+                <%= link_to "Todas da Categoria",  product_articles_path(assetclass_id: assetclass.id), class:"nav-link" %>              
 
                 <% assetclass.categories.each do |category| %>              
                 <li class="nav-item ">
-                  <%= link_to "Todas da Categoria",  product_articles_path(assetclass_id: assetclass.id), class:"nav-link" %>
                   <%= link_to category.name, product_articles_path(category_id: category.id), class:"nav-link" %>
                 </li>
               

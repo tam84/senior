@@ -10,10 +10,10 @@
   			<div class="form-group">
     		
 
-            <%= f.label :category_id, "Produto" %><br/>
+            <%= f.label :category_id, "Categoria" %><br/>
             <%= f.select :category_id, options_for_select(Category.all.collect { | product | [product.name, product.id] }), :prompt => 'Selecione a categoria que pertence a notícia' %><br/> <br/>     
 
-            <%= f.label :assetclass_id, "Produto" %><br/>
+            <%= f.label :assetclass_id, "Assetclass" %><br/>
             <%= f.select :assetclass_id, options_for_select(Assetclass.all.collect { | product | [product.name, product.id] }), :prompt => 'Selecione o grupo que pertence o notícia' %><br/> <br/>     
 
 
