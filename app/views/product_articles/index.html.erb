@@ -63,10 +63,10 @@
   <% @articles.last(3).each do |article| %>    
   <div class="col-md-4">
     <div >
-      <div class="card-header card-header-image" data-header-animation="false" style="height: 400px">
+      <div class="card-header card-header-image" data-header-animation="false" style="height: 170px">
         <a href="#pablo">
           <% if article.images.present? %>
-          <%= image_tag(article.images.first.variant(resize: "400")) %>
+          <%= image_tag(article.images.first.variant(resize: "170x170"),height: '170') %>
           <% else %>
           <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
           <% end %>            
@@ -82,12 +82,12 @@
                 </div>
               </div>
             </div>
-            <h2 class="card-title" style="height: 20px; text-align: left; color:#0092a8;font-size: 24px; font-family: HelveticaNeue-Light">
-              <%= link_to article.title, product_article_path(id: article.id), style: "font-size: 24px;font-family: HelveticaNeue-Light;color: #0092a8" %>
-            </h2></br></br>
+            <h2 class="card-title" style="height: 20px; text-align: left; color:#0092a8;font-size: 22px; font-family: HelveticaNeue-Light">
+              <%= link_to (raw article.title.truncate(40)), product_article_path(id: article.id), style: "font-size: 22px;font-family: HelveticaNeue-Light;color: #0092a8" %>
+            </h2></br></br></br>
             <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px; ">
 
-              <%= link_to (raw article.content.truncate(170)), product_article_path(id: article.id), style: "font-size: 14px;color: #2c2c2c"  %>
+              <%= link_to (raw article.content.truncate(570)), product_article_path(id: article.id), style: "font-size: 14px;color: #2c2c2c"  %>
                      
             </h2></br>
           </div>
@@ -147,7 +147,7 @@
       <div class="card-header card-header-image" data-header-animation="false" >
         <a href="#pablo" >
           <% if article.images.present? %>
-          <%= image_tag(article.images.first.variant(resize: "400x400")) %>
+          <%= image_tag(article.images.first.variant(resize: "400x400"),height: '170') %>
           <% else %>
           <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
           <% end %>            
