@@ -1071,7 +1071,7 @@
 
 <div class="container">
 
-<% ProductArticle.last(15) do |article|%>
+<% ProductArticle.last(15).each do |article|%>
 <div class="row " style="margin-top: 0px;">
   
 
@@ -1094,7 +1094,7 @@
       <div class="card-header card-header-image" data-header-animation="false" >
         <a href="#pablo" >
           <% if article.images.present? %>
-          <%= image_tag(article.images.first.variant(resize: "100x100")) %>
+          <%= image_tag(article.images.first.variant(resize: "400x400")) %>
           <% else %>
           <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
           <% end %>            
