@@ -1061,7 +1061,7 @@
         </div>
       </div>
 
-
+ 
 </br></br></br>
 
 <div class="container">
@@ -1070,30 +1070,44 @@
 
 
 <div class="container">
+
+<% ProductArticle.last(15) do |article|%>
 <div class="row " style="margin-top: 0px;">
   
 
-
   <div class="col-md-3"style="border-bottom: 1px solid #eee;" ></br>
-    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light "> Honor is building the first national home care network by partnering with top local agencies and other providers along the care continuum </h3>
+    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light" > <%= link_to article.title, product_articles_path(id: article.id), style: "font-size: 22px;font-family: HelveticaNeue-Light;color: #2c2c2c" %> </h4>
   </div>
 
+
   <div class="col-md-3" style="border-bottom: 1px solid #eee;"></br>
-    <p style="font-size: 14px; "> 
-      Tenha acesso aos melhores tratamentos para a saúde. Tenha descontos exclusivos em tratamentos, medicamentos e planos de saúde. Acompanhe as últimas notícias relacionadas a saúde.  
+    <p style="font-size: 14px; margin-top: -15px"> 
+
+      <%= link_to (raw article.content.truncate(170)), product_articles_path(id: article.id), style: "font-size: 16px;color: #2c2c2c"  %>
+
     </p>
   </div>
 
 
+
   <div class="col-md-3" style="border-bottom: 1px solid #eee;"></br>
-      <div class="card-header card-header-image" data-header-animation="false">
-        <a href="#pablo">
-          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
+      <div class="card-header card-header-image" data-header-animation="false" >
+        <a href="#pablo" >
+          <% if article.images.present? %>
+          <%= image_tag(article.images.first.variant(resize: "100x100")) %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+
           </a>
       </div>    
   </div>
 
+
+
 </div>
+<% end %>
+
 </div>
 
 
