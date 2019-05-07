@@ -23,7 +23,7 @@
     <div class="row " style="margin-top: 0px;">
       <div class="col-md-9" ></br>
         <a href="#pablo">
-          <img style="width: 100%" src="/assets/taxa-de-sucesso-inseminacao-artificial.jpg">
+          <img style="width: 100%" src="/assets/saude-terceira-idade-idoso-na-web.jpeg">
         </a>  
       </div>
 
@@ -141,7 +141,12 @@
   <div class="card col-md-4" ></br>
       <div class="card-header card-header-image" data-header-animation="false" >
         <a href="#pablo" >
-          <img style="height: 165px" src="/assets/relacao-sexual-programada.jpeg">
+          <% if article.images.present? %>
+          <%= image_tag(article.images.first.variant(resize: "100x100")) %>
+          <% else %>
+          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
+          <% end %>            
+
           </a>
       </div>    
   </div>
