@@ -64,4 +64,4 @@
 #set :stage, :production
 
 #server 'ec2-18-191-49-166.us-east-2.compute.amazonaws.com', user: 'deploy', roles: %w{web app db}
-server 'ec2-3-17-142-99.us-east-2.compute.amazonaws.com', user: 'deploy', roles: %w{web app db}
+server 'ec2-18-219-65-92.us-east-2.compute.amazonaws.com', user: 'deploy', roles: %w{web app db}
