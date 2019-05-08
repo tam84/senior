@@ -94,7 +94,7 @@
           <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
           <li class="nav-item ">
             <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=assetclass.id%>' >
-              <i class="material-icons" style="color: #2c2c2c">info</i>
+              <i class="material-icons" style="color: #2c2c2c"></i>
               <p style="color: #2c2c2c; font-weight: bold; font-size: 17px;text-transform: uppercase ">
                <%= assetclass.name %>
                 <b class="caret"></b>
