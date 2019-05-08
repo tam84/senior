@@ -70,7 +70,7 @@
 
 
   <div class="col-md-12"style="border-bottom: 1px solid #eee;" ></br>
-    <h4 style="font-family: HelveticaNeue-Light;font-size: 16px"> <%= article.title %> </h3>      
+    <h3 style="font-family: HelveticaNeue-Light;font-size: 16px"> <%= article.title %> </h3>      
   </div>
 
   <% end %>
@@ -97,7 +97,7 @@
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
           <% if product.images.present? %>
-          <%= image_tag(product.images.first.variant(resize: "100x100")) %>
+          <%= image_tag(product.images.first.variant(resize: "400x400"),height: '200') %>
           <% else %>
           <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
           <% end %>            
@@ -114,11 +114,11 @@
             </div>
             <h2 class="card-title" style="height: 20px; text-align: left; color:#0092a8;font-size: 24px; font-family: HelveticaNeue-Light">
               <%= h truncate(product.name, :length => 32) %>              
-            </h4>
-            <h2 class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
+            </h2>
+            <p class="card-description" style="color:#616a74;height: 150px; margin-top: 20px; text-align: left; font-size: 14px">
 
               <%= h truncate(ActionView::Base.full_sanitizer.sanitize(product.description), :length => 170) %>                  
-            </h2>
+            </p>
             </div>
             <div class="card-footer">
               <div class="stats">          

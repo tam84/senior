@@ -22,6 +22,7 @@ class ProductArticlesController < ApplicationController
     if params[:assetclass_id]
       current_assetclass = Assetclass.find_by(id: params[:assetclass_id])
       @articles = current_assetclass.product_articles
+      @products = current_assetclass.products
     else
       current_category = Category.find_by(id: params[:category_id])
       @articles = current_category.product_articles
