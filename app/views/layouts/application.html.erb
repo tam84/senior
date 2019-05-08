@@ -58,10 +58,8 @@
 
 
           <li class="nav-item " >
-            <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=Assetclass.first.id%>' >
-              <i class="material-icons" style="color: #2c2c2c; font-size: 40px">list</i>
-              <p style="color: #2c2c2c; font-weight: bold; font-size: 17px;text-transform: uppercase ">Menu
-              </p>
+            <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=Assetclass.first.id%>' style="color:#2c2c2c; font-size: 18px; font-weight: bold">
+              Menu
             </a>
           
           </li>
@@ -95,7 +93,7 @@
           <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
           <li class="nav-item ">
             <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=assetclass.id%>' >
-              <i class="material-icons">info</i>
+              <i class="material-icons" style="color: #2c2c2c">info</i>
               <p style="color: #2c2c2c; font-weight: bold; font-size: 17px;text-transform: uppercase ">
                <%= assetclass.name %>
                 <b class="caret"></b>
@@ -104,11 +102,11 @@
 
             <div class="collapse" id= '<%=assetclass.id%>' >
               <ul class="nav">
-                <%= link_to "Todas da Categoria",  product_articles_path(assetclass_id: assetclass.id), class:"nav-link" %>              
+                <%= link_to "Todas da Categoria",  product_articles_path(assetclass_id: assetclass.id), class:"nav-link",style:"color: #2c2c2c; font-size:18px; margin-left:20px" %>              
 
                 <% assetclass.categories.each do |category| %>              
                 <li class="nav-item " style="color:#2c2c2c; font-size:20px">
-                  <%= link_to category.name, product_articles_path(category_id: category.id), class:"nav-link"  %>
+                  <%= link_to category.name, product_articles_path(category_id: category.id), class:"nav-link", style:"color: #2c2c2c; font-size:18px; margin-left:20px"  %>
                 </li>
               
                 <% end %>
