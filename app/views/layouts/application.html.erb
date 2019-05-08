@@ -33,7 +33,7 @@
 
 <body class="sidebar-mini" style="background-color: #fff">
   <div class="wrapper ">
-    <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg" style="background-color: #0092a8">
+    <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg" style="background-color: #fde6c7;">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
@@ -49,62 +49,27 @@
       <%# if current_user %>
       
       <div class="sidebar-wrapper" style="margin-top: 20px">
-        <div class="user">
-          <div class="photo">
-            <% if current_user and current_user.profile_photos.present? %>
-            <%=image_tag(current_user.profile_photos.first.variant(resize: "100x100!"))%>
-            <% end %>
-          </div>
-          <div class="user-info">
-            <a data-toggle="collapse" href="#collapseExample" class="username">
-              <span>
-                <% if user_signed_in? %>
-                <%= h truncate(current_user.full_name, length: 16) %>
-                <%end%>
-                <b class="caret"></b>
-              </span>
-            </a>
-            <div class="collapse" id="collapseExample">
-              <ul class="nav">
-                <li class="nav-item">
-                    <%= link_to 'Meu perfil', class: "nav-link"%> 
-                </li>                    
-                <li class="nav-item">
-                    <%= link_to 'Minhas mensagens', email_messages_path, class: "nav-link" %> 
-                </li>    
-                <li class="nav-item">
-                    <%= link_to 'Minhas cotações', quotations_path, class: "nav-link" %> 
-                </li>                                
-              </ul>
-            </div>
-          </div>
-        </div>
 
 
 
         <ul class="nav">
           
 
-          <li class="nav-item " style="background-color: #2c2c2c;height: :300px">
-            <a class="nav-link collapsed" data-toggle="collapse" href= '' >
-              <i class="material-icons" style="color: #0092a8">schedule</i>
-              <p> 
-                <b ></b>
+
+
+          <li class="nav-item " >
+            <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=Assetclass.first.id%>' >
+              <i class="material-icons" style="color: #2c2c2c; font-size: 40px">list</i>
+              <p style="color: #2c2c2c; font-weight: bold; font-size: 17px;text-transform: uppercase ">Menu
               </p>
             </a>
+          
+          </li>
 
-            <%= link_to "", new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class:"nav-link", style:"color:#0092a8; margin-top:-10px; font-weight:bold; font-size:14px"} %>              
-              <p style="margin-top: -13px; color:#fff; font-weight: bold; font-size: 14px"> FALE CONOSCO
-              </p>
-
-           </li>
-
-
-
-          <li class="nav-item ">
+          <li class="nav-item " >
             <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=Assetclass.first.id%>' >
-              <i class="material-icons">info</i>
-              <p> <%= Assetclass.first.name %>
+              <i class="material-icons" style="color: #2c2c2c">info</i>
+              <p style="color: #2c2c2c; font-weight: bold; font-size: 17px;text-transform: uppercase "> <%= Assetclass.first.name %>
                 <b class="caret"></b>
               </p>
             </a>
@@ -115,7 +80,7 @@
 
                 <% Assetclass.first.categories.each do |category| %>              
                 <li class="nav-item ">
-                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link" %>
+                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link", style:"color: #2c2c2c; font-size:18px; margin-left:20px" %>
                 </li>
               
                 <% end %>
@@ -131,7 +96,8 @@
           <li class="nav-item ">
             <a class="nav-link collapsed" data-toggle="collapse" href= '#<%=assetclass.id%>' >
               <i class="material-icons">info</i>
-              <p> <%= assetclass.name %>
+              <p style="color: #2c2c2c; font-weight: bold; font-size: 17px;text-transform: uppercase ">
+               <%= assetclass.name %>
                 <b class="caret"></b>
               </p>
             </a>
@@ -141,8 +107,8 @@
                 <%= link_to "Todas da Categoria",  product_articles_path(assetclass_id: assetclass.id), class:"nav-link" %>              
 
                 <% assetclass.categories.each do |category| %>              
-                <li class="nav-item ">
-                  <%= link_to category.name, product_articles_path(category_id: category.id), class:"nav-link" %>
+                <li class="nav-item " style="color:#2c2c2c; font-size:20px">
+                  <%= link_to category.name, product_articles_path(category_id: category.id), class:"nav-link"  %>
                 </li>
               
                 <% end %>
