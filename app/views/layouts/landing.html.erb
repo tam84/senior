@@ -216,7 +216,7 @@
                               <i class="material-icons" style="color:#fff">face</i>
                             </span>
                           </div>
-                          <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff;" %>
+                          <%= f.text_field :name,  class: 'form-control', placeholder: "Nome", style:"color:#fff;margin-top:0px" %>
                         </div>
                       </div> 
                       <div class="col-md-12  form-group has-default bmd-form-group">
@@ -253,8 +253,8 @@
 
 
 
-                      <div class="text-center" style="margin-top: -20px">
-                        <%= f.submit "Preciso de ajuda!",  {class: 'btn btn-rose mt-4', style: "background-color:#f58a00; color:#fff; font-weight:bold"} %></br></br>
+                      <div class="text-center" style="margin-top: -20px; margin-bottom:-20px">
+                        <%= f.submit "Preciso de ajuda!",  {class: 'btn btn-rose mt-4', style: "background-color:#f58a00; color:#fff; font-weight:bold;"} %></br></br>
 
                       </div>
 
@@ -311,7 +311,7 @@
 
 
 
-<div class="row" style="margin-top: 0px; border-bottom: 2px solid #eee;">
+<div class="row" style="margin-top: 0px; border-bottom: 1px solid #ccc;">
 
 
 
@@ -938,7 +938,7 @@
 
 
 
-<div class="row" style="margin-top: 0px; border-bottom:1px solid #eee;">
+<div class="row" style="margin-top: 0px;">
   <div class="col-md-3">
     <div >
       <div class="card-header card-header-image" data-header-animation="false">
@@ -1003,7 +1003,7 @@
     <div class="">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="https://www.blogsenacsp.com.br/wp-content/uploads/2017/03/cuidador_idosos_3.jpg">
+          <img style="height: 165px" src="/assets/cuidador-idoso-terceira-idade-idoso-na-web.jpg">
           </a>
       </div>
       <div class="card-body">
@@ -1032,7 +1032,7 @@
     <div class="">
       <div class="card-header card-header-image" data-header-animation="false">
         <a href="#pablo">
-          <img style="height: 165px" src="https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2018/08/iStock-476795544.jpg?fit=1024%2C683&ssl=1">
+          <img style="height: 165px" src="/assets/emprego-terceira-idade-idoso-na-web.jpg">
           </a>
       </div>
       <div class="card-body">
@@ -1071,10 +1071,10 @@
       </div>
 
  
-</br></br></br>
+</br>
 
 <div class="container">
-  <h4 style="font-size: 36px; border-bottom: 1px solid #eee;font-family: HelveticaNeue-Light"> Últimas notícias </h4>
+  <h4 style="font-size: 36px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #2c2c2c;"> Últimas notícias </h4>
 </div></br>
 
 
@@ -1084,22 +1084,22 @@
 <div class="row " style="margin-top: 0px;">
   
 
-  <div class="col-md-3"style="border-bottom: 1px solid #eee;" ></br>
-    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light" > <%= link_to article.title, product_articles_path(id: article.id), style: "font-size: 22px;font-family: HelveticaNeue-Light;color: #2c2c2c" %> </h4>
+  <div class="col-md-3"style="border-bottom: 1px solid #ccc;" ></br>
+    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_articles_path(id: article.id), style: "font-size: 22px;color: #2c2c2c" %> </h4>
   </div>
 
 
-  <div class="col-md-3" style="border-bottom: 1px solid #eee;"></br>
-    <p style="font-size: 14px; margin-top: -15px"> 
+  <div class="col-md-3" style="border-bottom: 1px solid #ccc;"></br>
+     <p style="margin-top: 2px; line-height: 1.2; font-size: 15px;"> 
 
-      <%= link_to (raw article.content.truncate(170)), product_articles_path(id: article.id), style: "font-size: 16px;color: #2c2c2c"  %>
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
 
     </p>
   </div>
 
 
 
-  <div class="col-md-3" style="border-bottom: 1px solid #eee;"></br>
+  <div class="col-md-3" style="border-bottom: 1px solid #ccc;"></br>
       <div class="card-header card-header-image" data-header-animation="false" >
         <a href="#pablo" >
           <% if article.images.present? %>
