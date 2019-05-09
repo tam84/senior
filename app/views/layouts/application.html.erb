@@ -313,19 +313,20 @@
             <div class="col-md-4" style="text-align: left">
               <div class="team-player">
                                
-                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Descontos Terceira Idade</h4>
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Produtos & Serviços Terceira Idade</h4>
               
-                <% Category.where(id: 73..88).order(id: :asc).each do |category| %>
+                <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
 
                 <h3 style="font-size: 14px; color:#2c2c2c; height: 30px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis; margin-bottom: -25px"> 
 
-                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link", style:"font-size: 14px; color:#2c2c2c; height: 30px; white-space: nowrap; 
+                  <%= link_to assetclass.name, products_path(assetclass_id: assetclass.id), class:"nav-link", style:"font-size: 14px; color:#2c2c2c; height: 30px; white-space: nowrap; 
   overflow: hidden; text-overflow: ellipsis;" %>
                 </h3>
                 <% end %>
               </div>
-          </div>  
+          </div>
+
 
 
     <div class="col-md-12 Footer-copyright" style="text-align: center; color: #ffbc02; margin-top: 100px">

@@ -30,6 +30,8 @@ class ProductsController < ApplicationController
 	def index		
     if params and params[:category_id]
       @products = Product.where(category_id: params[:category_id])
+    elsif params and params[:assetclass_id]
+      @products = Product.where(assetclass_id: params[:assetclass_id])      
     elsif params and params[:product] and params[:product][:city] and params[:product][:category_id]
       @products = Product.where(city: params[:product][:city].to_s, category_id: params[:product][:category_id])
     else
