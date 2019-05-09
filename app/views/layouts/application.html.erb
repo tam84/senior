@@ -77,9 +77,9 @@
               <ul class="nav">
               
 
-                <% Assetclass.first.categories.each do |category| %>              
+                <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
                 <li class="nav-item ">
-                  <%= link_to category.name, products_path(category_id: category.id), class:"nav-link", style:"color: #2c2c2c; font-size:18px; margin-left:20px" %>
+                  <%= link_to assetclass.name, products_path(assetclass_id: assetclass.id), class:"nav-link", style:"color: #2c2c2c; font-size:18px; margin-left:20px" %>
                 </li>
               
                 <% end %>
@@ -313,7 +313,7 @@
             <div class="col-md-4" style="text-align: left">
               <div class="team-player">
                                
-                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Produtos & Serviços Terceira Idade</h4>
+                <h4 class="title description" style="color:#0092a8;  font-size: 24px; height: 50px; font-family: HelveticaNeue-Light;margin-left: 15px">Produtos & Serviços</h4>
               
                 <% Assetclass.where(id: 44..58).order(id: :asc).each do |assetclass| %>
 
