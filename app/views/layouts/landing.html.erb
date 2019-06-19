@@ -1086,14 +1086,14 @@
   
 
   <div class="col-md-3"style="border-bottom: 1px solid #ccc;" ></br>
-    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_articles_path(id: article.id), style: "font-size: 22px;color: #2c2c2c" %> </h4>
+    <h4 style="font-size: 22px;font-family: HelveticaNeue-Light; font-weight: bold; line-height: 1.0" > <%= link_to article.title, product_article_path(id: article), style: "font-size: 22px;color: #2c2c2c" %> </h4>
   </div>
 
 
   <div class="col-md-3" style="border-bottom: 1px solid #ccc;"></br>
      <p style="margin-top: 2px; line-height: 1.2; font-size: 15px;"> 
 
-      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article.id), style: "color: #2c2c2c"  %>      
+      <%= link_to (h truncate(ActionView::Base.full_sanitizer.sanitize(article.content), :length => 170)), product_article_path(id: article), style: "color: #2c2c2c"  %>      
 
     </p>
   </div>

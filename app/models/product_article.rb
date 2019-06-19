@@ -5,4 +5,8 @@ class ProductArticle < ApplicationRecord
 	belongs_to :assetclass
 
 
+	def to_param
+    	[id, title.parameterize].join("-")
+  	end 
+
 end

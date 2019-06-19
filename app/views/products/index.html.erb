@@ -58,7 +58,7 @@
 
             <div class="card-footer">
               <div class="stats">          
-                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>+Info").html_safe, product_path(id: product.id),{style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
+                <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>info</i>+Info").html_safe, product_path(id: product),{style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00; width:95px;', class:"btn btn-sm"}  %>
             
                   <%= link_to ("<i class='material-icons' style='margin-top:-30px; font-size:20px;margin-left:-10px'>email</i>email").html_safe, new_contact_message_path,{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', style:'color:#fff;font-size:12px;margin-top:10px; background-color: #f58a00;width:90px; margin-left:10px', class:"btn btn-sm"}  %>          
               </div>
