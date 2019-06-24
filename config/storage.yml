@@ -13,6 +13,6 @@ amazon_production:
   access_key_id: "AKIAJMBF5ZIQN2R5E37A"
   secret_access_key: "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"
   region: "us-east-2"
-  bucket: "tam84"
+  bucket: "idosonaweb"
 
 
