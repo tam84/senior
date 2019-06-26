@@ -1,0 +1,196 @@
+
+
+<div id="procedimentos" class="main" style=" background-color: #fff;margin-top: 0px">
+        
+        
+
+<div class="container">
+  <div class="row">
+<div class="col-md-4">
+  <div class="card "></br>
+    
+<div class="container" style="text-align: left">
+  <h4 style="font-size: 18px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #0092a8"> FOTOS <%= @casas_de_repouso.name %> </h4>
+</div>   
+   
+
+   <%= render "fotos_casa_de_repouso" %>
+
+
+  </div>          
+</div>
+
+
+
+
+<div class="col-md-8">
+  <div class="card "></br>
+      
+
+    <div class="col-md-12" style="margin-left: 00px; text-align: left">
+      <div href="#pablo">
+        
+
+
+
+
+<h2 style="font-size: 20px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #0092a8;padding-bottom: 10PX"><%= @casas_de_repouso.name %></h2>  
+
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+<p class="col-md-6">
+  <strong>Preço:</strong>
+  <%= @casas_de_repouso.preco %>
+</p>
+
+
+<p class="col-md-6">
+  <strong>Telefone:</strong>
+  <%= @casas_de_repouso.telefones %>
+</p>
+
+</div>
+
+
+
+<div class="row">
+<p class="col-md-6">
+  <strong>Equipe:</strong>
+  <% @casas_de_repouso.equipe.each do |item| %>
+    <%= item %>,
+  <% end %>
+</p>
+
+
+<p class="col-md-6">
+  <strong>Instalação:</strong>
+  <% @casas_de_repouso.instalacao.each do |item| %>
+    <%= item %>,
+  <% end %>
+</p>
+
+</div>
+
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @casas_de_repouso.endereco %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @casas_de_repouso.city %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @casas_de_repouso.bairro %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @casas_de_repouso.name %>
+</p>
+
+<p>
+  <strong>Sobre:</strong>
+  <%= @casas_de_repouso.sobre %>
+</p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @casas_de_repouso.horario %>
+</p>
+
+<p>
+  <strong>Outras informacoes:</strong>
+  <%= @casas_de_repouso.outras_informacoes %>
+</p>
+
+
+<p>
+  <strong>Site:</strong>
+  <%= @casas_de_repouso.website %>
+</p>
+
+
+<p>
+  <strong>Zona:</strong>
+  <%= @casas_de_repouso.zona %>
+</p>
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>   
+
+
+
+
+          
+  </div>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    <!-- Sart Modal -->
+ 
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

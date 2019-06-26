@@ -1,0 +1,13 @@
+    <div class="col-md-12" style="margin-left: 0px; text-align: center">
+
+
+          <% if @casas_de_repouso.images.present? %>
+          <% @casas_de_repouso.images.each do |image| %>        
+          <%= link_to image_tag(image.variant(resize: "400x400"),class:"img-fluid", style:"height:auto;max-width:100%; margin-top: 20px", alt:@casas_de_repouso.name), product_path(id: @casas_de_repouso) %>
+          <% end %>
+          <% else %>
+          <%= link_to image_tag("/assets/sem_imagem.jpg", class:"img-fluid",style:"height:auto;max-width:100%"), casa_de_repouso_path(id: @casas_de_repouso) %>
+          <% end %> 
+
+
+    </div>

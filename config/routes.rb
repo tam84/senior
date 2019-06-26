@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :casas_de_repousos
   resources :firms, only: [:new, :edit, :update, :create, :show, :index]
   get 'landing/index'
   get 'quotations/index'

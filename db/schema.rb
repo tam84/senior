@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_092357) do
+ActiveRecord::Schema.define(version: 2019_06_25_205052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2019_05_03_092357) do
   create_table "assetclasses", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "casas_de_repousos", force: :cascade do |t|
+    t.string "endereco"
+    t.string "city"
+    t.string "bairro"
+    t.string "name"
+    t.text "sobre"
+    t.text "horario"
+    t.text "outras_informacoes"
+    t.string "equipe", default: [], array: true
+    t.string "instalacao", default: [], array: true
+    t.string "preco"
+    t.string "telefones"
+    t.string "website"
+    t.string "zona"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -133,6 +151,8 @@ ActiveRecord::Schema.define(version: 2019_05_03_092357) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.integer "assetclass_id"
+    t.integer "article_type"
+    t.integer "product_id"
   end
 
   create_table "products", force: :cascade do |t|

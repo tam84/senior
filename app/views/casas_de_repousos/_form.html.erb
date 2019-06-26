@@ -1,0 +1,117 @@
+<div class="col-md-12">
+  <div class="card "> 
+    <div class="card-header card-header-rose card-header-icon">
+
+
+<%= form_with(model: casas_de_repouso, local: true) do |form| %>
+  <% if casas_de_repouso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(casas_de_repouso.errors.count, "error") %> prohibited this casas_de_repouso from being saved:</h2>
+
+      <ul>
+      <% casas_de_repouso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+        <div class="form-group"> 
+
+
+
+    <%= form.label :endereco, "Endereço" %>
+    <%= form.text_field :endereco, class: 'form-control' %></br>
+
+
+    <%= form.label :city, "Cidade" %><br/>
+    <%= form.select :city, options_for_select(list_of_cities), :prompt => 'Selecione a Cidade' %><br/> <br/> 
+
+
+
+    <%= form.label :bairro, "Bairro" %>
+    <%= form.text_field :bairro, class: 'form-control' %></br>
+
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name, class: 'form-control' %></br>
+
+    <%= form.label :sobre, "Sobre" %>
+    <%= form.text_field :sobre, class: 'form-control' %></br>
+
+    <%= form.label :horario, "Horário" %>
+    <%= form.text_field :horario, class: 'form-control' %></br>
+
+    <%= form.label :outras_informacoes, "Outras Informações" %>
+    <%= form.text_field :outras_informacoes, class: 'form-control' %></br> 
+
+
+    <%= form.label :telefones, "Telefones" %>
+    <%= form.text_field :telefones, class: 'form-control' %></br> 
+
+    <%= form.label :website, "Website" %>
+    <%= form.text_field :website, class: 'form-control' %></br> 
+
+
+    <%= form.label :zona, "Zona" %>
+    <%= form.text_field :zona, class: 'form-control' %></br>
+
+    <%= form.label :preco, "Preço" %><br/>
+    <%= form.select :preco, options_for_select(list_of_prices), :prompt => 'Selecione o preço' %><br/> 
+
+
+
+
+    <div class="card">
+        <a class="card-link card-header" data-toggle="collapse" href="#collapseOne">
+          Equipamentos
+        </a>
+
+      <div id="collapseOne" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <% lista_equipamentos.each do |item| %>
+            <div id="skill_list" class="col-lg-3 col-md-4 col-sm-12 col-12">
+              <%= form.check_box :equipe, { multiple: true }, item, false %> 
+              <%= item %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div> <!--bottom-->
+</div>
+
+
+    <div class="card">
+        <a class="card-link card-header" data-toggle="collapse" href="#collapseOne2">
+          Instalação
+        </a>
+
+      <div id="collapseOne2" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          <% lista_instalacao.each do |item| %>
+            <div id="skill_list" class="col-lg-3 col-md-4 col-sm-12 col-12">
+              <%= form.check_box :instalacao, { multiple: true }, item, false %> 
+              <%= item %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div> <!--bottom-->
+</div>
+
+            <div class= "field" >
+            <%= form.label :images, "Selecione as imagens do produto" %>
+            <%= form.file_field :images, multiple: true, class: 'form-control' %> <br />                   
+            </div>  
+
+
+
+
+
+        <%= form.submit "Enviar", class: 'btn btn-rose btn-sm' %>
+
+<% end %>
+
+</div>
+</div>
+</div>
+</div>
