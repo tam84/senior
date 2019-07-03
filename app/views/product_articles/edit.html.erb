@@ -20,6 +20,11 @@
 v>              
 
 
+            <div class= "field" >
+            <%= f.label :images, "Selecione as imagens do produto" %>
+            <%= f.file_field :images, multiple: true, class: 'form-control' %> <br />                   
+            </div>  
+
   			<%= f.submit "Enviar", class: 'btn btn-rose btn-sm' %>
 			<% end %>
 		</div>

@@ -19,12 +19,16 @@ module CasasDeRepousosHelper
     		'6 Refeições por Dia',  
     		'Quartos Individuais',  
     		'Quartos Coletivos',  
-    		'independente & semi-dependente', 
+    		'independentem',
+    		'semi-dependente',
+    		'dependente',
     		'Câmera 24 horas',  
     		'Atividade e Área de Lazer',  
     		'Cuidados Pessoais',  
     		'Atendimento Emergencial',
-    		'Lavanderia Própria'
+    		'Lavanderia Própria',
+    		'Alimentação Parenteral'
+
 		]
 	end
 
