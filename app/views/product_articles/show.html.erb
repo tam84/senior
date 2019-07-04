@@ -20,19 +20,21 @@
 
     <div class="card-body ">
       <% if @product_article != nil %>
-        <div >       
-          <h1 style="font-size: 26px; font-family: HelveticaNeue-Light"><%= @product_article.title %></h1> </br>
+      <div >       
+        <h1 style="font-size: 20px; border-bottom: 1px solid #ccc;font-family: HelveticaNeue-Light; font-weight: bold; color: #FF7171;padding-bottom: 10PX"><%= @product_article.title %></h1> </br>         
         </div>
 
+    <div class="row" style="margin-left: 0px; text-align: center">
+      <% @product_article.images.each do |article_image| %>
+      <figure class="col-md-4" style="padding-bottom: 0px">
+          <%= image_tag(article_image.variant(resize: "400x400"),height: '75%', width:'100%',alt:@product_article.category_name(@product_article) + " "+ @product_article.title) %>
+        <figcaption style="line-height: 1.2;margin-top: 5px; border-bottom: 1px solid #eee; text-align: left; font-size:90%">
+            <%= @product_article.category_name(@product_article) + " "+ article_image.filename.to_s.split('.')[0].tr("-", " ")%>
+        </figcaption>
+      </figure>
 
-
-          <% if @product_article.images.present? %>
-          <%= image_tag(@product_article.images.first.variant(resize: "100%x60%")) %>
-          <% else %>
-          <%= image_tag "https://www.lojasramos.com.br/App_Themes/lojasramos/images/not-found.jpg" %>
-          <% end %>            
-
-</br></br></br>
+      <% end %>
+    </div>
 
         <%= @product_article.content.html_safe %>
         <%end%>
