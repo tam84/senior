@@ -9,4 +9,11 @@ class ProductArticle < ApplicationRecord
     	[id, title.parameterize].join("-")
   	end 
 
+
+	def category_name product_article
+		product = product_article.product
+		category_name = product.category.name
+	end  	
+
 end
+ 
